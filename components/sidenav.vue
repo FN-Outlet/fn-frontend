@@ -3,9 +3,9 @@
     <div class="hidden-menu" ref="menu">
       <div class="top">
         <img src="/logo-white.png" class="img-fluid" />
-        <nav class="mt-5">
+        <nav class="mt-lg-5 mt-4">
           <h2 class="text-white">ABOUT US</h2>
-          <div class="ms-5 my-5">
+          <div class="ms-lg-5 my-lg-5 my-4">
             <div class="row">
               <a href="#" class="col-6 text-white">นักลงทุนสัมพันธ์</a>
             </div>
@@ -34,21 +34,23 @@
           <h2 class="text-white">FN ONLINE</h2>
         </nav>
       </div>
-      <div class="d-flex">
+      <div class="d-lg-flex">
         <div class="search-wrapper">
           <input type="text" placeholder="SEARCH">
         </div>
-        <button class="mx-2">TH</button>
-        <button>EN</button>
+        <div class="d-flex mt-2 mt-lg-0">
+          <button class="mx-lg-2">TH</button>
+          <button class="ms-2 ms-lg-0">EN</button>
+        </div>
       </div>
     </div>
-    <div class="main">
+    <div class="main" ref="submenu">
       <button class="menu-button" @click="toggleMenu"><img src="/icon-plus.png" class="img-fluid" /></button>
       <div class="links">
-        <a href="#" class="icon-facebook">
+        <a href="https://www.facebook.com/FN.Factory.Outlet" class="icon-facebook">
           <img src="/icon-facebook.png" class="img-fluid" />
         </a>
-        <a href="#" class="mt-2 d-block">
+        <a href="https://www.instagram.com/fnoutlet/" class="mt-2 d-block">
           <img src="/icon-ig.png" class="img-fluid" />
         </a>
       </div>
@@ -68,6 +70,8 @@ export default defineComponent({
   },
   mounted() {
     this.width = this.$refs.menu.offsetWidth
+    console.log(this.$refs.submenu.offsetWidth)
+    this.$emit('submenuWidth', this.$refs.submenu.offsetWidth)
   },
   methods: {
     toggleMenu(){
@@ -109,8 +113,20 @@ export default defineComponent({
   z-index: 10;
   display: flex;
   transition: all .8s ease;
+  @media (max-width: 576px) {
+    //width: calc( 50% + 60px );
+    width: 100vw;
+    overflow: hidden;
+  }
   .main{
     padding: 45px 30px;
+    @media (max-width: 576px) {
+      padding: 45px 15px;
+      width: 60px;
+      .menu-button{
+        width: 30px;
+      }
+    }
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -124,11 +140,18 @@ export default defineComponent({
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  @media (max-width: 576px) {
+    width: calc( 70% + 60px );
+  }
   nav a{
     text-decoration: none;
     white-space: nowrap;
     display: block;
     flex: 1;
+    @media (max-width: 576px) {
+      flex: 100%;
+      white-space: unset;
+    }
   }
   .search-wrapper{
     input{

@@ -1,6 +1,6 @@
 <template>
-  <sidenav />
-  <div class="main">
+  <sidenav ref="sidenav" @submenuWidth="getWidth"/>
+  <div class="main" :style="`padding-left: ${width}px;`">
     <header class="main-header">
       <div class="search-wrapper">
         <input type="text" placeholder="SEARCH">
@@ -8,17 +8,17 @@
       <button>TH</button>
       <button>EN</button>
     </header>
-    <div>
-      <section class="bg-primary d-flex banner hp-banner">
+    <div class="w-100">
+      <section class="bg-primary d-lg-flex banner hp-banner">
         <img src="/banner_fn.png" class="main-logo" />
         <div class="col">
           <img src="/banner.png" class="img-fluid w-100" />
         </div>
-        <div class="col d-flex align-items-center justify-content-center">
+        <div class="col py-5 py-lg-0 d-flex align-items-center justify-content-center">
           <h2 class="text-white font-normal mb-0">FOR<br>QUALITY OF LIFE</h2>
         </div>
       </section>
-      <section class="d-flex">
+      <section class="d-lg-flex">
         <div class="col p-0 d-flex align-items-center justify-content-center">
           <div class="p-15 d-flex align-items-center justify-content-center">
             <img src="/hp-s2.png" class="img-fluid" />
@@ -34,7 +34,7 @@
           </div>
         </div>
       </section>
-      <section class="d-flex">
+      <section class="d-lg-flex">
         <div class="col p-0 d-flex align-items-center justify-content-center img-center">
           <img src="/hp-s3.png" class="img-fluid" />
         </div>
@@ -42,11 +42,11 @@
           <div class="p-15 bg-primary h-100 d-flex flex-column align-items-center justify-content-center">
             <h2 class="text-white text-center font-normal">FN MALL <br/>MARKETPLACE</h2>
             <img src="/hp-s3-text.png" class="img-fluid my-3" />
-            <div class="d-flex align-items-center">
-              <a href="" class="mx-2 d-block">
+            <div class="d-lg-flex align-items-center">
+              <a href="https://shopee.co.th/fnoutlet" class="mx-2 d-block" target="_blank">
                 <img src="/shopee.png" class="img-fluid" />
               </a>
-              <a href="" class="mx-2 d-block">
+              <a href="https://www.lazada.co.th/tag/fn-outlet/?spm=a2o4m.searchlist.search.2.7a0f7f6aebcak3&q=fn%20outlet&_keyori=ss&clickTrackInfo=textId--5049057020637672817__abId--329751__Score--1.796195651684857__pvid--1832af9a-6dd1-44f0-97c6-355738f49c0e__matchType--1__matchList--1-2__srcQuery--fn%20outlet__spellQuery--fn%20outlet__ctrScore--0.7764797806739807__cvrScore--0.007095813751220703&from=suggest_normal&sugg=fn%20outlet_0_1&catalog_redirect_tag=true" class="mx-2 d-block my-2 my-lg-0" target="_blank">
                 <img src="/lazada.png" class="img-fluid" />
               </a>
               <a href="" class="mx-2 d-block">
@@ -56,7 +56,7 @@
           </div>
         </div>
       </section>
-      <section class="d-flex">
+      <section class="d-lg-flex">
         <div class="col">
           <div class="p-15 h-100 d-flex align-items-center justify-content-center">
             <div class="frame-wrapper sofa">
@@ -70,7 +70,7 @@
           <img src="/hp-s4.png" class="img-fluid" />
         </div>
       </section>
-      <section>
+      <section class="">
         <img src="/hp-s5.png" class="img-fluid w-100" />
       </section>
       <section class="text-center border-red py-5">
@@ -83,7 +83,7 @@
     </div>
     <footer class="bg-primary py-5 main-footer">
       <div class="container mt-5">
-        <div class="d-flex justify-content-between">
+        <div class="d-lg-flex justify-content-between">
           <div>
             <img src="/logo-white.png" class="img-fluid" />
             <nav class="mt-5">
@@ -94,24 +94,24 @@
               <a href="#" class="text-white d-block">CHAT SHOP</a>
             </nav>
             <div class="social-links d-flex mt-5">
-              <a href="#">
+              <a href="https://www.instagram.com/fnoutlet/" target="_blank">
                 <img src="/icon-ig.png" class="img-fluid" />
               </a>
-              <a href="#" class="icon-facebook ms-2">
+              <a href="https://www.facebook.com/FN.Factory.Outlet" class="icon-facebook ms-2" target="_blank">
                 <img src="/icon-facebook.png" class="img-fluid" />
               </a>
             </div>
           </div>
           <div class="right">
             <a class="up" href="#"><img src="/icon-up.png" class="img-fluid"></a>
-            <div class="app-links">
-              <a><img src="/download-google.png" class="img-fluid" /></a>
-              <a class="ms-3"><img src="/download-ios.png" class="img-fluid" /></a>
+            <div class="app-links d-flex">
+              <a href="https://play.google.com/store/apps/details?id=com.fnoutlet.mobile"><img src="/download-google.png" class="img-fluid" /></a>
+              <a href="https://apps.apple.com/us/app/fn-outlet/id1500781664" class="ms-3"><img src="/download-ios.png" class="img-fluid" /></a>
             </div>
           </div>
         </div>
         <hr>
-        <div class="d-flex justify-content-between align-items-center">
+        <div class="d-lg-flex justify-content-between align-items-center">
           <p class="text-white text-xs m-0">Copyright © 2023 First Engineering International Co., Ltd.</p>
           <div class="bottom-links">
             <a href="#" class="text-white text-xs">Privacy Policy</a>
@@ -124,6 +124,26 @@
   </div>
 </template>
 
+<script>
+import { defineComponent } from '@vue/composition-api'
+
+export default defineComponent({
+  data() {
+    return {
+      width: '50',
+    };
+  },
+  mounted() {
+    console.log( this.width )
+  },
+  methods: {
+    getWidth( submenuWidth) {
+      this.width = submenuWidth
+    },
+  },
+})
+</script>
+
 <style lang="scss" scoped>
 
 .main-header{
@@ -135,6 +155,9 @@
   padding-top: 40px;
   padding-left: 20px;
   margin: 0 -5px;
+  @media (max-width: 576px) {
+    display: none;
+  }
   > *{
     margin: 0 5px;
   }
@@ -290,5 +313,6 @@
 
 .main{
   padding-left: 100px;
+  //width: calc( 100vw - 60px );
 }
 </style>
