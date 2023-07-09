@@ -1,0 +1,161 @@
+<template>
+  <nav class="bg-primary side-nav" :style="`left: -${width}px;`">
+    <div class="hidden-menu" ref="menu">
+      <div class="top">
+        <img src="/logo-white.png" class="img-fluid" />
+        <nav class="mt-5">
+          <h2 class="text-white">ABOUT US</h2>
+          <div class="ms-5 my-5">
+            <div class="row">
+              <a href="#" class="col-6 text-white">นักลงทุนสัมพันธ์</a>
+            </div>
+            <div class="row">
+              <a href="#" class="col-6 text-white">ประวัติความเป็นมา</a>
+              <a href="#" class="col-6 text-white">การกำกับดูแลกิจการที่ดี</a>
+            </div>
+            <div class="row">
+              <a href="#" class="col-6 text-white">โครงสร้างธุรกิจ</a>
+              <a href="#" class="col-6 text-white">ห้องข่าว</a>
+            </div>
+            <div class="row">
+              <a href="#" class="col-6 text-white">ข้อมูลทางการเงิน</a>
+              <a href="#" class="col-6 text-white">เอกสารเผยแพร่</a>
+            </div>
+            <div class="row">
+              <a href="#" class="col-6 text-white">ข้อมูลราคาหลักทรัพย์</a>
+              <a href="#" class="col-6 text-white">สอบถามข้อมูลนักลงทุน</a>
+            </div>
+            <div class="row">
+              <a href="#" class="col-6 text-white">ข้อมูลผู้ถือหุ้น</a>
+            </div>
+          </div>
+          <h2 class="text-white">FN PRODUCT & SERVICE</h2>
+          <h2 class="text-white">BRANCH</h2>
+          <h2 class="text-white">FN ONLINE</h2>
+        </nav>
+      </div>
+      <div class="d-flex">
+        <div class="search-wrapper">
+          <input type="text" placeholder="SEARCH">
+        </div>
+        <button class="mx-2">TH</button>
+        <button>EN</button>
+      </div>
+    </div>
+    <div class="main">
+      <button class="menu-button" @click="toggleMenu"><img src="/icon-plus.png" class="img-fluid" /></button>
+      <div class="links">
+        <a href="#" class="icon-facebook">
+          <img src="/icon-facebook.png" class="img-fluid" />
+        </a>
+        <a href="#" class="mt-2 d-block">
+          <img src="/icon-ig.png" class="img-fluid" />
+        </a>
+      </div>
+    </div>
+  </nav>
+</template>
+
+<script>
+import { defineComponent } from '@vue/composition-api'
+
+export default defineComponent({
+  data() {
+    return {
+      width: '0',
+      isOpen: false,
+    };
+  },
+  mounted() {
+    this.width = this.$refs.menu.offsetWidth
+  },
+  methods: {
+    toggleMenu(){
+      this.isOpen = !this.isOpen
+      if( this.isOpen ){
+        this.width = 0
+      } else {
+        this.width = this.$refs.menu.offsetWidth
+      }
+    }
+  }
+
+})
+</script>
+
+
+<style lang="scss" scoped>
+
+.menu-button{
+  border: 0;
+  background: transparent;
+}
+
+.icon-facebook{
+  border-radius: 50%;
+  border: 1px solid #fff;
+  width: 30px;
+  height: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.side-nav{
+  position: fixed;
+  left: 0;
+  top: 0;
+  height: 100vh;
+  z-index: 10;
+  display: flex;
+  transition: all .8s ease;
+  .main{
+    padding: 45px 30px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100%;
+  }
+}
+
+.hidden-menu{
+  padding: 45px 30px;
+  border-right: 1px solid #fff;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  nav a{
+    text-decoration: none;
+    white-space: nowrap;
+    display: block;
+    flex: 1;
+  }
+  .search-wrapper{
+    input{
+      background: url('/icon-search.png') no-repeat center left;
+      background-size: contain;
+      border: 1px solid #fff;
+      border-radius: 50px;
+      font-size: 13px;
+      color: #fff;
+      padding: 4px 15px 4px 45px;
+      &::placeholder{
+        color: #fff;
+      }
+    }
+  }
+  button{
+    background: transparent;
+    border: 1px solid #fff;
+    border-radius: 50%;
+    color: #fff;
+    font-size: 13px;
+    width: 32px;
+    height: 32px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+}
+
+</style>

@@ -1,15 +1,5 @@
 <template>
-  <nav class="bg-primary side-nav">
-    <img src="/icon-plus.png" class="img-fluid" />
-    <div class="links">
-      <a href="#" class="icon-facebook ">
-        <img src="/icon-facebook.png" class="img-fluid" />
-      </a>
-      <a href="#" class="mt-2 d-block">
-        <img src="/icon-ig.png" class="img-fluid" />
-      </a>
-    </div>
-  </nav>
+  <sidenav />
   <div class="main">
     <header class="main-header">
       <div class="search-wrapper">
@@ -93,22 +83,31 @@
     </div>
     <footer class="bg-primary py-5 main-footer">
       <div class="container mt-5">
-        <div>
-          <img src="/logo-white.png" class="img-fluid" />
-          <nav class="mt-5">
-            <a href="#" class="text-white d-block">ABOUT US</a>
-            <a href="#" class="text-white d-block">FN PRODUCT & SERVICE</a>
-            <a href="#" class="text-white d-block">BRANCH</a>
-            <a href="#" class="text-white d-block">FN ONLINE</a>
-            <a href="#" class="text-white d-block">CHAT SHOP</a>
-          </nav>
-          <div class="social-links d-flex mt-5">
-            <a href="#">
-              <img src="/icon-ig.png" class="img-fluid" />
-            </a>
-            <a href="#" class="icon-facebook ms-2">
-              <img src="/icon-facebook.png" class="img-fluid" />
-            </a>
+        <div class="d-flex justify-content-between">
+          <div>
+            <img src="/logo-white.png" class="img-fluid" />
+            <nav class="mt-5">
+              <a href="#" class="text-white d-block">ABOUT US</a>
+              <a href="#" class="text-white d-block">FN PRODUCT & SERVICE</a>
+              <a href="#" class="text-white d-block">BRANCH</a>
+              <a href="#" class="text-white d-block">FN ONLINE</a>
+              <a href="#" class="text-white d-block">CHAT SHOP</a>
+            </nav>
+            <div class="social-links d-flex mt-5">
+              <a href="#">
+                <img src="/icon-ig.png" class="img-fluid" />
+              </a>
+              <a href="#" class="icon-facebook ms-2">
+                <img src="/icon-facebook.png" class="img-fluid" />
+              </a>
+            </div>
+          </div>
+          <div class="right">
+            <a class="up" href="#"><img src="/icon-up.png" class="img-fluid"></a>
+            <div class="app-links">
+              <a><img src="/download-google.png" class="img-fluid" /></a>
+              <a class="ms-3"><img src="/download-ios.png" class="img-fluid" /></a>
+            </div>
           </div>
         </div>
         <hr>
@@ -249,6 +248,28 @@
     border-color: #fff;
     margin: 30px 0;
   }
+
+  .right{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: flex-end;
+    img{
+      width: 140px;
+    }
+  }
+  .right .up{
+    height: 80px;
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+    img{
+      display: block;
+      width: 80px;
+      height: 80px;
+    }
+  }
+  
 }
 
 .text-xs{
@@ -266,17 +287,6 @@
   }
 }
 
-.side-nav{
-  position: fixed;
-  left: 0;
-  top: 0;
-  height: 100vh;
-  z-index: 10;
-  padding: 45px 30px;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-}
 
 .main{
   padding-left: 100px;

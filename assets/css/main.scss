@@ -3,9 +3,19 @@
 //@import 'node_modules/animate.css/animate.css';
 //@import 'node_modules/aos/dist/aos.css';
 //@import url("https://use.typekit.net/ouw2uil.css");
-//@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+Thai:wght@400;700&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Lexend+Exa:wght@200;400&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+Thai:wght@400&display=swap');
 //@import '../font/stylesheet.css';
+@font-face {
+  font-family: 'Lexend Exa';
+  unicode-range: U+0E01-0E5B, U+200C-200D, U+25CC; 
+}
+
+@font-face {
+  font-family: 'Noto Sans Thai';
+  unicode-range: U+0E01-0E5B, U+200C-200D, U+25CC; 
+}
+
 
 $screen-sm: 575px;
 $screen-md: 767px;
@@ -39,8 +49,8 @@ $container-max-widths: (
 );
 
 //$font-family-base: '.', sans-serif;
-$headings-font-family: 'Lexend Exa', sans-serif;
-$font-family-base: 'Lexend Exa', sans-serif;
+$headings-font-family: 'Lexend Exa', 'Noto Sans Thai', sans-serif;
+$font-family-base: 'Lexend Exa', 'Noto Sans Thai', sans-serif;
 
 $font-custom: 'Plus Jakarta Sans', sans-serif;
 
