@@ -27,6 +27,7 @@
             </div>
             <div class="row">
               <a href="#" class="col-6 text-white">ข้อมูลผู้ถือหุ้น</a>
+              <a target="_blank" href="https://www.set.or.th/th/market/product/stock/quote/FN/news" class="col-6 text-white">ข่าวแจ้งตลาดหลักทรัพย์</a>
             </div>
           </div>
           <h2 class="text-white">FN PRODUCT & SERVICE</h2>
@@ -45,7 +46,9 @@
       </div>
     </div>
     <div class="main" ref="submenu">
-      <button class="menu-button" @click="toggleMenu"><img src="/icon-plus.png" class="img-fluid" /></button>
+      <a class="menu-button" @click="toggleMenu">
+        <img src="/icon-plus.png" class="img-fluid" />
+      </a>
       <div class="links">
         <a href="https://www.facebook.com/FN.Factory.Outlet" class="icon-facebook">
           <img src="/icon-facebook.png" class="img-fluid" />
@@ -125,6 +128,11 @@ export default defineComponent({
       width: 60px;
       .menu-button{
         width: 30px;
+        height: 30px;
+        img{
+          width: 30px;
+          height: auto;
+        }
       }
     }
     display: flex;
