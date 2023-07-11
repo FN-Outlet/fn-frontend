@@ -1,13 +1,7 @@
 <template>
   <sidenav ref="sidenav" @submenuWidth="getWidth"/>
   <div class="main" :style="`padding-left: ${width}px;`">
-    <header class="main-header">
-      <div class="search-wrapper">
-        <input type="text" placeholder="SEARCH">
-      </div>
-      <button>TH</button>
-      <button>EN</button>
-    </header>
+    <Header />
     <div class="w-100">
       <section class="bg-primary d-lg-flex banner hp-banner">
         <img src="/banner_fn.png" class="main-logo" />
@@ -76,8 +70,12 @@
       <section class="text-center border-red py-5">
         <div class="container">
           <img src="/logo.png" class="img-fluid mb-4" />
-          <!--<p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea comdignissim</p>-->
-        </div>
+          <div class="row">
+              <div class="col-lg-8 offset-lg-2">
+                <p>FN is the expert in having its one-of-a-kind design outlet which products are specially made and selected to serve our customers exclusively only at FN and to offer a fun and memorable experience to shoppers and travelers. FN excels in searching, selecting, and providing only the best value-for-money products and services from around the world for our customers. FN selectively expands its business locally and globally through creatively designed outlet, both regular and online stores, using its expertise in best-value selection.</p>
+              </div>
+            </div>
+          </div>
       </section>
 
     </div>
@@ -107,48 +105,6 @@ export default defineComponent({
 
 <style lang="scss" scoped>
 
-.main-header{
-  position: absolute;
-  z-index: 8;
-  width: calc( 50% - 70px );
-  left: calc( 50% + 70px );
-  display: flex;
-  padding-top: 40px;
-  padding-left: 20px;
-  margin: 0 -5px;
-  @media (max-width: 576px) {
-    display: none;
-  }
-  > *{
-    margin: 0 5px;
-  }
-  .search-wrapper{
-    input{
-      background: url('/icon-search.png') no-repeat center left;
-      background-size: contain;
-      border: 1px solid #fff;
-      border-radius: 50px;
-      font-size: 13px;
-      color: #fff;
-      padding: 4px 15px 4px 45px;
-      &::placeholder{
-        color: #fff;
-      }
-    }
-  }
-  button{
-    background: transparent;
-    border: 1px solid #fff;
-    border-radius: 50%;
-    color: #fff;
-    font-size: 13px;
-    width: 32px;
-    height: 32px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
-}
 .hp-banner{
   position: relative;
   .main-logo{
