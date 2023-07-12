@@ -72,9 +72,9 @@ export default defineComponent({
     };
   },
   mounted() {
-    //this.width = this.$refs.menu.offsetWidth
-    //console.log(this.$refs.submenu.offsetWidth)
-    //this.$emit('submenuWidth', this.$refs.submenu.offsetWidth)
+    this.width = this.$refs.menu.offsetWidth
+    console.log(this.$refs.submenu.offsetWidth)
+    this.$emit('submenuWidth', this.$refs.submenu.offsetWidth)
   },
   methods: {
     toggleMenu(){
