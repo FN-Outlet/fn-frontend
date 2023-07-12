@@ -79,7 +79,7 @@
       </section>
 
     </div>
-    <footer></footer>
+    <Footer />
   </div>
 </template>
 
