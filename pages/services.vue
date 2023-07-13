@@ -21,7 +21,12 @@
               </div>
             </div>
             <div class="row mt-5">
-              <div class="col-6 offset-3 mt-5"><img src="/service-heading.jpg" class="img-fluid"></div>
+              <div class="col-lg-8 offset-lg-2 mt-5">
+                <h2 class="heading-text">
+                  <img src="/logo.png" class="img-fluid" />
+                  <span>PRODUCT & SERVICE</span>
+                </h2>
+              </div>
             </div>
             <div class="row">
               <div class="col-lg-6 mt-5">
@@ -113,6 +118,25 @@
     width: auto;
   }
 
+  .heading-text{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    @media (max-width: 992px) {
+      flex-wrap: wrap;
+    }
+    img{
+      height: 30px;
+    }
+    span{
+      font-size: 38px;
+      @media (max-width: 992px) {
+        display: block;
+        line-height: 1;
+        //font-size: 22px;
+      }
+    }
+  }
   
   .main{
     padding-left: 100px;
