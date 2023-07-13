@@ -18,16 +18,16 @@
               <a href="#" class="col-6 text-white">ห้องข่าว</a>
             </div>
             <div class="row">
-              <a href="#" class="col-6 text-white">ข้อมูลทางการเงิน</a>
+              <a target="_blank"  href="https://www.set.or.th/th/market/product/stock/quote/FN/financial-statement/company-highlights" class="col-6 text-white">ข้อมูลทางการเงิน</a>
               <a href="#" class="col-6 text-white">เอกสารเผยแพร่</a>
             </div>
             <div class="row">
-              <a href="#" class="col-6 text-white">ข้อมูลราคาหลักทรัพย์</a>
+              <a target="_blank"  href="https://www.set.or.th/th/market/product/stock/quote/FN/price" class="col-6 text-white">ข้อมูลราคาหลักทรัพย์</a>
               <a href="#" class="col-6 text-white">สอบถามข้อมูลนักลงทุน</a>
             </div>
             <div class="row">
               <a href="#" class="col-6 text-white">ข้อมูลผู้ถือหุ้น</a>
-              <a target="_blank" href="https://www.set.or.th/th/market/product/stock/quote/FN/news" class="col-6 text-white">ข่าวแจ้งตลาดหลักทรัพย์</a>
+              <a target="_blank" href="https://www.set.or.th/th/market/product/stock/quote/FN/major-shareholders" class="col-6 text-white">ข่าวแจ้งตลาดหลักทรัพย์</a>
             </div>
           </div>
           <h2 class="text-white">FN PRODUCT & SERVICE</h2>
