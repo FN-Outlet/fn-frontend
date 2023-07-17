@@ -78,7 +78,7 @@ $lead-font-size: 24px;
 $hamburger-layer-color: #fff;
 $vs-border-radius: 10px;
 
-$input-border-radius:     7px;
+$input-border-radius:     0px;
 
 $h1-font-size:  40px;
 $h2-font-size: 30px;
@@ -120,13 +120,12 @@ strong{
 }
 
 .btn{
-  border-radius: 50px;
   //color: #fff;
   font-weight: 700;
   padding: 7px 35px;
   font-size: 20px;
-  border-radius: 250px;
   border: 0;
+  border-radius: 0;
   moz-transition: all .4s ease-in-out;
   -o-transition: all .4s ease-in-out;
   -webkit-transition: all .4s ease-in-out;
