@@ -12,6 +12,9 @@ export default defineNuxtConfig({
         link: [{ rel: 'icon', type: 'image/png', href: '/favicon.png' }]
     }
   },
-  ssr: true,
-  
+  nitro: {
+    prerender: {
+      routes: ['/services', '/branch', '/contact', '/online']
+    }
+  }
 })
