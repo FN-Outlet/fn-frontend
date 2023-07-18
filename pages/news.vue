@@ -69,7 +69,7 @@
                   <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod </p>
                   <div class="footer">
                     <date>29 June 2023</date>
-                    <a href="">Read more</a>
+                    <a href="/article">Read more</a>
                   </div>
                 </div>
               </div>
@@ -80,7 +80,7 @@
                   <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod </p>
                   <div class="footer">
                     <date>29 June 2023</date>
-                    <a href="">Read more</a>
+                    <a href="/article">Read more</a>
                   </div>
                 </div>
               </div>
@@ -91,7 +91,7 @@
                   <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod </p>
                   <div class="footer">
                     <date>29 June 2023</date>
-                    <a href="">Read more</a>
+                    <a href="/article">Read more</a>
                   </div>
                 </div>
               </div>
@@ -158,8 +158,8 @@
       };
     },
     components: {
-      Swiper,
-      SwiperSlide,
+    Swiper,
+    SwiperSlide,
     },
     setup() {
       const swiper = useSwiper()
