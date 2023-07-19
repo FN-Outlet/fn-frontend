@@ -94,6 +94,9 @@ export default defineComponent({
   },
   mounted() {
     console.log( this.width )
+    if (window.location.href === "https://fnoutlet.com/" || window.location.href === "https://www.fnoutlet.com/") {
+      window.location.href = 'https://fnthailand.com/'; 
+    } 
   },
   methods: {
     getWidth( submenuWidth) {
