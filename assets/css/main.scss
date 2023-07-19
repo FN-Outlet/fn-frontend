@@ -373,3 +373,14 @@ strong{
     letter-spacing: -2px;
   }
 }
+
+.swiper-pagination{
+  .swiper-pagination-bullet{
+    background: #CC3B39;
+    opacity: 1;
+  }
+  .swiper-pagination-bullet-active{
+    background: #555754;
+    transform: scale(1.5);
+  }
+}
