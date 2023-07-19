@@ -10,7 +10,9 @@
               <a href="#" class="col-6 text-white">นักลงทุนสัมพันธ์</a>
             </div>
             <div class="row">
-              <a href="#" class="col-6 text-white">ประวัติความเป็นมา</a>
+              <nuxt-link to="history" class="col-6 text-white">
+                ประวัติความเป็นมา
+              </nuxt-link>
               <a href="#" class="col-6 text-white">การกำกับดูแลกิจการที่ดี</a>
             </div>
             <div class="row">
@@ -18,7 +20,7 @@
               <a href="#" class="col-6 text-white">ห้องข่าว</a>
             </div>
             <div class="row">
-              <a target="_blank"  href="https://www.set.or.th/th/market/product/stock/quote/FN/financial-statement/company-highlights" class="col-6 text-white">ข้อมูลทางการเงิน</a>
+              <a target="_blank" href="https://www.set.or.th/th/market/product/stock/quote/FN/financial-statement/company-highlights" class="col-6 text-white">ข้อมูลทางการเงิน</a>
               <a href="#" class="col-6 text-white">เอกสารเผยแพร่</a>
             </div>
             <div class="row">
@@ -26,13 +28,25 @@
               <a href="#" class="col-6 text-white">สอบถามข้อมูลนักลงทุน</a>
             </div>
             <div class="row">
-              <a href="#" class="col-6 text-white">ข้อมูลผู้ถือหุ้น</a>
-              <a target="_blank" href="https://www.set.or.th/th/market/product/stock/quote/FN/major-shareholders" class="col-6 text-white">ข่าวแจ้งตลาดหลักทรัพย์</a>
+              <a target="_blank" href="https://www.set.or.th/th/market/product/stock/quote/FN/major-shareholders" class="col-6 text-white">ข้อมูลผู้ถือหุ้น</a>
+              <a target="_blank" href="https://www.set.or.th/th/market/product/stock/quote/FN/news" class="col-6 text-white">ข่าวแจ้งตลาดหลักทรัพย์</a>
             </div>
           </div>
-          <h2 class="text-white">FN PRODUCT & SERVICE</h2>
-          <h2 class="text-white">BRANCH</h2>
-          <h2 class="text-white">FN ONLINE</h2>
+          <h2 class="text-white">
+            <nuxt-link to="/services" class="col-6 text-white">
+              FN PRODUCT & SERVICE
+            </nuxt-link>
+          </h2>
+          <h2 class="text-white">
+            <nuxt-link to="/branch" class="col-6 text-white">
+              BRANCH
+            </nuxt-link>
+          </h2>
+          <h2 class="text-white">
+            <nuxt-link to="/online" class="col-6 text-white">
+              FN ONLINE
+            </nuxt-link>
+          </h2>
         </nav>
       </div>
       <div class="d-lg-flex">
@@ -50,10 +64,10 @@
         <img src="/icon-plus.png" class="img-fluid" />
       </a>
       <div class="links">
-        <a href="https://www.facebook.com/FN.Factory.Outlet" class="icon-facebook">
+        <a target="_blank" href="https://www.facebook.com/FN.Factory.Outlet" class="icon-facebook">
           <img src="/icon-facebook.png" class="img-fluid" />
         </a>
-        <a href="https://www.instagram.com/fnoutlet/" class="mt-2 d-block">
+        <a target="_blank" href="https://www.instagram.com/fnoutlet/" class="mt-2 d-block">
           <img src="/icon-ig.png" class="img-fluid" />
         </a>
       </div>
