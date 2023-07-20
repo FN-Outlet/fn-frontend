@@ -14,7 +14,19 @@ export default defineNuxtConfig({
   },
   nitro: {
     prerender: {
-      routes: ['/services', '/branch', '/contact', '/online']
+      routes: [
+        '/services', 
+        '/branch', 
+        '/contact', 
+        '/online',
+        '/career',
+        '/directors',
+        '/financial',
+        '/history',
+        '/news',
+        '/sleep',
+        '/structure'
+      ]
     }
   }
 })
