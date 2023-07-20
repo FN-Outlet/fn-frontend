@@ -142,7 +142,7 @@
         </div>
         <div class="col d-flex align-items-center justify-content-center ">
           <div class="p-15 d-flex align-items-center justify-content-center">
-            <img src="/sleep-footer.jpg" class="img-fluid" />
+            <img src="/sleep-text.png" class="img-fluid" />
           </div>
         </div>
       </section>
