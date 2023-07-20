@@ -65,10 +65,13 @@
       </a>
       <div class="links">
         <a target="_blank" href="https://www.facebook.com/FN.Factory.Outlet" class="icon-facebook">
-          <img src="/icon-facebook.png" class="img-fluid" />
+          <img src="/facebook-1.svg" class="img-fluid" />
         </a>
         <a target="_blank" href="https://www.instagram.com/fnoutlet/" class="mt-2 d-block">
-          <img src="/icon-ig.png" class="img-fluid" />
+          <img src="/instagram.svg" class="img-fluid" />
+        </a>
+        <a target="_blank" href="https://www.instagram.com/fnoutlet/" class="mt-2 d-block">
+          <img src="/youtube.svg" class="img-fluid" />
         </a>
       </div>
     </div>
@@ -112,15 +115,6 @@ export default defineComponent({
   background: transparent;
 }
 
-.icon-facebook{
-  border-radius: 50%;
-  border: 1px solid #fff;
-  width: 30px;
-  height: 30px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
 
 .side-nav{
   position: fixed;
@@ -200,6 +194,12 @@ export default defineComponent({
     display: flex;
     align-items: center;
     justify-content: center;
+  }
+}
+
+.links{
+  img{
+    width: 30px;
   }
 }
 
