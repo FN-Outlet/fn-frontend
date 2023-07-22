@@ -3,13 +3,20 @@
         <div class="container mt-5">
           <div class="d-lg-flex justify-content-between">
             <div>
-              <img src="/logo-white.png" class="img-fluid" />
+              <nuxt-link :to="localePath('/')">
+                <img src="/logo-white.png" class="img-fluid" />
+              </nuxt-link>
               <nav class="mt-5">
-                <a href="#" class="text-white d-block">ABOUT US</a>
-                <a href="#" class="text-white d-block">FN PRODUCT & SERVICE</a>
-                <a href="#" class="text-white d-block">BRANCH</a>
-                <a href="#" class="text-white d-block">FN ONLINE</a>
-                <a href="#" class="text-white d-block">CHAT SHOP</a>
+                <a href="#" class="text-white d-block">{{ $t('nav.aboutus') }}</a>
+                <nuxt-link :to="localePath('products-services')" class="text-white d-block">
+                  {{ $t('nav.productservice') }}
+                </nuxt-link>
+                <nuxt-link :to="localePath('branch')" class="text-white d-block">
+                  {{ $t('nav.branch') }}
+                </nuxt-link>
+                <nuxt-link :to="localePath('online')" class="text-white d-block">
+                  {{ $t('nav.online') }}
+                </nuxt-link>
               </nav>
               <div class="social-links d-flex mt-5">
                 <a href="https://www.instagram.com/fnoutlet/" target="_blank">

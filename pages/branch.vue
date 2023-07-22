@@ -21,12 +21,11 @@
             <div class="row mx-lg-5 mt-5">
               <div class="col-lg-6 bg-primary p-4 md-w-100 address">
                 <img src="/branch-hq-map.jpg" class="img-fluid" />
-                <h2 class="text-white text-center mt-4">FN RAMA 9</h2>
-                <p class="text-white text-start">Address : 991 FN Building Rama 9. Suan Luang,
-                Bangkok 10250</p>
+                <h2 class="text-white text-center mt-4">FN RAMA IX (สำนักงานกรุงเทพ)</h2>
+                <p class="text-white text-start">Address : 991 อาคารเอฟเอ็น บิวดิ้ง ถนนพระราม 9 แขวงสวนหลวง เขตสวนหลวง, กทม. 10250</p>
                 <p class="text-white text-start">
-                Tel. 02-300-4951 Fax: 02-300-4681<br>
-                Email : ustomerservice@fnoutlet.com</p>
+                โทร. 02-300-4951 แฟกซ์: 02-300-4681<br>
+                E-mail : customerservice@fnoutlet.com</p>
               </div>
               <div class="col-lg-6 main-branch md-w-100 px-0">
                 <img src="/branch-hq.jpg" class="img-fluid w-100" />

@@ -16,7 +16,7 @@
           <div class="container">
             <h2 class="heading-text text-center">
               <img src="/logo.png" class="img-fluid mb-4" />
-              <span>SLEEP</span>
+              <span>TRAVEL</span>
             </h2>
             <div class="highlight">
               <div class="main-img">
@@ -28,8 +28,8 @@
                 <div class="d-flex text-white align-items-center">
                   <h1 class="text-white mb-0 me-3">9,900</h1>Baht
                 </div>
-                <h3 class="text-white">PRODUCT 1</h3>
-                <p class="text-white">Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod </p>
+                <h3 class="text-white">{{ $t("PRIM ชุดผ้าปูที่นอน Tencel 6 ชิ้น ขนาด 6 ฟุต") }}</h3>
+                <p class="text-white">{{ $t("มอบสัมผัสแห่งความอ่อนโยนจากธรรมชาติ สู่บ้านคุณ ด้วยชุดเครื่องนอน  TENCEL สัมผัสการนอนที่เย็นสบาย นุ่ม ลื่น ช่วยให้พักผ่อนได้อย่างเต็มที่ การันตีจากยอดขายติดอันดับสินค้าขายดีของ FN มาตลอด 20 ปี") }}</p>
                 <div class="size my-5 text-white"><small>50x50 cm</small></div>
                 <a class="btn btn-white">shop now</a>
               </div>
@@ -74,8 +74,8 @@
                   <a href="#" class="news-thumbnail">
                   <img src="/sleep-1.jpg" class="img-fluid" />
                   <div class="tag">New</div>
-                  <h3>PRODUCT 1</h3>
-                  <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod </p>
+                  <h3>{{ $t("PRIM bubble blanket รุ่น Classic ขนาด 6 ฟุต") }}</h3>
+                  <p>{{ $t("ผ้าห่ม Micifine ขนาด 60x80 นิ้ว ที่ให้สัมผัสนุ่มกว่าเส้นใยอื่นๆ เพราะขนาดของเส้นใยที่เล็กและทอละเอียดช่วยป้องกันไรฝุ่น ลวดลายเป็นเอกลักษณ์เฉพาะ เนื้อผ้าภายนอกตุ่มนูน ช่วยให้ไม่รู้สึกอึดอัดเมื่ออากาศร้อนและอุ่นสบายเมื่ออากาศนาว") }}</p>
                   <div class="size mt-5"><small>50x50 cm</small></div>
                   <div class="d-flex align-items-center">
                     <h2 class="text-primary me-3 m-0">999</h2>
@@ -87,8 +87,8 @@
                   <a href="#" class="news-thumbnail">
                   <img src="/sleep-2.jpg" class="img-fluid" />
                   <div class="tag">New</div>
-                  <h3>PRODUCT 1</h3>
-                  <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod </p>
+                  <h3>{{ $t("PRIM ไส้ผ้านวมขนเป็ด หนา นุ่ม อบอุ่น หลับสบาย") }}</h3>
+                  <p>{{ $t("ผ้านวมขนเป็ดชนิดนุ่มพิเศษ เสมือนนอนในโรงแรม 5 ดาว ด้วยวัสดุจากธรรมชาติ 100% ประกอบด้วยขนเป็ดสีขาว 75% และขนเป็ดช่วงหน้าอก 25% ซึ่งเป็นขนอ่อนชนิดพิเศษ ใช้ขนเป็ดตามมาตรฐานอเมริกา (FTC) พร้อมดับเบิ้ลล็อค 14 ห่วง") }}</p>
                   <div class="size mt-5"><small>50x50 cm</small></div>
                   <div class="d-flex align-items-center">
                     <h2 class="text-primary me-3 m-0">999</h2>
@@ -100,21 +100,8 @@
                   <a href="#" class="news-thumbnail">
                   <img src="/sleep-3.jpg" class="img-fluid" />
                   <div class="tag">New</div>
-                  <h3>PRODUCT 1</h3>
-                  <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod </p>
-                  <div class="size mt-5"><small>50x50 cm</small></div>
-                  <div class="d-flex align-items-center">
-                    <h2 class="text-primary me-3 m-0">999</h2>
-                    baht
-                  </div>
-                </a>
-                </swiper-slide>
-                <swiper-slide>
-                  <a href="#" class="news-thumbnail">
-                  <img src="/sleep-1.jpg" class="img-fluid" />
-                  <div class="tag">New</div>
-                  <h3>PRODUCT 1</h3>
-                  <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod </p>
+                  <h3>{{ $t("PRIM หมอนขนเป็ดเพื่อสุขภาพ สัมผัสความนุ่ม นอนสบายประดุจโรงแรม 6 ดาว") }}</h3>
+                  <p>{{ $t("\"เสน่ห์ขนเป็ด แบบนุ่มธรรมชาติ\" ด้วยคุณสมบัติอันเป็นเอกลักษณ์เฉพาะตัว ของก้านขนห่านและขนอกเป็ด หุ้มด้วยผ้าไมซิไฟน์เนื้อเนียน ทำให้ได้สัมผัสนุ่มนวล เพิ่มความคลาสสิคด้วยขอบกุ๊นริบบิ้นซาติน มีระดับและดูดี รองรับได้กับทุกท่านอน") }}</p>
                   <div class="size mt-5"><small>50x50 cm</small></div>
                   <div class="d-flex align-items-center">
                     <h2 class="text-primary me-3 m-0">999</h2>
@@ -138,11 +125,11 @@
         <section class="d-lg-flex">
         <div class="col p-0 bg-primary">
           <img src="/service-footer.jpg" class="img-fluid" />
-          <p class="text-white p-5">Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea comdignissim </p>
+          <p class="text-white p-5">{{ $t("พื้นที่ที่จะทำให้การเดินทางของคุณสนุกสนานและสะดวกยิ่งขึ้น เราเชี่ยวชาญในการจัดหาวัสดุคุณภาพและนวัตกรรมใหม่ ๆ เพื่อความปลอดภัย และทนทาน สร้างสรรค์สินค้าสำหรับนักเดินทางอย่างครบครัน ไม่ว่าจะเป็น กระเป๋าเดินทาง เก้าอี้สนาม Camping Set และอีกมากมาย เพื่อให้คุณพร้อมกับประสบการณ์ครั้งใหม่ได้อย่างมั่นใจ") }}</p>
         </div>
         <div class="col d-flex align-items-center justify-content-center ">
           <div class="p-15 d-flex align-items-center justify-content-center">
-            <img src="/sleep-text.png" class="img-fluid" />
+            <img src="/travel-text.png" class="img-fluid" />
           </div>
         </div>
       </section>
@@ -182,7 +169,7 @@
         };
     },
     mounted() {
-      console.log( this.swiper )
+      //console.log( this.swiper )
     },
     methods: {
       getWidth( submenuWidth) {

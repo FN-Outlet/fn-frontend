@@ -2,9 +2,11 @@
   <nav class="bg-primary side-nav" :style="`left: -${width}px;`">
     <div class="hidden-menu" ref="menu">
       <div class="top">
-        <img src="/logo-white.png" class="img-fluid" />
+        <nuxt-link :to="localePath('/')">
+          <img src="/logo-white.png" class="img-fluid" />
+        </nuxt-link>
         <nav class="mt-lg-5 mt-4">
-          <h2 class="text-white">ABOUT US</h2>
+          <h2 class="text-white">{{ $t('nav.aboutus') }}</h2>
           <div class="ms-lg-5 my-lg-5 my-4">
             <div class="row">
               <a href="#" class="col-6 text-white">นักลงทุนสัมพันธ์</a>
@@ -33,18 +35,18 @@
             </div>
           </div>
           <h2 class="text-white">
-            <nuxt-link to="/services" class="col-6 text-white">
-              FN PRODUCT & SERVICE
+            <nuxt-link :to="localePath('products-services')" class="col-6 text-white">
+              {{ $t('nav.productservice') }}
             </nuxt-link>
           </h2>
           <h2 class="text-white">
-            <nuxt-link to="/branch" class="col-6 text-white">
-              BRANCH
+            <nuxt-link :to="localePath('branch')" class="col-6 text-white">
+              {{ $t('nav.branch') }}
             </nuxt-link>
           </h2>
           <h2 class="text-white">
-            <nuxt-link to="/online" class="col-6 text-white">
-              FN ONLINE
+            <nuxt-link :to="localePath('online')" class="col-6 text-white">
+              {{ $t('nav.online') }}
             </nuxt-link>
           </h2>
         </nav>
@@ -54,8 +56,8 @@
           <input type="text" placeholder="SEARCH">
         </div>
         <div class="d-flex mt-2 mt-lg-0">
-          <button class="mx-lg-2">TH</button>
-          <button class="ms-2 ms-lg-0">EN</button>
+          <NuxtLink :to="switchLocalePath('th')"><button class="mx-lg-2">TH</button></NuxtLink>
+          <NuxtLink :to="switchLocalePath('en')"><button class="ms-2 ms-lg-0">EN</button></NuxtLink>
         </div>
       </div>
     </div>
@@ -64,14 +66,14 @@
         <img src="/icon-plus.png" class="img-fluid" />
       </a>
       <div class="links">
+        <a target="_blank" href="https://www.youtube.com/channel/UCTGvDZvpTrKsDq-48L8pJ4g" class="mt-2 d-block">
+          <img src="/youtube.svg" class="img-fluid" />
+        </a>
         <a target="_blank" href="https://www.facebook.com/FN.Factory.Outlet" class="icon-facebook">
           <img src="/facebook-1.svg" class="img-fluid" />
         </a>
         <a target="_blank" href="https://www.instagram.com/fnoutlet/" class="mt-2 d-block">
           <img src="/instagram.svg" class="img-fluid" />
-        </a>
-        <a target="_blank" href="https://www.instagram.com/fnoutlet/" class="mt-2 d-block">
-          <img src="/youtube.svg" class="img-fluid" />
         </a>
       </div>
     </div>
@@ -106,7 +108,6 @@ export default defineComponent({
 
 })
 </script>
-
 
 <style lang="scss" scoped>
 

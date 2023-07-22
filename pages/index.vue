@@ -72,7 +72,7 @@
           <img src="/logo.png" class="img-fluid mb-4" />
           <div class="row">
               <div class="col-lg-8 offset-lg-2">
-                <p>FN is the expert in having its one-of-a-kind design outlet which products are specially made and selected to serve our customers exclusively only at FN and to offer a fun and memorable experience to shoppers and travelers. FN excels in searching, selecting, and providing only the best value-for-money products and services from around the world for our customers. FN selectively expands its business locally and globally through creatively designed outlet, both regular and online stores, using its expertise in best-value selection.</p>
+                <p>{{ $t("home.content") }}</p>
               </div>
             </div>
           </div>
