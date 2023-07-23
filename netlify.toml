@@ -1,0 +1,11 @@
+[[redirects]]
+  from = "/api/*"
+  to = "http://fn-admin.27.254.144.107.nip.io/api/:splat"
+  status = 200
+  force = true
+
+[[redirects]]
+  from = "/uploads/*"
+  to = "http://fn-admin.27.254.144.107.nip.io/uploads/:splat"
+  status = 200
+  force = true
