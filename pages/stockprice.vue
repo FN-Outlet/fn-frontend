@@ -27,11 +27,11 @@
             <div class="row">
               <div class="col-8 offset-2">
                 <div class="row text-center">
-                  <div class="col-6">
+                  <div class="col-sm-6">
                     <h2 class="text-black mb-4">กราฟภาพรวมตลาด</h2>
                     <iframe frameborder=0 scrolling=no width="200" height="260" src="https://weblink.settrade.com/banner/banner3.jsp"></iframe>
                   </div>
-                  <div class="col-6">
+                  <div class="col-sm-6 mt-3 mt-sm-0">
                     <h2 class="text-black mb-4">ราคาหลักทรัพย์</h2>
                     <iframe v-if="$i18n.locale === 'en'" frameborder=0 scrolling=no width="200" height="200" src="https://weblink.settrade.com/IRPage/irpage.jsp?txtSymbol=FN&language=en&key=14356"></iframe>
                     <iframe v-else frameborder=0 scrolling=no width="200" height="200" src="https://weblink.settrade.com/IRPage/irpage.jsp?txtSymbol=FN&language=th&key=14356"></iframe>
