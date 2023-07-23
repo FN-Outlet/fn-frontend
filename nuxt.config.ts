@@ -18,10 +18,19 @@ export default defineNuxtConfig({
   ],
   app: {
     head: {
-        link: [{ rel: 'icon', type: 'image/png', href: '/favicon.png' }]
+      title: 'FN Factory Outlet',
+      meta: [
+        { name: 'viewport', content: 'width=device-width, initial-scale=1' },
+        { name: 'robots', content: 'max-image-preview:large' }
+      ],
+      link: [{ rel: 'icon', type: 'image/png', href: '/favicon.png' }]
     }
   },
   nitro: {
+    devProxy: {
+      '/uploads': { target: 'http://localhost:1337/uploads' },
+      '/api': 'http://localhost:1337/api',
+    },
     prerender: {
       routes: [
         '/products-services', 

@@ -1,6 +1,6 @@
 <template>
     <sidenav ref="sidenav" @submenuWidth="getWidth"/>
-    <div class="main" :style="`padding-left: ${width}px;`">
+    <div class="main" :style="`padding-left: ${width}px;`" v-if="!loading">
       <Header />
       <div class="w-100">
         <section class="bg-primary d-lg-flex banner hp-banner">
@@ -42,25 +42,18 @@
                     translate: ['100%', 0, 0],
                   },
               }">
-                <swiper-slide  v-for="(item, index) in items" :key="index">
+                <swiper-slide  v-for="(item, index) in data" :key="index">
                   <div class="row my-5 slide-main">
                     <div class="col-lg-6">
-                      <img src="/history-1.jpg" class="img-fluid" />
+                      <img v-if="item.attributes.image.data" :src="item.attributes.image.data.attributes.url" class="img-fluid" />
                     </div>
                     <div class="col-lg-6 mt-3 mt-lg-0">
-                      <ul>
-                      <li>The 2021 Annual General Meeting of Shareholders which was held on 27 April 2021 resolved to approve the payment of dividends of Baht 3,700,000.</li>
-
-                      <li>Diana Hat Yai branch, was closed held on 31 December 2021.</li>
-
-                      <li>Opened a branch, JAS Green Village Kubon with Singer Thailand Public Company Limited in December 2021.</li>
-
-                      <li>Opened a new distribution center at Bluport Hua Hin Resort Mall in October 2021.</li>
-
-                      <li>Launched the 4th generation cooling gel pillow for health under the brand Tempsoft by Cherish, Cooling Genesis model in September 2021.</li>
-
-                      <li>Launched a new product containing hemp. Under the brand Prim, using the product name Prim Relaxing Spray Mist in collaboration with DOD Biotech Public Company Limited in December 2021.</li>
-                      </ul>
+                      <div v-if="$i18n.locale === 'en'">
+                        {{ item.attributes.contenten }}
+                      </div>
+                      <div v-if="$i18n.locale === 'th'">
+                        {{ item.attributes.contentth }}
+                      </div>
                     </div>
                   </div>
                 </swiper-slide>
@@ -97,12 +90,22 @@
       return {
         width: '50',
         activeIndex: 0,
-        items: [2000, 2001, 2002, 2003, 2004, 2005, 2006, 2007, 2008, 2009, 2010]
+        items_en: [],
+        items_th: [],
+        loading: true,
       };
     },
     components: {
       Swiper,
       SwiperSlide,
+    },
+    computed: {
+      items() {
+        if (this.$i18n.locale === 'en'){
+          return this.items_en
+        }
+        return this.items_th
+      }
     },
     setup() {
       const swiper = useSwiper()
@@ -112,8 +115,8 @@
           swiper,
         };
     },
-    mounted() {
-      console.log( this.width )
+    async mounted() {
+      await this.getHistory()
     },
     methods: {
       getWidth( submenuWidth) {
@@ -128,6 +131,15 @@
       goto( index ){
         this.$refs.mySwiper.$el.swiper.slideTo( index )
         this.activeIndex = index
+      },
+      async getHistory() {
+        const { data } = await $fetch(`/api/histories?sort=yearth:desc&populate=*`);
+        this.data = data;
+        this.data.forEach((data)=>{
+          this.items_en.push(data.attributes.yearen)
+          this.items_th.push(data.attributes.yearth)
+        })
+        this.loading = false;
       }
     },
   })

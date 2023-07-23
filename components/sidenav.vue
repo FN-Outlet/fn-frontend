@@ -12,13 +12,15 @@
               <a href="#" class="col-6 text-white">นักลงทุนสัมพันธ์</a>
             </div>
             <div class="row">
-              <nuxt-link to="history" class="col-6 text-white">
+              <nuxt-link :to="localePath('history')" class="col-6 text-white">
                 ประวัติความเป็นมา
               </nuxt-link>
               <a href="#" class="col-6 text-white">การกำกับดูแลกิจการที่ดี</a>
             </div>
             <div class="row">
-              <a href="#" class="col-6 text-white">โครงสร้างธุรกิจ</a>
+              <nuxt-link :to="localePath('structure')" class="col-6 text-white">
+                โครงสร้างธุรกิจ
+              </nuxt-link>
               <a href="#" class="col-6 text-white">ห้องข่าว</a>
             </div>
             <div class="row">
