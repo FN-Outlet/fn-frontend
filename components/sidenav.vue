@@ -28,7 +28,7 @@
               <a href="#" class="col-6 text-white">เอกสารเผยแพร่</a>
             </div>
             <div class="row">
-              <a target="_blank"  href="https://www.set.or.th/th/market/product/stock/quote/FN/price" class="col-6 text-white">ข้อมูลราคาหลักทรัพย์</a>
+              <nuxt-link :to="localePath('stockprice')" class="col-6 text-white">ข้อมูลราคาหลักทรัพย์</nuxt-link>
               <a href="#" class="col-6 text-white">สอบถามข้อมูลนักลงทุน</a>
             </div>
             <div class="row">
