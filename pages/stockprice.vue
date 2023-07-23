@@ -18,7 +18,7 @@
           <div class="container">
             <h2 class="heading-text text-center">
               <img src="/logo.png" class="img-fluid mb-4" />
-              <span>BUSINESS STRUCTURE</span>
+              <span>Stock Price</span>
             </h2>
           </div>
         </section>
