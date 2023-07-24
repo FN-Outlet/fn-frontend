@@ -21,10 +21,10 @@
               <nuxt-link :to="localePath('structure')" class="col-6 text-white">
                 โครงสร้างธุรกิจ
               </nuxt-link>
-              <a href="#" class="col-6 text-white">ห้องข่าว</a>
+              <nuxt-link :to="localePath('news')" class="col-6 text-white">ห้องข่าว</nuxt-link>
             </div>
             <div class="row">
-              <a target="_blank" href="https://www.set.or.th/th/market/product/stock/quote/FN/financial-statement/company-highlights" class="col-6 text-white">ข้อมูลทางการเงิน</a>
+              <nuxt-link :to="localePath('financial')" class="col-6 text-white">ข้อมูลทางการเงิน</nuxt-link>
               <a href="#" class="col-6 text-white">เอกสารเผยแพร่</a>
             </div>
             <div class="row">
@@ -34,6 +34,9 @@
             <div class="row">
               <a target="_blank" href="https://www.set.or.th/th/market/product/stock/quote/FN/major-shareholders" class="col-6 text-white">ข้อมูลผู้ถือหุ้น</a>
               <a target="_blank" href="https://www.set.or.th/th/market/product/stock/quote/FN/news" class="col-6 text-white">ข่าวแจ้งตลาดหลักทรัพย์</a>
+            </div>
+            <div class="row">
+              <nuxt-link :to="localePath('directors')" class="col-6 text-white">คณะกรรมการบริษัท</nuxt-link>
             </div>
           </div>
           <h2 class="text-white">

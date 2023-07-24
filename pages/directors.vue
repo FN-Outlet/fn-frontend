@@ -1,6 +1,6 @@
 <template>
     <sidenav ref="sidenav" @submenuWidth="getWidth"/>
-    <div class="main" :style="`padding-left: ${width}px;`">
+    <div class="main" :style="`padding-left: ${width}px;`" v-if="!loading">
       <Header />
       <div class="w-100">
         <section class="bg-primary d-lg-flex banner hp-banner">
@@ -19,32 +19,13 @@
               <span>BOARD OF DIRECTORS</span>
             </h2>
             <div class="row">
-              <div class="col-lg-4 mt-5">
+              <div class="col-lg-4 mt-5" v-for="(item, index) in data" :key="index">
                 <div class="bod">
                   <div class="img">
-                    <img src="/director-1.jpg" class="img-fluid"/>
+                    <img v-if="item.attributes.image.data" :src="item.attributes.image.data.attributes.url"  class="img-fluid"/>
                   </div>
-                  <h3>MR.PRICHA SONGWATANA</h3>
-                  <p>Chairman of the Board of Directors</p>
-                </div>
-              </div>
-              <div class="col-lg-4 mt-5">
-                <div class="bod">
-                  <div class="img">
-                    <img src="/director-2.jpg" class="img-fluid"/>
-                  </div>
-                  <h3>MRS.SAOWANEE KAMOLBUTR</h3>
-                  <p>The 1st Vice Chairman of the Board of Directors
-/ Independent Director</p>
-                </div>
-              </div>
-              <div class="col-lg-4 mt-5">
-                <div class="bod">
-                  <div class="img">
-                    <img src="/director-3.png" class="img-fluid"/>
-                  </div>
-                  <h3>MR.MONTRI MAHAPLERKPONG</h3>
-                  <p>Director</p>
+                  <h3>{{ item.attributes.nameth }}</h3>
+                  <p>{{ item.attributes.positions }}</p>
                 </div>
               </div>
             </div>
@@ -62,15 +43,21 @@
     data() {
       return {
         width: '50',
+        loading: true,
       };
     },
-    mounted() {
-      console.log( this.width )
+    async mounted() {
+      await this.getDirectors()
     },
     methods: {
       getWidth( submenuWidth) {
         this.width = submenuWidth
       },
+      async getDirectors() {
+        const { data } = await $fetch(`/api/directors?sort=sequence&populate=*`);
+        this.data = data;
+        this.loading = false;
+      }
     },
   })
   </script>
