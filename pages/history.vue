@@ -49,7 +49,7 @@
                     </div>
                     <div class="col-lg-6 mt-3 mt-lg-0">
                       <div v-if="$i18n.locale === 'en'">
-                        <span v-html="item.attributes.contenten"></span>
+                        <span v-if="item.attributes.contenten" v-html="$mdRenderer.render(item.attributes.contenten)"></span>
                       </div>
                       <div v-if="$i18n.locale === 'th'">
                         <div v-if="item.attributes.contentth" v-html="$mdRenderer.render(item.attributes.contentth)"></div>
