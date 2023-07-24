@@ -16,9 +16,11 @@
     "nuxt": "^3.6.2"
   },
   "dependencies": {
+    "@types/markdown-it": "^12.2.3",
     "autoprefixer": "^10.4.14",
     "bootstrap": "^5.3.0",
     "bootstrap3": "^3.3.5",
+    "markdown-it": "^13.0.1",
     "node-sass": "^9.0.0",
     "nuxt-swiper": "latest",
     "postcss": "^8.4.25",
