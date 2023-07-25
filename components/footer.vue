@@ -47,15 +47,15 @@
   
       </footer>
       <div class="radial" @click="isOpen=!isOpen" :class="isOpen?'open':''">
-        <button class="fa fa-paper-plane fa-3x" id="fa-1">
-          <img src="/icon-red-facebook.svg" class="img-fluid">
-        </button>
-        <button class="fa fa-home fa-3x" id="fa-2">
-          <img src="/icon-red-youtube.svg" class="img-fluid">
-        </button>
-        <button class="fa fa-search fa-3x" id="fa-3">
-          <img src="/icon-red-instagram.svg" class="img-fluid">
-        </button>
+        <a href="https://lin.ee/kUuVSkB" target="_blank" class="fa fa-paper-plane fa-3x" id="fa-1">
+          <img src="/line.svg" class="img-fluid">
+        </a>
+        <a href="tel:02-4910900" class="fa fa-home fa-3x" id="fa-2">
+          <img src="/telephone.svg" class="img-fluid">
+        </a>
+        <a href="http://m.me/fn.factory.outlet" target="_blank" class="fa fa-search fa-3x" id="fa-3">
+          <img src="/messenger.svg" class="img-fluid">
+        </a>
         <button class="fab">
           <img src="/plus.svg" class="img-fluid" id="plus">
         </button>
@@ -199,6 +199,10 @@ export default defineComponent({
   height: 60px;
   border-radius: 50%;
   background: $red;
+  display: block;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   img{
     width: 25px;
   }
