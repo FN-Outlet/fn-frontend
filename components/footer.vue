@@ -46,7 +46,47 @@
         </div>
   
       </footer>
+      <div class="radial" @click="isOpen=!isOpen" :class="isOpen?'open':''">
+        <button class="fa fa-paper-plane fa-3x" id="fa-1">
+          <img src="/icon-red-facebook.svg" class="img-fluid">
+        </button>
+        <button class="fa fa-home fa-3x" id="fa-2">
+          <img src="/icon-red-youtube.svg" class="img-fluid">
+        </button>
+        <button class="fa fa-search fa-3x" id="fa-3">
+          <img src="/icon-red-instagram.svg" class="img-fluid">
+        </button>
+        <button class="fab">
+          <img src="/plus.svg" class="img-fluid" id="plus">
+        </button>
+      </div> 
 </template>
+
+<script>
+import { defineComponent } from '@vue/composition-api'
+
+
+export default defineComponent({
+  data() {
+    return {
+      width: '50',
+      isOpen: false,
+    };
+  },
+  components: {
+
+  },
+
+  mounted() {
+    console.log( this.width )
+  },
+  methods: {
+    getWidth( submenuWidth) {
+      this.width = submenuWidth
+    },
+  },
+})
+</script>
 
 <style lang="scss" scoped>
  .main-footer{
@@ -96,4 +136,110 @@
     }
   }
   
+  $red: #fff;
+  $blue: #fff;
+
+.disable-focus:focus {
+  outline: 0;
+}
+
+.radial {
+  width: 80px;
+  height: 80px;
+  position: fixed;
+  right: 15px;
+  bottom: 15px;
+  // background: $red;
+  background: transparent;
+  border-radius: 50%;
+  transition: all 0.2s ease-in-out;
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.15), 0px 4px 8px rgba(0, 0, 0, 0.2);
+  z-index: 20;
+}
+
+.fab {
+  // opacity: .5;
+  border: none;
+  color: white;
+  // background-color: #ff4081;
+  background-color: $blue;
+  border-radius: 50%;
+  width: 80px;
+  height: 80px;
+  position: fixed;
+  right: 15px;
+  bottom: 15px;
+  transition: all 0.15s ease-in-out;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  &:hover {
+    background-color: darken($blue, 1);
+  }
+}
+
+#plus {
+  transition: all 0.2s ease-in-out;
+  margin-top: 3px;
+  width: 30px;
+}
+
+#fa-1,
+#fa-2,
+#fa-3 {
+  position: absolute;
+  background: transparent;
+  border: none;
+  right: 10px;
+  bottom: 10px;
+  transition: all 0.15s ease-in-out;
+  color: white;
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  background: $red;
+  img{
+    width: 25px;
+  }
+
+  &:hover {
+    tansition-delay: 0s;
+    color: lighten($red, 15);
+  }
+}
+
+.radial {
+  &.open {
+    // height: 300px;
+    // width: 300px;
+    // right: -95px;
+    // bottom: -95px;
+
+    .fab {
+      background-color: darken($blue, 5);
+      box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.15), 0px 4px 8px rgba(0, 0, 0, 0.2);
+    }
+
+    #plus {
+      transform: rotateZ(135deg) translate(-1px, 3px);
+    }
+
+    #fa-1 {
+      transition-delay: 0.1s;
+      transform: translate(-100px, 0px);
+    }
+
+    #fa-2 {
+      transition-delay: 0.1s;
+      transform: translate(-65px, -65px);
+    }
+
+    #fa-3 {
+      transition-delay: 0.1s;
+      transform: translate(0px, -100px);
+    }
+  }
+}
+
 </style>

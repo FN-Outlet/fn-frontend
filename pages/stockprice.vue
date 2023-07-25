@@ -48,15 +48,7 @@
   
   <script>
   import { defineComponent } from '@vue/composition-api'
-  import { Navigation, Pagination, Scrollbar, A11y } from 'swiper/modules'
 
-  import { Swiper, SwiperSlide } from 'swiper/vue'
-  import { useSwiper } from 'swiper/vue'
-
-  import 'swiper/css';
-  import 'swiper/css/navigation';
-  import 'swiper/css/pagination';
-  import 'swiper/css/scrollbar';
 
   export default defineComponent({
     data() {
@@ -67,17 +59,9 @@
       };
     },
     components: {
-      Swiper,
-      SwiperSlide,
+
     },
-    setup() {
-      const swiper = useSwiper()
-      
-      return {
-          modules: [Navigation, Pagination, Scrollbar, A11y],
-          swiper,
-        };
-    },
+
     mounted() {
       console.log( this.width )
     },
@@ -85,16 +69,6 @@
       getWidth( submenuWidth) {
         this.width = submenuWidth
       },
-      nextSlide(){
-        this.$refs.mySwiper.$el.swiper.slideNext()
-      },
-      prevSlide(){
-        this.$refs.mySwiper.$el.swiper.slidePrev()
-      },
-      goto( index ){
-        this.$refs.mySwiper.$el.swiper.slideTo( index )
-        this.activeIndex = index
-      }
     },
   })
   </script>
