@@ -24,8 +24,14 @@
                   <div class="img">
                     <img v-if="item.attributes.image.data" :src="item.attributes.image.data.attributes.url"  class="img-fluid"/>
                   </div>
-                  <h3>{{ item.attributes.nameth }}</h3>
-                  <p>{{ item.attributes.positions }}</p>
+                  <div v-if="$i18n.locale === 'en'">
+                    <h3>{{ item.attributes.nameen }}</h3>
+                    <p>{{ item.attributes.positionen }}</p>
+                  </div>
+                  <div v-else>
+                    <h3>{{ item.attributes.nameth }}</h3>
+                    <p>{{ item.attributes.positionth }}</p>
+                  </div>
                 </div>
               </div>
             </div>
