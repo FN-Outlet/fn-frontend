@@ -37,7 +37,7 @@
           </div>
           <hr>
           <div class="d-lg-flex justify-content-between align-items-center">
-            <p class="text-white text-xs m-0">Copyright © 2023 FN Factory Outlet Co., Ltd.</p>
+            <p class="text-white text-xs m-0">Copyright © 2023 FN Factory Outlet Public Company Limited.</p>
             <div class="bottom-links">
               <a href="#" class="text-white text-xs">Privacy Policy</a>
               <a href="#" class="text-white text-xs">Cookies Policy</a>

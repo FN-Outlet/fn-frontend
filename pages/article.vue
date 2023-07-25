@@ -1,6 +1,6 @@
 <template>
     <sidenav ref="sidenav" @submenuWidth="getWidth"/>
-    <div class="main" :style="`padding-left: ${width}px;`">
+    <div class="main" :style="`padding-left: ${width}px;`" v-if="!loading">
       <Header />
       <div class="w-100">
         <section class="bg-primary d-lg-flex banner hp-banner">
@@ -18,17 +18,13 @@
               <img src="/logo.png" class="img-fluid mb-4" />
               <span>NEWS</span>
             </h2>
-            <h2>FN Factory scales down, includes anchors Greater focus on local customers</h2>
+            <h2>{{ data.attributes.topicth }}</h2>
             <hr>
             <div class="info">
-              <small>PUBLISHED : 16 DEC 2022 AT 04:01</small>
+              <small>PUBLISHED : {{ data.attributes.publishedAt }}</small>
             </div>
             <article class="mt-5">
-              <p>SET-listed FN Factory Outlet, the operator of FN outlets, has transformed from a retail factory outlet to a retail developer, planning to build more consumer product brands as a new source of income.</p>
-
-              <p>According to Benyiam Songwatana, the company's executive director and chief technology officer, the company's business concept has been adjusted since last year after in-house research found there are two main customer groups shopping at FN Factory Outlet: locals and travellers.</p>
-
-              <p>Based on the research, the company decided to scale down the size of its factory outlets by 50% and turn the remaining space into various anchors to serve local customers and draw more traffic.</p>
+              <div v-if="data.attributes.contentth" v-html="$mdRenderer.render(data.attributes.contentth)"></div>
             </article>
 
           </div>
@@ -54,6 +50,7 @@
     data() {
       return {
         width: '50',
+        loading: true,
       };
     },
     components: {
@@ -68,8 +65,8 @@
           swiper,
         };
     },
-    mounted() {
-      console.log( this.width )
+    async mounted() {
+      await this.getNews()
     },
     methods: {
       getWidth( submenuWidth) {
@@ -81,6 +78,11 @@
       prevSlide(){
         this.$refs.mySwiper.$el.swiper.slidePrev()
       },
+      async getNews() {
+        const { data } = await $fetch(`/api/newss/${this.$route.query.id}?populate=*`);
+        this.data = data;
+        this.loading = false;
+      }
     },
   })
   </script>

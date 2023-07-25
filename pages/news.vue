@@ -1,6 +1,6 @@
 <template>
     <sidenav ref="sidenav" @submenuWidth="getWidth"/>
-    <div class="main" :style="`padding-left: ${width}px;`">
+    <div class="main" :style="`padding-left: ${width}px;`" v-if="!loading">
       <Header />
       <div class="w-100">
         <section class="bg-primary d-lg-flex banner hp-banner">
@@ -62,36 +62,14 @@
               </div>
             </div>
             <div class="row">
-              <div class="col-lg-4">
+              <div class="col-lg-4" v-for="(news,item) in data" :key="item">
                 <div href="#" class="news-thumbnail">
-                  <img src="/news-sample.jpg" class="img-fluid" />
-                  <h3>NEWS 1</h3>
-                  <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod </p>
+                  <img v-if="news.attributes.image.data" :src="news.attributes.image.data.attributes.url"  class="img-fluid" />
+                  <h3>{{ news.attributes.headlineth }}</h3>
+                  <p>{{ news.attributes.topicth }}</p>
                   <div class="footer">
-                    <date>29 June 2023</date>
-                    <a href="/article">Read more</a>
-                  </div>
-                </div>
-              </div>
-              <div class="col-lg-4">
-                <div href="#" class="news-thumbnail">
-                  <img src="/news-sample.jpg" class="img-fluid" />
-                  <h3>NEWS 2</h3>
-                  <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod </p>
-                  <div class="footer">
-                    <date>29 June 2023</date>
-                    <a href="/article">Read more</a>
-                  </div>
-                </div>
-              </div>
-              <div class="col-lg-4">
-                <div href="#" class="news-thumbnail">
-                  <img src="/news-sample.jpg" class="img-fluid" />
-                  <h3>NEWS 3</h3>
-                  <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod </p>
-                  <div class="footer">
-                    <date>29 June 2023</date>
-                    <a href="/article">Read more</a>
+                    <date></date>
+                    <nuxt-link :to="`/${$i18n.locale}/article?id=${news.id}`">Read more</nuxt-link>
                   </div>
                 </div>
               </div>
@@ -155,6 +133,7 @@
     data() {
       return {
         width: '50',
+        loading: true,
       };
     },
     components: {
@@ -169,8 +148,8 @@
           swiper,
         };
     },
-    mounted() {
-      console.log( this.width )
+    async mounted() {
+      await this.getNews()
     },
     methods: {
       getWidth( submenuWidth) {
@@ -182,6 +161,11 @@
       prevSlide(){
         this.$refs.mySwiper.$el.swiper.slidePrev()
       },
+      async getNews() {
+        const { data } = await $fetch(`/api/newss?sort=id:desc&populate=*`);
+        this.data = data;
+        this.loading = false;
+      }
     },
   })
   </script>

@@ -38,7 +38,7 @@
             </div>-->
             <div class="row mx-lg-5 mt-5">
               <div class="col-lg-6 bg-primary p-4 md-w-100 address">
-                <img src="/branch-hq-map.jpg" class="img-fluid" />
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1937.804968245858!2d100.61338079839477!3d13.742049700000006!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x30e29e289a280a4d%3A0x849fe0360dc9f4db!2sFN%20Building%20Rama9!5e0!3m2!1sth!2sth!4v1690301214930!5m2!1sth!2sth" width="100%" height="350" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
                 <h2 class="text-white text-center mt-4">FN RAMA IX (สำนักงานกรุงเทพ)</h2>
                 <p class="text-white text-start">ที่อยู่ : 991 อาคารเอฟเอ็น บิวดิ้ง ถนนพระราม 9 แขวงสวนหลวง เขตสวนหลวง, กทม. 10250</p>
                 <p class="text-white text-start">
