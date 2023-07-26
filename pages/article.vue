@@ -23,9 +23,18 @@
             <div class="info">
               <small>PUBLISHED : {{ data.attributes.publishedAt }}</small>
             </div>
-            <article class="mt-5">
-              <div v-if="data.attributes.contentth" v-html="$mdRenderer.render(data.attributes.contentth)"></div>
-            </article>
+            <div class="row">
+              <div class="col-12 col-md-6 text-center">
+                <img v-if="data.attributes.image.data" :src="data.attributes.image.data.attributes.url"  class="img-fluid" />
+              </div>
+              <div class="col-12 col-md-6">
+                <article class="mt-5">
+                  <div v-if="data.attributes.contentth" v-html="$mdRenderer.render(data.attributes.contentth)"></div>
+                </article>
+              </div>
+            </div>
+            
+            
 
           </div>
         </section>

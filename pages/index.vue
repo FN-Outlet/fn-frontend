@@ -20,11 +20,13 @@
         </div>
         <div class="col" style="background: #E3E3E3;">
           <div class="p-15 d-flex align-items-center justify-content-center">
-            <div class="frame-wrapper">
-              <h2>PRODUCT</h2>
-              <img src="/hp-s2-chair.png" class="img-fluid" />
-              <a href="">READ MORE</a>
-            </div>
+            <nuxt-link :to="localePath('products-services')">
+              <div class="frame-wrapper">
+                <h2>PRODUCT</h2>
+                <img src="/hp-s2-chair.png" class="img-fluid" />
+                <a href="">READ MORE</a>
+              </div>
+            </nuxt-link>
           </div>
         </div>
       </section>
@@ -53,11 +55,13 @@
       <section class="d-lg-flex">
         <div class="col">
           <div class="p-15 h-100 d-flex align-items-center justify-content-center">
-            <div class="frame-wrapper sofa">
-              <h2>BRANCH</h2>
-              <img src="/hp-s4-sofa.png" class="img-fluid" />
-              <a href="">READ MORE</a>
-            </div>
+            <nuxt-link :to="localePath('branch')">
+              <div class="frame-wrapper sofa">
+                <h2>BRANCH</h2>
+                <img src="/hp-s4-sofa.png" class="img-fluid" />
+                <a href="">READ MORE</a>
+              </div>
+            </nuxt-link>
           </div>
         </div>
         <div class="col p-0 d-flex align-items-center justify-content-center img-center">

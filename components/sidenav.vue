@@ -6,37 +6,44 @@
           <img src="/logo-white.png" class="img-fluid" />
         </nuxt-link>
         <nav class="mt-lg-5 mt-4">
-          <h2 class="text-white">{{ $t('nav.aboutus') }}</h2>
-          <div class="ms-lg-5 my-lg-5 my-4">
-            <div class="row">
+          <h2 class="text-white" @click="isHideAboutUs=!isHideAboutUs">{{ $t('nav.aboutus') }}</h2>
+          <div class="ms-lg-5 my-lg-5 my-4" v-show="!isHideAboutUs">
+            <!--<div class="row">
               <a href="#" class="col-6 text-white">นักลงทุนสัมพันธ์</a>
-            </div>
+            </div>-->
             <div class="row">
               <nuxt-link :to="localePath('history')" class="col-6 text-white">
                 ประวัติความเป็นมา
               </nuxt-link>
-              <a href="#" class="col-6 text-white">การกำกับดูแลกิจการที่ดี</a>
-            </div>
-            <div class="row">
+              <!--<a href="#" class="col-6 text-white">การกำกับดูแลกิจการที่ดี</a>-->
               <nuxt-link :to="localePath('structure')" class="col-6 text-white">
                 โครงสร้างธุรกิจ
               </nuxt-link>
-              <nuxt-link :to="localePath('news')" class="col-6 text-white">ห้องข่าว</nuxt-link>
-            </div>
-            <div class="row">
-              <nuxt-link :to="localePath('financial')" class="col-6 text-white">ข้อมูลทางการเงิน</nuxt-link>
-              <a href="#" class="col-6 text-white">เอกสารเผยแพร่</a>
-            </div>
-            <div class="row">
-              <nuxt-link :to="localePath('stockprice')" class="col-6 text-white">ข้อมูลราคาหลักทรัพย์</nuxt-link>
-              <a href="#" class="col-6 text-white">สอบถามข้อมูลนักลงทุน</a>
-            </div>
-            <div class="row">
-              <a target="_blank" href="https://www.set.or.th/th/market/product/stock/quote/FN/major-shareholders" class="col-6 text-white">ข้อมูลผู้ถือหุ้น</a>
-              <a target="_blank" href="https://www.set.or.th/th/market/product/stock/quote/FN/news" class="col-6 text-white">ข่าวแจ้งตลาดหลักทรัพย์</a>
             </div>
             <div class="row">
               <nuxt-link :to="localePath('directors')" class="col-6 text-white">คณะกรรมการบริษัท</nuxt-link>
+              <nuxt-link :to="localePath('stockprice')" class="col-6 text-white">ข้อมูลราคาหลักทรัพย์</nuxt-link>
+              
+            </div>
+            <div class="row">
+              
+              <nuxt-link :to="localePath('financial')" class="col-6 text-white">ข้อมูลทางการเงิน</nuxt-link>
+              <a target="_blank" href="https://www.set.or.th/th/market/product/stock/quote/FN/major-shareholders" class="col-6 text-white">ข้อมูลผู้ถือหุ้น</a>
+            </div>
+            <div class="row">
+              
+              <a target="_blank" href="https://www.set.or.th/th/market/product/stock/quote/FN/news" class="col-6 text-white">ข่าวแจ้งตลาดหลักทรัพย์</a>
+              <a href="#" class="col-6 text-white">สอบถามข้อมูลนักลงทุน</a>
+            </div>
+            <div class="row">
+              <nuxt-link :to="localePath('news')" class="col-6 text-white">ห้องข่าว</nuxt-link>
+              <a href="#" class="col-6 text-white">เอกสารเผยแพร่</a>
+            
+            </div>
+            
+            <div class="row">
+              
+              <nuxt-link :to="localePath('career')" class="col-6 text-white">ร่วมงานกับเรา</nuxt-link>
             </div>
           </div>
           <h2 class="text-white">
@@ -93,6 +100,7 @@ export default defineComponent({
     return {
       width: '0',
       isOpen: false,
+      isHideAboutUs: true,
     };
   },
   mounted() {

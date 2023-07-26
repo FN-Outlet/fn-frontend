@@ -18,7 +18,7 @@
           <div class="container">
             <h2 class="heading-text text-center">
               <img src="/logo.png" class="img-fluid mb-4" />
-              <span>BUSINESS STRUCTURE</span>
+              <span>{{ $t('structure.header') }}</span>
             </h2>
           </div>
         </section>
@@ -26,21 +26,24 @@
           <div class="col bg-primary p-0 d-flex align-items-center justify-content-center img-center">
             <img src="/fn-structure-1.png" class="main-logo d-none d-lg-inline" />
             <div class="px-lg-5 p-4">
-              <h2 class="heading-text text-white">
+              <h2 class="heading-text text-white" v-if="$i18n.locale=='en'">
                 <img src="/logo-white.png" class="img-fluid mb-4" />
                 <span class="text-white">Factory Outlet </span>
               </h2>
-              <h2 class="text-white font-thin mb-5">Public Company Limited</h2>
-              <p class="text-white">Registered Capital:<br>
-              Baht 500,000,000</p>
+              <h2 class="heading-text text-white"  v-else>
+                <span class="text-white" style="margin-left: 0px">เอฟเอ็น แฟคตอรี่<br>เอ๊าท์เลท (FN)</span>
+              </h2>
+              <h2 class="text-white font-thin mb-5">{{ $t("structure.publicCompanyLimited") }}</h2>
+              <p class="text-white">{{ $t("structure.registeredCapital") }}:<br>
+                {{ $t("structure.baht500") }}</p>
             </div>
           </div>
           <div class="col">
             <div class="p-15 h-100 d-flex flex-column align-items-center justify-content-center">
               <div class="px-lg-4 p-4">
-              <h2 class="text-black mb-4">FN BUSINESS OUTLINE</h2>
+              <h2 class="text-black mb-4">{{ $t("structure.fNBUSINESSOUTLINE") }}</h2>
               <p>
-              Business: Operator of factory outlets selling apparel and non-apparel goods through 12 branches, namely Phetchaburi Branch, Kanchanaburi Branch, Pattaya Branch, Pak Chong Branch, Sing Buri Branch, Hua Hin Branch, Sriracha Branch, Phra Nakhon Sri Ayutthaya Branch, Chachoengsao Branch, Rama 9 Branch and JAS Green Village Kubon.</p>
+                {{ $t("structure.content1") }}</p>
             </div>
             </div>
           </div>
@@ -49,19 +52,18 @@
           <div class="col order-2 order-lg-1 p-0 d-flex align-items-center justify-content-center img-center">
             <img src="/fn-structure-2.png" class="main-logo d-none d-lg-inline" />
             <div class="p-lg-5 p-4">
-              <h2 class="text-black mb-4">SL BUSINESS OUTLINE</h2>
-              <p>Business: Distributing innovative products of health care and environmental.</p>
+              <h2 class="text-black mb-4">{{ $t("structure.sLBUSINESSOUTLINE") }}</h2>
+              <p>{{ $t("structure.content2") }}</p>
             </div>
           </div>
           <div class="col order-1 order-lg-2">
             <div class="p-15 bg-primary h-100 d-flex flex-column align-items-center justify-content-center">
               <div class="px-lg-4 p-4">
-                <h2 class="heading-text text-white">Save Life International 
-Company Limited
+                <h2 class="heading-text text-white">{{ $t("structure.saveLifeInternationalCompanyLimited") }}
                 </h2>
-                <h2 class="text-white font-thin mb-5">Public Company Limited</h2>
-                <p class="text-white">Registered Capital:<br>
-                Baht 10,000,000</p>
+                <h2 class="text-white font-thin mb-5">{{ $t("structure.publicCompanyLimited") }}</h2>
+                <p class="text-white">{{ $t("structure.registeredCapital") }}:<br>
+                  {{ $t("structure.baht10") }}</p>
               </div>
             </div>
           </div>

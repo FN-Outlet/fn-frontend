@@ -1,6 +1,6 @@
 <template>
     <sidenav ref="sidenav" @submenuWidth="getWidth"/>
-    <div class="main" :style="`padding-left: ${width}px;`">
+    <div class="main" :style="`padding-left: ${width}px;`" v-if="!loading">
       <Header />
       <div class="w-100">
         <section class="bg-primary d-lg-flex banner hp-banner">
@@ -27,25 +27,29 @@
 
                 <button class="btn btn-primary mt-4">DOWNLOAD APPLICATION</button>
                 <hr style="border-color:#CC3832" class="my-5">
-                <div class="position">
-                  <span>SYSTEM AND SUPPORT</span>
-                  <span>1 POSITION</span>
-                </div>
-                <div class="position">
-                  <span>SYSTEM AND SUPPORT</span>
-                  <span>1 POSITION</span>
-                </div>
-                <div class="position">
-                  <span>SYSTEM AND SUPPORT</span>
-                  <span>1 POSITION</span>
-                </div>
-                <div class="position">
-                  <span>SYSTEM AND SUPPORT</span>
-                  <span>1 POSITION</span>
-                </div>
-                <div class="position">
-                  <span>SYSTEM AND SUPPORT</span>
-                  <span>1 POSITION</span>
+                <div v-for="(career, item) in data" :key="item">
+                  <div class="position">
+                    <span>{{ career.attributes.positionth }}</span>
+                    <span>1 POSITION</span>
+                  </div>
+                  <div class="card">
+                    <div class="card">
+                      <h3 class="card-title">
+                        หน้าที่รับผิดชอบ (Job Summary)
+                      </h3>
+                      <div class="card-body" style="text-align:left">
+                        <p class="text-left" v-if="career.attributes.jobsummaryth" v-html="$mdRenderer.render(career.attributes.jobsummaryth)"></p>
+                      </div>
+                    </div>
+                    <div class="card">
+                      <h3 class="card-title">
+                        คุณสมบัติประจำตำแหน่ง (Job Specifications)
+                      </h3>
+                      <div class="card-body" style="text-align:left">
+                        <span v-if="career.attributes.jobspecificationth" v-html="$mdRenderer.render(career.attributes.jobspecificationth)"></span>
+                      </div>
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>
@@ -64,15 +68,22 @@
     data() {
       return {
         width: '50',
+        data: '',
+        loading: true,
       };
     },
-    mounted() {
-      console.log( this.width )
+    async mounted() {
+      await this.getCareer()
     },
     methods: {
       getWidth( submenuWidth) {
         this.width = submenuWidth
       },
+      async getCareer() {
+        const { data } = await $fetch(`/api/careers?populate=*`);
+        this.data = data;
+        this.loading = false;
+      }
     },
   })
   </script>
