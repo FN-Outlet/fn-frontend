@@ -33,7 +33,7 @@
             <div class="row">
               
               <a target="_blank" href="https://www.set.or.th/th/market/product/stock/quote/FN/news" class="col-6 text-white">ข่าวแจ้งตลาดหลักทรัพย์</a>
-              <a href="#" class="col-6 text-white">สอบถามข้อมูลนักลงทุน</a>
+              <nuxt-link :to="localePath('contact')" class="col-6 text-white">สอบถามข้อมูลนักลงทุน</nuxt-link>
             </div>
             <div class="row">
               <nuxt-link :to="localePath('news')" class="col-6 text-white">ห้องข่าว</nuxt-link>
