@@ -17,7 +17,7 @@ HIGHLIGHTS</h2>
           <div class="container">
             <h2 class="heading-text text-center">
               <img src="/logo.png" class="img-fluid mb-4" />
-              <span>COMPANY MILES STONE </span>
+              <span>COMPANY FINANCIAL </span>
             </h2>
             <div class="tab-nav row mt-5 mt-lg-0">
               <div class="col-lg-4">

@@ -17,7 +17,7 @@
           <div class="container">
             <h2 class="heading-text text-center">
               <img src="/logo.png" class="img-fluid mb-4" />
-              <span>COMPANY HISTORY</span>
+              <span>COMPANY MILES STONE</span>
             </h2>
             <div class="slider-nav">
               <button :class="{ 'active' : activeIndex === index}" @click="goto( index)" v-for="(item, index) in items" :key="index">{{ item }}</button>

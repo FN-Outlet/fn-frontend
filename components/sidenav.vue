@@ -16,12 +16,26 @@
                 ประวัติความเป็นมา
               </nuxt-link>
               <!--<a href="#" class="col-6 text-white">การกำกับดูแลกิจการที่ดี</a>-->
+              <nuxt-link to="/" class="col-6 text-white">
+                วิสัยทัศน์ และพันธกิจ
+              </nuxt-link>
+            </div>
+            <div class="row">
+              <!--<a href="#" class="col-6 text-white">การกำกับดูแลกิจการที่ดี</a>-->
               <nuxt-link :to="localePath('structure')" class="col-6 text-white">
                 โครงสร้างธุรกิจ
+              </nuxt-link>
+              <nuxt-link to="/" class="col-6 text-white">
+                สารจากประธานกรรมการ
               </nuxt-link>
             </div>
             <div class="row">
               <nuxt-link :to="localePath('directors')" class="col-6 text-white">คณะกรรมการบริษัท</nuxt-link>
+              <nuxt-link to="/" class="col-6 text-white">คณะกรรมการชุดย่อย</nuxt-link>
+              
+            </div>
+            <div class="row">
+              <nuxt-link to="/" class="col-6 text-white">คณะผู้บริหาร</nuxt-link>
               <nuxt-link :to="localePath('stockprice')" class="col-6 text-white">ข้อมูลราคาหลักทรัพย์</nuxt-link>
               
             </div>
