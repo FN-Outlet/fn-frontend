@@ -40,8 +40,8 @@ export default defineNuxtConfig({
   },
   nitro: {
     devProxy: {
-      '/uploads': { target: 'http://localhost:1337/uploads' },
-      '/api': 'http://localhost:1337/api',
+      '/uploads': { target: 'http://fn-admin.27.254.144.107.nip.io/uploads', changeOrigin: true },
+      '/api': { target: 'http://fn-admin.27.254.144.107.nip.io/api', changeOrigin: true },
     },
     prerender: {
       routes: [
