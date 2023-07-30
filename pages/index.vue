@@ -38,7 +38,7 @@
           <div class="p-15 bg-primary h-100 d-flex flex-column align-items-center justify-content-center">
             <h2 class="text-white text-center font-normal">FN MALL <br/>MARKETPLACE</h2>
             <img src="/hp-s3-text.png" class="img-fluid my-3" />
-            <div class="d-lg-flex align-items-center">
+            <div class="d-lg-flex align-items-center flex-wrap malls">
               <a href="https://shopee.co.th/fnoutlet" class="mx-2 d-block" target="_blank">
                 <img src="/shopee.png" class="img-fluid" />
               </a>
@@ -47,6 +47,15 @@
               </a>
               <a href="https://www.tiktok.com/@fn_officialth" class="mx-2 d-block" target="_blank">
                 <img src="/tiktok.png" class="img-fluid" />
+              </a>
+              <a href="https://www.youtube.com/channel/UCTGvDZvpTrKsDq-48L8pJ4g" class="mx-2 new" target="_blank">
+                <img src="/youtube.svg" class="img-fluid" /> Youtube
+              </a>
+              <a target="_blank" href="https://www.facebook.com/FN.Factory.Outlet" class="mx-2 new">
+                <img src="/facebook-1.svg" class="img-fluid" /> Facebook
+              </a>
+              <a target="_blank" href="https://www.instagram.com/fnoutlet/" class="mx-2 new">
+                <img src="/instagram.svg" class="img-fluid" /> Instagram
               </a>
             </div>
           </div>
@@ -190,5 +199,22 @@ export default defineComponent({
 
 .main{
   padding-left: 100px;
+}
+
+.malls{
+  justify-content: center;
+  a{
+    margin: 5px !important;
+  }
+  .new{
+    color: #fff;
+    text-decoration: none;
+    text-transform: uppercase;
+    img{
+      height: 20px;
+      width: auto;
+      object-fit: contain;
+    }
+  }
 }
 </style>
