@@ -64,9 +64,11 @@
             <div class="row">
               <div class="col-lg-4" v-for="(news,item) in data" :key="item">
                 <div href="#" class="news-thumbnail">
-                  <img v-if="news.attributes.image.data" :src="news.attributes.image.data.attributes.url"  class="img-fluid" />
-                  <h3>{{ news.attributes.headlineth }}</h3>
-                  <p>{{ news.attributes.topicth }}</p>
+                  <div>
+                    <img v-if="news.attributes.image.data" :src="news.attributes.image.data.attributes.url"  class="img-fluid" />
+                    <h3>{{ news.attributes.headlineth }}</h3>
+                    <p>{{ news.attributes.topicth }}</p>
+                  </div>
                   <div class="footer">
                     <date></date>
                     <nuxt-link :to="`/${$i18n.locale}/article?id=${news.id}`">Read more</nuxt-link>
@@ -260,9 +262,20 @@
 
   .news-thumbnail{
     text-decoration: none;
-    margin-top: 60px;
-    display: block;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
     border-bottom: 2px solid #CC3832;
+    height: 100%;
+    > div:first-child{
+      margin-top: 60px;
+    }
+    img{
+      height: 183px;
+      width: 100%;
+      object-fit: cover;
+      object-position: center;
+    }
     h3{
       color: #111111;
       margin: 15px 0;
