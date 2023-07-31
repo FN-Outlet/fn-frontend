@@ -32,10 +32,11 @@
               <div class="col-lg-4 mt-5" v-for="(item, index) in data" :key="index">
                 <div class="bod">
                   <div class="img" @click="showModal = true">
-                    <img v-if="item.attributes.image.data" :src="item.attributes.image.data.attributes.url"  class="img-fluid" />
+                    <img v-if="item.attributes.image.data" :src="item.attributes.image.data.attributes.url" class="img-fluid" />
                     <info-modal 
-                      v-show="showModal" 
-                      @close-modal="showModal = false">
+                      v-if="showModal" 
+                      @clicked="closeModal(false)"
+                    >
                     </info-modal>
                   </div>
                   <div v-if="$i18n.locale === 'en'">
@@ -78,6 +79,11 @@
     methods: {
       getWidth( submenuWidth) {
         this.width = submenuWidth
+      },
+      closeModal( value ){
+        console.log( value )
+        this.showModal = false
+        console.log( this.showModal )
       },
       async getDirectors() {
         const { data } = await $fetch(`/api/directors?sort=sequence&populate=*`);

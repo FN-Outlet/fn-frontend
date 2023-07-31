@@ -1,19 +1,25 @@
 <template>
-    <div class="modal-overlay-custom" @click="$emit('close-modal')">
+    <div class="modal-overlay-custom" @click="onClickClose">
       <div class="modal-custom"  @click.stop>
         <h6>Saved!</h6>
         <slot></slot>
         <button>Go Home</button>
       </div>
-      <div class="close" @click="$emit('close-modal')">
+      <div class="close" @click="onClickClose">
         <img class="close-img img-fluid" src="/close.svg" alt="" />
       </div>
     </div>
   </template>
   
   <script>
+    import { defineComponent } from '@vue/composition-api'
     export default {
-  }
+        methods: {
+            onClickClose( event ){
+                this.$emit('clicked', false)
+            }
+        }
+    }
   </script>
 
 <style scoped>
