@@ -115,16 +115,16 @@ HIGHLIGHTS</h2>
                 </table>
               </div>
               <div class="docs" v-if="isActive2">
-                <a href="" class="d-flex w-100 justify-content-between"  v-for="index in 10" :key="index">ไม่มีอะ
+                <!--<a href="" class="d-flex w-100 justify-content-between"  v-for="index in 10" :key="index">ไม่มีอะ
                   <span>การขอผ่อนผันการนำส่งงบการเงิน Q1/2563 สิ้นสุดวันที่ 31/03/2563</span>
                   <span>Download</span>
-                </a>
+                </a>-->
               </div>
               <div class="docs" v-if="isActive3">
-                <a href="" class="d-flex w-100 justify-content-between"  v-for="index in 10" :key="index">
+                <!--<a href="" class="d-flex w-100 justify-content-between"  v-for="index in 10" :key="index">
                   <span>การขอผ่อนผันการนำส่งงบการเงิน Q1/2563 สิ้นสุดวันที่ 31/03/2563</span>
                   <span>Download</span>
-                </a>
+                </a>-->
               </div>
             </div>
 

@@ -60,7 +60,7 @@
         this.width = submenuWidth
       },
       async getDirectors() {
-        const { data } = await $fetch(`/api/directors?sort=sequence&populate=*`);
+        const { data } = await $fetch(`/api/directors?sort=sequence&filters[committeetype][$eq]=Director&populate=*`);
         this.data = data;
         this.loading = false;
       }

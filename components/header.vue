@@ -6,9 +6,6 @@
       <div class="search-wrapper">
         <input type="text" placeholder="SEARCH">
       </div>
-      <NuxtLink v-for="locale in availableLocales" :key="locale.code" :to="switchLocalePath(locale.code)">{{
-        locale.value
-      }}</NuxtLink>
       <NuxtLink :to="switchLocalePath('th')"><button>TH</button></NuxtLink>
       <NuxtLink :to="switchLocalePath('en')"><button>EN</button></NuxtLink>
     </header>

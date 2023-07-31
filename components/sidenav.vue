@@ -16,7 +16,7 @@
                 ประวัติความเป็นมา
               </nuxt-link>
               <!--<a href="#" class="col-6 text-white">การกำกับดูแลกิจการที่ดี</a>-->
-              <nuxt-link to="/" class="col-6 text-white">
+              <nuxt-link :to="localePath('vision-mission')" class="col-6 text-white">
                 วิสัยทัศน์ และพันธกิจ
               </nuxt-link>
             </div>

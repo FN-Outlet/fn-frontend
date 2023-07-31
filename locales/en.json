@@ -1,7 +1,7 @@
 {
 	"nav": {
 		"aboutus": "ABOUT US",
-		"productservice" : "FN PRODUCTS & SERVICES",
+		"productservice" : "FN PRODUCTS",
 		"branch" : "FN BRANCH",
 		"online" : "FN ONLINE"
 	},
@@ -19,5 +19,36 @@
 		"content2": "Business: Distributing innovative products of health care and environmental.",
 		"baht10": "Baht 10,000,000",
 		"saveLifeInternationalCompanyLimited": "Save Life International Company Limited"
+	},
+	"vision-mission": {
+		"vision": "VISION",
+		"designOutletHeading": "DESIGN OUTLET",
+		"designOutletText": "FN is the expert in having its one-of-a-kind design outlet which products are specially made and selected to serve our customers exclusively only at FN and to offer a fun and memorable experience to shoppers and travelers.",
+		"deliverBestValueHeading": "DELIVER BEST VALUE",
+		"deliverBestValueText": "FN excels in searching, selecting, and providing only the best value-for-money products and services from around the world for our customers.",
+		"delightAllCustomersHeading": "DELIGHT ALL CUSTOMERS",
+		"delightAllCustomersText": "FN selectively expands its business locally and globally through creatively designed outlet, both regular and online stores, using its expertise in best-value selection.",
+		"mission": "MISSION",
+		"inspireHeading": "INSPIRE",
+		"inspireText": "Inspire and offer greater choices of lifestyle, shopping and leisure for consumers.",
+		"sourceHeading": "SOURCE",
+		"sourceText": "Source, select and serve best value-for-money products and services from around the world.",
+		"expandHeading": "EXPAND",
+		"expandText": "Expand the partnership network of FN family both domestically and internationally.",
+		"buildHeading": "BUILD",
+		"buildText": "Build greater value for investors through corporate responsibility and transparency.",
+		"coreValue": "CORE VALUE",
+		"openessHeading": "OPENNESS",
+		"openessText": "Open to change, open to diversity, open to new creativities, open to new opportunities.",
+		"uniquenessHeading": "UNIQUENESS",
+		"uniquenessText": "Be different, be exclusive.",
+		"teamworkHeading": "TEAMWORK",
+		"teamworkText": "Embrace differences and work towards the same goal.",
+		"learningHeading": "LEARNING",
+		"learningText": "Never stop learning new things",
+		"energyHeading": "ENERGY",
+		"energyText": "Eager to serve our customers",
+		"trustHeading": "TRUST",
+		"trustText": "Build credibility and create customer loyalty"
 	}
 }
