@@ -14,87 +14,96 @@
           </div>
         </section>
         <section class="d-lg-flex"> 
-          <div class="col" style="background: #E3E3E3;">
-            <div class="p-15 d-flex align-items-center h-100 justify-content-center">
-              <h2>VISION</h2>
+          <div class="col" style="background: #CD3732;">
+            <div class="d-flex align-items-center h-100 justify-content-center">
+              <img src="/vision.jpg" style="min-width: 100%; min-height: auto;"/>
             </div>
           </div>
           <div class="col p-0">
+            <div class="p-3 d-flex align-items-center justify-content-center">
+              <h2>{{ $t("vision-mission.vision") }}</h2>
+            </div>
             <div class="p-5">
               <Collapse 
-                :heading="'Design Outlet'"
-                :text="'FN is the expert in having its one-of-a-kind design outlet which products are specially made and selected to serve our customers exclusively only at FN and to offer a fun and memorable experience to shoppers and travelers.'"
+                :heading="$t('vision-mission.designOutletHeading')"
+                :text="$t('vision-mission.designOutletText')"
               />
               <Collapse 
-                :heading="'Deliver Best Value'"
-                :text="'FN excels in searching, selecting, and providing only the best value-for-money products and services from around the world for our customers.'"
+                :heading="$t('vision-mission.deliverBestValueHeading')"
+                :text="$t('vision-mission.deliverBestValueText')"
               />
               <Collapse 
-                :heading="'Delight all customers'"
-                :text="'FN selectively expands its business locally and globally through creatively designed outlet, both regular and online stores, using its expertise in best-value selection.'"
+                :heading="$t('vision-mission.delightAllCustomersHeading')"
+                :text="$t('vision-mission.delightAllCustomersText')"
               />
             </div>
           </div>
         </section>
         <section class="d-flex mobile-flex"> 
           <div class="col order-2 order-lg-1 p-0">
+            <div class="p-3 d-flex align-items-center justify-content-center">
+              <h2>{{ $t("vision-mission.mission") }}</h2>
+            </div>
             <div class="p-5">
               <Collapse 
-                :heading="'Inspire'"
-                :text="'Inspire and offer greater choices of lifestyle, shopping and leisure for consumers.'"
+                :heading="$t('vision-mission.inspireHeading')"
+                :text="$t('vision-mission.inspireText')"
               />
               <Collapse 
-                :heading="'Source'"
-                :text="'Source, select and serve best value-for-money products and services from around the world.'"
+                :heading="$t('vision-mission.sourceHeading')"
+                :text="$t('vision-mission.sourceText')"
               />
               <Collapse 
-                :heading="'Expand'"
-                :text="'Expand the partnership network of FN family both domestically and internationally.'"
+                :heading="$t('vision-mission.expandHeading')"
+                :text="$t('vision-mission.expandText')"
               />
               <Collapse 
-                :heading="'Build'"
-                :text="'Build greater value for investors through corporate responsibility and transparency.'"
+                :heading="$t('vision-mission.buildHeading')"
+                :text="$t('vision-mission.buildText')"
               />
             </div>
           </div>
-          <div class="col order-1 order-lg-2" style="background: #E3E3E3;">
-            <div class="p-15 d-flex align-items-center h-100 justify-content-center">
-              <h2>MISSION</h2>
+          <div class="col order-1 order-lg-2" style="background: #CD3732;">
+            <div class="d-flex align-items-center h-100 justify-content-center">
+              <img src="/mission.jpg" style="min-width: 100%; min-height: auto;"/>
             </div>
           </div>
           
         </section>
         <section class="d-lg-flex"> 
-          <div class="col" style="background: #E3E3E3;">
-            <div class="p-15 d-flex align-items-center h-100 justify-content-center">
-              <h2>CORE VALUE</h2>
+          <div class="col" style="background: #CD3732;">
+            <div class="d-flex align-items-center h-100 justify-content-center">
+              <img src="/core-values.jpg" style="min-width: 100%; min-height: auto;"/>
             </div>
           </div>
           <div class="col p-0">
-            <div class="p-5">
+            <div class="p-3 d-flex align-items-center justify-content-center">
+              <h2>{{ $t("vision-mission.coreValue") }}</h2>
+            </div>
+            <div class="" style="padding-left: 3rem; padding-right: 3rem;">
               <Collapse 
-                :heading="'Openess'"
-                :text="'Open to change, open to diversity, open to new creativities, open to new opportunities.'"
+                :heading="$t('vision-mission.openessHeading')"
+                :text="$t('vision-mission.openessText')"
               />
               <Collapse 
-                :heading="'Uniqueness'"
-                :text="'Be different, be exclusive.'"
+                :heading="$t('vision-mission.uniquenessHeading')"
+                :text="$t('vision-mission.uniquenessText')"
               />
               <Collapse 
-                :heading="'Teamwork'"
-                :text="'Embrace differences and work towards the same goal.'"
+                :heading="$t('vision-mission.teamworkHeading')"
+                :text="$t('vision-mission.teamworkText')"
               />
               <Collapse 
-                :heading="'Learning'"
-                :text="'Never stop learning new things'"
+                :heading="$t('vision-mission.learningHeading')"
+                :text="$t('vision-mission.learningText')"
               />
               <Collapse 
-                :heading="'Energy'"
-                :text="'Eager to serve our customers'"
+                :heading="$t('vision-mission.energyHeading')"
+                :text="$t('vision-mission.energyText')"
               />
               <Collapse 
-                :heading="'Trust'"
-                :text="'Build credibility and create customer loyalty'"
+              :heading="$t('vision-mission.trustHeading')"
+                :text="$t('vision-mission.trustText')"
               />
             </div>
           </div>

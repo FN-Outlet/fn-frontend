@@ -18,48 +18,18 @@
               <img src="/logo.png" class="img-fluid mb-4" />
               <span>NEWS</span>
             </h2>
-            <div class="slider-wrapper">
-              <swiper 
-                ref="mySwiper"
-                :modules="modules"
-                :slides-per-view="1"
-                :loop="true"
-                :effect="'creative'"
-                :pagination="{ clickable: true }"
-                :autoplay="{
-                  delay: 8000,
-                  disableOnInteraction: true,
-                }"
-                :creative-effect="{
-                  prev: {
-                    shadow: false,
-                    translate: ['-20%', 0, -1],
-                  },
-                  next: {
-                    translate: ['100%', 0, 0],
-                  },
-              }">
-                <swiper-slide>
-                  <img src="/news-slider.jpg" class="img-fluid" />
-                </swiper-slide>
-                <swiper-slide>
-                  <img src="/news-slider.jpg" class="img-fluid" />
-                </swiper-slide>
-                <swiper-slide>
-                  <img src="/news-slider.jpg" class="img-fluid" />
-                </swiper-slide>
-              </swiper>
-              <button @click="nextSlide" class="btn-slider-next">
-                <img src="/slider-next.svg" class="img-fluid" />
-              </button>
-              <button @click="prevSlide" class="btn-slider-prev">
-                <img src="/slider-prev.svg" class="img-fluid" />
-              </button>
-            </div>
-            <div class="row mt-5">
-              <div class="col-lg-8 offset-lg-2 text-center">
-                <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea comdignissim </p>
-              </div>
+            <div class="mt-5" v-for="(newsHightlight,item) in dataHightlight" :key="item">
+              <nuxt-link :to="`/${$i18n.locale}/article?id=${newsHightlight.id}`" style="text-decoration: none;">
+                <div class="slider-wrapper text-center">
+                  <img v-if="newsHightlight && newsHightlight.attributes.image.data" :src="newsHightlight.attributes.image.data.attributes.url"  class="img-fluid" />
+                </div>
+                <div class="row mt-5" v-if="newsHightlight">
+                  <div class="col-lg-8 offset-lg-2 text-center">
+                    <h3>{{ newsHightlight.attributes.headlineth }}</h3>
+                    <p>{{ newsHightlight.attributes.topicth }}</p>
+                  </div>
+                </div>
+              </nuxt-link>
             </div>
             <div class="row">
               <div class="col-lg-4" v-for="(news,item) in data" :key="item">
@@ -136,6 +106,8 @@
       return {
         width: '50',
         loading: true,
+        data: '',
+        dataHightlight: '',
       };
     },
     components: {
@@ -152,6 +124,7 @@
     },
     async mounted() {
       await this.getNews()
+      await this.getNewsHightlight()
     },
     methods: {
       getWidth( submenuWidth) {
@@ -164,8 +137,13 @@
         this.$refs.mySwiper.$el.swiper.slidePrev()
       },
       async getNews() {
-        const { data } = await $fetch(`/api/newss?sort=id:desc&populate=*`);
+        const { data } = await $fetch(`/api/newss?sort=newsdate:desc&filters[Highlight][$eq]=false&populate=*`);
         this.data = data;
+        this.loading = false;
+      },
+      async getNewsHightlight() {
+        const { data } = await $fetch(`/api/newss?sort=newsdate:desc&filters[Highlight][$eq]=true&populate=*`);
+        this.dataHightlight = data;
         this.loading = false;
       }
     },
