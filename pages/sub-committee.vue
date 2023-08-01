@@ -9,7 +9,7 @@
             <img src="/director-banner.jpg" class="img-fluid w-100" />
           </div>
           <div class="col py-5 py-lg-0 d-flex align-items-center justify-content-center">
-            <h2 class="text-white font-normal mb-0">SUB-<br>COMMITTEE</h2>
+            <h2 class="text-white font-normal mb-0">SUB<br>COMMITTEE</h2>
           </div>
         </section>
         <section class="py-5">
@@ -31,7 +31,8 @@
             <div class="row" >
               <div class="col-lg-4 mt-5" v-for="(item, index) in data" :key="index">
                 <div class="bod">
-                  <div class="img" @click="showModal = true">
+                  <!--<div class="img" @click="showModal = true">-->
+                  <div class="img" >
                     <img v-if="item.attributes.image.data" :src="item.attributes.image.data.attributes.url" class="img-fluid" />
                     <info-modal 
                       v-if="showModal" 
@@ -70,6 +71,8 @@
         isActive3: false,
         isActive4: false,
         showModal: false,
+        allCommittee: '',
+        data: '',
       };
     },
     compatConfig: { MODE: 3 },
@@ -86,8 +89,9 @@
         console.log( this.showModal )
       },
       async getDirectors() {
-        const { data } = await $fetch(`/api/directors?sort=sequence&populate=*`);
-        this.data = data;
+        const { data } = await $fetch(`/api/directors?sort=sequence&filters[committeetype][$in][0]=Audit&filters[committeetype][$in][1]=Nomination-Remuneration-Good-Corporate-Governance&filters[committeetype][$in][2]=Risk-Manament&filters[committeetype][$in][3]=Executive&populate=*`);
+        this.allCommittee = data;
+        this.data = this.allCommittee.filter(d => d.attributes.committeetype == 'Audit');
         this.loading = false;
       },
       visible( data ){
@@ -97,12 +101,16 @@
         this.isActive4 = false
         if ( data === 1 ){
           this.isActive1 = true
+          this.data = this.allCommittee.filter(d => d.attributes.committeetype == 'Audit');
         } if ( data === 2 ){
           this.isActive2 = true
+          this.data = this.allCommittee.filter(d => d.attributes.committeetype == 'Nomination-Remuneration-Good-Corporate-Governance');
         } if ( data === 3 ){
           this.isActive3 = true
+          this.data = this.allCommittee.filter(d => d.attributes.committeetype == 'Risk-Manament');
         } if ( data === 4 ){
           this.isActive4 = true
+          this.data = this.allCommittee.filter(d => d.attributes.committeetype == 'Executive');
         } 
       }
     },
@@ -191,7 +199,7 @@
     border-bottom: 2px solid #CC3832;
     height: 100%;
     
-    .img{
+    .img-bkk{
       background: #CC3832;
       position: relative;
       cursor: pointer;

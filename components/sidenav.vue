@@ -25,17 +25,17 @@
               <nuxt-link :to="localePath('structure')" class="col-6 text-white">
                 โครงสร้างธุรกิจ
               </nuxt-link>
-              <nuxt-link to="/" class="col-6 text-white">
+              <nuxt-link :to="localePath('message-chairman')" class="col-6 text-white">
                 สารจากประธานกรรมการ
               </nuxt-link>
             </div>
             <div class="row">
               <nuxt-link :to="localePath('directors')" class="col-6 text-white">คณะกรรมการบริษัท</nuxt-link>
-              <nuxt-link to="/" class="col-6 text-white">คณะกรรมการชุดย่อย</nuxt-link>
+              <nuxt-link :to="localePath('sub-committee')" class="col-6 text-white">คณะกรรมการชุดย่อย</nuxt-link>
               
             </div>
             <div class="row">
-              <nuxt-link to="/" class="col-6 text-white">คณะผู้บริหาร</nuxt-link>
+              <nuxt-link :to="localePath('management-team')" class="col-6 text-white">คณะผู้บริหาร</nuxt-link>
               <nuxt-link :to="localePath('stockprice')" class="col-6 text-white">ข้อมูลราคาหลักทรัพย์</nuxt-link>
               
             </div>
