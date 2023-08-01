@@ -1,4 +1,5 @@
 <template>
+  <div class="overflow-hidden">
   <div class="position" :class="isOpen == true? 'active':''" @click="isOpen = !isOpen">
     <span>{{ heading }}</span>
     <span>{{ position }} POSITION</span>
@@ -6,6 +7,8 @@
   <div class="card" :class="isOpen == true? 'active':''">
     <slot></slot>
   </div>
+  </div>
+
 </template>
 
 <script>
