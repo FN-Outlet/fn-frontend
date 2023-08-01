@@ -27,29 +27,23 @@
 
                 <button class="btn btn-primary mt-4">DOWNLOAD APPLICATION</button>
                 <hr style="border-color:#CC3832" class="my-5">
+                
                 <div v-for="(career, item) in data" :key="item">
-                  <div class="position">
-                    <span>{{ career.attributes.positionth }}</span>
-                    <span>1 POSITION</span>
-                  </div>
-                  <div class="card">
-                    <div class="card">
-                      <h3 class="card-title">
+                  <collapse-job :heading="career.attributes.positionth" :position="1">
+                    <h3 class="card-title">
                         หน้าที่รับผิดชอบ (Job Summary)
                       </h3>
                       <div class="card-body" style="text-align:left">
                         <p class="text-left" v-if="career.attributes.jobsummaryth" v-html="$mdRenderer.render(career.attributes.jobsummaryth)"></p>
                       </div>
-                    </div>
-                    <div class="card">
+       
                       <h3 class="card-title">
                         คุณสมบัติประจำตำแหน่ง (Job Specifications)
                       </h3>
                       <div class="card-body" style="text-align:left">
                         <span v-if="career.attributes.jobspecificationth" v-html="$mdRenderer.render(career.attributes.jobspecificationth)"></span>
                       </div>
-                    </div>
-                  </div>
+                  </collapse-job>
                 </div>
               </div>
             </div>
@@ -165,17 +159,6 @@
     border-radius: 0;
   }
 
-  .position{
-    background: #E9E9E9;
-    padding: 15px 45px;
-    display: flex;
-    justify-content: space-between;
-    color: #CC3832;
-    margin-block: 15px;
-    @media (max-width: 991px) {
-      justify-content: center;
-      flex-wrap: wrap;
-    }
-  }
+  
   </style>
   
