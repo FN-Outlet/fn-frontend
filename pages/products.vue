@@ -6,7 +6,7 @@
         <section class="bg-primary d-lg-flex banner hp-banner">
           <img src="/banner_fn.png" class="main-logo" />
           <div class="col">
-            <img src="/service-banner.jpg" class="img-fluid w-100" />
+            <img src="/product-main.jpg" class="img-fluid w-100" />
           </div>
           <div class="col py-5 py-lg-0 d-flex align-items-center justify-content-center">
             <h2 class="text-white font-normal mb-0">FOR<br>QUALITY OF LIFE</h2>
@@ -24,7 +24,7 @@
               <div class="col-lg-8 offset-lg-2 mt-5">
                 <h2 class="heading-text">
                   <img src="/logo.png" class="img-fluid" />
-                  <span>PRODUCT & SERVICE</span>
+                  <span>PRODUCTS</span>
                 </h2>
               </div>
             </div>
@@ -32,7 +32,7 @@
               <div class="col-lg-6 mt-5">
                 <nuxt-link :to="localePath('fnsleep')">
                   <div class="border-bottom-red">
-                    <img src="/service-01.jpg" class="img-fluid" />
+                    <img src="/fn-sleep.jpg" class="img-fluid" />
                     <img src="/service-text-01.jpg" class="img-fluid  my-3 text-img" />
                   </div>
                 </nuxt-link>
@@ -40,7 +40,7 @@
               <div class="col-lg-6 mt-5">
                 <nuxt-link :to="localePath('fnapparel')">
                   <div class="border-bottom-red">
-                    <img src="/service-02.jpg" class="img-fluid" />
+                    <img src="/fn-apparel.jpg" class="img-fluid" />
                     <img src="/service-text-02.jpg" class="img-fluid  my-3 text-img" />
                   </div>
                 </nuxt-link>
@@ -48,7 +48,7 @@
               <div class="col-lg-6 mt-5">
                 <nuxt-link :to="localePath('fnhome')">
                   <div class="border-bottom-red">
-                    <img src="/service-03.jpg" class="img-fluid" />
+                    <img src="/fn-home.jpg" class="img-fluid" />
                     <img src="/service-text-03.jpg" class="img-fluid  my-3 text-img" />
                   </div>
                 </nuxt-link>
@@ -56,7 +56,7 @@
               <div class="col-lg-6 mt-5">
                 <nuxt-link :to="localePath('fncare')">
                   <div class="border-bottom-red">
-                    <img src="/service-04.jpg" class="img-fluid" />
+                    <img src="/fn-care.jpg" class="img-fluid" />
                     <img src="/service-text-04.jpg" class="img-fluid  my-3 text-img" />
                   </div>
                 </nuxt-link>
@@ -90,7 +90,7 @@
         </section>
         <section class="d-lg-flex">
         <div class="col p-0 bg-primary">
-          <img src="/service-footer.jpg" class="img-fluid" />
+          <img src="/product-footer.jpg" class="img-fluid" />
           <p class="text-white p-5">{{ $t("FN มีสินค้าหลายหมวดหมู่ประเภท ทั้งเสื้อผ้าสำหรับทุกเพศทุกวัย เฟอร์นิเจอร์หลากหลายที่ตอบโจทย์ทุกความต้องการ ชุดเครื่องนอนคุณภาพสูง สินค้าเพื่อการเดินทางดีไซน์ทันสมัยเลือกได้ตามไลฟ์สไตล์ สินค้าช่วยเหลือชุมชน ขนมทาน เครื่องดื่ม ของว่าง และอีกมากมาย ที่พร้อมจะให้คุณเลือกซื้อได้อย่างตามใจชอบ และทุกอย่างครบจบได้ที่ FN") }}</p>
         </div>
         <div class="col d-flex align-items-center justify-content-center ">

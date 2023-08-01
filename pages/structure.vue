@@ -6,7 +6,7 @@
         <section class="bg-primary d-lg-flex banner hp-banner">
           <img src="/banner_fn.png" class="main-logo" />
           <div class="col">
-            <img src="/banner.png" class="img-fluid w-100" />
+            <img src="/businessstructure.jpg" class="img-fluid w-100" />
           </div>
           <div class="col py-5 py-lg-0 d-flex align-items-center justify-content-center">
             <h2 class="text-white font-normal mb-0">BUSINESS
@@ -51,7 +51,7 @@
         <section class="d-flex banner hp-banner flex-wrap">
           <div class="col order-2 order-lg-1 p-0 d-flex align-items-center justify-content-center img-center">
             <img src="/fn-structure-2.png" class="main-logo d-none d-lg-inline" />
-            <div class="p-lg-5 p-4">
+            <div class="p-lg-5 p-4 col-9">
               <h2 class="text-black mb-4">{{ $t("structure.sLBUSINESSOUTLINE") }}</h2>
               <p>{{ $t("structure.content2") }}</p>
             </div>

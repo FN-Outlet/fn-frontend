@@ -6,38 +6,23 @@
         <section class="bg-primary d-lg-flex banner hp-banner">
           <img src="/banner_fn.png" class="main-logo" />
           <div class="col">
-            <img src="/director-banner.jpg" class="img-fluid w-100" />
+            <img src="/director.jpg" class="img-fluid w-100" />
           </div>
           <div class="col py-5 py-lg-0 d-flex align-items-center justify-content-center">
-            <h2 class="text-white font-normal mb-0">SUB-<br>COMMITTEE</h2>
+            <h2 class="text-white font-normal mb-0">MANAGEMENT<br>TEAM</h2>
           </div>
         </section>
         <section class="py-5">
           <div class="container">
-            <div class="tab-nav row mt-5 mt-lg-0">
-              <div class="col-lg-4">
-                <button :class="isActive1 ? 'active' : 'inactive'" @click="visible(1)">Audit Committee</button>
-              </div>
-              <div class="col-lg-4">
-                <button :class="isActive2 ? 'active' : 'inactive'"  @click="visible(2)">Nomination Remuneration and Good Corporate Governance Committee</button>
-              </div>
-              <div class="col-lg-4">
-                <button :class="isActive3 ? 'active' : 'inactive'"  @click="visible(3)">Risk Management Committee</button>
-              </div>
-              <div class="col-lg-4">
-                <button :class="isActive4 ? 'active' : 'inactive'"  @click="visible(4)">Executive Committee</button>
-              </div>
-            </div>
-            <div class="row" >
+            <h2 class="heading-text text-center">
+              <img src="/logo.png" class="img-fluid mb-4" />
+              <span>Management Team</span>
+            </h2>
+            <div class="row">
               <div class="col-lg-4 mt-5" v-for="(item, index) in data" :key="index">
                 <div class="bod">
-                  <div class="img" @click="showModal = true">
-                    <img v-if="item.attributes.image.data" :src="item.attributes.image.data.attributes.url" class="img-fluid" />
-                    <info-modal 
-                      v-if="showModal" 
-                      @clicked="closeModal(false)"
-                    >
-                    </info-modal>
+                  <div class="img">
+                    <img v-if="item.attributes.image.data" :src="item.attributes.image.data.attributes.url"  class="img-fluid"/>
                   </div>
                   <div v-if="$i18n.locale === 'en'">
                     <h3>{{ item.attributes.nameen }}</h3>
@@ -65,14 +50,8 @@
       return {
         width: '50',
         loading: true,
-        isActive1: true,
-        isActive2: false,
-        isActive3: false,
-        isActive4: false,
-        showModal: false,
       };
     },
-    compatConfig: { MODE: 3 },
     async mounted() {
       await this.getDirectors()
     },
@@ -80,30 +59,10 @@
       getWidth( submenuWidth) {
         this.width = submenuWidth
       },
-      closeModal( value ){
-        console.log( value )
-        this.showModal = false
-        console.log( this.showModal )
-      },
       async getDirectors() {
-        const { data } = await $fetch(`/api/directors?sort=sequence&populate=*`);
+        const { data } = await $fetch(`/api/directors?sort=sequence&filters[committeetype][$eq]=Managment Team&populate=*`);
         this.data = data;
         this.loading = false;
-      },
-      visible( data ){
-        this.isActive1 = false
-        this.isActive2 = false
-        this.isActive3 = false
-        this.isActive4 = false
-        if ( data === 1 ){
-          this.isActive1 = true
-        } if ( data === 2 ){
-          this.isActive2 = true
-        } if ( data === 3 ){
-          this.isActive3 = true
-        } if ( data === 4 ){
-          this.isActive4 = true
-        } 
       }
     },
   })
@@ -190,22 +149,8 @@
     text-align: center;
     border-bottom: 2px solid #CC3832;
     height: 100%;
-    
     .img{
       background: #CC3832;
-      position: relative;
-      cursor: pointer;
-      &:before{
-        content: '';
-        background: url('/zoom.svg') no-repeat center center;
-        background-size: contain;
-        position: absolute;
-        left: 15px;
-        top: 15px;
-        width: 30px;
-        height: 30px;
-        z-index: 8;
-      }
     }
     h3{
       margin-top: 15px;
@@ -214,28 +159,6 @@
     }
     p{
       color: #555754;
-    }
-  }
-
-
-  .tab-nav{
-    > *{
-      margin-bottom: 20px;
-    }
-    button{
-      display: block;
-      width: 100%;
-      border: 0;
-      padding: 15px;
-      height: 100%;
-      @media (max-width: 992px) {
-        border-bottom: 2px solid #fff;
-        padding: 15px 10px;
-      }
-      &.active{
-        background: #CC3832;
-        color: #fff;
-      }
     }
   }
 
