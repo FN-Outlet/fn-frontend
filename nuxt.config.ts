@@ -47,7 +47,7 @@ export default defineNuxtConfig({
     },
     prerender: {
       routes: [
-        '/products-services', 
+        '/products', 
         '/branch', 
         '/contact', 
         '/online',
