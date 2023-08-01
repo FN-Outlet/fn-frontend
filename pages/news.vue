@@ -6,7 +6,7 @@
         <section class="bg-primary d-lg-flex banner hp-banner">
           <img src="/banner_fn.png" class="main-logo" />
           <div class="col">
-            <img src="/news-banner.jpg" class="img-fluid w-100" />
+            <img src="/news.jpg" class="img-fluid w-100" />
           </div>
           <div class="col py-5 py-lg-0 d-flex align-items-center justify-content-center">
             <h2 class="text-white font-normal mb-0">NEWS & CSR</h2>
@@ -58,7 +58,7 @@
           </div>
         </section>
         <div class="news-cover">
-          <img src="/news-csr.jpg" class="img-fluid w-100" />
+          <img src="/news-csr2.jpg" class="img-fluid w-100" />
           <h2 class="heading-text text-center">
               <img src="/logo-text-white.png" class="img-fluid mb-4" />
               <span>CSR</span>

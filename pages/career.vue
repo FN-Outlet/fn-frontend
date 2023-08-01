@@ -6,7 +6,7 @@
         <section class="bg-primary d-lg-flex banner hp-banner">
           <img src="/banner_fn.png" class="main-logo" />
           <div class="col">
-            <img src="/contact-bg.jpg" class="img-fluid w-100" />
+            <img src="/career.jpg" class="img-fluid w-100" />
           </div>
           <div class="col py-5 py-lg-0 d-flex align-items-center justify-content-center">
             <h2 class="text-white font-normal mb-0">CAREER</h2>

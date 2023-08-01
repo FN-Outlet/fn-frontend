@@ -61,7 +61,7 @@
             </div>
           </div>
           <h2 class="text-white">
-            <nuxt-link :to="localePath('products-services')" class="col-6 text-white">
+            <nuxt-link :to="localePath('products')" class="col-6 text-white">
               {{ $t('nav.productservice') }}
             </nuxt-link>
           </h2>
