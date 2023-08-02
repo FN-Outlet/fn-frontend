@@ -96,6 +96,7 @@
       return {
         width: '50',
         loading: true,
+        data: '',
       };
     },
     async mounted() {
@@ -211,7 +212,7 @@
     }
   }
 
-  .modal-overlay-custom {
+.modal-overlay-custom {
   position: fixed;
   top: 0;
   bottom: 0;

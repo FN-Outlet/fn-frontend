@@ -30,33 +30,36 @@
               </nuxt-link>
             </div>
             <div class="row">
+              <nuxt-link :to="localePath('organization-chart')" class="col-6 text-white">โครงสร้างองค์กร</nuxt-link>
               <nuxt-link :to="localePath('directors')" class="col-6 text-white">คณะกรรมการบริษัท</nuxt-link>
+              
+              
+            </div>
+            <div class="row">
               <nuxt-link :to="localePath('sub-committee')" class="col-6 text-white">คณะกรรมการชุดย่อย</nuxt-link>
-              
-            </div>
-            <div class="row">
               <nuxt-link :to="localePath('management-team')" class="col-6 text-white">คณะผู้บริหาร</nuxt-link>
+              
+              
+            </div>
+            <div class="row">
               <nuxt-link :to="localePath('stockprice')" class="col-6 text-white">ข้อมูลราคาหลักทรัพย์</nuxt-link>
-              
-            </div>
-            <div class="row">
-              
               <nuxt-link :to="localePath('financial')" class="col-6 text-white">ข้อมูลทางการเงิน</nuxt-link>
+              
+            </div>
+            <div class="row">
               <a target="_blank" href="https://www.set.or.th/th/market/product/stock/quote/FN/major-shareholders" class="col-6 text-white">ข้อมูลผู้ถือหุ้น</a>
-            </div>
-            <div class="row">
-              
               <a target="_blank" href="https://www.set.or.th/th/market/product/stock/quote/FN/news" class="col-6 text-white">ข่าวแจ้งตลาดหลักทรัพย์</a>
-              <nuxt-link :to="localePath('contact')" class="col-6 text-white">สอบถามข้อมูลนักลงทุน</nuxt-link>
-            </div>
-            <div class="row">
-              <nuxt-link :to="localePath('news')" class="col-6 text-white">ห้องข่าว</nuxt-link>
-              <a href="#" class="col-6 text-white">เอกสารเผยแพร่</a>
-            
-            </div>
-            
-            <div class="row">
               
+            </div>
+            <div class="row">
+              <nuxt-link :to="localePath('contact')" class="col-6 text-white">สอบถามข้อมูลนักลงทุน</nuxt-link>
+              <nuxt-link :to="localePath('news')" class="col-6 text-white">ห้องข่าว</nuxt-link>
+              
+            
+            </div>
+            
+            <div class="row">
+              <a href="#" class="col-6 text-white">เอกสารเผยแพร่</a>
               <nuxt-link :to="localePath('career')" class="col-6 text-white">ร่วมงานกับเรา</nuxt-link>
             </div>
           </div>

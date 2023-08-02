@@ -9,7 +9,7 @@
             <img src="/banner.png" class="img-fluid w-100" />
           </div>
           <div class="col py-5 py-lg-0 d-flex align-items-center justify-content-center">
-            <h2 class="text-white font-normal mb-0">FINANCIAL<br>
+            <h2 class="text-white font-normal mb-0">PUBLIC<br>
 DOCUMENTS</h2>
           </div>
         </section>
@@ -17,10 +17,10 @@ DOCUMENTS</h2>
           <div class="container">
             <h2 class="heading-text text-center">
               <img src="/logo.png" class="img-fluid mb-4" />
-              <span>COMPANY FINANCIAL </span>
+              <span>PUBLIC DOCUMENTS </span>
             </h2>
             <div class="docs mt-4">
-                <a href="" class="d-flex w-100 justify-content-between"  v-for="index in 10" :key="index">
+                <a href="" class="d-flex w-100 justify-content-between"  v-for="index in 0" :key="index">
                   <span class="d-block">การขอผ่อนผันการนำส่งงบการเงิน Q1/2563 สิ้นสุดวันที่ 31/03/2563</span>
                   <span class="">Download</span>
                 </a>
