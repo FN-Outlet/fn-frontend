@@ -29,79 +29,10 @@
               </div>
             </div>
             <div class="row" >
-              <div class="modal-overlay-custom" v-if="showModal" @click="showModal=false">
-                <div class="modal-custom" @click.stop>
-                  <div class="img">
-                    <img src="/director-2.jpg" class="img-fluid" />
-                  </div>
-                  <article>
-                    <header class="heading">
-                      <h3 class="line">Mrs.Saowanee Kamolbutr</h3>
-                      <p>Chairman of the Audit Committee</p>
-                    </header>
-                    <div class="description">
-                      <table class="toc-profile">
-                        <tbody>
-                          <tr>
-                            <th>Qualification</th>
-                            <td>
-                              <ul class="type-squre">
-                                <li>Master of Political Science (Public Administration), Thammasat University</li>
-                                <li>Bachelor of Political Science (Public Administration), Thammasat University</li>
-                              </ul>
-                            </td>
-                          </tr>
-                          <tr>
-                            <th>Training</th>
-                            <td>
-                              <ul class="type-squre">
-                                <li>Certification Program by Thai Institute Directors Association (IOD), IT Governance and Cyber Resilience Program (ITG), Class 15/2020</li>
-                                <li>Certification Program by Thai Institute Directors Association (IOD), Boards that make a difference (BMD), Class 9/2019</li>
-                                <li>Certification Program by Thai Institute Directors Association (IOD), Advance Audit Committee Program (AACP), Class 17/2017</li>
-                                <li>Certification Program by Thai Institute Directors Association (IOD), Financial Institutions Governance Program (FGP), Class 1/2010</li>
-                                <li>Certification Program by Thai Institute Directors Association (IOD), Role of the Chairman Program (RCP), Class 23/2010</li>
-                                <li>Certification Program by Thai Institute Directors Association (IOD), Role of the Compensation Committee (RCC), Class 8/2009</li>
-                                <li>Certification Program by Thai Institute Directors Association (IOD), Director Certification Program (DCP), Class 69/2006</li>
-                                <li>Senior Executive Program (Kellogg-Sasin)</li>
-                                <li>The Management Development Program (Wharton School) Certificate in Public Sector Reform, University of Victoria, New Zealand</li>
-                                <li>National Defense College of Thailand (NDC), Class of 2005</li>
-                                <li>Capital Market Academy (CMA), Class 7</li>
-                                <li>Advanced Security Management Program Alumni (ASMA.), Class 4 </li>
-                              </ul>
-                            </td>
-                          </tr>
-                          <tr>
-                            <th>Work Experiences</th>
-                            <td>
-                              <ul class="type-squre">
-                              <li>2021 - present Independent Director / Member of Audit Committee Thitikorn Public Company Limited </li>
-                              <li>2021 - present Chairman of Board of Directors AIRA Asset Management (AIAM) </li>
-                              <li>2020 - present Honorary Director Southeast Bangkok College</li>
-                              <li>2020 - present Independent Director / Chairman of the Audit Committee Global Power Synergy Pcl. </li>
-                              <li>2017 - present Independent Director / Chairman of the Audit Committee / Chairman of the Risk Management Committee /  Member of the Nomination and Remuneration Committee, Carabao Group Pcl.</li>
-                              <li>2017 - present Independent Director / Chairman of the Audit Committee / Risk Management Committee T.K.S. Technologies Pcl.</li>
-                              <li>2017 - 2019 Chairman  / Independent Director Pacific Pipe Pc</li>
-                              <li>2016 - 2020 Independent Director / Chairman of the Audit Committee /  Member of the Nomination and Remuneration Committee,  Global Power Synergy Pcl.</li>
-                              <li>2016 - 2017 Financial Expert Port Authority of Thailand</li>
-                              <li>2016 - 2019 Advisor, The Committee on Economics, Monetary Affairs and Finance The Committee of the National Legislative Assembly</li>
-                              <li>2016 - 2018 Director / Qualified person in the Council of Ministers Rajapark Institute</li>
-                              <li>2016 - 2017 Director SME Development Bank</li>
-                              <li>2016 - 2017 Independent Director /  Member of the Audit Committee Interlink Company Communication Pcl.</li>
-                                  </ul></td>
-                          </tr>
-                        </tbody>
-                      </table>
-                    </div>
-                  </article>
-                </div>
-                <div class="close" @click="showModal=false">
-                  <img class="close-img img-fluid" src="/close.svg" alt="" />
-                </div>
-              </div>
               <div class="col-lg-4 mt-5" v-for="(item, index) in data" :key="index">
                 <div class="bod">
                   <!--<div class="img" @click="showModal = true">-->
-                  <div class="img" @click="showModal = true">
+                  <div class="img" @click="item.showModal = true">
                     <img v-if="item.attributes.image.data" :src="item.attributes.image.data.attributes.url" class="img-fluid" />
                     <!--<info-modal 
                       v-if="showModal" 
@@ -117,6 +48,52 @@
                   <div v-else>
                     <h3>{{ item.attributes.nameth }}</h3>
                     <p>{{ item.attributes.positionth }}</p>
+                  </div>
+                </div>
+                <div class="modal-overlay-custom" v-if="item.showModal" @click="item.showModal=false">
+                  <div class="modal-custom" @click.stop>
+                    <div class="img">
+                      <img v-if="item.attributes.image.data" :src="item.attributes.image.data.attributes.url" class="img-fluid" />
+                    </div>
+                    <article>
+                      <header class="heading">
+                        <h3 class="line">{{ item.attributes.nameth }}</h3>
+                        <p>{{ item.attributes.positionth }}</p>
+                      </header>
+                      <div class="description">
+                        <table class="toc-profile">
+                          <tbody>
+                            <tr>
+                              <th>Qualification</th>
+                              <td>
+                                <ul class="type-squre">
+                                  <div v-if="item.attributes.qualificationth" v-html="$mdRenderer.render(item.attributes.qualificationth)"></div>
+                                </ul>
+                              </td>
+                            </tr>
+                            <tr>
+                              <th>Training</th>
+                              <td>
+                                <ul class="type-squre">
+                                  <div v-if="item.attributes.trainingth" v-html="$mdRenderer.render(item.attributes.trainingth)"></div>
+                                </ul>
+                              </td>
+                            </tr>
+                            <tr>
+                              <th>Work Experiences</th>
+                              <td>
+                                <ul class="type-squre">
+                                  <div v-if="item.attributes.workexperianceth" v-html="$mdRenderer.render(item.attributes.workexperianceth)"></div>
+                                </ul>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </article>
+                  </div>
+                  <div class="close" @click="item.showModal=false">
+                    <img class="close-img img-fluid" src="/close.svg" alt="" />
                   </div>
                 </div>
               </div>
@@ -140,7 +117,6 @@
         isActive2: false,
         isActive3: false,
         isActive4: false,
-        showModal: false,
         allCommittee: '',
         data: '',
       };
@@ -160,6 +136,9 @@
       async getDirectors() {
         const { data } = await $fetch(`/api/directors?sort=sequence&filters[committeetype][$in][0]=Audit&filters[committeetype][$in][1]=Nomination-Remuneration-Good-Corporate-Governance&filters[committeetype][$in][2]=Risk-Manament&filters[committeetype][$in][3]=Executive&populate=*`);
         this.allCommittee = data;
+        this.allCommittee.forEach((elm)=>{
+          elm.showModal = false
+        });
         this.data = this.allCommittee.filter(d => d.attributes.committeetype == 'Audit');
         this.loading = false;
       },

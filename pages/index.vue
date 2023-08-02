@@ -32,7 +32,7 @@
       </section>
       <section class="d-lg-flex">
         <div class="col p-0 d-flex align-items-center justify-content-center img-center">
-          <img src="/hp-s3.png" class="img-fluid" />
+          <img src="/hp-3.jpg" class="img-fluid" />
         </div>
         <div class="col">
           <div class="p-15 bg-primary h-100 d-flex flex-column align-items-center justify-content-center">
@@ -67,14 +67,14 @@
             <nuxt-link :to="localePath('branch')">
               <div class="frame-wrapper sofa">
                 <h2>BRANCH</h2>
-                <img src="/hp-s4-sofa.png" class="img-fluid" />
+                <img src="/sofa.png" class="img-fluid" style="max-width:950px;" />
                 <a href="">READ MORE</a>
               </div>
             </nuxt-link>
           </div>
         </div>
         <div class="col p-0 d-flex align-items-center justify-content-center img-center">
-          <img src="/hp-s4.png" class="img-fluid" />
+          <img src="/hp-4.jpg" class="img-fluid" />
         </div>
       </section>
       <section class="">

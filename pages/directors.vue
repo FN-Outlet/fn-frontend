@@ -21,7 +21,7 @@
             <div class="row">
               <div class="col-lg-4 mt-5" v-for="(item, index) in data" :key="index">
                 <div class="bod">
-                  <div class="img">
+                  <div class="img" @click="item.showModal = true">
                     <img v-if="item.attributes.image.data" :src="item.attributes.image.data.attributes.url"  class="img-fluid"/>
                   </div>
                   <div v-if="$i18n.locale === 'en'">
@@ -31,6 +31,52 @@
                   <div v-else>
                     <h3>{{ item.attributes.nameth }}</h3>
                     <p>{{ item.attributes.positionth }}</p>
+                  </div>
+                </div>
+                <div class="modal-overlay-custom" v-if="item.showModal" @click="item.showModal=false">
+                  <div class="modal-custom" @click.stop>
+                    <div class="img">
+                      <img v-if="item.attributes.image.data" :src="item.attributes.image.data.attributes.url" class="img-fluid" />
+                    </div>
+                    <article>
+                      <header class="heading">
+                        <h3 class="line">{{ item.attributes.nameth }}</h3>
+                        <p>{{ item.attributes.positionth }}</p>
+                      </header>
+                      <div class="description">
+                        <table class="toc-profile">
+                          <tbody>
+                            <tr>
+                              <th>Qualification</th>
+                              <td>
+                                <ul class="type-squre">
+                                  <div v-if="item.attributes.qualificationth" v-html="$mdRenderer.render(item.attributes.qualificationth)"></div>
+                                </ul>
+                              </td>
+                            </tr>
+                            <tr>
+                              <th>Training</th>
+                              <td>
+                                <ul class="type-squre">
+                                  <div v-if="item.attributes.trainingth" v-html="$mdRenderer.render(item.attributes.trainingth)"></div>
+                                </ul>
+                              </td>
+                            </tr>
+                            <tr>
+                              <th>Work Experiences</th>
+                              <td>
+                                <ul class="type-squre">
+                                  <div v-if="item.attributes.workexperianceth" v-html="$mdRenderer.render(item.attributes.workexperianceth)"></div>
+                                </ul>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </article>
+                  </div>
+                  <div class="close" @click="item.showModal=false">
+                    <img class="close-img img-fluid" src="/close.svg" alt="" />
                   </div>
                 </div>
               </div>
@@ -62,6 +108,9 @@
       async getDirectors() {
         const { data } = await $fetch(`/api/directors?sort=sequence&filters[committeetype][$eq]=Director&populate=*`);
         this.data = data;
+        this.data.forEach((elm)=>{
+          elm.showModal = false
+        });
         this.loading = false;
       }
     },
@@ -161,6 +210,62 @@
       color: #555754;
     }
   }
+
+  .modal-overlay-custom {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  display: flex;
+  justify-content: center;
+  background:rgba(0,0,0,0.5);
+  z-index: 99;
+}
+
+.modal-custom {
+  text-align: center;
+  background-color: white;
+  height: 80vh;
+  max-width: 80%;
+  margin-top: 10%;
+  border-radius: 20px;
+  overflow: hidden;
+}
+.close {
+  margin: 10% 0 0 16px;
+  cursor: pointer;
+}
+
+.close-img {
+  width: 25px;
+}
+
+.modal-custom{
+  display: flex;
+  > *{
+    flex: 50%;
+  }
+  article{
+    text-align: left;
+    padding: 30px;
+    .description{
+      overflow: auto;
+      border-top: 1px solid #000000;
+      height: calc( 80vh - 150px );
+    }
+    table{
+      font-size: 12px;
+      td{
+        border-left: 1px solid #999;
+      }
+      th{
+        padding-right: 15px;
+      }
+    }
+    
+  }
+}
 
   </style>
   
