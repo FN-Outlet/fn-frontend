@@ -3,7 +3,11 @@ export default defineNuxtConfig({
   modules: [
     // ...
     '@nuxtjs/i18n',
+    '@zadigetvoltaire/nuxt-gtm',
   ],
+  gtm: {
+    id: 'GTM-KLGWXTKH',
+  },
   i18n: {
     detectBrowserLanguage: {
       // If enabled, a cookie is set once a user has been redirected to his

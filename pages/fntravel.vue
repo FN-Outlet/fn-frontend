@@ -118,7 +118,7 @@
               </button>
             </div>
             <div class="text-center mt-5">
-              <a href="#" class="btn btn-primary">SHOP NOW</a>
+              <a href="https://www.fnmallonline.com/" target="_blank" class="btn btn-primary">SHOP NOW</a>
             </div>
           </div>
         </section>
@@ -267,6 +267,7 @@
     }
 
     .btn-slider-prev{
+      display: none;
       left: 2.5%;
     }
     .btn-slider-next{

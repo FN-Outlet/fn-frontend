@@ -31,7 +31,7 @@
                 <h3 class="text-white">{{ $t("PRIM ชุดผ้าปูที่นอน Tencel 6 ชิ้น ขนาด 6 ฟุต") }}</h3>
                 <p class="text-white">{{ $t("มอบสัมผัสแห่งความอ่อนโยนจากธรรมชาติ สู่บ้านคุณ ด้วยชุดเครื่องนอน  TENCEL สัมผัสการนอนที่เย็นสบาย นุ่ม ลื่น ช่วยให้พักผ่อนได้อย่างเต็มที่ การันตีจากยอดขายติดอันดับสินค้าขายดีของ FN มาตลอด 20 ปี") }}</p>
                 <div class="size my-5 text-white"><small>50x50 cm</small></div>
-                <a class="btn btn-white">shop now</a>
+                <a href="https://www.fnmallonline.com/" target="_blank" class="btn btn-white">shop now</a>
               </div>
             </div>
             <div class="slider-wrapper">
@@ -267,6 +267,7 @@
     }
 
     .btn-slider-prev{
+      display: none;
       left: 2.5%;
     }
     .btn-slider-next{
