@@ -20,7 +20,7 @@
         </div>
         <div class="col" style="background: #E3E3E3;">
           <div class="p-15 d-flex align-items-center justify-content-center">
-            <nuxt-link :to="localePath('products-services')">
+            <nuxt-link :to="localePath('products')">
               <div class="frame-wrapper">
                 <h2>PRODUCT</h2>
                 <img src="/hp-s2-chair.png" class="img-fluid" />
@@ -56,6 +56,12 @@
               </a>
               <a target="_blank" href="https://www.instagram.com/fnoutlet/" class="mx-2 new">
                 <img src="/instagram.svg" class="img-fluid" /> Instagram
+              </a>
+              <a target="_blank" href="https://www.fnmallonline.com/" class="mx-2 new">
+                <img src="/icon-website.png" class="img-fluid" /> FNmall
+              </a>
+              <a target="_blank" href="https://page.line.me/wgy7774r?openQrModal=true" class="mx-2 new">
+                <img src="/icon-line.png" class="img-fluid" /> Line
               </a>
             </div>
           </div>
