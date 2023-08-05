@@ -15,30 +15,46 @@
       <section class="d-lg-flex">
         <div class="col p-0 d-flex align-items-center justify-content-center">
           <div class="p-15">
-            <h2 class="heading-custom text-gray my-0">
-              <span><span class="fn-logo-text">FN</span> SLEEP</span>
-            </h2>
-            <h2 class="heading-custom text-gray my-0">
-              <span><span class="fn-logo-text">FN</span> APPAREL</span>
-            </h2>
-            <h2 class="heading-custom text-gray my-0">
-              <span><span class="fn-logo-text">FN</span> HOME</span>
-            </h2>
-            <h1 class="heading-custom text-gray my-0">
-              <span><span class="fn-logo-text">FN</span> PRODUCT</span>
-            </h1>
-            <h2 class="heading-custom text-gray my-0">
-              <span><span class="fn-logo-text">FN</span> CARE</span>
-            </h2>
-            <h2 class="heading-custom text-gray my-0">
-              <span><span class="fn-logo-text">FN</span> TRAVEL</span>
-            </h2>
-            <h2 class="heading-custom text-gray my-0">
-              <span><span class="fn-logo-text">FN</span> SPORT</span>
-            </h2>
-            <h2 class="heading-custom text-gray my-0">
-              <span><span class="fn-logo-text">FN</span> EAT</span>
-            </h2>
+            <nuxt-link :to="localePath('fnsleep')" style="text-decoration: none;">
+              <h2 class="heading-custom text-gray my-0">
+                <span><span class="fn-logo-text">FN</span> SLEEP</span>
+              </h2>
+            </nuxt-link>
+            <nuxt-link :to="localePath('fnapparel')" style="text-decoration: none;">
+              <h2 class="heading-custom text-gray my-0">
+                <span><span class="fn-logo-text">FN</span> APPAREL</span>
+              </h2>
+            </nuxt-link>
+            <nuxt-link :to="localePath('fnhome')" style="text-decoration: none;">
+              <h2 class="heading-custom text-gray my-0">
+                <span><span class="fn-logo-text">FN</span> HOME</span>
+              </h2>
+            </nuxt-link>
+            <nuxt-link :to="localePath('products')" style="text-decoration: none;">
+              <h1 class="heading-custom text-gray my-0">
+                <span><span class="fn-logo-text">FN</span> PRODUCT</span>
+              </h1>
+            </nuxt-link>
+            <nuxt-link :to="localePath('fncare')" style="text-decoration: none;">
+              <h2 class="heading-custom text-gray my-0">
+                <span><span class="fn-logo-text">FN</span> CARE</span>
+              </h2>
+            </nuxt-link>
+            <nuxt-link :to="localePath('fntravel')" style="text-decoration: none;">
+              <h2 class="heading-custom text-gray my-0">
+                <span><span class="fn-logo-text">FN</span> TRAVEL</span>
+              </h2>
+            </nuxt-link>
+            <nuxt-link :to="localePath('fnsport')" style="text-decoration: none;">
+              <h2 class="heading-custom text-gray my-0">
+                <span><span class="fn-logo-text">FN</span> SPORT</span>
+              </h2>
+            </nuxt-link>
+            <nuxt-link :to="localePath('fneat')" style="text-decoration: none;">
+              <h2 class="heading-custom text-gray my-0">
+                <span><span class="fn-logo-text">FN</span> EAT</span>
+              </h2>
+            </nuxt-link>
           </div>
         </div>
         <div class="col" style="background: #E3E3E3;">
