@@ -14,11 +14,10 @@
         </section>
         <section class="py-5">
           <div class="container">
-            <h2 class="heading-text text-center">
-              <img src="/logo.png" class="img-fluid mb-4" />
-              <span>MARKETPLACE</span>
-            </h2>
-            <div class="d-lg-flex align-items-center malls my-5 text-center">
+            <h1 class="heading-custom text-center font-thin text-gray my-0">
+              <span><span class="fn-logo-text">FN</span> MARKETPLACE</span>
+            </h1>
+            <div class="d-flex flex-wrap align-items-center malls my-lg-5 mt-4 text-center">
               <a target="_blank" href="https://www.fnmallonline.com/" class="mx-2">
                 <img src="/icon-website.png" class="img-fluid" />
               </a>
@@ -34,7 +33,7 @@
               </a>
               
             </div>
-            <div class="d-lg-flex align-items-center malls my-5 text-center">
+            <div class="d-flex flex-wrap align-items-center malls my-lg-5 mb-4 text-center">
               <a href="https://shopee.co.th/fnoutlet" class="mx-2" target="_blank">
                 <img src="/shopee.svg" class="img-fluid" />
               </a>
@@ -48,10 +47,9 @@
                 <img src="/icon-line.png" class="img-fluid" />
               </a>
             </div>
-            <h2 class="heading-text text-center">
-              <img src="/logo.png" class="img-fluid mb-4" />
-              <span>MALL</span>
-            </h2>
+            <h1 class="heading-custom text-center font-thin text-gray my-0">
+              <span><span class="fn-logo-text">FN</span> MALL</span>
+            </h1>
             <div class="row my-5">
               <div class="col-lg-8 offset-lg-2">
                 <a href="https://www.fnmallonline.com/" target="_blank">
@@ -126,10 +124,20 @@
       border-radius: 50%;
       @media (max-width: 992px) {
         margin: 15px auto !important;
+        width: 50px;
+        height: 50px;
+        img{
+          width: 15px;
+          height: 15px;
+        }
       }
       img{
         width: 50px;
         height: 50px;
+        @media (max-width: 992px) {
+          width: 25px;
+          height: 25px;
+        }
       }
     }
   }
