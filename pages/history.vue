@@ -15,10 +15,9 @@
         </section>
         <section class="py-5 px-lg-5">
           <div class="container">
-            <h2 class="heading-text text-center">
-              <img src="/logo.png" class="img-fluid mb-4" />
-              <span>COMPANY MILES STONE</span>
-            </h2>
+            <h1 class="heading-custom text-center font-thin text-gray mb-5">
+              <span><span class="fn-logo-text">FN</span> COMPANY MILES STONE</span>
+            </h1>
             <div class="slider-nav">
               <button :class="{ 'active' : activeIndex === index}" @click="goto( index)" v-for="(item, index) in items" :key="index">{{ item }}</button>
             </div>
