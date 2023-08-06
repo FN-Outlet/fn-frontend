@@ -64,7 +64,7 @@
               <div class="col-lg-6 mt-5">
                 <nuxt-link :to="localePath('fntravel')">
                   <div class="border-bottom-red">
-                    <img src="/service-04.jpg" class="img-fluid" />
+                    <img src="/fn-travel-2.jpg" class="img-fluid" />
                     <img src="/service-text-05.jpg" class="img-fluid  my-3 text-img" />
                   </div>
                 </nuxt-link>
@@ -72,7 +72,7 @@
               <div class="col-lg-6 mt-5">
                 <nuxt-link :to="localePath('fnsport')">
                   <div class="border-bottom-red">
-                    <img src="/service-04.jpg" class="img-fluid" />
+                    <img src="/fn-sport.jpg" class="img-fluid" />
                     <img src="/service-text-06.jpg" class="img-fluid  my-3 text-img" />
                   </div>
                 </nuxt-link>
@@ -80,7 +80,7 @@
               <div class="col-lg-6 mt-5">
                 <nuxt-link :to="localePath('fneat')">
                   <div class="border-bottom-red">
-                    <img src="/service-04.jpg" class="img-fluid" />
+                    <img src="/fn-eat-3.jpg" class="img-fluid" />
                     <img src="/service-text-07.jpg" class="img-fluid  my-3 text-img" />
                   </div>
                 </nuxt-link>

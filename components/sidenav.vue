@@ -63,7 +63,7 @@
               <nuxt-link :to="localePath('career')" class="col-6 text-white">ร่วมงานกับเรา</nuxt-link>
             </div>
           </div>
-          <h2 class="text-white">
+          <h2 class="text-white" style="white-space: nowrap;">
             <nuxt-link :to="localePath('products')" class="col-6 text-white">
               {{ $t('nav.productservice') }}
             </nuxt-link>
