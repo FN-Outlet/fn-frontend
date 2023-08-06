@@ -393,3 +393,21 @@ strong{
   letter-spacing: -6px;
   color: #CC3B39 !important;
 }
+
+.modal-custom{
+  @media (max-width: 768px) {
+    .img{
+      display: none;
+    }
+    article{
+      padding: 5px !important;
+    }
+  }
+  .description{
+    ul{
+      @media (max-width: 768px) {
+        padding-left: 5px;
+      }
+    }
+  }
+}
