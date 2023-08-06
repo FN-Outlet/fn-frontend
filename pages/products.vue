@@ -38,52 +38,52 @@
                 </nuxt-link>
               </div>
               <div class="col-lg-6 mt-5">
-                <nuxt-link :to="localePath('fnapparel')">
+                <!--<nuxt-link :to="localePath('fnapparel')">-->
                   <div class="border-bottom-red">
                     <img src="/fn-apparel.jpg" class="img-fluid" />
                     <img src="/service-text-02.jpg" class="img-fluid  my-3 text-img" />
                   </div>
-                </nuxt-link>
+                <!--</nuxt-link>-->
               </div>
               <div class="col-lg-6 mt-5">
-                <nuxt-link :to="localePath('fnhome')">
+                <!--<nuxt-link :to="localePath('fnhome')">-->
                   <div class="border-bottom-red">
                     <img src="/fn-home.jpg" class="img-fluid" />
                     <img src="/service-text-03.jpg" class="img-fluid  my-3 text-img" />
                   </div>
-                </nuxt-link>
+                <!--</nuxt-link>-->
               </div>
               <div class="col-lg-6 mt-5">
-                <nuxt-link :to="localePath('fncare')">
+                <!--<nuxt-link :to="localePath('fncare')">-->
                   <div class="border-bottom-red">
                     <img src="/fn-care.jpg" class="img-fluid" />
                     <img src="/service-text-04.jpg" class="img-fluid  my-3 text-img" />
                   </div>
-                </nuxt-link>
+                <!--</nuxt-link>-->
               </div>
               <div class="col-lg-6 mt-5">
-                <nuxt-link :to="localePath('fntravel')">
+                <!--<nuxt-link :to="localePath('fntravel')">-->
                   <div class="border-bottom-red">
                     <img src="/fn-travel-2.jpg" class="img-fluid" />
                     <img src="/service-text-05.jpg" class="img-fluid  my-3 text-img" />
                   </div>
-                </nuxt-link>
+                <!--</nuxt-link>-->
               </div>
               <div class="col-lg-6 mt-5">
-                <nuxt-link :to="localePath('fnsport')">
+                <!--<nuxt-link :to="localePath('fnsport')">-->
                   <div class="border-bottom-red">
                     <img src="/fn-sport.jpg" class="img-fluid" />
                     <img src="/service-text-06.jpg" class="img-fluid  my-3 text-img" />
                   </div>
-                </nuxt-link>
+                <!--</nuxt-link>-->
               </div>
               <div class="col-lg-6 mt-5">
-                <nuxt-link :to="localePath('fneat')">
+                <!--<nuxt-link :to="localePath('fneat')">-->
                   <div class="border-bottom-red">
                     <img src="/fn-eat-3.jpg" class="img-fluid" />
                     <img src="/service-text-07.jpg" class="img-fluid  my-3 text-img" />
                   </div>
-                </nuxt-link>
+                <!--</nuxt-link>-->
               </div>
             </div>
           </div>
