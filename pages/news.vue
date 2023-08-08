@@ -52,7 +52,9 @@
             </h2>
             <div class="row mt-5">
               <div class="col-lg-8 offset-lg-2 text-center">
-                <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea comdignissim </p>
+                <p>FN มีความตระหนักถึง  "ความรับผิดชอบสังคมต่อสิ่งแวดล้อม (Environmental–CSR)" โดยเราให้ความสำคัญแก่สิ่งแวดล้อมและธรรมชาติ ด้วยนวัตกรรมต่าง ๆ และเป้าหมายในการรักษาสิ่งแวดล้อม เราตั้งใจลดขยะและของเสีย ลดการผลิตก๊าซคาร์บอนไดออกไซด์ เพื่อให้บรรยากาศร่มเย็นและสะอาดขึ้นเสมอ เช่น การติดตั้ง Solar Rooftop ที่สาขาปากช่อง และสาขาฉะเชิงเทรา
+เราเน้นส่งเสริมและรักษาสิ่งแวดล้อมได้ รวมถึงเป็นการแสดงให้เห็นถึงความมุ่งมั่นของเราที่ต้องการแก้ปัญหาโลกร้อนและปัญหาทรัพยากรธรรมชาติที่เกิดขึ้นอยู่ในปัจจุบัน
+นอกจากนี้ เรายังสนับสนุนการใช้วัสดุที่เป็นมิตรต่อสิ่งแวดล้อมในการผลิตสินค้า และการส่งเสริมการนำกลับมาใช้ใหม่และการรีไซเคิลภายในร้านค้า เราคำนึงถึงการสร้างสิ่งแวดล้อมที่ดีขึ้นแก่ทุกคน</p>
               </div>
             </div>
           </div>
