@@ -143,7 +143,7 @@
     <div class="modal-overlay-custom" v-if="showModal" @click="showModal!=showModal" style="overflow: scroll;">
       <div class="row modal-custom" @click.stop>
         <div class="col-12 _img" >
-          <img src="/popup-mother.jpg" style="width:50%" class="img-fluid"  />
+          <img src="/popup-mother.jpg" class="img-fluid"  />
         </div>
       </div>
       <div class="close" @click="showModal=false">
@@ -296,17 +296,21 @@ export default defineComponent({
 
 .modal-custom {
   text-align: center;
-  max-width: 80%;
-  margin-top: 10%;
+  max-width: 700px;
+  margin-top: 1%;
   border-radius: 20px;
   overflow: hidden;
   height: 100%;
+  @media (max-width: 700px) {
+    max-width: 320px;
+    margin-top: 10%;
+  }
   img{
     border-radius: 20px;
   }
 }
 .close {
-  margin: 10% 0 0 16px;
+  margin: 1% 0 0 16px;
   cursor: pointer;
 }
 
