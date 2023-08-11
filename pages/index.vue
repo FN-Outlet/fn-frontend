@@ -140,10 +140,10 @@
       </section>
 
     </div>
-    <div class="modal-overlay-custom" v-if="showModal" @click="showModal!=showModal">
-      <div class="modal-custom" @click.stop>
-        <div class="_img">
-          <img src="/popup-mother.jpg" class="img-fluid" />
+    <div class="modal-overlay-custom" v-if="showModal" @click="showModal!=showModal" style="overflow: scroll;">
+      <div class="row modal-custom" @click.stop>
+        <div class="col-12 _img" >
+          <img src="/popup-mother.jpg" style="width:50%" class="img-fluid"  />
         </div>
       </div>
       <div class="close" @click="showModal=false">
