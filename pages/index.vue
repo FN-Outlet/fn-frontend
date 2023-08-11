@@ -140,6 +140,16 @@
       </section>
 
     </div>
+    <div class="modal-overlay-custom" v-if="showModal" @click="showModal!=showModal">
+      <div class="modal-custom" @click.stop>
+        <div class="_img">
+          <img src="/popup-mother.jpg" class="img-fluid" />
+        </div>
+      </div>
+      <div class="close" @click="showModal=false">
+        <img class="close-img img-fluid" src="/close.svg" alt="" />
+      </div>
+    </div>
     <Footer />
   </div>
 </template>
@@ -151,6 +161,7 @@ export default defineComponent({
   data() {
     return {
       width: '50',
+      showModal: true
     };
   },
   mounted() {
@@ -269,4 +280,40 @@ export default defineComponent({
 .heading-custom{
   font-weight: 400;
 }
+
+
+.modal-overlay-custom {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  display: flex;
+  justify-content: center;
+  background:rgba(0,0,0,0.5);
+  z-index: 99;
+}
+
+.modal-custom {
+  text-align: center;
+  max-width: 80%;
+  margin-top: 10%;
+  border-radius: 20px;
+  overflow: hidden;
+  height: 100%;
+  img{
+    border-radius: 20px;
+  }
+}
+.close {
+  margin: 10% 0 0 16px;
+  cursor: pointer;
+}
+
+.close-img {
+  width: 25px;
+}
+
+
+  
 </style>
