@@ -47,7 +47,7 @@
               </div>
             </div>
             <div class="mt-5 text-center">
-              <a href="" class="btn btn-outline-primary text-underline">ดูข่าวทั้งหมด</a>
+              <nuxt-link :to="localePath('news-index')" class="btn btn-outline-primary text-underline">ดูข่าวทั้งหมด</nuxt-link>
             </div>
             <h2 class="heading-text text-center mt-5">
               <img src="/logo.png" class="img-fluid mb-4" />

@@ -25,7 +25,7 @@
 
                 <p class="mt-5">Tel: 0-2300-4951 or 0-64301-7134 Email: recruit@fnoutlet.com Website: www.fnoutlet.com</p>
 
-                <button class="btn btn-primary mt-4">DOWNLOAD APPLICATION</button>
+                <!--<button class="btn btn-primary mt-4">DOWNLOAD APPLICATION</button>-->
                 <hr style="border-color:#CC3832" class="my-5">
                 
                 <div v-for="(career, item) in data" :key="item">
