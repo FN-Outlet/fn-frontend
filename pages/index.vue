@@ -6,7 +6,7 @@
       <section class="bg-primary d-lg-flex banner hp-banner">
         <img src="/banner_fn.png" class="main-logo" />
         <div class="col">
-          <img src="/banner.png" class="img-fluid w-100" />
+          <img src="/banner_new2.jpg" class="img-fluid w-100" />
         </div>
         <div class="col py-5 py-lg-0 d-flex align-items-center justify-content-center">
           <h2 class="text-white font-normal mb-0">FOR<br>QUALITY OF LIFE</h2>
@@ -62,7 +62,7 @@
             <nuxt-link :to="localePath('products')">
               <div class="frame-wrapper">
                 <h2>PRODUCT</h2>
-                <img src="/hp-s2-chair.png" class="img-fluid" />
+                <img src="/chair2.png" class="img-fluid" />
                 <a href="">READ MORE</a>
               </div>
             </nuxt-link>

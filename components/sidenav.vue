@@ -13,54 +13,54 @@
             </div>-->
             <div class="row">
               <nuxt-link :to="localePath('history')" class="col-6 text-white">
-                ประวัติความเป็นมา
+                {{ $t("Company History") }}
               </nuxt-link>
               <!--<a href="#" class="col-6 text-white">การกำกับดูแลกิจการที่ดี</a>-->
               <nuxt-link :to="localePath('vision-mission')" class="col-6 text-white">
-                วิสัยทัศน์ และพันธกิจ
+                {{ $t("Vision & Mission") }}
               </nuxt-link>
             </div>
             <div class="row">
               <!--<a href="#" class="col-6 text-white">การกำกับดูแลกิจการที่ดี</a>-->
               <nuxt-link :to="localePath('structure')" class="col-6 text-white">
-                โครงสร้างธุรกิจ
+                {{ $t("Business Structure") }}
               </nuxt-link>
               <nuxt-link :to="localePath('message-chairman')" class="col-6 text-white">
-                สารจากประธานกรรมการ
+                {{ $t("Message from Chairman") }}
               </nuxt-link>
             </div>
             <div class="row">
-              <nuxt-link :to="localePath('organization-chart')" class="col-6 text-white">โครงสร้างองค์กร</nuxt-link>
-              <nuxt-link :to="localePath('directors')" class="col-6 text-white">คณะกรรมการบริษัท</nuxt-link>
+              <nuxt-link :to="localePath('organization-chart')" class="col-6 text-white">{{ $t("Organization Chart") }}</nuxt-link>
+              <nuxt-link :to="localePath('directors')" class="col-6 text-white">{{ $t("Board of Directors") }}</nuxt-link>
               
               
             </div>
             <div class="row">
-              <nuxt-link :to="localePath('sub-committee')" class="col-6 text-white">คณะกรรมการชุดย่อย</nuxt-link>
-              <nuxt-link :to="localePath('management-team')" class="col-6 text-white">คณะผู้บริหาร</nuxt-link>
+              <nuxt-link :to="localePath('sub-committee')" class="col-6 text-white">{{ $t("Sub-Committee") }}</nuxt-link>
+              <nuxt-link :to="localePath('management-team')" class="col-6 text-white">{{ $t("Management Team") }}</nuxt-link>
               
               
             </div>
             <div class="row">
-              <nuxt-link :to="localePath('stockprice')" class="col-6 text-white">ข้อมูลราคาหลักทรัพย์</nuxt-link>
-              <nuxt-link :to="localePath('financial')" class="col-6 text-white">ข้อมูลทางการเงิน</nuxt-link>
+              <nuxt-link :to="localePath('stockprice')" class="col-6 text-white">{{ $t("Stock Price") }}</nuxt-link>
+              <nuxt-link :to="localePath('financial')" class="col-6 text-white">{{ $t("Financial Info") }}</nuxt-link>
               
             </div>
             <div class="row">
-              <a target="_blank" href="https://www.set.or.th/th/market/product/stock/quote/FN/major-shareholders" class="col-6 text-white">ข้อมูลผู้ถือหุ้น</a>
-              <a target="_blank" href="https://www.set.or.th/th/market/product/stock/quote/FN/news" class="col-6 text-white">ข่าวแจ้งตลาดหลักทรัพย์</a>
+              <a target="_blank" href="https://www.set.or.th/th/market/product/stock/quote/FN/major-shareholders" class="col-6 text-white">{{ $t("Shareholders") }}</a>
+              <a target="_blank" href="https://www.set.or.th/th/market/product/stock/quote/FN/news" class="col-6 text-white">{{ $t("Announcement") }}</a>
               
             </div>
             <div class="row">
-              <nuxt-link :to="localePath('contact')" class="col-6 text-white">สอบถามข้อมูลนักลงทุน</nuxt-link>
-              <nuxt-link :to="localePath('news')" class="col-6 text-white">ห้องข่าว</nuxt-link>
+              <nuxt-link :to="localePath('contact')" class="col-6 text-white">{{ $t("Contact") }}</nuxt-link>
+              <nuxt-link :to="localePath('news')" class="col-6 text-white">{{ $t("FN News") }}</nuxt-link>
               
             
             </div>
             
             <div class="row">
-              <a href="#" class="col-6 text-white">เอกสารเผยแพร่</a>
-              <nuxt-link :to="localePath('career')" class="col-6 text-white">ร่วมงานกับเรา</nuxt-link>
+              <a href="#" class="col-6 text-white">{{ $t("Documents") }}</a>
+              <nuxt-link :to="localePath('career')" class="col-6 text-white">{{ $t("Careers") }}</nuxt-link>
             </div>
           </div>
           <h2 class="text-white" style="white-space: nowrap;">

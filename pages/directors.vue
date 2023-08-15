@@ -9,14 +9,14 @@
             <img src="/director.jpg" class="img-fluid w-100" />
           </div>
           <div class="col py-5 py-lg-0 d-flex align-items-center justify-content-center">
-            <h2 class="text-white font-normal mb-0">BOARD OF<br>DIRECTORS</h2>
+            <h2 class="text-white font-normal mb-0">{{ $t("BOARD OF") }}<br>{{ $t("DIRECTORS") }}</h2>
           </div>
         </section>
         <section class="py-5">
           <div class="container">
             <h2 class="heading-text text-center">
               <img src="/logo.png" class="img-fluid mb-4" />
-              <span>BOARD OF DIRECTORS</span>
+              <span>{{ $t("BOARD OF DIRECTORS") }}</span>
             </h2>
             <div class="row">
               <div class="col-lg-4 mt-5" v-for="(item, index) in data" :key="index">
@@ -40,25 +40,33 @@
                     </div>
                     <article>
                       <header class="heading">
-                        <h3 class="line">{{ item.attributes.nameth }}</h3>
-                        <p>{{ item.attributes.positionth }}</p>
+                        <div v-if="$i18n.locale === 'en'">
+                          <h3 class="line">{{ item.attributes.nameen }}</h3>
+                          <p>{{ item.attributes.positionen }}</p>
+                        </div>
+                        <div v-else>
+                          <h3 class="line">{{ item.attributes.nameth }}</h3>
+                          <p>{{ item.attributes.positionth }}</p>
+                        </div>
                       </header>
                       <div class="description">
                         <table class="toc-profile">
                           <tbody>
                             <tr>
-                              <th>Qualification</th>
+                              <th>{{ $t("Qualification") }}</th>
                               <td>
                                 <ul class="type-squre">
-                                  <div v-if="item.attributes.qualificationth" v-html="$mdRenderer.render(item.attributes.qualificationth)"></div>
+                                  <div v-if="$i18n.locale === 'en' && item.attributes.qualificationen" v-html="$mdRenderer.render(item.attributes.qualificationen)"></div>
+                                  <div v-if="$i18n.locale === 'th' && item.attributes.qualificationth" v-html="$mdRenderer.render(item.attributes.qualificationth)"></div>
                                 </ul>
                               </td>
                             </tr>
                             <tr>
-                              <th>Training</th>
+                              <th>{{ $t("Training") }}</th>
                               <td>
                                 <ul class="type-squre">
-                                  <div v-if="item.attributes.trainingth" v-html="$mdRenderer.render(item.attributes.trainingth)"></div>
+                                  <div v-if="$i18n.locale === 'en' && item.attributes.trainingen" v-html="$mdRenderer.render(item.attributes.trainingen)"></div>
+                                  <div v-if="$i18n.locale === 'th' && item.attributes.trainingth" v-html="$mdRenderer.render(item.attributes.trainingth)"></div>
                                 </ul>
                               </td>
                             </tr>
@@ -66,7 +74,8 @@
                               <th>Work Experiences</th>
                               <td>
                                 <ul class="type-squre">
-                                  <div v-if="item.attributes.workexperianceth" v-html="$mdRenderer.render(item.attributes.workexperianceth)"></div>
+                                  <div v-if="$i18n.locale === 'en' && item.attributes.workexperianceen" v-html="$mdRenderer.render(item.attributes.workexperianceen)"></div>
+                                  <div v-if="$i18n.locale === 'th' && item.attributes.workexperianceth" v-html="$mdRenderer.render(item.attributes.workexperianceth)"></div>
                                 </ul>
                               </td>
                             </tr>

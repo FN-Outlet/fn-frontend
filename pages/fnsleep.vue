@@ -6,7 +6,7 @@
         <section class="bg-primary d-lg-flex banner hp-banner">
           <img src="/banner_fn.png" class="main-logo" />
           <div class="col">
-            <img src="/sleep-banner.jpg" class="img-fluid w-100" />
+            <img src="/sleep-banner1.jpg" class="img-fluid w-100" />
           </div>
           <div class="col py-5 py-lg-0 d-flex align-items-center justify-content-center">
             <h2 class="text-white font-normal mb-0">FOR<br>QUALITY OF LIFE</h2>
@@ -20,7 +20,7 @@
             </h2>
             <div class="highlight">
               <div class="main-img">
-                <img src="/sleep-big.jpg" class="img-fluid" />
+                <img src="/sleep-big2.jpg" class="img-fluid" />
               </div>
               <div class="bg-primary">
                 <div class="tag">New</div>
@@ -72,7 +72,7 @@
               }">
                 <swiper-slide>
                   <div class="news-thumbnail">
-                  <img src="/sleep-1.jpg" class="img-fluid" />
+                  <img src="/sleep-n1.jpg" class="img-fluid" />
                   <div class="tag">New</div>
                   <h3>{{ $t("PRIM bubble blanket รุ่น Classic ขนาด 6 ฟุต") }}</h3>
                   <p>{{ $t("ผ้าห่ม Micifine ขนาด 60x80 นิ้ว ที่ให้สัมผัสนุ่มกว่าเส้นใยอื่นๆ เพราะขนาดของเส้นใยที่เล็กและทอละเอียดช่วยป้องกันไรฝุ่น ลวดลายเป็นเอกลักษณ์เฉพาะ เนื้อผ้าภายนอกตุ่มนูน ช่วยให้ไม่รู้สึกอึดอัดเมื่ออากาศร้อนและอุ่นสบายเมื่ออากาศนาว") }}</p>
@@ -85,7 +85,7 @@
                 </swiper-slide>
                 <swiper-slide>
                   <div class="news-thumbnail">
-                  <img src="/sleep-2.jpg" class="img-fluid" />
+                  <img src="/sleep-n2.jpg" class="img-fluid" />
                   <div class="tag">New</div>
                   <h3>{{ $t("PRIM ไส้ผ้านวมขนเป็ด หนา นุ่ม อบอุ่น หลับสบาย") }}</h3>
                   <p>{{ $t("ผ้านวมขนเป็ดชนิดนุ่มพิเศษ เสมือนนอนในโรงแรม 5 ดาว ด้วยวัสดุจากธรรมชาติ 100% ประกอบด้วยขนเป็ดสีขาว 75% และขนเป็ดช่วงหน้าอก 25% ซึ่งเป็นขนอ่อนชนิดพิเศษ ใช้ขนเป็ดตามมาตรฐานอเมริกา (FTC) พร้อมดับเบิ้ลล็อค 14 ห่วง") }}</p>
@@ -98,7 +98,7 @@
                 </swiper-slide>
                 <swiper-slide>
                   <div class="news-thumbnail">
-                  <img src="/sleep-3.jpg" class="img-fluid" />
+                  <img src="/sleep-n3.jpg" class="img-fluid" />
                   <div class="tag">New</div>
                   <h3>{{ $t("PRIM หมอนขนเป็ดเพื่อสุขภาพ สัมผัสความนุ่ม นอนสบายประดุจโรงแรม 6 ดาว") }}</h3>
                   <p>{{ $t("\"เสน่ห์ขนเป็ด แบบนุ่มธรรมชาติ\" ด้วยคุณสมบัติอันเป็นเอกลักษณ์เฉพาะตัว ของก้านขนห่านและขนอกเป็ด หุ้มด้วยผ้าไมซิไฟน์เนื้อเนียน ทำให้ได้สัมผัสนุ่มนวล เพิ่มความคลาสสิคด้วยขอบกุ๊นริบบิ้นซาติน มีระดับและดูดี รองรับได้กับทุกท่านอน") }}</p>
