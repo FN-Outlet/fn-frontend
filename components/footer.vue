@@ -20,7 +20,7 @@
               </nav>
               <div class="social-links d-flex mt-5">
                 <a target="_blank" href="https://www.fnmallonline.com/" class="ms-2">
-                  <img src="/icon-website.png" class="img-fluid" style="width:30px; margin-right:15px;"/>
+                  <img src="/icon_fn_web.png" class="img-fluid" style="margin-right:15px;"/>
                 </a>
                 <a href="https://www.facebook.com/FN.Factory.Outlet" class="icon-facebook ms-2" target="_blank">
                   <img src="/icon-facebook.png" class="img-fluid" style="margin-right:15px;"/>

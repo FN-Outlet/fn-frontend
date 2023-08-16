@@ -96,7 +96,7 @@
       </a>
       <div class="links">
         <a target="_blank" href="https://www.fnmallonline.com/" class="mt-3 d-block">
-          <img src="/icon-website.png" class="img-fluid" />
+          <img src="/icon_fn_web.png" class="img-fluid" />
         </a>
         <a target="_blank" href="https://www.facebook.com/FN.Factory.Outlet" class="mt-3 d-block">
           <img src="/facebook-1.svg" class="img-fluid" />

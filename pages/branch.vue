@@ -23,8 +23,8 @@
                 <iframe 
                   v-if="branch.attributes.iframegooglemap && branch.isActive"
                   :src="branch.attributes.iframegooglemap" width="100%" height="350" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
-                <h2 class="text-center mt-4" v-if="$i18n.locale === 'en'">{{ branch.attributes.nameen }}</h2>
-                <h2 class="text-center mt-4" v-else>{{ branch.attributes.nameth }}</h2>
+                <h2 class="text-start mt-4" v-if="$i18n.locale === 'en'">{{ branch.attributes.nameen }}</h2>
+                <h2 class="text-start mt-4" v-else>{{ branch.attributes.nameth }}</h2>
                 <p class="text-start" v-if="$i18n.locale === 'en'">{{ branch.attributes.addressen }}</p>
                 <p class="text-start" v-else>{{ branch.attributes.addressth }}</p>
                 <p class="text-start">

@@ -79,7 +79,7 @@
             <img src="/hp-s3-text.png" class="img-fluid my-3" />
             <div class="d-lg-flex align-items-center flex-wrap malls">
               <a target="_blank" href="https://www.fnmallonline.com/" class="mx-2 new">
-                <img src="/icon-website.png" class="img-fluid" /> FNmall
+                <img src="/icon_fn_web.png" class="img-fluid" /> FNmall
               </a>
               <a target="_blank" href="https://www.facebook.com/FN.Factory.Outlet" class="mx-2 new">
                 <img src="/facebook-1.svg" class="img-fluid" /> Facebook
