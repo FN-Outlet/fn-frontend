@@ -6,8 +6,8 @@
       <div class="search-wrapper">
         <input type="text" placeholder="SEARCH">
       </div>
-      <NuxtLink :to="switchLocalePath('th')"><button>TH</button></NuxtLink>
-      <NuxtLink :to="switchLocalePath('en')"><button>EN</button></NuxtLink>
+      <NuxtLink :to="switchLocalePath('th')"><button :class="$i18n.locale === 'th'?'active':''">TH</button></NuxtLink>
+      <NuxtLink :to="switchLocalePath('en')"><button :class="$i18n.locale === 'en'?'active':''">EN</button></NuxtLink>
     </header>
 </template>
 
@@ -24,6 +24,13 @@
   margin: 0 -5px;
   @media (max-width: 576px) {
     display: none;
+  }
+  a{
+    text-decoration: none;
+  }
+  button.active{
+    background: #fff;
+    color: #cd3832;
   }
   > *{
     margin: 0 5px;
