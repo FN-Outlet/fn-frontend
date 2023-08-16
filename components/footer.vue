@@ -36,7 +36,7 @@
                 <a href="https://shopee.co.th/fnoutlet" class="ms-2" target="_blank">
                   <img src="/shopee.svg" class="img-fluid" style="width:25px; margin-right:10px;" />
                 </a>
-                <a href="https://www.youtube.com/channel/UCTGvDZvpTrKsDq-48L8pJ4g" class="ms-2" style="width:30px; margin-right:5px;" target="_blank">
+                <a href="https://www.youtube.com/channel/UCTGvDZvpTrKsDq-48L8pJ4g" class="ms-2 mt-2" style="width:30px; margin-right:5px;" target="_blank">
                   <img src="/youtube.svg" class="img-fluid" />
                 </a>
                 <a href="https://www.instagram.com/fnoutlet/" target="_blank">
@@ -117,6 +117,14 @@ export default defineComponent({
     hr{
       border-color: #fff;
       margin: 30px 0;
+    }
+
+    .social-links{
+      align-items: center;
+      img{
+        height: 25px;
+        width: auto;
+      }
     }
   
     .right{
