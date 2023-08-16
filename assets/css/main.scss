@@ -397,6 +397,15 @@ strong{
     }
     article{
       padding: 5px !important;
+      table{
+        font-size: 12px;
+        td{
+          border-left: 1px solid #999;
+        }
+        th{
+          padding-right: 15px;
+        }
+      }
     }
   }
   .description{

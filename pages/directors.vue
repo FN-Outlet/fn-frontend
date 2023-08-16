@@ -264,15 +264,6 @@
       border-top: 1px solid #000000;
       height: calc( 80vh - 150px );
     }
-    table{
-      font-size: 12px;
-      td{
-        border-left: 1px solid #999;
-      }
-      th{
-        padding-right: 15px;
-      }
-    }
     
   }
 }
