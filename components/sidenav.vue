@@ -83,7 +83,7 @@
         </nav>
       </div>
       <div class="d-lg-flex">
-        <div class="d-flex mt-2 mt-lg-0">
+        <div class="d-flex mt-2 mt-lg-0 lang-btns">
           <NuxtLink :to="switchLocalePath('th')"><button class="mx-lg-2" :class="$i18n.locale === 'th'?'active':''">TH</button></NuxtLink>
           <NuxtLink :to="switchLocalePath('en')"><button class="ms-2 ms-lg-0" :class="$i18n.locale === 'en'?'active':''">EN</button></NuxtLink>
         </div>
@@ -192,6 +192,17 @@ export default defineComponent({
     flex-direction: column;
     justify-content: space-between;
     height: 100%;
+  }
+}
+
+.lang-btns{
+
+  a{
+    text-decoration: none;
+  }
+  button.active{
+    background: #fff;
+    color: #cd3832;
   }
 }
 

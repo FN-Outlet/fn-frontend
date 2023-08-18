@@ -3,8 +3,6 @@
 </script>
 <template>
     <header class="main-header">
-      <div class="search-wrapper">
-      </div>
       <NuxtLink :to="switchLocalePath('th')"><button :class="$i18n.locale === 'th'?'active':''">TH</button></NuxtLink>
       <NuxtLink :to="switchLocalePath('en')"><button :class="$i18n.locale === 'en'?'active':''">EN</button></NuxtLink>
     </header>
@@ -14,6 +12,7 @@
 
 .main-header{
   position: absolute;
+  justify-content: flex-end;
   z-index: 8;
   width: calc( 50% - 70px );
   left: calc( 50% + 70px );
