@@ -4,7 +4,6 @@
 <template>
     <header class="main-header">
       <div class="search-wrapper">
-        <input type="text" placeholder="SEARCH">
       </div>
       <NuxtLink :to="switchLocalePath('th')"><button :class="$i18n.locale === 'th'?'active':''">TH</button></NuxtLink>
       <NuxtLink :to="switchLocalePath('en')"><button :class="$i18n.locale === 'en'?'active':''">EN</button></NuxtLink>

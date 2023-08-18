@@ -6,6 +6,23 @@
           <img src="/logo-white.png" class="img-fluid" />
         </nuxt-link>
         <nav class="mt-lg-5 mt-4">
+          <h2 class="text-white">
+            <nuxt-link :to="localePath('online')" class="col-6 text-white">
+              {{ $t('nav.online') }}
+            </nuxt-link>
+          </h2>
+          
+          
+          <h2 class="text-white" style="white-space: nowrap;">
+            <nuxt-link :to="localePath('products')" class="col-6 text-white">
+              {{ $t('nav.productservice') }}
+            </nuxt-link>
+          </h2>
+          <h2 class="text-white">
+            <nuxt-link :to="localePath('branch')" class="col-6 text-white">
+              {{ $t('nav.branch') }}
+            </nuxt-link>
+          </h2>
           <h2 class="text-white" @click="isHideAboutUs=!isHideAboutUs">{{ $t('nav.aboutus') }}</h2>
           <div class="ms-lg-5 my-lg-5 my-4" v-show="!isHideAboutUs">
             <!--<div class="row">
@@ -63,30 +80,12 @@
               <nuxt-link :to="localePath('career')" class="col-6 text-white">{{ $t("Careers") }}</nuxt-link>
             </div>
           </div>
-          <h2 class="text-white" style="white-space: nowrap;">
-            <nuxt-link :to="localePath('products')" class="col-6 text-white">
-              {{ $t('nav.productservice') }}
-            </nuxt-link>
-          </h2>
-          <h2 class="text-white">
-            <nuxt-link :to="localePath('branch')" class="col-6 text-white">
-              {{ $t('nav.branch') }}
-            </nuxt-link>
-          </h2>
-          <h2 class="text-white">
-            <nuxt-link :to="localePath('online')" class="col-6 text-white">
-              {{ $t('nav.online') }}
-            </nuxt-link>
-          </h2>
         </nav>
       </div>
       <div class="d-lg-flex">
-        <div class="search-wrapper">
-          <input type="text" placeholder="SEARCH">
-        </div>
         <div class="d-flex mt-2 mt-lg-0">
-          <NuxtLink :to="switchLocalePath('th')"><button class="mx-lg-2">TH</button></NuxtLink>
-          <NuxtLink :to="switchLocalePath('en')"><button class="ms-2 ms-lg-0">EN</button></NuxtLink>
+          <NuxtLink :to="switchLocalePath('th')"><button class="mx-lg-2" :class="$i18n.locale === 'th'?'active':''">TH</button></NuxtLink>
+          <NuxtLink :to="switchLocalePath('en')"><button class="ms-2 ms-lg-0" :class="$i18n.locale === 'en'?'active':''">EN</button></NuxtLink>
         </div>
       </div>
     </div>
