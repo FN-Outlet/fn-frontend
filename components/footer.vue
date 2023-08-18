@@ -2,7 +2,7 @@
     <footer class="bg-primary py-5 main-footer">
         <div class="container mt-5">
           <div class="d-lg-flex justify-content-between">
-            <div>
+            <div class="w-100">
               <nuxt-link :to="localePath('/')">
                 <img src="/logo-white.png" class="img-fluid" />
               </nuxt-link>
@@ -19,7 +19,37 @@
                 </nuxt-link>
                 
 
-                <a href="#" class="text-white d-block">{{ $t('nav.aboutus') }}</a>
+                <a href="#" :class="isHideAboutUs?'':'active'" @click.prevent="isHideAboutUs=!isHideAboutUs" class="text-white menu-about">{{ $t('nav.aboutus') }}</a>
+                <div class="ms-4 my-4" v-show="!isHideAboutUs">
+
+                <div class="row" @click="isHideAboutUs=!isHideAboutUs">
+                  <nuxt-link :to="localePath('history')" class="col-lg-4 col-md-6 text-white">
+                    {{ $t("Company History") }}
+                  </nuxt-link>
+                  <!--<a href="#" class="col-6 text-white">การกำกับดูแลกิจการที่ดี</a>-->
+                  <nuxt-link :to="localePath('vision-mission')" class="col-lg-4 col-md-6 text-white">
+                    {{ $t("Vision & Mission") }}
+                  </nuxt-link>
+                  <nuxt-link :to="localePath('structure')" class="col-lg-4 col-md-6 text-white">
+                    {{ $t("Business Structure") }}
+                  </nuxt-link>
+                  <nuxt-link :to="localePath('message-chairman')" class="col-lg-4 col-md-6 text-white">
+                    {{ $t("Message from Chairman") }}
+                  </nuxt-link>
+                  <nuxt-link :to="localePath('organization-chart')" class="col-lg-4 col-md-6 text-white">{{ $t("Organization Chart") }}</nuxt-link>
+                  <nuxt-link :to="localePath('directors')" class="col-lg-4 col-md-6 text-white">{{ $t("Board of Directors") }}</nuxt-link>
+                  <nuxt-link :to="localePath('sub-committee')" class="col-lg-4 col-md-6 text-white">{{ $t("Sub-Committee") }}</nuxt-link>
+                  <nuxt-link :to="localePath('management-team')" class="col-lg-4 col-md-6 text-white">{{ $t("Management Team") }}</nuxt-link>
+                  <nuxt-link :to="localePath('stockprice')" class="col-lg-4 col-md-6 text-white">{{ $t("Stock Price") }}</nuxt-link>
+                  <nuxt-link :to="localePath('financial')" class="col-lg-4 col-md-6 text-white">{{ $t("Financial Info") }}</nuxt-link>
+                  <a target="_blank" href="https://www.set.or.th/th/market/product/stock/quote/FN/major-shareholders" class="col-lg-4 col-md-6 text-white">{{ $t("Shareholders") }}</a>
+                  <a target="_blank" href="https://www.set.or.th/th/market/product/stock/quote/FN/news" class="col-lg-4 col-md-6 text-white">{{ $t("Announcement") }}</a>
+                  <nuxt-link :to="localePath('contact')" class="col-lg-4 col-md-6 text-white">{{ $t("Contact") }}</nuxt-link>
+                  <nuxt-link :to="localePath('news')" class="col-lg-4 col-md-6 text-white">{{ $t("FN News") }}</nuxt-link>
+                  <a href="#" class="col-lg-4 col-md-6 text-white">{{ $t("Documents") }}</a>
+                  <nuxt-link :to="localePath('career')" class="col-lg-4 col-md-6 text-white">{{ $t("Careers") }}</nuxt-link>
+                </div>
+          </div>
               </nav>
               <div class="social-links d-flex mt-5">
                 <a target="_blank" href="https://www.fnmallonline.com/" class="ms-2">
@@ -95,6 +125,7 @@ export default defineComponent({
     return {
       width: '50',
       isOpen: false,
+      isHideAboutUs: true,
     };
   },
   components: {
@@ -276,6 +307,17 @@ export default defineComponent({
       transform: translate(0px, -100px);
     }
   }
-}
 
+  
+}
+.menu-about{
+    position: relative;
+    &:after{
+      content: '+';
+      padding-left: 5px;
+    }
+    &.active:after{
+      content: '-';
+    }
+  }
 </style>
