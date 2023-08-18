@@ -7,16 +7,19 @@
                 <img src="/logo-white.png" class="img-fluid" />
               </nuxt-link>
               <nav class="mt-5">
-                <a href="#" class="text-white d-block">{{ $t('nav.aboutus') }}</a>
+                <nuxt-link :to="localePath('online')" class="text-white d-block">
+                  {{ $t('nav.online') }}
+                </nuxt-link>
+                
                 <nuxt-link :to="localePath('products')" class="text-white d-block">
                   {{ $t('nav.productservice') }}
                 </nuxt-link>
                 <nuxt-link :to="localePath('branch')" class="text-white d-block">
                   {{ $t('nav.branch') }}
                 </nuxt-link>
-                <nuxt-link :to="localePath('online')" class="text-white d-block">
-                  {{ $t('nav.online') }}
-                </nuxt-link>
+                
+
+                <a href="#" class="text-white d-block">{{ $t('nav.aboutus') }}</a>
               </nav>
               <div class="social-links d-flex mt-5">
                 <a target="_blank" href="https://www.fnmallonline.com/" class="ms-2">
