@@ -212,6 +212,7 @@ export default defineComponent({
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  min-width: 30vw;
   @media (max-width: 576px) {
     width: calc( 70% + 60px );
   }
