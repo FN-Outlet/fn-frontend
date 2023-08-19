@@ -78,32 +78,12 @@
             <h2 class="text-white text-center font-normal">FN MALL <br/>MARKETPLACE</h2>
             <img src="/hp-s3-text.png" class="img-fluid my-3" />
             <div class="d-lg-flex align-items-center flex-wrap malls">
-              <a target="_blank" href="https://www.fnmallonline.com/" class="mx-2 new">
-                <img src="/icon_fn_web.png" class="img-fluid" /> FNmall
-              </a>
-              <a target="_blank" href="https://www.facebook.com/FN.Factory.Outlet" class="mx-2 new">
-                <img src="/facebook-1.svg" class="img-fluid" /> Facebook
-              </a>
-              <a href="https://www.tiktok.com/@fn_officialth" class="mx-2 d-block" target="_blank">
-                <img src="/tiktok.png" class="img-fluid" />
-              </a>
-              
-              <a href="https://www.lazada.co.th/tag/fn-outlet/?spm=a2o4m.searchlist.search.2.7a0f7f6aebcak3&q=fn%20outlet&_keyori=ss&clickTrackInfo=textId--5049057020637672817__abId--329751__Score--1.796195651684857__pvid--1832af9a-6dd1-44f0-97c6-355738f49c0e__matchType--1__matchList--1-2__srcQuery--fn%20outlet__spellQuery--fn%20outlet__ctrScore--0.7764797806739807__cvrScore--0.007095813751220703&from=suggest_normal&sugg=fn%20outlet_0_1&catalog_redirect_tag=true" class="mx-2 d-block my-2 my-lg-0" target="_blank">
-                <img src="/lazada.png" class="img-fluid" />
-              </a>
-              <a href="https://shopee.co.th/fnoutlet" class="mx-2 d-block" target="_blank">
-                <img src="/shopee.png" class="img-fluid" />
-              </a>
-              <a href="https://www.youtube.com/channel/UCTGvDZvpTrKsDq-48L8pJ4g" class="mx-2 new" target="_blank">
-                <img src="/youtube.svg" class="img-fluid" /> Youtube
-              </a>
-              
-              <a target="_blank" href="https://www.instagram.com/fnoutlet/" class="mx-2 new">
-                <img src="/instagram.svg" class="img-fluid" /> Instagram
-              </a>
-              
-              <a target="_blank" href="https://page.line.me/wgy7774r?openQrModal=true" class="mx-2 new">
-                <img src="/icon-line.png" class="img-fluid" /> Line
+              <a 
+                v-for="(online, index) in online" :key="index"
+                target="_blank" 
+                :href="online.attributes.link" 
+                class="mx-2 new">
+                <img :src="online.attributes.imagehomepage.data.attributes.url" class="img-fluid" /> {{ online.attributes.nameen }}
               </a>
             </div>
           </div>
@@ -140,15 +120,20 @@
       </section>
 
     </div>
-    <div class="modal-overlay-custom" v-if="showModal" @click="showModal!=showModal" style="overflow: scroll;">
-      <div class="row modal-custom" @click.stop>
-        <div class="col-12 _img" >
-          <img src="/popup-mother.jpg" class="img-fluid"  />
+    <div v-for="(pop,index) in popup" :key="index">
+      <div class="modal-overlay-custom" 
+        style="overflow: scroll;" 
+        v-if="pop.isActive"
+      >
+          <div class="row modal-custom" @click.stop>
+            <div class="col-12 _img" >
+              <img :src="pop.attributes.image.data.attributes.url" class="img-fluid"  />
+            </div>
+          </div>
+          <div class="close" @click="pop.isActive=false">
+            <img class="close-img img-fluid" src="/close.svg" alt="" />
+          </div>
         </div>
-      </div>
-      <div class="close" @click="showModal=false">
-        <img class="close-img img-fluid" src="/close.svg" alt="" />
-      </div>
     </div>
     <Footer />
   </div>
@@ -161,19 +146,36 @@ export default defineComponent({
   data() {
     return {
       width: '50',
-      showModal: true
+      showModal: true,
+      popup: '',
+      online: '',
     };
   },
   mounted() {
-    console.log( this.width )
+    //console.log( this.width )
     if (window.location.href === "https://fnoutlet.com/" || window.location.href === "https://www.fnoutlet.com/") {
       window.location.href = 'https://fnthailand.com/'; 
     } 
+    this.getPopup();
+    this.getOnline();
   },
   methods: {
     getWidth( submenuWidth) {
       this.width = submenuWidth
     },
+    async getPopup() {
+      let d = new Date();
+      let datestring = d.getFullYear() + "-" + String(d.getMonth()+1).padStart(2, '0') + "-" + d.getDate();
+      const { data } = await $fetch(`/api/popups?filters[end][$gt]=${datestring}&populate=*`);
+      this.popup = data;
+      this.popup.forEach((elm)=>{
+        elm.isActive = true
+      });
+    },
+    async getOnline() {
+      const { data } = await $fetch(`/api/onlines?sort=id:asc&populate=*`);
+      this.online = data;
+    }
   },
 })
 </script>

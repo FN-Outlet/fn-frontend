@@ -52,32 +52,15 @@
           </div>
               </nav>
               <div class="social-links d-flex mt-5">
-                <a target="_blank" href="https://www.fnmallonline.com/" class="ms-2">
-                  <img src="/icon_fn_web.png" class="img-fluid" style="margin-right:15px;"/>
+
+                <a 
+                  v-for="(online, index) in online" :key="index"
+                  target="_blank" 
+                  :href="online.attributes.link" 
+                  class="ms-2">
+                  <img :src="online.attributes.icon.data.attributes.url" class="img-fluid" style="width:30px;"  />
                 </a>
-                <a href="https://www.facebook.com/FN.Factory.Outlet" class="icon-facebook ms-2" target="_blank">
-                  <img src="/icon-facebook.png" class="img-fluid" style="margin-right:15px;"/>
-                </a>
-                <a href="https://www.tiktok.com/@fn_officialth" class="ms-2" style="width:25px; margin-right:15px;" target="_blank">
-                  <img src="/tiktok.svg" class="img-fluid" />
-                </a>
-                <a href="https://www.lazada.co.th/tag/fn-outlet/?spm=a2o4m.searchlist.search.2.7a0f7f6aebcak3&q=fn%20outlet&_keyori=ss&clickTrackInfo=textId--5049057020637672817__abId--329751__Score--1.796195651684857__pvid--1832af9a-6dd1-44f0-97c6-355738f49c0e__matchType--1__matchList--1-2__srcQuery--fn%20outlet__spellQuery--fn%20outlet__ctrScore--0.7764797806739807__cvrScore--0.007095813751220703&from=suggest_normal&sugg=fn%20outlet_0_1&catalog_redirect_tag=true" class="" style="width:40px; margin-right:5px;" target="_blank">
-                  <img src="/laz.svg" class="img-fluid" />
-                </a>
-              </div>
-              <div class="social-links d-flex mt-4">
-                <a href="https://shopee.co.th/fnoutlet" class="ms-2" target="_blank">
-                  <img src="/shopee.svg" class="img-fluid" style="width:25px; margin-right:10px;" />
-                </a>
-                <a href="https://www.youtube.com/channel/UCTGvDZvpTrKsDq-48L8pJ4g" class="ms-2 mt-2" style="width:30px; margin-right:5px;" target="_blank">
-                  <img src="/youtube.svg" class="img-fluid" />
-                </a>
-                <a href="https://www.instagram.com/fnoutlet/" target="_blank">
-                  <img src="/icon-ig.png" class="img-fluid" style="margin-left:10px; margin-right:10px;"/>
-                </a>
-                <a target="_blank" href="https://page.line.me/wgy7774r?openQrModal=true" class="ms-2">
-                  <img src="/icon-line.png" class="img-fluid" style="width:30px; margin-right:5px;"/>
-                </a>
+                
               </div>
             </div>
             <div class="right">
@@ -126,6 +109,7 @@ export default defineComponent({
       width: '50',
       isOpen: false,
       isHideAboutUs: true,
+      online: '',
     };
   },
   components: {
@@ -133,12 +117,17 @@ export default defineComponent({
   },
 
   mounted() {
-    console.log( this.width )
+    //console.log( this.width )
+    this.getOnline();
   },
   methods: {
     getWidth( submenuWidth) {
       this.width = submenuWidth
     },
+    async getOnline() {
+      const { data } = await $fetch(`/api/onlines?&sort=id:asc&populate=*`);
+      this.online = data;
+    }
   },
 })
 </script>

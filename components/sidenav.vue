@@ -94,30 +94,14 @@
         <img src="/icon-plus.png" class="img-fluid" />
       </a>
       <div class="links">
-        <a target="_blank" href="https://www.fnmallonline.com/" class="mt-3 d-block">
-          <img src="/icon_fn_web.png" class="img-fluid" />
+        <a 
+          v-for="(online, index) in online" :key="index"
+          target="_blank" 
+          :href="online.attributes.link"
+          class="mt-3 d-block"
+        >
+          <img :src="online.attributes.icon.data.attributes.url" class="img-fluid" />
         </a>
-        <a target="_blank" href="https://www.facebook.com/FN.Factory.Outlet" class="mt-3 d-block">
-          <img src="/facebook-1.svg" class="img-fluid" />
-        </a>
-        <a href="https://www.tiktok.com/@fn_officialth" class="mt-3 d-block" target="_blank">
-          <img src="/tiktok.svg" class="img-fluid" />
-        </a>
-        <a href="https://www.lazada.co.th/tag/fn-outlet/?spm=a2o4m.searchlist.search.2.7a0f7f6aebcak3&q=fn%20outlet&_keyori=ss&clickTrackInfo=textId--5049057020637672817__abId--329751__Score--1.796195651684857__pvid--1832af9a-6dd1-44f0-97c6-355738f49c0e__matchType--1__matchList--1-2__srcQuery--fn%20outlet__spellQuery--fn%20outlet__ctrScore--0.7764797806739807__cvrScore--0.007095813751220703&from=suggest_normal&sugg=fn%20outlet_0_1&catalog_redirect_tag=true" class="mt-3 d-block" target="_blank">
-          <img src="/laz.svg" class="img-fluid" />
-        </a>
-        <a href="https://shopee.co.th/fnoutlet" class="mt-3 d-block" target="_blank">
-          <img src="/shopee.svg" class="img-fluid" />
-        </a>
-        <!--<a target="_blank" href="https://www.youtube.com/channel/UCTGvDZvpTrKsDq-48L8pJ4g" class="mt-2 d-block">
-          <img src="/youtube.svg" class="img-fluid" />
-        </a>
-        <a target="_blank" href="https://www.facebook.com/FN.Factory.Outlet" class="icon-facebook">
-          <img src="/facebook-1.svg" class="img-fluid" />
-        </a>
-        <a target="_blank" href="https://www.instagram.com/fnoutlet/" class="mt-2 d-block">
-          <img src="/instagram.svg" class="img-fluid" />
-        </a>-->
       </div>
     </div>
   </nav>
@@ -132,12 +116,14 @@ export default defineComponent({
       width: '0',
       isOpen: false,
       isHideAboutUs: true,
+      online: '',
     };
   },
   mounted() {
     this.width = this.$refs.menu.offsetWidth
     console.log(this.$refs.submenu.offsetWidth)
     this.$emit('submenuWidth', this.$refs.submenu.offsetWidth)
+    this.getOnline();
   },
   methods: {
     toggleMenu(){
@@ -147,6 +133,10 @@ export default defineComponent({
       } else {
         this.width = this.$refs.menu.offsetWidth
       }
+    },
+    async getOnline() {
+      const { data } = await $fetch(`/api/onlines?filters[showsidebar][$eq]=true&sort=id:asc&populate=*`);
+      this.online = data;
     }
   }
 
