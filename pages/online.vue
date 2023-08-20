@@ -23,7 +23,7 @@
                 v-for="(online, index) in online" :key="index"
                 target="_blank" 
                 :href="online.attributes.link" 
-                class="mx-2">
+                class="">
                 <img :src="online.attributes.icon.data.attributes.url" class="img-fluid" /> 
               </a>
 
@@ -102,21 +102,20 @@
     justify-content: center;
     flex-wrap: wrap;
     max-width: 70%;
-    margin: 0 auto;
+    margin: 0 auto 15px;
     @media (max-width: 1200px) {
       max-width: 90%;
     }
     a{
       display: flex;
       align-items: center;
-      margin-block: 15px;
+      margin: 5px;
       justify-content: center;
       background: #CC3832;
       width: 150px;
       height: 150px;
       border-radius: 50%;
       @media (max-width: 992px) {
-        margin: 15px auto !important;
         width: 50px;
         height: 50px;
         img{
@@ -127,6 +126,7 @@
       img{
         width: 50px;
         height: 50px;
+        object-fit: contain;
         @media (max-width: 992px) {
           width: 25px;
           height: 25px;
