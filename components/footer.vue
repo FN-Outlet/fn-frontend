@@ -57,7 +57,7 @@
                   v-for="(online, index) in online" :key="index"
                   target="_blank" 
                   :href="online.attributes.link" 
-                  class="ms-2">
+                  class="">
                   <img :src="online.attributes.icon.data.attributes.url" class="img-fluid" style="width:30px;"  />
                 </a>
                 
@@ -144,9 +144,20 @@ export default defineComponent({
 
     .social-links{
       align-items: center;
+      display: flex;
+      flex-wrap: wrap;
+      margin: 0 -5px;
+      width: 260px;
+      > *{
+        margin: 5px;
+        flex: 0 30px;
+        display: flex;
+        align-items: center;
+      }
       img{
         height: 25px;
         width: auto;
+        object-fit: contain;
       }
     }
   

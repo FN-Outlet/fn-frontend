@@ -101,6 +101,11 @@
   .malls{
     justify-content: center;
     flex-wrap: wrap;
+    max-width: 70%;
+    margin: 0 auto;
+    @media (max-width: 1200px) {
+      max-width: 90%;
+    }
     a{
       display: flex;
       align-items: center;
