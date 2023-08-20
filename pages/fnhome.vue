@@ -116,7 +116,7 @@
               </button>
             </div>
             <div class="text-center mt-5">
-              <a href="#" class="btn btn-primary">SHOP NOW</a>
+              <a href="#" class="btn btn-primary">{{ $t("shop now") }}</a>
             </div>
           </div>
         </section>

@@ -54,12 +54,12 @@
                 </nuxt-link>
               </div>
               <div class="col-lg-6 mt-5">
-                <!--<nuxt-link :to="localePath('fncare')">-->
+                <nuxt-link :to="localePath('fncare')">
                   <div class="border-bottom-red">
                     <img src="/fn-care.jpg" class="img-fluid" />
                     <img src="/service-text-04.jpg" class="img-fluid  my-3 text-img" />
                   </div>
-                <!--</nuxt-link>-->
+                </nuxt-link>
               </div>
               <div class="col-lg-6 mt-5">
                 <!--<nuxt-link :to="localePath('fntravel')">-->
