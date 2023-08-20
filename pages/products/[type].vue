@@ -16,7 +16,7 @@
           <div class="container">
             <h2 class="heading-text text-center">
               <img src="/logo.png" class="img-fluid mb-4" />
-              <span>APPAREL</span>
+              <span>{{ $route.params.type.toUpperCase() }}</span>
             </h2>
             <div class="highlight mb-3" v-for="(pro, index) in productHighlight" :key="index">
               <div class="main-img">
@@ -198,6 +198,24 @@
 		this.footer = '/service-footer.jpg'
 		this.text = 'มั่นใจในสุขอนามัยที่ดี กับผลิตภัณฑ์เพื่อสุขภาพของเรา เราทุ่มเทเพื่อสร้างสรรค์ผลิตภัณฑ์ที่เชื่อถือได้และคุณภาพสูง ตั้งแต่กระดาษชำระ กระดาษเช็ดหน้า ผ้าอ้อม สำลี สเปรย์แอลกอฮอล์ และอีกมากมาย เรามีทุกสิ่งที่คุณต้องการเพื่อคงไว้ซึ่งคุณภาพชีวิตที่ดี สัมผัสความมั่นใจในชีวิตประจำวันด้วย FN CARE'
 		this.footerimg = '/care-text.png'
+	  }
+	  if (this.$route.params.type == 'travel') {
+		this.banner = '/travel-banner.jpg'
+		this.footer = '/service-footer.jpg'
+		this.text = 'พื้นที่ที่จะทำให้การเดินทางของคุณสนุกสนานและสะดวกยิ่งขึ้น เราเชี่ยวชาญในการจัดหาวัสดุคุณภาพและนวัตกรรมใหม่ ๆ เพื่อความปลอดภัย และทนทาน สร้างสรรค์สินค้าสำหรับนักเดินทางอย่างครบครัน ไม่ว่าจะเป็น กระเป๋าเดินทาง เก้าอี้สนาม Camping Set และอีกมากมาย เพื่อให้คุณพร้อมกับประสบการณ์ครั้งใหม่ได้อย่างมั่นใจ'
+		this.footerimg = '/travel-text.png'
+	  }
+	  if (this.$route.params.type == 'sport') {
+		this.banner = '/sport-banner.jpg'
+		this.footer = '/service-footer.jpg'
+		this.text = 'FN SPORT เราคัดสรรเครื่องแต่งกายกีฬาแบรนด์ระดับชั้นนำ ที่มีฟีเจอร์และเทคโนโลยีทันสมัย ทั้งเสื้อ กางเกงรองเท้าวิ่ง กระเป๋าสะพายรูปแบบต่างๆ คัดสรรสินค้าทั้งคอลเลคชั่นใหม่และสินค้าที่มีความต้องการสูง เพื่อความสะดวกในการเลือกซื้อสินค้าที่มีคุณภาพ ในราคาที่เอื้อมถึง  และสามารถตอบโจทย์การใช้ชีวิตได้ในทุกๆวัน'
+		this.footerimg = '/sport-text.png'
+	  }
+	  if (this.$route.params.type == 'eat') {
+		this.banner = '/eat-banner.jpg'
+		this.footer = '/service-footer.jpg'
+		this.text = 'สวรรค์ของคนรักขนม FN EAT นำเสนอของว่างแสนอร่อยที่จะทำให้คุณเพลิดเพลินไปกับรสชาติแสนเลิศ และเครื่องดื่มมากมาย หลากหลายประเภท ที่เราตั้งใจจัดจำหน่ายด้วยความใส่ใจ รวมถึงสินค้าจากท้องถิ่นที่ FN ร่วมสนับสนุนในพื้นที่ รวบรวมไว้เพื่อความสะดวกสบายของลูกค้าที่มาจับจ่ายซื้อสินค้าเพื่อเป็นของฝาก'
+		this.footerimg = '/eat-text.png'
 	  }
       this.getProduct()
     },
