@@ -6,7 +6,7 @@
         <section class="bg-primary d-lg-flex banner hp-banner">
           <img src="/banner_fn.png" class="main-logo" />
           <div class="col">
-            <img src="/sleep-banner.jpg" class="img-fluid w-100" />
+            <img src="/apparel-banner.jpg" class="img-fluid w-100" />
           </div>
           <div class="col py-5 py-lg-0 d-flex align-items-center justify-content-center">
             <h2 class="text-white font-normal mb-0">FOR<br>QUALITY OF LIFE</h2>
@@ -18,20 +18,34 @@
               <img src="/logo.png" class="img-fluid mb-4" />
               <span>APPAREL</span>
             </h2>
-            <div class="highlight">
+            <div class="highlight mb-3" v-for="(pro, index) in productHighlight" :key="index">
               <div class="main-img">
-                <img src="/sleep-big.jpg" class="img-fluid" />
+                <img :src="pro.attributes.image.data.attributes.url" class="img-fluid" />
               </div>
               <div class="bg-primary">
                 <div class="tag">New</div>
-                <div class="text-white old"><span class="del">20,000</span> Baht</div>
-                <div class="d-flex text-white align-items-center">
-                  <h1 class="text-white mb-0 me-3">9,900</h1>Baht
+                <div v-if="pro.attributes.discountprice">
+                  <div class="text-white old"><span class="del">{{ pro.attributes.fullprice.toLocaleString() }}</span> Baht</div>
+                  <div class="d-flex text-white align-items-center">
+                    <h1 class="text-white mb-0 me-3">{{ pro.attributes.discountprice.toLocaleString() }}</h1>{{ $t("Baht") }}
+                  </div>
                 </div>
-                <h3 class="text-white">{{ $t("PRIM ชุดผ้าปูที่นอน Tencel 6 ชิ้น ขนาด 6 ฟุต") }}</h3>
-                <p class="text-white">{{ $t("มอบสัมผัสแห่งความอ่อนโยนจากธรรมชาติ สู่บ้านคุณ ด้วยชุดเครื่องนอน  TENCEL สัมผัสการนอนที่เย็นสบาย นุ่ม ลื่น ช่วยให้พักผ่อนได้อย่างเต็มที่ การันตีจากยอดขายติดอันดับสินค้าขายดีของ FN มาตลอด 20 ปี") }}</p>
-                <div class="size my-5 text-white"><small>50x50 cm</small></div>
-                <a class="btn btn-white">shop now</a>
+                <div v-else>
+                  <div class="d-flex text-white align-items-center" v-if="pro.attributes.fullprice">
+                    <h1 class="text-white mb-0 me-3" >{{ pro.attributes.fullprice.toLocaleString() }}</h1>{{ $t("Baht") }}
+                  </div>
+                </div>
+                <div v-if="$i18n.locale === 'en'">
+                  <h3 class="text-white">{{ pro.attributes.nameen }}</h3>
+                  <p class="text-white">{{ pro.attributes.descriptionen }}</p>
+                  <div class="size my-5 text-white"><small>{{ pro.attributes.attributeen }}</small></div>
+                </div>
+                <div v-else>
+                  <h3 class="text-white">{{ pro.attributes.nameth }}</h3>
+                  <p class="text-white">{{ pro.attributes.descriptionth }}</p>
+                  <div class="size my-5 text-white"><small>{{ pro.attributes.attributeth }}</small></div>
+                </div>
+                <a :href="pro.attributes.link" target="_blank" class="btn btn-white">{{ $t("shop now") }}</a>
               </div>
             </div>
             <div class="slider-wrapper mt-4">
@@ -72,54 +86,42 @@
               }">
                 <swiper-slide>
                   <a href="#" class="news-thumbnail">
-                    <div class="top">
-                      <img src="/sleep-1.jpg" class="img-fluid" />
-                      <div class="tag">New</div>
-                      <h3>{{ $t("PRIM bubble blanket รุ่น Classic ขนาด 6 ฟุต") }}</h3>
-                      <p>{{ $t("ผ้าห่ม Micifine ขนาด 60x80 นิ้ว ที่ให้สัมผัสนุ่มกว่าเส้นใยอื่นๆ เพราะขนาดของเส้นใยที่เล็กและทอละเอียดช่วยป้องกันไรฝุ่น ลวดลายเป็นเอกลักษณ์เฉพาะ เนื้อผ้าภายนอกตุ่มนูน ช่วยให้ไม่รู้สึกอึดอัดเมื่ออากาศร้อนและอุ่นสบายเมื่ออากาศนาว") }}</p>
-                    </div>
-                    <div class="bottom">
-                      <div class="size mt-5"><small>50x50 cm</small></div>
-                      <div class="d-flex align-items-center">
-                        <h2 class="text-primary me-3 m-0">999</h2>
-                        baht
-                      </div>
-                    </div>
-                  </a>
+                  <img src="/sleep-1.jpg" class="img-fluid" />
+                  <div class="tag">New</div>
+                  <h3>{{ $t("PRIM bubble blanket รุ่น Classic ขนาด 6 ฟุต") }}</h3>
+                  <p>{{ $t("ผ้าห่ม Micifine ขนาด 60x80 นิ้ว ที่ให้สัมผัสนุ่มกว่าเส้นใยอื่นๆ เพราะขนาดของเส้นใยที่เล็กและทอละเอียดช่วยป้องกันไรฝุ่น ลวดลายเป็นเอกลักษณ์เฉพาะ เนื้อผ้าภายนอกตุ่มนูน ช่วยให้ไม่รู้สึกอึดอัดเมื่ออากาศร้อนและอุ่นสบายเมื่ออากาศนาว") }}</p>
+                  <div class="size mt-5"><small>50x50 cm</small></div>
+                  <div class="d-flex align-items-center">
+                    <h2 class="text-primary me-3 m-0">999</h2>
+                    baht
+                  </div>
+                </a>
                 </swiper-slide>
                 <swiper-slide>
                   <a href="#" class="news-thumbnail">
-                    <div class="top">
-                      <img src="/sleep-2.jpg" class="img-fluid" />
-                      <div class="tag">New</div>
-                      <h3>{{ $t("PRIM ไส้ผ้านวมขนเป็ด หนา นุ่ม อบอุ่น หลับสบาย") }}</h3>
-                      <p>{{ $t("ผ้านวมขนเป็ดชนิดนุ่มพิเศษ เสมือนนอนในโรงแรม 5 ดาว ด้วยวัสดุจากธรรมชาติ 100% ประกอบด้วยขนเป็ดสีขาว 75% และขนเป็ดช่วงหน้าอก 25% ซึ่งเป็นขนอ่อนชนิดพิเศษ ใช้ขนเป็ดตามมาตรฐานอเมริกา (FTC) พร้อมดับเบิ้ลล็อค 14 ห่วง") }}</p>
-                    </div>
-                    <div class="bottom">
-                      <div class="size mt-5"><small>50x50 cm</small></div>
-                      <div class="d-flex align-items-center">
-                        <h2 class="text-primary me-3 m-0">999</h2>
-                        baht
-                      </div>
-                    </div>
-                  </a>
+                  <img src="/sleep-2.jpg" class="img-fluid" />
+                  <div class="tag">New</div>
+                  <h3>{{ $t("PRIM ไส้ผ้านวมขนเป็ด หนา นุ่ม อบอุ่น หลับสบาย") }}</h3>
+                  <p>{{ $t("ผ้านวมขนเป็ดชนิดนุ่มพิเศษ เสมือนนอนในโรงแรม 5 ดาว ด้วยวัสดุจากธรรมชาติ 100% ประกอบด้วยขนเป็ดสีขาว 75% และขนเป็ดช่วงหน้าอก 25% ซึ่งเป็นขนอ่อนชนิดพิเศษ ใช้ขนเป็ดตามมาตรฐานอเมริกา (FTC) พร้อมดับเบิ้ลล็อค 14 ห่วง") }}</p>
+                  <div class="size mt-5"><small>50x50 cm</small></div>
+                  <div class="d-flex align-items-center">
+                    <h2 class="text-primary me-3 m-0">999</h2>
+                    baht
+                  </div>
+                </a>
                 </swiper-slide>
                 <swiper-slide>
                   <a href="#" class="news-thumbnail">
-                    <div class="top">
-                      <img src="/sleep-3.jpg" class="img-fluid" />
-                      <div class="tag">New</div>
-                      <h3>{{ $t("PRIM หมอนขนเป็ดเพื่อสุขภาพ สัมผัสความนุ่ม นอนสบายประดุจโรงแรม 6 ดาว") }}</h3>
-                      <p>{{ $t("\"เสน่ห์ขนเป็ด แบบนุ่มธรรมชาติ\" ด้วยคุณสมบัติอันเป็นเอกลักษณ์เฉพาะตัว ของก้านขนห่านและขนอกเป็ด หุ้มด้วยผ้าไมซิไฟน์เนื้อเนียน ทำให้ได้สัมผัสนุ่มนวล เพิ่มความคลาสสิคด้วยขอบกุ๊นริบบิ้นซาติน มีระดับและดูดี รองรับได้กับทุกท่านอน") }}</p>
-                    </div>
-                    <div class="bottom">
-                      <div class="size mt-5"><small>50x50 cm</small></div>
-                      <div class="d-flex align-items-center">
-                        <h2 class="text-primary me-3 m-0">999</h2>
-                        baht
-                      </div>
-                    </div>
-                  </a>
+                  <img src="/sleep-3.jpg" class="img-fluid" />
+                  <div class="tag">New</div>
+                  <h3>{{ $t("PRIM หมอนขนเป็ดเพื่อสุขภาพ สัมผัสความนุ่ม นอนสบายประดุจโรงแรม 6 ดาว") }}</h3>
+                  <p>{{ $t("\"เสน่ห์ขนเป็ด แบบนุ่มธรรมชาติ\" ด้วยคุณสมบัติอันเป็นเอกลักษณ์เฉพาะตัว ของก้านขนห่านและขนอกเป็ด หุ้มด้วยผ้าไมซิไฟน์เนื้อเนียน ทำให้ได้สัมผัสนุ่มนวล เพิ่มความคลาสสิคด้วยขอบกุ๊นริบบิ้นซาติน มีระดับและดูดี รองรับได้กับทุกท่านอน") }}</p>
+                  <div class="size mt-5"><small>50x50 cm</small></div>
+                  <div class="d-flex align-items-center">
+                    <h2 class="text-primary me-3 m-0">999</h2>
+                    baht
+                  </div>
+                </a>
                 </swiper-slide>
               </swiper>
               <button @click="nextSlide" class="btn-slider-next">
@@ -130,7 +132,7 @@
               </button>
             </div>
             <div class="text-center mt-5">
-              <a href="https://www.fnmallonline.com/" target="_blank" class="btn btn-primary">SHOP NOW</a>
+              <a href="https://www.fnmallonline.com/" target="_blank" class="btn btn-primary">{{ $t("shop now") }}</a>
             </div>
           </div>
         </section>
@@ -166,6 +168,9 @@
     data() {
       return {
         width: '50',
+        product: '',
+        productHighlight: '',
+        productNotHighlight: '',
       };
     },
     components: {
@@ -182,6 +187,7 @@
     },
     mounted() {
       //console.log( this.swiper )
+      this.getProduct()
     },
     methods: {
       getWidth( submenuWidth) {
@@ -193,6 +199,12 @@
       prevSlide(){
         this.$refs.mySwiper.$el.swiper.slidePrev()
       },
+      async getProduct() {
+        const { data } = await $fetch(`/api/products?filters[type][$eq]=apparel&sort=id:asc&populate=*`);
+        this.product = data;
+        this.productNotHighlight = data.filter(d => d.attributes.highlight == false);
+        this.productHighlight = data.filter(d => d.attributes.highlight == true);
+      }
     },
   })
   </script>

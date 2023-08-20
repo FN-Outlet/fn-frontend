@@ -76,7 +76,7 @@
             </div>
             
             <div class="row">
-              <a href="#" class="col-6 text-white">{{ $t("Documents") }}</a>
+              <nuxt-link :to="localePath('public-documents')" class="col-6 text-white">{{ $t("Documents") }}</nuxt-link>
               <nuxt-link :to="localePath('career')" class="col-6 text-white">{{ $t("Careers") }}</nuxt-link>
             </div>
           </div>

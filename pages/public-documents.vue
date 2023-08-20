@@ -20,8 +20,14 @@ DOCUMENTS</h2>
               <span>PUBLIC DOCUMENTS </span>
             </h2>
             <div class="docs mt-4">
-                <a href="" class="d-flex w-100 justify-content-between"  v-for="index in 0" :key="index">
-                  <span class="d-block">การขอผ่อนผันการนำส่งงบการเงิน Q1/2563 สิ้นสุดวันที่ 31/03/2563</span>
+                <a 
+                  v-for="(doc,index) in document" :key="index"
+                  :href="doc.attributes.file.data.attributes.url" 
+                  class="d-flex w-100 justify-content-between"  
+                  target="_blank"
+                > 
+                  <span class="d-block" v-if="$i18n.locale=='en'">{{ doc.attributes.nameen }}</span>
+                  <span class="d-block" v-else>{{ doc.attributes.nameth }}</span>
                   <span class="">Download</span>
                 </a>
               </div>
@@ -38,29 +44,20 @@ DOCUMENTS</h2>
     data() {
       return {
         width: '50',
-        isActive1: true,
-        isActive2: false,
-        isActive3: false,
+        document: '',
       };
     },
     mounted() {
-      console.log( this.width )
+      //console.log( this.width )
+      this.getDocument()
     },
     methods: {
       getWidth( submenuWidth) {
         this.width = submenuWidth
       },
-      visible( data ){
-        this.isActive1 = false
-        this.isActive2 = false
-        this.isActive3 = false
-        if ( data === 1 ){
-          this.isActive1 = true
-        } if ( data === 2 ){
-          this.isActive2 = true
-        } if ( data === 3 ){
-          this.isActive3 = true
-        } 
+      async getDocument() {
+        const { data } = await $fetch(`/api/documents?sort=id:asc&populate=*`);
+        this.document = data;
       }
     },
   })
