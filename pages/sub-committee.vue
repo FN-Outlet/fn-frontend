@@ -21,9 +21,9 @@
               <div class="col-lg-4">
                 <button :class="isActive2 ? 'active' : 'inactive'"  @click="visible(2)">Nomination Remuneration and Good Corporate Governance Committee</button>
               </div>
-              <div class="col-lg-4">
+              <!--<div class="col-lg-4">
                 <button :class="isActive3 ? 'active' : 'inactive'"  @click="visible(3)">Risk Management Committee</button>
-              </div>
+              </div>-->
               <div class="col-lg-4">
                 <button :class="isActive4 ? 'active' : 'inactive'"  @click="visible(4)">Executive Committee</button>
               </div>

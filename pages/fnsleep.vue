@@ -18,20 +18,34 @@
               <img src="/logo.png" class="img-fluid mb-4" />
               <span>SLEEP</span>
             </h2>
-            <div class="highlight">
+            <div class="highlight mb-3" v-for="(pro, index) in productHighlight" :key="index">
               <div class="main-img">
-                <img src="/sleep-big2.jpg" class="img-fluid" />
+                <img :src="pro.attributes.image.data.attributes.url" class="img-fluid" />
               </div>
               <div class="bg-primary">
                 <div class="tag">New</div>
-                <div class="text-white old"><span class="del">20,000</span> Baht</div>
-                <div class="d-flex text-white align-items-center">
-                  <h1 class="text-white mb-0 me-3">9,900</h1>Baht
+                <div v-if="pro.attributes.discountprice">
+                  <div class="text-white old"><span class="del">{{ pro.attributes.fullprice.toLocaleString() }}</span> Baht</div>
+                  <div class="d-flex text-white align-items-center">
+                    <h1 class="text-white mb-0 me-3">{{ pro.attributes.discountprice.toLocaleString() }}</h1>{{ $t("Baht") }}
+                  </div>
                 </div>
-                <h3 class="text-white">{{ $t("PRIM ชุดผ้าปูที่นอน Tencel 6 ชิ้น ขนาด 6 ฟุต") }}</h3>
-                <p class="text-white">{{ $t("มอบสัมผัสแห่งความอ่อนโยนจากธรรมชาติ สู่บ้านคุณ ด้วยชุดเครื่องนอน  TENCEL สัมผัสการนอนที่เย็นสบาย นุ่ม ลื่น ช่วยให้พักผ่อนได้อย่างเต็มที่ การันตีจากยอดขายติดอันดับสินค้าขายดีของ FN มาตลอด 20 ปี") }}</p>
-                <div class="size my-5 text-white"><small>50x50 cm</small></div>
-                <a href="https://www.fnmallonline.com/" target="_blank" class="btn btn-white">shop now</a>
+                <div v-else>
+                  <div class="d-flex text-white align-items-center">
+                    <h1 class="text-white mb-0 me-3">{{ pro.attributes.fullprice.toLocaleString() }}</h1>{{ $t("Baht") }}
+                  </div>
+                </div>
+                <div v-if="$i18n.locale === 'en'">
+                  <h3 class="text-white">{{ pro.attributes.nameen }}</h3>
+                  <p class="text-white">{{ pro.attributes.descriptionen }}</p>
+                  <div class="size my-5 text-white"><small>{{ pro.attributes.attributeen }}</small></div>
+                </div>
+                <div v-else>
+                  <h3 class="text-white">{{ pro.attributes.nameth }}</h3>
+                  <p class="text-white">{{ pro.attributes.descriptionth }}</p>
+                  <div class="size my-5 text-white"><small>{{ pro.attributes.attributeth }}</small></div>
+                </div>
+                <a :href="pro.attributes.link" target="_blank" class="btn btn-white">{{ $t("shop now") }}</a>
               </div>
             </div>
             <div class="slider-wrapper">
@@ -70,44 +84,24 @@
                     translate: ['100%', 0, 0],
                   },
               }">
-                <swiper-slide>
+                <swiper-slide v-for="(pro, index) in productNotHighlight" :key="index">
                   <div class="news-thumbnail">
-                  <img src="/sleep-n1.jpg" class="img-fluid" />
-                  <div class="tag">New</div>
-                  <h3>{{ $t("PRIM bubble blanket รุ่น Classic ขนาด 6 ฟุต") }}</h3>
-                  <p>{{ $t("ผ้าห่ม Micifine ขนาด 60x80 นิ้ว ที่ให้สัมผัสนุ่มกว่าเส้นใยอื่นๆ เพราะขนาดของเส้นใยที่เล็กและทอละเอียดช่วยป้องกันไรฝุ่น ลวดลายเป็นเอกลักษณ์เฉพาะ เนื้อผ้าภายนอกตุ่มนูน ช่วยให้ไม่รู้สึกอึดอัดเมื่ออากาศร้อนและอุ่นสบายเมื่ออากาศนาว") }}</p>
-                  <!--<div class="size mt-5"><small>50x50 cm</small></div>
-                  <div class="d-flex align-items-center">
-                    <h2 class="text-primary me-3 m-0">999</h2>
-                    baht
-                  </div>-->
-                </div>
-                </swiper-slide>
-                <swiper-slide>
-                  <div class="news-thumbnail">
-                  <img src="/sleep-n2.jpg" class="img-fluid" />
-                  <div class="tag">New</div>
-                  <h3>{{ $t("PRIM ไส้ผ้านวมขนเป็ด หนา นุ่ม อบอุ่น หลับสบาย") }}</h3>
-                  <p>{{ $t("ผ้านวมขนเป็ดชนิดนุ่มพิเศษ เสมือนนอนในโรงแรม 5 ดาว ด้วยวัสดุจากธรรมชาติ 100% ประกอบด้วยขนเป็ดสีขาว 75% และขนเป็ดช่วงหน้าอก 25% ซึ่งเป็นขนอ่อนชนิดพิเศษ ใช้ขนเป็ดตามมาตรฐานอเมริกา (FTC) พร้อมดับเบิ้ลล็อค 14 ห่วง") }}</p>
-                  <!--<div class="size mt-5"><small>50x50 cm</small></div>
-                  <div class="d-flex align-items-center">
-                    <h2 class="text-primary me-3 m-0">999</h2>
-                    baht
-                  </div>-->
-                </div>
-                </swiper-slide>
-                <swiper-slide>
-                  <div class="news-thumbnail">
-                  <img src="/sleep-n3.jpg" class="img-fluid" />
-                  <div class="tag">New</div>
-                  <h3>{{ $t("PRIM หมอนขนเป็ดเพื่อสุขภาพ สัมผัสความนุ่ม นอนสบายประดุจโรงแรม 6 ดาว") }}</h3>
-                  <p>{{ $t("\"เสน่ห์ขนเป็ด แบบนุ่มธรรมชาติ\" ด้วยคุณสมบัติอันเป็นเอกลักษณ์เฉพาะตัว ของก้านขนห่านและขนอกเป็ด หุ้มด้วยผ้าไมซิไฟน์เนื้อเนียน ทำให้ได้สัมผัสนุ่มนวล เพิ่มความคลาสสิคด้วยขอบกุ๊นริบบิ้นซาติน มีระดับและดูดี รองรับได้กับทุกท่านอน") }}</p>
-                  <!--<div class="size mt-5"><small>50x50 cm</small></div>
-                  <div class="d-flex align-items-center">
-                    <h2 class="text-primary me-3 m-0">999</h2>
-                    baht
-                  </div>-->
-                </div>
+                    <img :src="pro.attributes.image.data.attributes.url" class="img-fluid" />
+                    <div class="tag">New</div>
+                    <div v-if="$i18n.locale === 'en'">
+                      <h3>{{ pro.attributes.nameen }}</h3>
+                      <p>{{ pro.attributes.descriptionen }}</p>
+                    </div>
+                    <div v-else>
+                      <h3>{{ pro.attributes.nameth }}</h3>
+                      <p>{{ pro.attributes.descriptionth }}</p>
+                    </div>
+                    <!--<div class="size mt-5"><small>50x50 cm</small></div>
+                    <div class="d-flex align-items-center">
+                      <h2 class="text-primary me-3 m-0">999</h2>
+                      {{ $t("Baht") }}
+                    </div>-->
+                  </div>
                 </swiper-slide>
               </swiper>
               <button @click="nextSlide" class="btn-slider-next">
@@ -118,13 +112,13 @@
               </button>
             </div>
             <div class="text-center mt-5">
-              <a href="https://www.fnmallonline.com/" target="_blank" class="btn btn-primary">SHOP NOW</a>
+              <a href="https://www.fnmallonline.com/" target="_blank" class="btn btn-primary">{{ $t("shop now") }}</a>
             </div>
           </div>
         </section>
         <section class="d-lg-flex">
         <div class="col p-0 bg-primary">
-          <img src="/service-footer.jpg" class="img-fluid" />
+          <img src="/sleep-footer.jpg" class="img-fluid" />
           <p class="text-white p-5">{{ $t("ที่ซึ่งความฝันมาบรรจบกับเครื่องนอนชั้นเลิศ เปิดประสบการณ์การพักผ่อนที่ออกแบบและรังสรรด้วยความพิถีพิถัน ที่จะทำให้ห้องนอนของคุณเป็นพื้นที่พักผ่อนแสนสบาย ด้วยวัสดุระดับพรีเมียมและเทคโนโลยีเฉพาะที่พัฒนาขึ้นเพื่อให้ผู้ใช้ได้สัมผัสเครื่องนอนคุณภาพที่ดีที่สุด ทั้งที่นอน หมอน และผ้าห่มพร้อมความสบายและความลงตัวได้ตามสไตล์การพักผ่อนด้วย  FN Sleep") }}</p>
         </div>
         <div class="col d-flex align-items-center justify-content-center ">
@@ -154,6 +148,9 @@
     data() {
       return {
         width: '50',
+        product: '',
+        productHighlight: '',
+        productNotHighlight: '',
       };
     },
     components: {
@@ -170,6 +167,7 @@
     },
     mounted() {
       //console.log( this.swiper )
+      this.getProduct()
     },
     methods: {
       getWidth( submenuWidth) {
@@ -181,6 +179,12 @@
       prevSlide(){
         this.$refs.mySwiper.$el.swiper.slidePrev()
       },
+      async getProduct() {
+        const { data } = await $fetch(`/api/products?filters[type][$eq]=sleep&sort=id:asc&populate=*`);
+        this.product = data;
+        this.productNotHighlight = data.filter(d => d.attributes.highlight == false);
+        this.productHighlight = data.filter(d => d.attributes.highlight == true);
+      }
     },
   })
   </script>
