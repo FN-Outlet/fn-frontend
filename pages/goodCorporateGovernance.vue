@@ -9,15 +9,15 @@
             <img src="/banner.png" class="img-fluid w-100" />
           </div>
           <div class="col py-5 py-lg-0 d-flex align-items-center justify-content-center">
-            <h2 class="text-white font-normal mb-0">PUBLIC<br>
-DOCUMENTS</h2>
+            <h2 class="text-white font-normal mb-0" v-if="$i18n.locale === 'en'">Good Corporate<br>Governance</h2>
+            <h2 class="text-white font-normal mb-0" v-else>การกำกับดูแล<br>กิจการที่ดี</h2>
           </div>
         </section>
         <section class="py-5 px-5">
           <div class="container">
             <h2 class="heading-text text-center">
               <img src="/logo.png" class="img-fluid mb-4" />
-              <span>PUBLIC DOCUMENTS </span>
+              <span>{{ $t("Good Corporate Governance") }} </span>
             </h2>
             <div class="docs mt-4">
                 <a 
@@ -28,7 +28,7 @@ DOCUMENTS</h2>
                 > 
                   <span class="d-block" v-if="$i18n.locale=='en'">{{ doc.attributes.nameen }}</span>
                   <span class="d-block" v-else>{{ doc.attributes.nameth }}</span>
-                  <span class="">Download</span>
+                  <span class="">{{ $t("Download") }}</span>
                 </a>
               </div>
           </div>
@@ -56,7 +56,7 @@ DOCUMENTS</h2>
         this.width = submenuWidth
       },
       async getDocument() {
-        const { data } = await $fetch(`/api/documents?sort=sequence&filters[documenttype][$eq]=Public Document&populate=*`);
+        const { data } = await $fetch(`/api/documents?sort=sequence&filters[documenttype][$eq]=Good Corporate Governance&populate=*`);
         this.document = data;
       }
     },

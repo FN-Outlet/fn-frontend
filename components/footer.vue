@@ -43,6 +43,7 @@
                   <nuxt-link :to="localePath('stockprice')" class="col-lg-4 col-md-6 text-white">{{ $t("Stock Price") }}</nuxt-link>
                   <nuxt-link :to="localePath('financial')" class="col-lg-4 col-md-6 text-white">{{ $t("Financial Info") }}</nuxt-link>
                   <a target="_blank" href="https://www.set.or.th/th/market/product/stock/quote/FN/major-shareholders" class="col-lg-4 col-md-6 text-white">{{ $t("Shareholders") }}</a>
+                  <nuxt-link :to="localePath('goodCorporateGovernance')" class="col-lg-4 col-md-6 text-white">{{ $t("Good Corporate Governance") }}</nuxt-link>
                   <a target="_blank" href="https://www.set.or.th/th/market/product/stock/quote/FN/news" class="col-lg-4 col-md-6 text-white">{{ $t("Announcement") }}</a>
                   <nuxt-link :to="localePath('contact')" class="col-lg-4 col-md-6 text-white">{{ $t("Contact") }}</nuxt-link>
                   <nuxt-link :to="localePath('news')" class="col-lg-4 col-md-6 text-white">{{ $t("FN News") }}</nuxt-link>

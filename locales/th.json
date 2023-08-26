@@ -17,6 +17,7 @@
 		"Stock Price": "ข้อมูลราคาหลักทรัพย์",
 		"Financial Info": "ข้อมูลทางการเงิน",
 		"Shareholders": "ข้อมูลผู้ถือหุ้น",
+		"Good Corporate Governance": "การกำกับดูแลกิจการที่ดี",
 		"Announcement": "ข่าวแจ้งตลาดหลักทรัพย์",
 		"Contact": "ติดต่อ",
 		"FN News": "ห้องข่าว",
@@ -76,5 +77,19 @@
 	"Training": "การฝึกอบรม",
 	"Work Experiences": "ประวัติการทำงาน",
 	"Baht": "บาท",
-	"shop now": "ซื้อเลย"
+	"shop now": "ซื้อเลย",
+	"Download": "ดาวโหลด",
+	"Assets": "สินทรัพย์รวม",
+	"Liabilities": "หนี้สินรวม",
+	"Equity": "ส่วนของผู้ถือหุ้น",
+	"Paid-up Capital": "มูลค่าหุ้นที่เรียกชำระแล้ว",
+	"Revenue": "รายได้รวม",
+	"Net Profit": "กำไรสุทธิ",
+	"EPS (Baht)": "กำไรต่อหุ้น (บาท)",
+	"PERIOD": "งวดงบการเงิน",
+	"FINANCIAL HIGHLIGHTS": "บัญชีทางการเงินที่สำคัญ",
+	"FINANCIAL STATEMENTS": "งบการเงิน",
+	"MD & A": "คำอธิบายและการวิเคราะห์ของฝ่ายจัดการ",
+	"FINANCIAL DATA": "บัญชีทางการเงินทีสำคัญ",
+	"COMPANY FINANCIAL": "ข้อมูลสำคัญทางการเงิน"
 }

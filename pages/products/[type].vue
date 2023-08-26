@@ -85,7 +85,7 @@
                   },
               }">
                 <swiper-slide v-for="(pro, index) in productNotHighlight" :key="index">
-                  <a href="#" class="news-thumbnail">
+                  <a :href="pro.attributes.link ? pro.attributes.link : '#'" class="news-thumbnail" :target="pro.attributes.link ? '_blank' : ''">
                     <div class="top">
                       <img :src="pro.attributes.image.data.attributes.url" class="img-fluid" />
                       <div class="tag">New</div>
@@ -155,10 +155,11 @@
         product: '',
         productHighlight: '',
         productNotHighlight: '',
-		banner: '',
-		footer: '',
-		text: '',
-		footerimg: '',
+        banner: '',
+        footer: '',
+        text: '',
+        footerimg: '',
+        page: '',
       };
     },
     components: {
@@ -176,48 +177,49 @@
     mounted() {
       //console.log( this.swiper )
 	  if (this.$route.params.type == 'sleep') {
-		this.banner = '/sleep-banner1.jpg'
-		this.footer = '/sleep-footer.jpg'
-		this.text = 'ที่ซึ่งความฝันมาบรรจบกับเครื่องนอนชั้นเลิศ เปิดประสบการณ์การพักผ่อนที่ออกแบบและรังสรรด้วยความพิถีพิถัน ที่จะทำให้ห้องนอนของคุณเป็นพื้นที่พักผ่อนแสนสบาย ด้วยวัสดุระดับพรีเมียมและเทคโนโลยีเฉพาะที่พัฒนาขึ้นเพื่อให้ผู้ใช้ได้สัมผัสเครื่องนอนคุณภาพที่ดีที่สุด ทั้งที่นอน หมอน และผ้าห่มพร้อมความสบายและความลงตัวได้ตามสไตล์การพักผ่อนด้วย  FN Sleep'
-		this.footerimg = '/sleep-text.png'
+      this.banner = '/sleep-banner1.jpg'
+      this.footer = '/sleep-footer.jpg'
+      this.text = 'ที่ซึ่งความฝันมาบรรจบกับเครื่องนอนชั้นเลิศ เปิดประสบการณ์การพักผ่อนที่ออกแบบและรังสรรด้วยความพิถีพิถัน ที่จะทำให้ห้องนอนของคุณเป็นพื้นที่พักผ่อนแสนสบาย ด้วยวัสดุระดับพรีเมียมและเทคโนโลยีเฉพาะที่พัฒนาขึ้นเพื่อให้ผู้ใช้ได้สัมผัสเครื่องนอนคุณภาพที่ดีที่สุด ทั้งที่นอน หมอน และผ้าห่มพร้อมความสบายและความลงตัวได้ตามสไตล์การพักผ่อนด้วย  FN Sleep'
+      this.footerimg = '/sleep-text.png'
 	  }
 	  if (this.$route.params.type == 'apparel') {
-		this.banner = '/apparel-banner.jpg'
-		this.footer = '/service-footer.jpg'
-		this.text = 'สไตล์ของคุณสามารถสร้างขึ้นเองได้ที่นี่ อิสระของการแต่งตัวที่ผสมผสานความเรียบง่ายและทันสมัยเข้าด้วยกัน ด้วยความชำนาญของ FN ในด้านการตัดเย็บด้วยความใส่ใจรายละเอียด เพื่อเสื้อผ้าที่ความสวยงาม และคงทน มีทั้งเสื้อผ้า รองเท้า กระเป๋า พร้อมให้คุณได้เลือกดูตามคอลเลกชั่น ยกระดับการแต่งกายของคุณให้ดูดีขึ้นกับ FN APPARAL'
-		this.footerimg = '/apparel-text.png'
+      this.banner = '/apparel-banner.jpg'
+      this.footer = '/service-footer.jpg'
+      this.text = 'สไตล์ของคุณสามารถสร้างขึ้นเองได้ที่นี่ อิสระของการแต่งตัวที่ผสมผสานความเรียบง่ายและทันสมัยเข้าด้วยกัน ด้วยความชำนาญของ FN ในด้านการตัดเย็บด้วยความใส่ใจรายละเอียด เพื่อเสื้อผ้าที่ความสวยงาม และคงทน มีทั้งเสื้อผ้า รองเท้า กระเป๋า พร้อมให้คุณได้เลือกดูตามคอลเลกชั่น ยกระดับการแต่งกายของคุณให้ดูดีขึ้นกับ FN APPARAL'
+      this.footerimg = '/apparel-text.png'
 	  }
 	  if (this.$route.params.type == 'home') {
-		this.banner = '/home-banner.jpg'
-		this.footer = '/service-footer.jpg'
-		this.text = 'แต่งบ้านของคุณด้วยความสนุกสนานกับ FN HOME เฟอร์นิเจอร์ที่ถูกออกแบบมาตอบรับกับทุกรสนิยม มาพร้อมกับความทันสมัย ความเรียบง่าย และความคลาสสิก ที่จะสามารถเปลี่ยนบ้านของคุณให้เป็นดั่งบ้านในฝันอย่างสมบูรณ์แบบ'
-		this.footerimg = '/home-text.png'
+      this.banner = '/home-banner.jpg'
+      this.footer = '/service-footer.jpg'
+      this.text = 'แต่งบ้านของคุณด้วยความสนุกสนานกับ FN HOME เฟอร์นิเจอร์ที่ถูกออกแบบมาตอบรับกับทุกรสนิยม มาพร้อมกับความทันสมัย ความเรียบง่าย และความคลาสสิก ที่จะสามารถเปลี่ยนบ้านของคุณให้เป็นดั่งบ้านในฝันอย่างสมบูรณ์แบบ'
+      this.footerimg = '/home-text.png'
 	  }
 	  if (this.$route.params.type == 'care') {
-		this.banner = '/care-banner.jpg'
-		this.footer = '/service-footer.jpg'
-		this.text = 'มั่นใจในสุขอนามัยที่ดี กับผลิตภัณฑ์เพื่อสุขภาพของเรา เราทุ่มเทเพื่อสร้างสรรค์ผลิตภัณฑ์ที่เชื่อถือได้และคุณภาพสูง ตั้งแต่กระดาษชำระ กระดาษเช็ดหน้า ผ้าอ้อม สำลี สเปรย์แอลกอฮอล์ และอีกมากมาย เรามีทุกสิ่งที่คุณต้องการเพื่อคงไว้ซึ่งคุณภาพชีวิตที่ดี สัมผัสความมั่นใจในชีวิตประจำวันด้วย FN CARE'
-		this.footerimg = '/care-text.png'
+      this.banner = '/care-banner.jpg'
+      this.footer = '/service-footer.jpg'
+      this.text = 'มั่นใจในสุขอนามัยที่ดี กับผลิตภัณฑ์เพื่อสุขภาพของเรา เราทุ่มเทเพื่อสร้างสรรค์ผลิตภัณฑ์ที่เชื่อถือได้และคุณภาพสูง ตั้งแต่กระดาษชำระ กระดาษเช็ดหน้า ผ้าอ้อม สำลี สเปรย์แอลกอฮอล์ และอีกมากมาย เรามีทุกสิ่งที่คุณต้องการเพื่อคงไว้ซึ่งคุณภาพชีวิตที่ดี สัมผัสความมั่นใจในชีวิตประจำวันด้วย FN CARE'
+      this.footerimg = '/care-text.png'
 	  }
 	  if (this.$route.params.type == 'travel') {
-		this.banner = '/travel-banner.jpg'
-		this.footer = '/service-footer.jpg'
-		this.text = 'พื้นที่ที่จะทำให้การเดินทางของคุณสนุกสนานและสะดวกยิ่งขึ้น เราเชี่ยวชาญในการจัดหาวัสดุคุณภาพและนวัตกรรมใหม่ ๆ เพื่อความปลอดภัย และทนทาน สร้างสรรค์สินค้าสำหรับนักเดินทางอย่างครบครัน ไม่ว่าจะเป็น กระเป๋าเดินทาง เก้าอี้สนาม Camping Set และอีกมากมาย เพื่อให้คุณพร้อมกับประสบการณ์ครั้งใหม่ได้อย่างมั่นใจ'
-		this.footerimg = '/travel-text.png'
+      this.banner = '/travel-banner.jpg'
+      this.footer = '/service-footer.jpg'
+      this.text = 'พื้นที่ที่จะทำให้การเดินทางของคุณสนุกสนานและสะดวกยิ่งขึ้น เราเชี่ยวชาญในการจัดหาวัสดุคุณภาพและนวัตกรรมใหม่ ๆ เพื่อความปลอดภัย และทนทาน สร้างสรรค์สินค้าสำหรับนักเดินทางอย่างครบครัน ไม่ว่าจะเป็น กระเป๋าเดินทาง เก้าอี้สนาม Camping Set และอีกมากมาย เพื่อให้คุณพร้อมกับประสบการณ์ครั้งใหม่ได้อย่างมั่นใจ'
+      this.footerimg = '/travel-text.png'
 	  }
 	  if (this.$route.params.type == 'sport') {
-		this.banner = '/sport-banner.jpg'
-		this.footer = '/service-footer.jpg'
-		this.text = 'FN SPORT เราคัดสรรเครื่องแต่งกายกีฬาแบรนด์ระดับชั้นนำ ที่มีฟีเจอร์และเทคโนโลยีทันสมัย ทั้งเสื้อ กางเกงรองเท้าวิ่ง กระเป๋าสะพายรูปแบบต่างๆ คัดสรรสินค้าทั้งคอลเลคชั่นใหม่และสินค้าที่มีความต้องการสูง เพื่อความสะดวกในการเลือกซื้อสินค้าที่มีคุณภาพ ในราคาที่เอื้อมถึง  และสามารถตอบโจทย์การใช้ชีวิตได้ในทุกๆวัน'
-		this.footerimg = '/sport-text.png'
+      this.banner = '/sport-banner.jpg'
+      this.footer = '/service-footer.jpg'
+      this.text = 'FN SPORT เราคัดสรรเครื่องแต่งกายกีฬาแบรนด์ระดับชั้นนำ ที่มีฟีเจอร์และเทคโนโลยีทันสมัย ทั้งเสื้อ กางเกงรองเท้าวิ่ง กระเป๋าสะพายรูปแบบต่างๆ คัดสรรสินค้าทั้งคอลเลคชั่นใหม่และสินค้าที่มีความต้องการสูง เพื่อความสะดวกในการเลือกซื้อสินค้าที่มีคุณภาพ ในราคาที่เอื้อมถึง  และสามารถตอบโจทย์การใช้ชีวิตได้ในทุกๆวัน'
+      this.footerimg = '/sport-text.png'
 	  }
 	  if (this.$route.params.type == 'eat') {
-		this.banner = '/eat-banner.jpg'
-		this.footer = '/service-footer.jpg'
-		this.text = 'สวรรค์ของคนรักขนม FN EAT นำเสนอของว่างแสนอร่อยที่จะทำให้คุณเพลิดเพลินไปกับรสชาติแสนเลิศ และเครื่องดื่มมากมาย หลากหลายประเภท ที่เราตั้งใจจัดจำหน่ายด้วยความใส่ใจ รวมถึงสินค้าจากท้องถิ่นที่ FN ร่วมสนับสนุนในพื้นที่ รวบรวมไว้เพื่อความสะดวกสบายของลูกค้าที่มาจับจ่ายซื้อสินค้าเพื่อเป็นของฝาก'
-		this.footerimg = '/eat-text.png'
+      this.banner = '/eat-banner.jpg'
+      this.footer = '/service-footer.jpg'
+      this.text = 'สวรรค์ของคนรักขนม FN EAT นำเสนอของว่างแสนอร่อยที่จะทำให้คุณเพลิดเพลินไปกับรสชาติแสนเลิศ และเครื่องดื่มมากมาย หลากหลายประเภท ที่เราตั้งใจจัดจำหน่ายด้วยความใส่ใจ รวมถึงสินค้าจากท้องถิ่นที่ FN ร่วมสนับสนุนในพื้นที่ รวบรวมไว้เพื่อความสะดวกสบายของลูกค้าที่มาจับจ่ายซื้อสินค้าเพื่อเป็นของฝาก'
+      this.footerimg = '/eat-text.png'
 	  }
       this.getProduct()
+      this.getPage()
     },
     methods: {
       getWidth( submenuWidth) {
@@ -234,6 +236,16 @@
         this.product = data;
         this.productNotHighlight = data.filter(d => d.attributes.highlight == false);
         this.productHighlight = data.filter(d => d.attributes.highlight == true);
+      },
+      async getPage() {
+        const { data } = await $fetch(`/api/pages?filters[pagekey][$eq]=${this.$route.params.type}&populate=*`);
+        this.page = data[0];
+        if (this.page.attributes.banner) {
+          this.banner = this.page.attributes.banner.data.attributes.url
+        }
+        if (this.page.attributes.footer) {
+          this.footer = this.page.attributes.footer.data.attributes.url
+        }
       }
     },
   })

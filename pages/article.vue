@@ -75,7 +75,13 @@
         };
     },
     async mounted() {
-      await this.getNews()
+      if (!this.$route.query.id) {
+        this.$router.push(this.localePath({ name: "news-index" }))
+      } else {
+        await this.getNews()
+      }
+      
+      
     },
     methods: {
       getWidth( submenuWidth) {

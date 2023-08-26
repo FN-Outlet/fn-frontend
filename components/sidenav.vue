@@ -65,18 +65,23 @@
             </div>
             <div class="row">
               <a target="_blank" href="https://www.set.or.th/th/market/product/stock/quote/FN/major-shareholders" class="col-6 text-white">{{ $t("Shareholders") }}</a>
+              <nuxt-link :to="localePath('goodCorporateGovernance')" class="col-6 text-white">{{ $t("Good Corporate Governance") }}</nuxt-link>
+              
+            </div>
+            <div class="row">
               <a target="_blank" href="https://www.set.or.th/th/market/product/stock/quote/FN/news" class="col-6 text-white">{{ $t("Announcement") }}</a>
-              
-            </div>
-            <div class="row">
               <nuxt-link :to="localePath('contact')" class="col-6 text-white">{{ $t("Contact") }}</nuxt-link>
-              <nuxt-link :to="localePath('news')" class="col-6 text-white">{{ $t("FN News") }}</nuxt-link>
               
+            </div>
+            <div class="row">
+              
+              <nuxt-link :to="localePath('news')" class="col-6 text-white">{{ $t("FN News") }}</nuxt-link>
+              <nuxt-link :to="localePath('public-documents')" class="col-6 text-white">{{ $t("Documents") }}</nuxt-link>
             
             </div>
             
             <div class="row">
-              <nuxt-link :to="localePath('public-documents')" class="col-6 text-white">{{ $t("Documents") }}</nuxt-link>
+              
               <nuxt-link :to="localePath('career')" class="col-6 text-white">{{ $t("Careers") }}</nuxt-link>
             </div>
           </div>

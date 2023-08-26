@@ -141,12 +141,12 @@
         this.$refs.mySwiper.$el.swiper.slidePrev()
       },
       async getNews() {
-        const { data } = await $fetch(`/api/newss?sort=newsdate:desc&filters[Highlight][$eq]=false&populate=*`);
+        const { data } = await $fetch(`/api/newss?sort=newsdate:desc&pagination[limit]=3&filters[Highlight][$eq]=false&populate=*`);
         this.data = data;
         this.loading = false;
       },
       async getNewsHightlight() {
-        const { data } = await $fetch(`/api/newss?sort=newsdate:desc&filters[Highlight][$eq]=true&populate=*`);
+        const { data } = await $fetch(`/api/newss?sort=newsdate:desc&pagination[limit]=1&filters[Highlight][$eq]=true&populate=*`);
         this.dataHightlight = data;
         this.loading = false;
       }

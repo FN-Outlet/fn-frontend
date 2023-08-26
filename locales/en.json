@@ -16,6 +16,7 @@
 		"Stock Price": "Stock Price",
 		"Financial Info": "Financial Info",
 		"Shareholders": "Shareholders",
+		"Good Corporate Governance": "Good Corporate Governance",
 		"Announcement": "Announcement",
 		"Contact": "Contact",
 		"FN News": "FN News",
@@ -75,5 +76,6 @@
 	"Training": "Training",
 	"Work Experiences": "Work Experiences",
 	"Baht": "Baht",
-	"shop now": "shop now"
+	"shop now": "shop now",
+	"Download": "Download"
 }

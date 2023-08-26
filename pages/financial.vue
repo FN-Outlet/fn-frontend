@@ -9,25 +9,25 @@
             <img src="/financial.jpg" class="img-fluid w-100" />
           </div>
           <div class="col py-5 py-lg-0 d-flex align-items-center justify-content-center">
-            <h2 class="text-white font-normal mb-0">FINANCIAL<br>
-HIGHLIGHTS</h2>
+            <h2 class="text-white font-normal mb-0" v-if="$i18n.locale=='en'">FINANCIAL<br>HIGHLIGHTS</h2>
+            <h2 class="text-white font-normal mb-0" v-else>บัญชีทางการเงินที่สำคัญ</h2>
           </div>
         </section>
         <section class="py-5 px-lg-5">
           <div class="container">
             <h2 class="heading-text text-center">
               <img src="/logo.png" class="img-fluid mb-4" />
-              <span>COMPANY FINANCIAL </span>
+              <span>{{ $t("COMPANY FINANCIAL") }} </span>
             </h2>
             <div class="tab-nav row mt-5 mt-lg-0">
               <div class="col-lg-4">
-                <button :class="isActive1 ? 'active' : 'inactive'" @click="visible(1)">FINANCIAL HIGHLIGHTS</button>
+                <button :class="isActive1 ? 'active' : 'inactive'" @click="visible(1)">{{ $t("FINANCIAL HIGHLIGHTS") }}</button>
               </div>
               <div class="col-lg-4">
-                <button :class="isActive2 ? 'active' : 'inactive'"  @click="visible(2)">FINANCIAL STATEMENTS</button>
+                <button :class="isActive2 ? 'active' : 'inactive'"  @click="visible(2)">{{ $t("FINANCIAL STATEMENTS") }}</button>
               </div>
               <div class="col-lg-4">
-                <button :class="isActive3 ? 'active' : 'inactive'"  @click="visible(3)">MD & A</button>
+                <button :class="isActive3 ? 'active' : 'inactive'"  @click="visible(3)">{{ $t("MD & A") }}</button>
               </div>
             </div>
             <div class="result mt-5">
@@ -35,96 +35,59 @@ HIGHLIGHTS</h2>
                 <table class="table">
                   <thead>
                     <tr class="main-table">
-                      <th>PERIOD</th>
-                      <th>2018</th>
-                      <th>2019</th>
-                      <th>2020</th>
-                      <th>2021</th>
-                      <th>2022</th>
-                      <th>Q1/2023</th>
+                      <th>{{ $t("PERIOD") }}</th>
+                      <th v-for="(period, index) in this.period" :key="index">{{ period }}</th>
                     </tr>
                     <tr>
-                      <th colspan="7" class="sub-table">FINANCIAL DATA</th>
+                      <th colspan="7" class="sub-table">{{ $t("FINANCIAL DATA") }}</th>
                     </tr>
                   </thead>
                   <tbody>
                     <tr>
-                      <td>Assets</td>
-                      <td>1,775.85</td>
-                      <td>1,726.77</td>
-                      <td>1,784.79</td>
-                      <td>1,665.81</td>
-                      <td>1,531.27</td>
-                      <td>1,493.06</td>
+                      <td>{{ $t("Assets") }}</td>
+                      <td v-for="(assets, index) in this.assets" :key="index">{{ assets.toLocaleString(undefined, {minimumFractionDigits: 2}) }}</td>
                     </tr>
                     <tr>
-                      <td>Liabilities</td>
-                      <td>292.57</td>
-                      <td>247.15</td>
-                      <td>346.15</td>
-                      <td>294.81</td>
-                      <td>250.02</td>
-                      <td>233.81</td>
+                      <td>{{ $t("Liabilities") }}</td>
+                      <td v-for="(liabilities, index) in this.liabilities" :key="index">{{ liabilities.toLocaleString(undefined, {minimumFractionDigits: 2}) }}</td>
                     </tr>
                     <tr>
-                      <td>Equity</td>
-                      <td>1,483.28</td>
-                      <td>1.479.62</td>
-                      <td>1,438.65</td>
-                      <td>1,371.00</td>
-                      <td>1,281.25</td>
-                      <td>1,259.26</td>
+                      <td>{{ $t("Equity") }}</td>
+                      <td v-for="(equity, index) in this.equity" :key="index">{{ equity.toLocaleString(undefined, {minimumFractionDigits: 2}) }}</td>
                     </tr>
                     <tr>
-                      <td>Paid-up Capital</td>
-                      <td>500.00</td>
-                      <td>500.00</td>
-                      <td>500.00</td>
-                      <td>500.00</td>
-                      <td>500.00</td>
-                      <td>500.00</td>
+                      <td>{{ $t("Paid-up Capital") }}</td>
+                      <td v-for="(paidup, index) in this.paidup" :key="index">{{ paidup.toLocaleString(undefined, {minimumFractionDigits: 2}) }}</td>
                     </tr>
                     <tr>
-                      <td>Revenue</td>
-                      <td>1,105.12</td>
-                      <td>1,042.98</td>
-                      <td>758.53</td>
-                      <td>543.33</td>
-                      <td>503.00</td>
-                      <td>120.98</td>
+                      <td>{{ $t("Revenue") }}</td>
+                      <td v-for="(revenue, index) in this.revenue" :key="index">{{ revenue.toLocaleString(undefined, {minimumFractionDigits: 2}) }}</td>
                     </tr>
                     <tr>
-                      <td>Net Profit</td>
-                      <td>29.21</td>
-                      <td>8.70</td>
-                      <td>-27.72</td>
-                      <td>-62.74</td>
-                      <td>-86.05</td>
-                      <td>-21.99</td>
+                      <td>{{ $t("Net Profit") }}</td>
+                      <td v-for="(netProfit, index) in this.netProfit" :key="index">{{ netProfit.toLocaleString(undefined, {minimumFractionDigits: 2}) }}</td>
                     </tr>
                     <tr>
-                      <td>EPS (Baht)</td>
-                      <td>0.03</td>
-                      <td>0.01</td>
-                      <td>-0.03</td>
-                      <td>-0.06</td>
-                      <td>-0.09</td>
-                      <td>-0.02</td>
+                      <td>{{ $t("EPS (Baht)") }}</td>
+                      <td v-for="(eps, index) in this.eps" :key="index">{{ eps.toLocaleString(undefined, {minimumFractionDigits: 2}) }}</td>
                     </tr>
                   </tbody>
                 </table>
               </div>
               <div class="docs" v-if="isActive2">
-                <!--<a href="" class="d-flex w-100 justify-content-between"  v-for="index in 10" :key="index">ไม่มีอะ
-                  <span>การขอผ่อนผันการนำส่งงบการเงิน Q1/2563 สิ้นสุดวันที่ 31/03/2563</span>
-                  <span>Download</span>
-                </a>-->
+                <a :href="fiDoc.attributes.file.data.attributes.url" target="_blank" class="d-flex w-100 justify-content-between"  v-for="(fiDoc, index) in financialStatement" :key="index">
+                  {{ fiDoc.attributes.period }}
+                  <span v-if="$i18n.locales=='en'">{{ fiDoc.attributes.nameen }}</span>
+                  <span v-else>{{ fiDoc.attributes.nameth }}</span>
+                  <span>{{ $t("Download") }}</span>
+                </a>
               </div>
               <div class="docs" v-if="isActive3">
-                <!--<a href="" class="d-flex w-100 justify-content-between"  v-for="index in 10" :key="index">
-                  <span>การขอผ่อนผันการนำส่งงบการเงิน Q1/2563 สิ้นสุดวันที่ 31/03/2563</span>
-                  <span>Download</span>
-                </a>-->
+                <a :href="fiDoc.attributes.file.data.attributes.url" target="_blank" class="d-flex w-100 justify-content-between"  v-for="(fiDoc, index) in mda" :key="index">
+                  <span v-if="$i18n.locales=='en'">{{ fiDoc.attributes.nameen }}</span>
+                  <span v-else>{{ fiDoc.attributes.nameth }}</span>
+                  <span>{{ $t("Download") }}</span>
+                </a>
               </div>
             </div>
 
@@ -144,10 +107,24 @@ HIGHLIGHTS</h2>
         isActive1: true,
         isActive2: false,
         isActive3: false,
+        assets: [],
+        liabilities: [],
+        equity: [],
+        paidup: [],
+        revenue: [],
+        netProfit: [],
+        eps: [],
+        period: [],
+        limit: 6,
+        document: [],
+        financialStatement: [],
+        mda: []
       };
     },
     mounted() {
-      console.log( this.width )
+      //console.log( this.width )
+      this.getFinancialData()
+      this.getDocument()
     },
     methods: {
       getWidth( submenuWidth) {
@@ -164,6 +141,28 @@ HIGHLIGHTS</h2>
         } if ( data === 3 ){
           this.isActive3 = true
         } 
+      },
+      async getFinancialData() {
+        let seq = this.limit - 1
+        const { data } = await $fetch(`/api/financial-datas?sort=id:desc&populate=*&pagination[start]=0&pagination[limit]=${this.limit}`);
+        this.finData = data;
+        this.finData.forEach((d)=>{
+          this.assets[seq] = d.attributes.assets
+          this.liabilities[seq] = d.attributes.liabilities
+          this.equity[seq] = d.attributes.equity
+          this.paidup[seq] = d.attributes.paidup
+          this.revenue[seq] = d.attributes.revenue
+          this.netProfit[seq] = d.attributes.netprofit
+          this.eps[seq] = d.attributes.eps
+          this.period[seq] = d.attributes.period
+          seq--;
+        })
+      },
+      async getDocument() {
+        const { data } = await $fetch(`/api/documents?sort=sequence&filters[documenttype][$in][0]=Financial Statement&filters[documenttype][$in][1]=Management Discussion and Analysis&populate=*`);
+        this.document = data;
+        this.financialStatement = this.document.filter((a) => a.attributes.documenttype == 'Financial Statement')
+        this.mda = this.document.filter((a) => a.attributes.documenttype == 'Management Discussion and Analysis')
       }
     },
   })
