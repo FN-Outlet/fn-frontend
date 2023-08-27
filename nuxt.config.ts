@@ -4,7 +4,13 @@ export default defineNuxtConfig({
     // ...
     '@nuxtjs/i18n',
     '@zadigetvoltaire/nuxt-gtm',
+    '@dargmuesli/nuxt-cookie-control',
   ],
+  cookieControl: {
+    // typed module options
+    barPosition: 'bottom-left',
+
+  },
   gtm: {
     id: 'GTM-KLGWXTKH',
   },
@@ -34,10 +40,25 @@ export default defineNuxtConfig({
   ],
   app: {
     head: {
-      title: 'FN Factory Outlet',
+      title: 'FN Factory Outlet | ซื้อสินค้าราคาพิเศษได้ง่ายๆ เสื้อผ้า เครื่องนอน สินค้าภายในบ้าน',
       meta: [
         { name: 'viewport', content: 'width=device-width, initial-scale=1' },
-        { name: 'robots', content: 'max-image-preview:large' }
+        { name: 'robots', content: 'max-image-preview:large' },
+        { name: 'author', content: 'บริษัท เอฟเอ็น แฟคตอรี่ เอ๊าท์เลท จำกัด (มหาชน)' },
+        { name: 'keywords', content: 'fnoutlet, factory outlet, outlet, fn, flynow, เสื้อผ้า, เครื่องนอน, สินค้าภายในบ้าน, เครื่องประดับ, ของขวัญ' },
+        { name: 'description', content: 'ซื้อสินค้าราคาพิเศษได้ง่ายๆ | เสื้อผ้า เครื่องนอน สินค้าภายในบ้าน เครื่องประดับ ของขวัญ' },
+        { name: 'twitter:card', content: 'summary' },
+        { name: 'twitter:site', content: '@fnoutlet' },
+        { name: 'twitter:title', content: 'ซื้อสินค้าราคาพิเศษได้ง่ายๆ เสื้อผ้า เครื่องนอน สินค้าภายในบ้าน' },
+        { name: 'fb:app_id', content: '497886640363778' },
+        { name: 'og:title', content: 'ซื้อสินค้าราคาพิเศษได้ง่ายๆ เสื้อผ้า เครื่องนอน สินค้าภายในบ้าน' },
+        { name: 'og:site_name', content: 'บริษัท เอฟเอ็น แฟคตอรี่ เอ๊าท์เลท จำกัด (มหาชน)' },
+        { name: 'og:type', content: 'website' },
+        { name: 'og:url', content: 'https://fnthailand.com' },
+        { name: 'og:description', content: 'ซื้อสินค้าราคาพิเศษได้ง่ายๆ | เสื้อผ้า เครื่องนอน สินค้าภายในบ้าน เครื่องประดับ ของขวัญ' },
+        { name: 'og:image', content: 'https://fnthailand.com/logo-fn-social.jpg' },
+        { name: 'og:locale', content: 'en_US' },
+        { name: 'og:locale:alternate', content: 'th_TH' },
       ],
       link: [{ rel: 'icon', type: 'image/png', href: '/favicon.png' }]
     }

@@ -98,6 +98,18 @@
           <img src="/plus.svg" class="img-fluid" id="plus">
         </button>
       </div> 
+      <!--<CookieControl>
+        <template #bar>
+          <h3>Bar title</h3>
+          <p>Bar description (you can use $cookies.text.barDescription)</p>
+          <n-link>Go somewhere</n-link>
+        </template>
+        <template #modal>
+          <h3>Modal title</h3>
+          <p>Modal description</p>
+        </template>
+      </CookieControl>-->
+      
 </template>
 
 <script>
@@ -132,7 +144,11 @@ export default defineComponent({
   },
 })
 </script>
-
+<style>
+  .cookieControl__ControlButton {
+    left: 100px;
+  }
+</style>
 <style lang="scss" scoped>
  .main-footer{
     a{
