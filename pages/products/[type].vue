@@ -1,6 +1,6 @@
 <template>
     <sidenav ref="sidenav" @submenuWidth="getWidth"/>
-    <div class="main" :style="`padding-left: ${width}px;`">
+    <div class="main" :style="`padding-left: ${width}px;`" v-if="!loading">
       <Header />
       <div class="w-100">
         <section class="bg-primary d-lg-flex banner hp-banner">
@@ -160,6 +160,7 @@
         text: '',
         footerimg: '',
         page: '',
+        loading: true,
       };
     },
     components: {
@@ -239,13 +240,17 @@
       },
       async getPage() {
         const { data } = await $fetch(`/api/pages?filters[pagekey][$eq]=${this.$route.params.type}&populate=*`);
-        this.page = data[0];
-        if (this.page.attributes.banner) {
-          this.banner = this.page.attributes.banner.data.attributes.url
+        if (data.length > 0) {
+          this.page = data[0];
+          if (this.page.attributes.banner.data) {
+            this.banner = this.page.attributes.banner.data.attributes.url
+          }
+          if (this.page.attributes.footer.data) {
+            this.footer = this.page.attributes.footer.data.attributes.url
+          }
         }
-        if (this.page.attributes.footer) {
-          this.footer = this.page.attributes.footer.data.attributes.url
-        }
+        
+        this.loading = false
       }
     },
   })
