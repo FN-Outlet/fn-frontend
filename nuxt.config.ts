@@ -60,7 +60,7 @@ export default defineNuxtConfig({
         { name: 'og:locale', content: 'en_US' },
         { name: 'og:locale:alternate', content: 'th_TH' },
       ],
-      link: [{ rel: 'icon', type: 'image/png', href: '/favicon.png' }]
+      link: [{ rel: 'icon', type: 'image/jpg', href: '/LOGO_FN-01.jpg' }]
     }
   },
   nitro: {
