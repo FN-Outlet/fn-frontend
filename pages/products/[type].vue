@@ -116,7 +116,7 @@
               </button>
             </div>
             <div class="text-center mt-5">
-              <a href="https://www.fnmallonline.com/" target="_blank" class="btn btn-primary">{{ $t("shop now") }}</a>
+              <a :href="link" target="_blank" class="btn btn-primary">{{ $t("shop now") }}</a>
             </div>
           </div>
         </section>
@@ -161,6 +161,7 @@
         footerimg: '',
         page: '',
         loading: true,
+        link: 'https://www.fnmallonline.com/',
       };
     },
     components: {
@@ -247,6 +248,9 @@
           }
           if (this.page.attributes.footer.data) {
             this.footer = this.page.attributes.footer.data.attributes.url
+          }
+          if (this.page.attributes.link) {
+            this.link = this.page.attributes.link
           }
         }
         
