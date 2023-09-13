@@ -32,7 +32,7 @@
               <div class="col-lg-6 mt-5">
                 <nuxt-link :to="localePath('/products/sleep')">
                   <div class="border-bottom-red">
-                    <img src="/fn-sleep.jpg" class="img-fluid" />
+                    <img src="/fn_sleep2.jpg" class="img-fluid" />
                     <img src="/service-text-01.jpg" class="img-fluid  my-3 text-img" />
                   </div>
                 </nuxt-link>
