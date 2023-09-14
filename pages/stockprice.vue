@@ -20,6 +20,48 @@
               <img src="/logo.png" class="img-fluid mb-4" />
               <span>Stock Price</span>
             </h2>
+            <div class="tab-nav row my-5">
+              <div class="col-lg-4">
+                <button :class="isActive1 ? 'active' : 'inactive'" @click="visible(1)">ข้อมูลผู้ถือหุ้น</button>
+              </div>
+              <div class="col-lg-4">
+                <button :class="isActive2 ? 'active' : 'inactive'"  @click="visible(2)">การประชุมผู้ถือหุ้น</button>
+              </div>
+              <div class="col-lg-4">
+                <button :class="isActive3 ? 'active' : 'inactive'"  @click="visible(3)">แบบแสดงรายการข้อมูลประจำปี/รายงานประจำปี</button>
+              </div>
+            </div>
+            <div class="result mt-5">
+              <div v-if="isActive1">
+                <ul>
+                  <li>
+                    <a href="#">link a</a>
+                  </li>
+                  <li>
+                    <a href="#">link b</a>
+                  </li>
+                  <li>
+                    <a href="#">link c</a>
+                  </li>
+                  <li>
+                    <a href="#">link d</a>
+                  </li>
+                </ul>
+              </div>
+              <div class="docs" v-if="isActive2">
+                <a href="#" target="_blank" class="d-flex w-100 justify-content-between" >
+                  <span>Doc name</span>
+                  <span>{{ $t("Download") }}</span>
+                </a>
+              </div>
+              <div class="docs" v-if="isActive3">
+                <a href="#" target="_blank" class="d-flex w-100 justify-content-between" >
+                  <span>dd/mm/yyyy</span>
+                  <span>Doc name</span>
+                  <span>{{ $t("Download") }}</span>
+                </a>
+              </div>
+            </div>
           </div>
         </section>
         <section>
@@ -55,6 +97,9 @@
       return {
         width: '50',
         activeIndex: 0,
+        isActive1: true,
+        isActive2: false,
+        isActive3: false,
         items: [2000, 2001, 2002, 2003, 2004, 2005, 2006, 2007, 2008, 2009, 2010]
       };
     },
@@ -68,6 +113,18 @@
     methods: {
       getWidth( submenuWidth) {
         this.width = submenuWidth
+      },
+      visible( data ){
+        this.isActive1 = false
+        this.isActive2 = false
+        this.isActive3 = false
+        if ( data === 1 ){
+          this.isActive1 = true
+        } if ( data === 2 ){
+          this.isActive2 = true
+        } if ( data === 3 ){
+          this.isActive3 = true
+        } 
       },
     },
   })
@@ -235,6 +292,24 @@
           top: 10px;
           background: #CD3832;
         }
+      }
+    }
+  }
+
+  .tab-nav{
+    button{
+      display: block;
+      width: 100%;
+      border: 0;
+      padding: 15px;
+      height: 100%;
+      @media (max-width: 992px) {
+        border-bottom: 2px solid #fff;
+        padding: 15px 10px;
+      }
+      &.active{
+        background: #CC3832;
+        color: #fff;
       }
     }
   }
