@@ -196,6 +196,9 @@ export default defineComponent({
 
 .p-15{
   padding: 75px;
+  @media (max-width: 992px) {
+    padding: 30px;
+  }
 }
 .frame-wrapper{
   border: 2px solid #CD3832;
@@ -266,6 +269,9 @@ export default defineComponent({
   justify-content: center;
   a{
     margin: 5px !important;
+    @media (max-width: 992px) {
+      display: block;
+    }
   }
   .new{
     color: #fff;
