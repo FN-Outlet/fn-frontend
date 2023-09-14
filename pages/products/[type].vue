@@ -23,7 +23,7 @@
                 <img :src="pro.attributes.image.data.attributes.url" class="img-fluid" />
               </div>
               <div class="bg-primary">
-                <div class="tag">New</div>
+                <div class="tag mb-3">New Arrival</div>
                 <div v-if="pro.attributes.discountprice">
                   <div class="text-white old"><span class="del">{{ pro.attributes.fullprice.toLocaleString() }}</span> Baht</div>
                   <div class="d-flex text-white align-items-center">
@@ -369,7 +369,7 @@
       padding: 5px 45px;
       text-align: center;
       display: inline-block;
-      font-size: 10px;
+      font-size: 14px;
       position: relative;
       top: -4px;
     }
