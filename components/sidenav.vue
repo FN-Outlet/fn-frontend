@@ -96,7 +96,7 @@
     </div>
     <div class="main" ref="submenu">
       <a class="menu-button" @click="toggleMenu">
-        <img src="/icon-plus.png" class="img-fluid" />
+        <img src="/icon-menu.svg" class="img-fluid" />
       </a>
       <div class="links">
         <a 
@@ -153,6 +153,9 @@ export default defineComponent({
 .menu-button{
   border: 0;
   background: transparent;
+  img{
+    width: 30px;
+  }
 }
 
 

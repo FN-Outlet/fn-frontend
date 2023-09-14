@@ -84,7 +84,7 @@
         </div>
   
       </footer>
-      <div class="radial" @click="isOpen=!isOpen" :class="isOpen?'open':''">
+      <div class="radial open">
         <a href="https://lin.ee/kUuVSkB" target="_blank" class="fa fa-paper-plane fa-3x" id="fa-1">
           <img src="/line.svg" class="img-fluid">
         </a>
@@ -95,7 +95,7 @@
           <img src="/messenger.svg" class="img-fluid">
         </a>
         <button class="fab">
-          <img src="/plus.svg" class="img-fluid" id="plus">
+          <img src="/live-chat.svg" class="img-fluid" id="plus">
         </button>
       </div> 
       <!--<CookieControl>
@@ -262,7 +262,7 @@ export default defineComponent({
 #plus {
   transition: all 0.2s ease-in-out;
   margin-top: 3px;
-  width: 30px;
+  width: 50px;
 }
 
 #fa-1,
@@ -300,14 +300,14 @@ export default defineComponent({
     // right: -95px;
     // bottom: -95px;
 
-    .fab {
+    /*.fab {
       background-color: darken($blue, 5);
       box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.15), 0px 4px 8px rgba(0, 0, 0, 0.2);
     }
 
     #plus {
       transform: rotateZ(135deg) translate(-1px, 3px);
-    }
+    }*/
 
     #fa-1 {
       transition-delay: 0.1s;
