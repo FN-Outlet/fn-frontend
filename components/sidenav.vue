@@ -64,7 +64,7 @@
               
             </div>
             <div class="row">
-              <a target="_blank" href="https://www.set.or.th/th/market/product/stock/quote/FN/major-shareholders" class="col-6 text-white">{{ $t("Shareholders") }}</a>
+              <nuxt-link :to="localePath('shareholder')" class="col-6 text-white">{{ $t("Shareholders") }}</nuxt-link>
               <nuxt-link :to="localePath('goodCorporateGovernance')" class="col-6 text-white">{{ $t("Good Corporate Governance") }}</nuxt-link>
               
             </div>

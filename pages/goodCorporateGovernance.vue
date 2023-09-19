@@ -56,9 +56,9 @@
         this.width = submenuWidth
       },
       async getDocument() {
-        const { data } = await $fetch(`/api/documents?sort=sequence&filters[documenttype][$eq]=Good Corporate Governance&populate=*`);
+        const { data } = await $fetch(`/api/documents?sort=seq&filters[documenttype][$eq]=Good Corporate Governance&populate=*`);
         this.document = data;
-      }
+      },
     },
   })
   </script>

@@ -17,27 +17,28 @@
           <div class="container">
             <h2 class="heading-text text-center">
               <img src="/logo.png" class="img-fluid mb-4" />
-              <span>CONTACT US</span>
+              <span>{{ $t("CONTACT US") }}</span>
             </h2>
+            <div class="text-center">{{ $t("Please fill in all the details, and then we will contact you.") }}</div>
             <div class="row bg-primary m-lg-5 p-4 mx-2 mt-4">
               <div class="col-12">
-                <label>Name</label>
+                <label>{{ $t("Name") }}</label>
                 <input type="text" class="form-control"/>
               </div>
               <div class="col-lg-6">
-                <label>Phone</label>
+                <label>{{ $t("Phone") }}</label>
                 <input type="phone" class="form-control"/>
               </div>
               <div class="col-lg-6">
-                <label>Email</label>
+                <label>{{ $t("Email") }}</label>
                 <input type="phone" class="form-control"/>
               </div>
               <div class="col-12">
-                <label>Message</label>
+                <label>{{ $t("Message") }}</label>
                 <textarea class="form-control"></textarea>
               </div>
               <div class="col-12 text-center mt-4">
-                <button class="btn btn-white">Send</button>
+                <button class="btn btn-white">{{ $t("Send") }}</button>
               </div>
             </div>
 

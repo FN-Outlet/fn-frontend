@@ -22,7 +22,7 @@ DOCUMENTS</h2>
             <div class="docs mt-4">
                 <a 
                   v-for="(doc,index) in document" :key="index"
-                  :href="doc.attributes.file.data.attributes.url" 
+                  :href="($i18n.locale == 'en' && doc.attributes.fileen.data) ? doc.attributes.fileen.data.attributes.url : doc.attributes.file.data.attributes.url" 
                   class="d-flex w-100 justify-content-between"  
                   target="_blank"
                 > 
@@ -56,7 +56,7 @@ DOCUMENTS</h2>
         this.width = submenuWidth
       },
       async getDocument() {
-        const { data } = await $fetch(`/api/documents?sort=sequence&filters[documenttype][$eq]=Public Document&populate=*`);
+        const { data } = await $fetch(`/api/documents?sort=seq:desc&filters[documenttype][$eq]=Public Document&populate=*`);
         this.document = data;
       }
     },

@@ -91,5 +91,15 @@
 	"FINANCIAL STATEMENTS": "งบการเงิน",
 	"MD & A": "คำอธิบายและการวิเคราะห์ของฝ่ายจัดการ",
 	"FINANCIAL DATA": "บัญชีทางการเงินทีสำคัญ",
-	"COMPANY FINANCIAL": "ข้อมูลสำคัญทางการเงิน"
+	"COMPANY FINANCIAL": "ข้อมูลสำคัญทางการเงิน",
+	"CONTACT US": "ติดต่อเรา",
+	"Name": "ชื่อ",
+	"Phone": "เบอร์โทรศัพท์",
+	"Email": "อีเมล์",
+	"Message": "ข้อความ",
+	"Send": "ส่ง",
+	"Please fill in all the details, and then we will contact you.": "กรุณากรอกรายละเอียดให้ครบถ้วน จากนั้นเจ้าหน้าที่จะติดต่อกลับ",
+	"Shareholder Meeting": "การประชุมผู้ถือหุ้น",
+	"Annual Report": "แบบแสดงรายการข้อมูลประจำปี/รายงานประจำปี",
+	"Shareholder Info": "ข้อมูลผู้ถือหุ้น"
 }

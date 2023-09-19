@@ -9,61 +9,53 @@
             <img src="/banner.png" class="img-fluid w-100" />
           </div>
           <div class="col py-5 py-lg-0 d-flex align-items-center justify-content-center">
-            <h2 class="text-white font-normal mb-0">Stock
-            <br>
-            Price</h2>
+            <h2 class="text-white font-normal mb-0">Shareholders</h2>
           </div>
         </section>
         <section class="py-5 px-lg-5">
           <div class="container">
             <h2 class="heading-text text-center">
               <img src="/logo.png" class="img-fluid mb-4" />
-              <span>Stock Price</span>
+              <span>Shareholders</span>
             </h2>
             <div class="tab-nav row my-5">
+              
               <div class="col-lg-4">
-                <button :class="isActive1 ? 'active' : 'inactive'" @click="visible(1)">กราฟภาพรวมตลาด</button>
+                <button :class="isActive1 ? 'active' : 'inactive'" @click="visible(1)">{{ $t("Shareholder Meeting") }}</button>
               </div>
               <div class="col-lg-4">
-                <a href="https://www.set.or.th/th/market/product/stock/quote/FN/price" target="_blank"><button :class="isActive2 ? 'active' : 'inactive'" style="text-decoration: none;">ราคา</button></a>
+                <button :class="isActive2 ? 'active' : 'inactive'" @click="visible(2)">{{ $t("Annual Report") }}</button>
               </div>
               <div class="col-lg-4">
-                <a href="https://www.set.or.th/th/market/product/stock/quote/FN/historical-trading" target="_blank"><button :class="isActive3 ? 'active' : 'inactive'">ราคาย้อนหลัง</button></a>
+                <a href="https://www.set.or.th/th/market/product/stock/quote/FN/major-shareholders" target="_blank"><button>{{ $t("Shareholder Info") }}</button></a>
               </div>
             </div>
             <div class="result mt-5">
               <div v-if="isActive1">
-                <section>
-                  <div class="container">
-                    <div class="row">
-                      <div class="col-8 offset-2">
-                        <div class="row text-center">
-                          <div class="col-sm-6">
-                            <h2 class="text-black mb-4">กราฟภาพรวมตลาด</h2>
-                            <iframe frameborder=0 scrolling=no width="200" height="260" src="https://weblink.settrade.com/banner/banner3.jsp"></iframe>
-                          </div>
-                          <div class="col-sm-6 mt-3 mt-sm-0">
-                            <h2 class="text-black mb-4">ราคาหลักทรัพย์</h2>
-                            <iframe v-if="$i18n.locale === 'en'" frameborder=0 scrolling=no width="200" height="200" src="https://weblink.settrade.com/IRPage/irpage.jsp?txtSymbol=FN&language=en&key=14356"></iframe>
-                            <iframe v-else frameborder=0 scrolling=no width="200" height="200" src="https://weblink.settrade.com/IRPage/irpage.jsp?txtSymbol=FN&language=th&key=14356"></iframe>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </section>
+
               </div>
-              <div class="docs" v-if="isActive2">
-                <a href="#" target="_blank" class="d-flex w-100 justify-content-between" >
-                  <span>Doc name</span>
-                  <span>{{ $t("Download") }}</span>
+              <div class="docs" v-if="isActive1">
+                <a 
+                  v-for="(doc,index) in shareHolder" :key="index"
+                  :href="($i18n.locale == 'en' && doc.attributes.fileen.data) ? doc.attributes.fileen.data.attributes.url : doc.attributes.file.data.attributes.url" 
+                  class="d-flex w-100 justify-content-between"  
+                  target="_blank"
+                > 
+                  <span class="d-block" v-if="$i18n.locale=='en'">{{ doc.attributes.nameen }}</span>
+                  <span class="d-block" v-else>{{ doc.attributes.nameth }}</span>
+                  <span class="">{{ $t("Download") }}</span>
                 </a>
               </div>
-              <div class="docs" v-if="isActive3">
-                <a href="#" target="_blank" class="d-flex w-100 justify-content-between" >
-                  <span>dd/mm/yyyy</span>
-                  <span>Doc name</span>
-                  <span>{{ $t("Download") }}</span>
+              <div class="docs" v-if="isActive2">
+                <a 
+                  v-for="(doc,index) in annual" :key="index"
+                  :href="($i18n.locale == 'en' && doc.attributes.fileen.data) ? doc.attributes.fileen.data.attributes.url : doc.attributes.file.data.attributes.url" 
+                  class="d-flex w-100 justify-content-between"  
+                  target="_blank"
+                > 
+                  <span class="d-block" v-if="$i18n.locale=='en'">{{ doc.attributes.nameen }}</span>
+                  <span class="d-block" v-else>{{ doc.attributes.nameth }}</span>
+                  <span class="">{{ $t("Download") }}</span>
                 </a>
               </div>
             </div>

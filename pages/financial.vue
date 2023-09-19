@@ -75,16 +75,16 @@
                 </table>
               </div>
               <div class="docs" v-if="isActive2">
-                <a :href="fiDoc.attributes.file.data.attributes.url" target="_blank" class="d-flex w-100 justify-content-between"  v-for="(fiDoc, index) in financialStatement" :key="index">
+                <a :href="($i18n.locale == 'en' && fiDoc.attributes.fileen.data) ? fiDoc.attributes.fileen.data.attributes.url : fiDoc.attributes.file.data.attributes.url"  target="_blank" class="d-flex w-100 justify-content-between"  v-for="(fiDoc, index) in financialStatement" :key="index">
                   {{ fiDoc.attributes.period }}
-                  <span v-if="$i18n.locales=='en'">{{ fiDoc.attributes.nameen }}</span>
+                  <span v-if="$i18n.locale=='en'">{{ fiDoc.attributes.nameen }}</span>
                   <span v-else>{{ fiDoc.attributes.nameth }}</span>
                   <span>{{ $t("Download") }}</span>
                 </a>
               </div>
               <div class="docs" v-if="isActive3">
-                <a :href="fiDoc.attributes.file.data.attributes.url" target="_blank" class="d-flex w-100 justify-content-between"  v-for="(fiDoc, index) in mda" :key="index">
-                  <span v-if="$i18n.locales=='en'">{{ fiDoc.attributes.nameen }}</span>
+                <a :href="($i18n.locale == 'en' && fiDoc.attributes.fileen.data) ? fiDoc.attributes.fileen.data.attributes.url : fiDoc.attributes.file.data.attributes.url" target="_blank" class="d-flex w-100 justify-content-between"  v-for="(fiDoc, index) in mda" :key="index">
+                  <span v-if="$i18n.locale=='en'">{{ fiDoc.attributes.nameen }}</span>
                   <span v-else>{{ fiDoc.attributes.nameth }}</span>
                   <span>{{ $t("Download") }}</span>
                 </a>
@@ -159,7 +159,7 @@
         })
       },
       async getDocument() {
-        const { data } = await $fetch(`/api/documents?sort=sequence&filters[documenttype][$in][0]=Financial Statement&filters[documenttype][$in][1]=Management Discussion and Analysis&populate=*`);
+        const { data } = await $fetch(`/api/documents?sort=seq:desc&filters[documenttype][$in][0]=Financial Statement&filters[documenttype][$in][1]=Management Discussion and Analysis&populate=*`);
         this.document = data;
         this.financialStatement = this.document.filter((a) => a.attributes.documenttype == 'Financial Statement')
         this.mda = this.document.filter((a) => a.attributes.documenttype == 'Management Discussion and Analysis')
