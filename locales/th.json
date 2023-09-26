@@ -16,12 +16,13 @@
 		"Management Team": "คณะผู้บริหาร",
 		"Stock Price": "ข้อมูลราคาหลักทรัพย์",
 		"Financial Info": "ข้อมูลทางการเงิน",
-		"Shareholders": "ข้อมูลผู้ถือหุ้น",
+		"Shareholders": "นักลงทุนสัมพันธ์",
 		"Good Corporate Governance": "การกำกับดูแลกิจการที่ดี",
 		"Announcement": "ข่าวแจ้งตลาดหลักทรัพย์",
 		"Contact": "ติดต่อ",
 		"FN News": "ห้องข่าว",
 		"Documents": "เอกสารเผยแพร่",
+		"Webcast": "เว็บแคสต์",
 		"Careers": "ร่วมงานกับเรา",
 
 	"home": {
@@ -101,5 +102,10 @@
 	"Please fill in all the details, and then we will contact you.": "กรุณากรอกรายละเอียดให้ครบถ้วน จากนั้นเจ้าหน้าที่จะติดต่อกลับ",
 	"Shareholder Meeting": "การประชุมผู้ถือหุ้น",
 	"Annual Report": "แบบแสดงรายการข้อมูลประจำปี/รายงานประจำปี",
-	"Shareholder Info": "ข้อมูลผู้ถือหุ้น"
+	"Shareholder Info": "ข้อมูลผู้ถือหุ้น",
+	"Annual General Meeting": "การประชุมสามัญผู้ถือหุ้น",
+	"Important Documents": "เอกสารสำคัญ",
+	"Board Charter": "กฎบัตรคณะกรรมการ",
+	"Policies and guidelines": "นโยบายและแนวปฏิบัติ",
+	"Dividend Policy": "นโยบายการจ่ายเงินปันผล"
 }

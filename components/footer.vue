@@ -48,6 +48,8 @@
                   <nuxt-link :to="localePath('contact')" class="col-lg-4 col-md-6 text-white">{{ $t("Contact") }}</nuxt-link>
                   <nuxt-link :to="localePath('news')" class="col-lg-4 col-md-6 text-white">{{ $t("FN News") }}</nuxt-link>
                   <a href="#" class="col-lg-4 col-md-6 text-white">{{ $t("Documents") }}</a>
+                  <nuxt-link :to="localePath('webcast')" class="col-lg-4 col-md-6 text-white">{{ $t("Webcast") }}</nuxt-link>
+                  <nuxt-link :to="localePath('dividendpolicy')" class="col-lg-4 col-md-6 text-white">{{ $t("Dividend Policy") }}</nuxt-link>
                   <nuxt-link :to="localePath('career')" class="col-lg-4 col-md-6 text-white">{{ $t("Careers") }}</nuxt-link>
                 </div>
           </div>

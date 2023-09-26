@@ -81,7 +81,11 @@
             </div>
             
             <div class="row">
-              
+              <nuxt-link :to="localePath('webcast')" class="col-6 text-white">{{ $t("Webcast") }}</nuxt-link>
+              <nuxt-link :to="localePath('dividendpolicy')" class="col-6 text-white">{{ $t("Dividend Policy") }}</nuxt-link>
+            </div>
+
+            <div class="row">
               <nuxt-link :to="localePath('career')" class="col-6 text-white">{{ $t("Careers") }}</nuxt-link>
             </div>
           </div>
