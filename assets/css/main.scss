@@ -416,3 +416,10 @@ strong{
     }
   }
 }
+
+.mobile-open{
+  @media (max-width: 768px) {
+    overflow: hidden;
+  }
+  
+}
