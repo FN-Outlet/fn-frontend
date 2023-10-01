@@ -139,8 +139,12 @@ export default defineComponent({
       this.isOpen = !this.isOpen
       if( this.isOpen ){
         this.width = 0
+        const bodyElement = document.querySelector('body')
+        bodyElement.classList.add('mobile-open')
       } else {
         this.width = this.$refs.menu.offsetWidth
+        const bodyElement = document.querySelector('body')
+        bodyElement.classList.remove('mobile-open')
       }
     },
     async getOnline() {
@@ -175,6 +179,9 @@ export default defineComponent({
     //width: calc( 50% + 60px );
     width: 100vw;
     overflow: hidden;
+    .top{
+      overflow-y: scroll;
+    }
   }
   .main{
     padding: 45px 30px;
