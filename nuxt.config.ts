@@ -1,5 +1,10 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
+  runtimeConfig: {
+    public: {
+      pageSize: 10
+    }
+  },
   modules: [
     // ...
     '@nuxtjs/i18n',

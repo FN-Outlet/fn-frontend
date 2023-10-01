@@ -45,6 +45,15 @@
                   <span class="d-block" v-else>{{ doc.attributes.nameth }}</span>
                   <span class="">{{ $t("Download") }}</span>
                 </a>
+                <div class="pagination mt-5 mb-5">
+                  <a
+                    v-for="(pageCount, index) in shareHolderMeta.pageCount" 
+                    :key="index"
+                    @click="changePageShareHolder(pageCount)"
+                  >
+                    {{ pageCount }}
+                  </a>
+                </div>
               </div>
               <div class="docs" v-if="isActive2">
                 <a 
@@ -57,6 +66,15 @@
                   <span class="d-block" v-else>{{ doc.attributes.nameth }}</span>
                   <span class="">{{ $t("Download") }}</span>
                 </a>
+                <div class="pagination mt-5 mb-5">
+                  <a
+                    v-for="(pageCount, index) in annualMeta.pageCount" 
+                    :key="index"
+                    @click="changePageAnnual(pageCount)"
+                  >
+                    {{ pageCount }}
+                  </a>
+                </div>
               </div>
             </div>
           </div>
@@ -81,7 +99,12 @@
         isActive3: false,
         items: [2000, 2001, 2002, 2003, 2004, 2005, 2006, 2007, 2008, 2009, 2010],
         shareHolder: [],
-        annual: []
+        shareHolderMeta: '',
+        annual: [],
+        annualMeta: '',
+        shareHolderPage: 1,
+        annualPage: 1,
+        pageSize: 10,
       };
     },
     components: {
@@ -89,7 +112,13 @@
     },
 
     mounted() {
-      this.getDocument()
+      const config = useRuntimeConfig()
+      this.pageSize = config.public.pageSize
+      const shareHolderPage = Number(this.$route.query.shareHolderPage) > 0 ? this.$route.query.shareHolderPage : this.shareHolderPage
+      this.getShareMeetingDocument(shareHolderPage, this.pageSize)
+
+      const annualPage = Number(this.$route.query.annualPage) > 0 ? this.$route.query.annualPage : this.annualPage
+      this.getAnnualDocument(annualPage, this.pageSize)
     },
     methods: {
       getWidth( submenuWidth) {
@@ -107,11 +136,35 @@
           this.isActive3 = true
         } 
       },
-      async getDocument() {
-        const { data } = await $fetch(`/api/documents?sort=seq:desc&filters[documenttype][$in][0]=Shareholder Meeting&filters[documenttype][$in][1]=Annual Report&populate=*`);
-        this.document = data;
-        this.shareHolder = this.document.filter((a) => a.attributes.documenttype == 'Shareholder Meeting')
-        this.annual = this.document.filter((a) => a.attributes.documenttype == 'Annual Report')
+      async getShareMeetingDocument(page, pageSize) {
+        const dataShareMeeting = await $fetch(`/api/documents?sort=seq:desc&filters[documenttype][$in][0]=Shareholder Meeting&populate=*&pagination[page]=${page}&pagination[pageSize]=${pageSize}`);
+        this.shareHolder = dataShareMeeting.data;
+        this.shareHolderMeta = dataShareMeeting.meta.pagination;
+      },
+      async getAnnualDocument(page, pageSize) {
+        const dataAnnual = await $fetch(`/api/documents?sort=seq:desc&filters[documenttype][$in][1]=Annual Report&populate=*&pagination[page]=${page}&pagination[pageSize]=${pageSize}`);
+        this.annual = dataAnnual.data
+        this.annualMeta = dataAnnual.meta.pagination;
+      },
+      async changePageShareHolder(page) {
+        const currUrl = this.$route.path;
+        console.log(currUrl)
+        history.pushState(
+          {},
+          null,
+          decodeURI(currUrl) + '?shareHolderPage='+page
+        )
+        await this.getShareMeetingDocument(page, this.pageSize)
+      },
+      async changePageAnnual(page) {
+        const currUrl = this.$route.path;
+        console.log(currUrl)
+        history.pushState(
+          {},
+          null,
+          decodeURI(currUrl) + '?annualPage='+page
+        )
+        await this.getAnnualDocument(page, this.pageSize)
       }
     },
   })
@@ -298,6 +351,14 @@
         background: #CC3832;
         color: #fff;
       }
+    }
+  }
+
+  .pagination{
+    display: flex;
+    justify-content: center;
+    a{
+      margin: 0 15px;
     }
   }
 

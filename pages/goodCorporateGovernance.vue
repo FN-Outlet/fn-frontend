@@ -102,8 +102,8 @@
         const { data } = await $fetch(`/api/documents?sort=seq:desc&filters[documenttype][$in][0]=Important Documents&filters[documenttype][$in][1]=Board Charter&filters[documenttype][$in][2]=Policies and guidelines&populate=*`);
         this.document = data;
         this.importantDocument = this.document.filter((a) => a.attributes.documenttype == 'Important Documents')
-        this.boardCharter = this.document.filter((a) => a.attributes.documenttype == 'boardCharter')
-        this.policies = this.document.filter((a) => a.attributes.documenttype == 'policies')
+        this.boardCharter = this.document.filter((a) => a.attributes.documenttype == 'Board Charter')
+        this.policies = this.document.filter((a) => a.attributes.documenttype == 'Policies and guidelines')
       },
     },
   })

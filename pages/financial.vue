@@ -81,6 +81,15 @@
                   <span v-else>{{ fiDoc.attributes.nameth }}</span>
                   <span>{{ $t("Download") }}</span>
                 </a>
+                <div class="pagination mt-5 mb-5">
+                  <a
+                    v-for="(pageCount, index) in financialStatementMeta.pageCount" 
+                    :key="index"
+                    @click="changePageFinancialStatement(pageCount)"
+                  >
+                    {{ pageCount }}
+                  </a>
+                </div>
               </div>
               <div class="docs" v-if="isActive3">
                 <a :href="($i18n.locale == 'en' && fiDoc.attributes.fileen.data) ? fiDoc.attributes.fileen.data.attributes.url : fiDoc.attributes.file.data.attributes.url" target="_blank" class="d-flex w-100 justify-content-between"  v-for="(fiDoc, index) in mda" :key="index">
@@ -88,6 +97,15 @@
                   <span v-else>{{ fiDoc.attributes.nameth }}</span>
                   <span>{{ $t("Download") }}</span>
                 </a>
+                <div class="pagination mt-5 mb-5">
+                  <a
+                    v-for="(pageCount, index) in mdaMeta.pageCount" 
+                    :key="index"
+                    @click="changePageMda(pageCount)"
+                  >
+                    {{ pageCount }}
+                  </a>
+                </div>
               </div>
             </div>
 
@@ -118,13 +136,24 @@
         limit: 6,
         document: [],
         financialStatement: [],
-        mda: []
+        financialStatementMeta: '',
+        mda: [],
+        mdaMeta: '',
+        financialStatementPage: 1,
+        mdaPage: 1,
+        pageSize: 10,
       };
     },
     mounted() {
       //console.log( this.width )
+      const config = useRuntimeConfig()
+      this.pageSize = config.public.pageSize
+
       this.getFinancialData()
-      this.getDocument()
+      const financialStatementPage = Number(this.$route.query.financialStatementPage) > 0 ? this.$route.query.financialStatementPage : this.financialStatementPage
+      const mdaPage = Number(this.$route.query.mdaPage) > 0 ? this.$route.query.mdaPage : this.mdaPage
+      this.getFinancial(financialStatementPage, this.pageSize)
+      this.getMDA(mdaPage, this.pageSize)
     },
     methods: {
       getWidth( submenuWidth) {
@@ -158,11 +187,35 @@
           seq--;
         })
       },
-      async getDocument() {
-        const { data } = await $fetch(`/api/documents?sort=seq:desc&filters[documenttype][$in][0]=Financial Statement&filters[documenttype][$in][1]=Management Discussion and Analysis&populate=*`);
-        this.document = data;
-        this.financialStatement = this.document.filter((a) => a.attributes.documenttype == 'Financial Statement')
-        this.mda = this.document.filter((a) => a.attributes.documenttype == 'Management Discussion and Analysis')
+      async getFinancial(page, pageSize) {
+        const data = await $fetch(`/api/documents?sort=seq:desc&filters[documenttype][$in][0]=Financial Statement&populate=*&pagination[page]=${page}&pagination[pageSize]=${pageSize}`);
+        this.financialStatement = data.data;
+        this.financialStatementMeta = data.meta.pagination;
+      },
+      async getMDA(page, pageSize) {
+        const data = await $fetch(`/api/documents?sort=seq:desc&filters[documenttype][$in][0]=Management Discussion and Analysis&populate=*&pagination[page]=${page}&pagination[pageSize]=${pageSize}`);
+        this.mda = data.data
+        this.mdaMeta = data.meta.pagination;
+      },
+      async changePageFinancialStatement(page) {
+        const currUrl = this.$route.path;
+        console.log(currUrl)
+        history.pushState(
+          {},
+          null,
+          decodeURI(currUrl) + '?financialStatementPage='+page
+        )
+        await this.getFinancial(page, this.pageSize)
+      },
+      async changePageMda(page) {
+        const currUrl = this.$route.path;
+        console.log(currUrl)
+        history.pushState(
+          {},
+          null,
+          decodeURI(currUrl) + '?mdaPage='+page
+        )
+        await this.getMDA(page, this.pageSize)
       }
     },
   })
@@ -263,6 +316,14 @@
   .docs{
     a{
       padding: 10px 0;
+    }
+  }
+
+  .pagination{
+    display: flex;
+    justify-content: center;
+    a{
+      margin: 0 15px;
     }
   }
 
