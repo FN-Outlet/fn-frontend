@@ -49,6 +49,7 @@
                   <a
                     v-for="(pageCount, index) in shareHolderMeta.pageCount" 
                     :key="index"
+                    :class="currentPage==pageCount?'active':''"
                     @click="changePageShareHolder(pageCount)"
                   >
                     {{ pageCount }}
@@ -70,6 +71,7 @@
                   <a
                     v-for="(pageCount, index) in annualMeta.pageCount" 
                     :key="index"
+                    :class="currentPage2==pageCount?'active':''"
                     @click="changePageAnnual(pageCount)"
                   >
                     {{ pageCount }}
@@ -105,6 +107,8 @@
         shareHolderPage: 1,
         annualPage: 1,
         pageSize: 10,
+        currentPage: 1,
+        currentPage2: 1,
       };
     },
     components: {
@@ -155,6 +159,7 @@
           decodeURI(currUrl) + '?shareHolderPage='+page
         )
         await this.getShareMeetingDocument(page, this.pageSize)
+        this.currentPage = page
       },
       async changePageAnnual(page) {
         const currUrl = this.$route.path;
@@ -165,6 +170,7 @@
           decodeURI(currUrl) + '?annualPage='+page
         )
         await this.getAnnualDocument(page, this.pageSize)
+        this.currentPage2 = page
       }
     },
   })
@@ -358,7 +364,19 @@
     display: flex;
     justify-content: center;
     a{
-      margin: 0 15px;
+      margin: 0 5px;
+      width: 35px;
+      height: 35px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      &.active{
+        background: #CC3832;
+        color: #fff;
+        
+      }
     }
   }
 
