@@ -86,7 +86,7 @@
         </div>
   
       </footer>
-      <div class="radial open">
+      <div class="radial" @click="isOpen=!isOpen" :class="isOpen?'open':''">
         <a href="https://lin.ee/kUuVSkB" target="_blank" class="fa fa-paper-plane fa-3x" id="fa-1">
           <img src="/line.svg" class="img-fluid">
         </a>
@@ -122,7 +122,7 @@ export default defineComponent({
   data() {
     return {
       width: '50',
-      isOpen: false,
+      isOpen: true,
       isHideAboutUs: true,
       online: '',
     };
