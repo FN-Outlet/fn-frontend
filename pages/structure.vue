@@ -61,7 +61,6 @@
               <div class="px-lg-4 p-4">
                 <h2 class="heading-text text-white">{{ $t("structure.saveLifeInternationalCompanyLimited") }}
                 </h2>
-                <h2 class="text-white font-thin mb-5">{{ $t("structure.publicCompanyLimited") }}</h2>
                 <p class="text-white">{{ $t("structure.registeredCapital") }}:<br>
                   {{ $t("structure.baht10") }}</p>
               </div>
