@@ -9,8 +9,7 @@
             <img src="/history.jpg" class="img-fluid w-100" />
           </div>
           <div class="col py-5 py-lg-0 d-flex align-items-center justify-content-center">
-            <h2 class="text-white font-normal mb-0">COMPANY<br>
-            HISTORY</h2>
+            <h2 class="text-white font-normal mb-0 w-50">{{ $t('Company History') }}</h2>
           </div>
         </section>
         <section class="py-5 px-lg-5">

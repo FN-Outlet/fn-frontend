@@ -23,71 +23,61 @@
               {{ $t('nav.branch') }}
             </nuxt-link>
           </h2>
-          <h2 class="text-white" @click="isHideAboutUs=!isHideAboutUs">{{ $t('nav.aboutus') }}</h2>
-          <div class="ms-lg-5 my-lg-5 my-4" v-show="!isHideAboutUs">
-            <!--<div class="row">
-              <a href="#" class="col-6 text-white">นักลงทุนสัมพันธ์</a>
-            </div>-->
-            <div class="row">
-              <nuxt-link :to="localePath('history')" class="col-6 text-white">
+          <h2 class="link-collapse text-white" :class="isHideAboutUs?'':'active'" @click="isHideAboutUs=!isHideAboutUs">{{ $t('nav.aboutus') }}</h2>
+          <div class="my-4" v-show="!isHideAboutUs">
+            <h3 class="link-collapse text-white" :class="isHideSub1?'':'active'"  @click="isHideSub1=!isHideSub1">ข้อมูลบริษัท</h3>
+            <div class="sub-menu mb-5" v-show="!isHideSub1">
+              <nuxt-link :to="localePath('history')" class=" text-white">
                 {{ $t("Company History") }}
               </nuxt-link>
-              <!--<a href="#" class="col-6 text-white">การกำกับดูแลกิจการที่ดี</a>-->
-              <nuxt-link :to="localePath('vision-mission')" class="col-6 text-white">
+              <nuxt-link :to="localePath('vision-mission')" class=" text-white">
                 {{ $t("Vision & Mission") }}
               </nuxt-link>
-            </div>
-            <div class="row">
-              <!--<a href="#" class="col-6 text-white">การกำกับดูแลกิจการที่ดี</a>-->
-              <nuxt-link :to="localePath('structure')" class="col-6 text-white">
-                {{ $t("Business Structure") }}
-              </nuxt-link>
-              <nuxt-link :to="localePath('message-chairman')" class="col-6 text-white">
+              <nuxt-link :to="localePath('message-chairman')" class=" text-white">
                 {{ $t("Message from Chairman") }}
               </nuxt-link>
+              <nuxt-link :to="localePath('structure')" class=" text-white">
+                {{ $t("Business Structure") }}
+              </nuxt-link>
+              <nuxt-link :to="localePath('organization-chart')" class=" text-white">{{ $t("Organization Chart") }}</nuxt-link>
+              <nuxt-link :to="localePath('directors')" class=" text-white">{{ $t("Board of Directors") }}</nuxt-link>
+              <nuxt-link :to="localePath('sub-committee')" class="text-white">{{ $t("Sub-Committee") }}</nuxt-link>
+              <nuxt-link :to="localePath('goodCorporateGovernance')" class=" text-white">{{ $t("Good Corporate Governance") }}</nuxt-link>
             </div>
-            <div class="row">
-              <nuxt-link :to="localePath('organization-chart')" class="col-6 text-white">{{ $t("Organization Chart") }}</nuxt-link>
-              <nuxt-link :to="localePath('directors')" class="col-6 text-white">{{ $t("Board of Directors") }}</nuxt-link>
-              
-              
+
+            <h3 class="link-collapse text-white" :class="isHideSub2?'':'active'" @click="isHideSub2=!isHideSub2">นักลงทุนสัมพันธ์</h3>
+            <div class="sub-menu mb-5" v-show="!isHideSub2">
+              <nuxt-link :to="localePath('stockprice')" class="col-6 text-white">{{ $t("Stock Price") }}</nuxt-link>
+              <nuxt-link :to="localePath('financial')" class="text-white">{{ $t("Financial Info") }}</nuxt-link>
+              <nuxt-link :to="localePath('shareholder')" class="text-white">{{ $t("Shareholders") }}</nuxt-link>
+              <nuxt-link :to="localePath('webcast')" class="text-white">{{ $t("Webcast") }}</nuxt-link>
+              <nuxt-link :to="localePath('dividendpolicy')" class="text-white">{{ $t("Dividend Policy") }}</nuxt-link>
             </div>
+
+            <h3 class="text-white"><nuxt-link :to="localePath('news')" class="text-white">ข่าวสารและกิจกรรม</nuxt-link></h3>
+            <h3 class="text-white"><nuxt-link :to="localePath('career')" class="text-white">{{ $t("Careers") }}</nuxt-link></h3>
+            <h3 class="text-white"><nuxt-link :to="localePath('contact')" class="text-white">{{ $t("Contact") }}</nuxt-link></h3>
+
             <div class="row">
-              <nuxt-link :to="localePath('sub-committee')" class="col-6 text-white">{{ $t("Sub-Committee") }}</nuxt-link>
+              
               <nuxt-link :to="localePath('management-team')" class="col-6 text-white">{{ $t("Management Team") }}</nuxt-link>
               
               
-            </div>
-            <div class="row">
-              <nuxt-link :to="localePath('stockprice')" class="col-6 text-white">{{ $t("Stock Price") }}</nuxt-link>
-              <nuxt-link :to="localePath('financial')" class="col-6 text-white">{{ $t("Financial Info") }}</nuxt-link>
               
             </div>
-            <div class="row">
-              <nuxt-link :to="localePath('shareholder')" class="col-6 text-white">{{ $t("Shareholders") }}</nuxt-link>
-              <nuxt-link :to="localePath('goodCorporateGovernance')" class="col-6 text-white">{{ $t("Good Corporate Governance") }}</nuxt-link>
-              
-            </div>
+
             <div class="row">
               <a target="_blank" href="https://www.set.or.th/th/market/product/stock/quote/FN/news" class="col-6 text-white">{{ $t("Announcement") }}</a>
-              <nuxt-link :to="localePath('contact')" class="col-6 text-white">{{ $t("Contact") }}</nuxt-link>
+              
               
             </div>
             <div class="row">
               
-              <nuxt-link :to="localePath('news')" class="col-6 text-white">{{ $t("FN News") }}</nuxt-link>
+
               <nuxt-link :to="localePath('public-documents')" class="col-6 text-white">{{ $t("Documents") }}</nuxt-link>
             
             </div>
             
-            <div class="row">
-              <nuxt-link :to="localePath('webcast')" class="col-6 text-white">{{ $t("Webcast") }}</nuxt-link>
-              <nuxt-link :to="localePath('dividendpolicy')" class="col-6 text-white">{{ $t("Dividend Policy") }}</nuxt-link>
-            </div>
-
-            <div class="row">
-              <nuxt-link :to="localePath('career')" class="col-6 text-white">{{ $t("Careers") }}</nuxt-link>
-            </div>
           </div>
         </nav>
       </div>
@@ -126,6 +116,8 @@ export default defineComponent({
       isOpen: false,
       isHideAboutUs: true,
       online: '',
+      isHideSub1: true,
+      isHideSub2: true,
     };
   },
   mounted() {
@@ -266,6 +258,15 @@ export default defineComponent({
 .links{
   img{
     width: 30px;
+  }
+}
+
+.link-collapse{
+  width: 100%;
+  background: url('/arrow-white-down.svg') no-repeat center right;
+  background-size: 6%;
+  &.active{
+    background-image: url('/arrow-white-up.svg');
   }
 }
 
