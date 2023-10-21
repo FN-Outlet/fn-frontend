@@ -16,7 +16,6 @@
 		"Management Team": "คณะผู้บริหาร",
 		"Stock Price": "ข้อมูลราคาหลักทรัพย์",
 		"Financial Info": "ข้อมูลทางการเงิน",
-		"Shareholders": "นักลงทุนสัมพันธ์",
 		"Good Corporate Governance": "การกำกับดูแลกิจการที่ดี",
 		"Announcement": "ข่าวแจ้งตลาดหลักทรัพย์",
 		"Contact": "ติดต่อ",
@@ -107,5 +106,10 @@
 	"Important Documents": "เอกสารสำคัญ",
 	"Board Charter": "กฎบัตรคณะกรรมการ",
 	"Policies and guidelines": "นโยบายและแนวปฏิบัติ",
-	"Dividend Policy": "นโยบายการจ่ายเงินปันผล"
+	"Dividend Policy": "นโยบายการจ่ายเงินปันผล",
+	"Investor Relations": "นักลงทุนสัมพันธ์",
+	"Shareholders": "ข้อมูลผู้ถือหุ้น",
+	"Company Info": "ข้อมูลบริษัท",
+	"News and Activities" : "ข่าวสารและกิจกรรม",
+	"Board of Directors and Sub-Committee": "คณะกรรมการบริษัท และคณะกรรมการชุดย่อย"
 }

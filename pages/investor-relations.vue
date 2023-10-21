@@ -9,28 +9,37 @@
             <img src="/banner.png" class="img-fluid w-100" />
           </div>
           <div class="col py-5 py-lg-0 d-flex align-items-center justify-content-center">
-            <h2 class="text-white font-normal mb-0">{{ $t("Shareholders") }}</h2>
+            <h2 class="text-white font-normal mb-0">{{ $t("Investor Relations") }}</h2>
           </div>
         </section>
         <section class="py-5 px-lg-5">
           <div class="container">
             <h2 class="heading-text text-center">
               <img src="/logo.png" class="img-fluid mb-4" />
-              <span>{{ $t("Shareholders") }}</span>
+              <span>{{ $t("Investor Relations") }}</span>
             </h2>
-            <div class="tab-nav row my-5">
+            <div class="tab-nav row mt-5 mb-2">
+              <div class="col-lg-4">
+                <nuxt-link :to="localePath('stockprice')"><button>{{ $t("Stock Price") }}</button></nuxt-link>
+              </div>
+              <div class="col-lg-4">
+                <nuxt-link :to="localePath('financial')"><button>{{ $t("FINANCIAL HIGHLIGHTS") }}</button></nuxt-link>
+              </div>
+              <div class="col-lg-4">
+                <nuxt-link :to="localePath('shareholder')"><button>{{ $t("Shareholders") }}</button></nuxt-link>
+              </div>
               
+            </div>
+            <div class="tab-nav row">
+
               <div class="col-lg-4">
-                <button :class="isActive1 ? 'active' : 'inactive'" @click="visible(1)">{{ $t("Shareholder Meeting") }}</button>
+                <nuxt-link :to="localePath('dividendpolicy')"><button>{{ $t("Dividend Policy") }}</button></nuxt-link>
               </div>
               <div class="col-lg-4">
-                <button :class="isActive2 ? 'active' : 'inactive'" @click="visible(2)">{{ $t("Annual Report") }}</button>
-              </div>
-              <div class="col-lg-4">
-                <a href="https://www.set.or.th/th/market/product/stock/quote/FN/major-shareholders" target="_blank"><button>{{ $t("Shareholder Info") }}</button></a>
+                <nuxt-link :to="localePath('webcast')"><button>{{ $t("Webcast") }}</button></nuxt-link>
               </div>
             </div>
-            <div class="result mt-5">
+            <!-- <div class="result mt-5">
               <div v-if="isActive1">
 
               </div>
@@ -78,7 +87,7 @@
                   </a>
                 </div>
               </div>
-            </div>
+            </div> -->
           </div>
         </section>
         
@@ -119,10 +128,10 @@
       const config = useRuntimeConfig()
       this.pageSize = config.public.pageSize
       const shareHolderPage = Number(this.$route.query.shareHolderPage) > 0 ? this.$route.query.shareHolderPage : this.shareHolderPage
-      this.getShareMeetingDocument(shareHolderPage, this.pageSize)
+      //this.getShareMeetingDocument(shareHolderPage, this.pageSize)
 
       const annualPage = Number(this.$route.query.annualPage) > 0 ? this.$route.query.annualPage : this.annualPage
-      this.getAnnualDocument(annualPage, this.pageSize)
+      //this.getAnnualDocument(annualPage, this.pageSize)
     },
     methods: {
       getWidth( submenuWidth) {

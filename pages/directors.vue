@@ -18,6 +18,14 @@
               <img src="/logo.png" class="img-fluid mb-4" />
               <span>{{ $t("BOARD OF DIRECTORS") }}</span>
             </h2>
+            <div class="tab-nav row my-5">
+              <div class="col-lg-4">
+                <button class="active" @click="visible(1)">คณะกรรมการบริษัท</button>
+              </div>
+              <div class="col-lg-4">
+                <nuxt-link :to="localePath('sub-committee')"><button>{{ $t("Sub-Committee") }}</button></nuxt-link>
+              </div>
+            </div>
             <div class="row">
               <div class="col-lg-4 mt-5" v-for="(item, index) in data" :key="index">
                 <div class="bod">
@@ -218,6 +226,28 @@
     }
     p{
       color: #555754;
+    }
+  }
+
+
+  .tab-nav{
+    > *{
+      margin-bottom: 20px;
+    }
+    button{
+      display: block;
+      width: 100%;
+      border: 0;
+      padding: 15px;
+      height: 100%;
+      @media (max-width: 992px) {
+        border-bottom: 2px solid #fff;
+        padding: 15px 10px;
+      }
+      &.active{
+        background: #CC3832;
+        color: #fff;
+      }
     }
   }
 
