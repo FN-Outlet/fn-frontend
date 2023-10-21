@@ -36,10 +36,11 @@
               <nuxt-link :to="localePath('message-chairman')" class=" text-white">
                 {{ $t("Message from Chairman") }}
               </nuxt-link>
-              <nuxt-link :to="localePath('structure')" class=" text-white">
+              <!-- <nuxt-link :to="localePath('structure')" class=" text-white">
                 {{ $t("Business Structure") }}
               </nuxt-link>
-              <nuxt-link :to="localePath('organization-chart')" class=" text-white">{{ $t("Organization Chart") }}</nuxt-link>
+              <nuxt-link :to="localePath('organization-chart')" class=" text-white">{{ $t("Organization Chart") }}</nuxt-link> -->
+              <nuxt-link :to="localePath('structure-organization-chart')" class=" text-white">{{ $t("Business Structure and Organization Chart") }}</nuxt-link>
               <nuxt-link :to="localePath('directors')" class=" text-white">{{ $t("Board of Directors and Sub-Committee") }}</nuxt-link>
               <!-- <nuxt-link :to="localePath('sub-committee')" class="text-white">{{ $t("Sub-Committee") }}</nuxt-link> -->
               <nuxt-link :to="localePath('goodCorporateGovernance')" class=" text-white">{{ $t("Good Corporate Governance") }}</nuxt-link>
