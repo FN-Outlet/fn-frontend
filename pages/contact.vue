@@ -41,6 +41,45 @@
                 <button class="btn btn-white">{{ $t("Send") }}</button>
               </div>
             </div>
+            <h2 class="heading-text text-center">
+              <span>{{ $t("Whistleblowing") }}</span>
+            </h2>
+            <div class="row">
+              <div class="col-8 offset-2" v-if="$i18n.locale === 'th'">
+                <p>บริษัทจัดให้มีช่องการแจ้งเบาะแสการกระทําความผิด หรือข้อร้องเรียน และการคุ้มครองผู้แจ้งเบาะแส หรือข้อร้องเรียน (Whistle blower) และสนับสนุนให้ผู้บริหาร พนักงาน ผู้ส่วนได้เสียแจ้งเบาะแสของเรื่องราว หรือพฤติกรรม ที่น่าสงสัยเกี่ยวกับการกระทําผิด หรือมีเหตุสงสัยว่าอาจว่ามีการกระทําความผิดเกิดขึ้น</p>
+
+                <p>ผู้บริหาร พนักงาน และผู้ที่เกี่ยวข้องทุกท่าน สามารถแจ้งข้อมูลโดยระบุ ชื่อ-นามสกุล, E-mail, เบอร์ โทรศัพท์ของผู้แจ้งพร้อมรายละเอียด มาที่ :
+                </p>
+
+                <p class="text-center"><strong>นางเสาวนีย์  กมลบุตร</strong></p>
+                <p class="text-center"><strong>กรรมการอิสระ / ประธานกรรมการตรวจสอบ</strong></p>
+                <p class="text-center">E-mail : saowanee@fnoutlet.com</p>
+
+                <p class="text-center"><strong>เลขานุการบริษัท</strong></p>
+                <p class="text-center">E-mail : corporatesecretary@fnoutlet.com</p>
+
+                ผู้แจ้งข้อมูล หรือเบาะแส หรือข้อร้องเรียน และผู้ที่ให้ความร่วมมือในการตรวจสอบ หรือสอบสวนได้รับความคุ้มครองโดยจะไม่เปิดเผยชื่อตัว ชื่อสกุล ที่อยู่ ภาพ หรือข้อมูลอื่นใดที่สามารถระบุตัวบุคคลนั้นได้ รวมทั้งการเก็บรักษาข้อมูลเป็นความลับ โดยคํานึงถึงความปลอดภัย และความเสียหายของผู้แจ้งข้อมูล หรือเบาะแส หรือผู้ร้องเรียน หรือผู้ที่ให้ความร่วมมือในการตรวจสอบ สอบสวนข้อเท็จจริง
+
+
+              </div>
+              <div class="col-8 offset-2" v-if="$i18n.locale === 'en'">
+                <p class="text-center">The Company has established whistle blowing channels and whistleblower protection program as well as encourages executives, employees and stakeholders to report suspicious incidents or behaviors.</p>
+
+                <p class="text-center">Executives, employees and stakeholders are encouraged to submit whistle blowing complaints which contain information about their names, e-mail addresses, and telephone numbers and details of such cases to:
+                </p>
+
+                <p class="text-center"><strong>Mrs. Saowanee Kamolbutr</strong></p> 
+                <p class="text-center"><strong>Independent Director / Chairman of the Audit Committee</strong></p> 
+                <p class="text-center">mail: saowanee@fnoutlet.com</p>
+
+                <p class="text-center"><strong>Company Secretary</strong></p> 
+                <p class="text-center">E-mail: corporatesecretary@fnoutlet.com</p>
+
+                <p>Whistle blowers and persons assisting with the investigation and interrogation are protected. Their names, surnames, addresses and photos including other indications of their identity as well as information supplied will be treated with anonymity and confidentiality for the purposes of safety protection and harm prevention for them. 
+                </p>
+              </div>
+            </div>
+            
 
           </div>
         </section>
