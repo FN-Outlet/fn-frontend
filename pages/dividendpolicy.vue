@@ -19,7 +19,11 @@
               <img src="/logo.png" class="img-fluid mb-4" />
               <span>{{ $t("Dividend Policy") }} </span>
             </h2>
-            <div class="docs mt-4">
+            <div class="container">
+
+            <p>บริษัทมีนโยบายการจ่ายปันผลให้แก่ผู้ถือหุ้นในแต่ละปี ไม่น้อยกว่าร้อยละ 40 ของกำไรสุทธิที่เหลือหลังจากหักสำรองต่างๆ ทุกประเภทตามที่กฎหมายกำหนด โดยพิจารณาจากงบการเงินเฉพาะของบริษัท อย่างไรก็ตาม การจ่ายเงินปันผลดังกล่าวจะขึ้นกับกระแสเงินสด แผนการลงทุน เงื่อนไขทางกฎหมาย โดยทางบริษัทคำนึงถึงความจำเป็นและเหมาะสมของปัจจัยอื่นๆ ในอนาคต และการจ่ายเงินปันผลนั้นจะไม่มีผลกระทบต่อการดำเนินงานปกติของบริษัทอย่างมีนัยสำคัญ</p>
+          </div>
+            <!-- <div class="docs mt-4">
                 <a 
                   v-for="(doc,index) in document" :key="index"
                   :href="($i18n.locale == 'en' && doc.attributes.fileen.data) ? doc.attributes.fileen.data.attributes.url : doc.attributes.file.data.attributes.url" 
@@ -30,7 +34,7 @@
                   <span class="d-block" v-else>{{ doc.attributes.nameth }}</span>
                   <span class="">Download</span>
                 </a>
-              </div>
+            </div> -->
           </div>
         </section>
       </div>

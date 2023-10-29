@@ -19,6 +19,15 @@
               <img src="/logo.png" class="img-fluid mb-4" />
               <span>{{ $t("CONTACT US") }}</span>
             </h2>
+            <div class="p text-center" 
+              style="font-size:20px; 
+              color:black;
+              margin-bottom:50px;">
+              บริษัท เอฟเอ็น แฟคตอรี่ เอ๊าท์เลท จำกัด (มหาชน)<br>
+              สำนักงานใหญ่ 991 อาคารเอฟเอ็น บิวดิ้ง <br>
+              ถนนพระราม 9 แขวงสวนหลวง เขตสวนหลวง กทม. 10250<br>
+              โทร. 02-300-4951   แฟกซ์: 02-300-4681
+            </div>
             <div class="text-center">{{ $t("Please fill in all the details, and then we will contact you.") }}</div>
             <div class="row bg-primary m-lg-5 p-4 mx-2 mt-4">
               <div class="col-12">

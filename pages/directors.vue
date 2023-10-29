@@ -20,10 +20,13 @@
             </h2>
             <div class="tab-nav row my-5">
               <div class="col-lg-4">
-                <button class="active" @click="visible(1)">คณะกรรมการบริษัท</button>
+                <button class="active" @click="visible(1)">{{ $t("Board of directors") }}</button>
               </div>
               <div class="col-lg-4">
                 <nuxt-link :to="localePath('sub-committee')"><button>{{ $t("Sub-Committee") }}</button></nuxt-link>
+              </div>
+              <div class="col-lg-4">
+                <nuxt-link :to="localePath('management-team')"><button>{{ $t("Management Team") }}</button></nuxt-link>
               </div>
             </div>
             <div class="row">

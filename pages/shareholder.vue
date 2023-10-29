@@ -19,16 +19,16 @@
               <span>{{ $t("Shareholders") }}</span>
             </h2>
             <div class="tab-nav row my-5">
-              
+              <div class="col-lg-4">
+                <a href="https://www.set.or.th/th/market/product/stock/quote/FN/major-shareholders" target="_blank"><button>{{ $t("Shareholder Info") }}</button></a>
+              </div>
               <div class="col-lg-4">
                 <button :class="isActive1 ? 'active' : 'inactive'" @click="visible(1)">{{ $t("Shareholder Meeting") }}</button>
               </div>
               <div class="col-lg-4">
                 <button :class="isActive2 ? 'active' : 'inactive'" @click="visible(2)">{{ $t("Annual Report") }}</button>
               </div>
-              <div class="col-lg-4">
-                <a href="https://www.set.or.th/th/market/product/stock/quote/FN/major-shareholders" target="_blank"><button>{{ $t("Shareholder Info") }}</button></a>
-              </div>
+              
             </div>
             <div class="result mt-5">
               <div v-if="isActive1">

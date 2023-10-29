@@ -13,7 +13,9 @@
 		"Organization Chart": "โครงสร้างองค์กร",
 		"Board of Directors": "คณะกรรมการบริษัท",
 		"Sub-Committee": "คณะกรรมการชุดย่อย",
+		"SUB COMMITTEE": "คณะกรรมการชุดย่อย",
 		"Management Team": "คณะผู้บริหาร",
+		"MANAGEMENT TEAM": "คณะผู้บริหาร",
 		"Stock Price": "ข้อมูลราคาหลักทรัพย์",
 		"Financial Info": "ข้อมูลทางการเงิน",
 		"Good Corporate Governance": "การกำกับดูแลกิจการที่ดี",
@@ -71,6 +73,7 @@
 		"trustText": "สร้างความไว้วางใจ ซื่อสัตย์กับตนเอง คนในองค์กร และคู่ค้า"
 	},
 	"BOARD OF DIRECTORS": "คณะกรรมการบริษัท",
+	"Board of directors": "คณะกรรมการบริษัท",
 	"BOARD OF": "คณะกรรมการ",
 	"DIRECTORS": "บริษัท",
 	"Qualification": "คุณวุฒิการศึกษา",
@@ -113,5 +116,8 @@
 	"News and Activities" : "ข่าวสารและกิจกรรม",
 	"Board of Directors and Sub-Committee": "คณะกรรมการบริษัท และคณะกรรมการชุดย่อย",
 	"Business Structure and Organization Chart" : "โครงสร้างธุรกิจ และโครงสร้างองค์กร",
-	"Whistleblowing" : "การแจ้งเบาะแสและข้อร้องเรียน"
+	"Whistleblowing" : "การแจ้งเบาะแสและข้อร้องเรียน",
+	"Audit Committee" : "คณะกรรมการตรวจสอบ",
+	"Nomination Remuneration and Good Corporate Governance Committee": "คณะกรรมการสรรหา กำหนดค่าตอบแทน และกำกับดูแลกิจการที่ดี",
+	"Executive Committee": "คณะกรรมการบริหาร"
 }

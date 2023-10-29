@@ -57,13 +57,13 @@
                   <h3 class="text-white"><nuxt-link :to="localePath('career')" class="text-white">{{ $t("Careers") }}</nuxt-link></h3>
                   <h3 class="text-white"><nuxt-link :to="localePath('contact')" class="text-white">{{ $t("Contact") }}</nuxt-link></h3>
 
-                  <div class="row">
+                  <!--<div class="row">
                     
                     <nuxt-link :to="localePath('management-team')" class=" text-white">{{ $t("Management Team") }}</nuxt-link>
                     
                     
                     
-                  </div>
+                  </div>-->
 
                   <div class="row">
                     <a target="_blank" href="https://www.set.or.th/th/market/product/stock/quote/FN/news" class="text-white">{{ $t("Announcement") }}</a>

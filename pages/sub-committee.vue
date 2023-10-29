@@ -9,23 +9,23 @@
             <img src="/director.jpg" class="img-fluid w-100" />
           </div>
           <div class="col py-5 py-lg-0 d-flex align-items-center justify-content-center">
-            <h2 class="text-white font-normal mb-0">SUB<br>COMMITTEE</h2>
+            <h2 class="text-white font-normal mb-0">{{ $t("SUB COMMITTEE") }}</h2>
           </div>
         </section>
         <section class="py-5">
           <div class="container">
             <div class="tab-nav row mt-5 mt-lg-0">
               <div class="col-lg-4">
-                <button :class="isActive1 ? 'active' : 'inactive'" @click="visible(1)">Audit Committee</button>
+                <button :class="isActive1 ? 'active' : 'inactive'" @click="visible(1)">{{ $t("Audit Committee") }}</button>
               </div>
               <div class="col-lg-4">
-                <button :class="isActive2 ? 'active' : 'inactive'"  @click="visible(2)">Nomination Remuneration and Good Corporate Governance Committee</button>
+                <button :class="isActive2 ? 'active' : 'inactive'"  @click="visible(2)">{{ $t("Nomination Remuneration and Good Corporate Governance Committee") }}</button>
               </div>
               <!--<div class="col-lg-4">
                 <button :class="isActive3 ? 'active' : 'inactive'"  @click="visible(3)">Risk Management Committee</button>
               </div>-->
               <div class="col-lg-4">
-                <button :class="isActive4 ? 'active' : 'inactive'"  @click="visible(4)">Executive Committee</button>
+                <button :class="isActive4 ? 'active' : 'inactive'"  @click="visible(4)">{{ $t("Executive Committee") }}</button>
               </div>
             </div>
             <div class="row" >
@@ -57,25 +57,33 @@
                     </div>
                     <article>
                       <header class="heading">
-                        <h3 class="line">{{ item.attributes.nameth }}</h3>
-                        <p>{{ item.attributes.positionth }}</p>
+                        <div v-if="$i18n.locale === 'en'">
+                          <h3 class="line">{{ item.attributes.nameen }}</h3>
+                          <p>{{ item.attributes.positionen }}</p>
+                        </div>
+                        <div v-else>
+                          <h3 class="line">{{ item.attributes.nameth }}</h3>
+                          <p>{{ item.attributes.positionth }}</p>
+                        </div>
                       </header>
                       <div class="description">
                         <table class="toc-profile">
                           <tbody>
                             <tr>
-                              <th>Qualification</th>
+                              <th>{{ $t("Qualification") }}</th>
                               <td>
                                 <ul class="type-squre">
-                                  <div v-if="item.attributes.qualificationth" v-html="$mdRenderer.render(item.attributes.qualificationth)"></div>
+                                  <div v-if="$i18n.locale === 'en' && item.attributes.qualificationen" v-html="$mdRenderer.render(item.attributes.qualificationen)"></div>
+                                  <div v-if="$i18n.locale === 'th' && item.attributes.qualificationth" v-html="$mdRenderer.render(item.attributes.qualificationth)"></div>
                                 </ul>
                               </td>
                             </tr>
                             <tr>
-                              <th>Training</th>
+                              <th>{{ $t("Training") }}</th>
                               <td>
                                 <ul class="type-squre">
-                                  <div v-if="item.attributes.trainingth" v-html="$mdRenderer.render(item.attributes.trainingth)"></div>
+                                  <div v-if="$i18n.locale === 'en' && item.attributes.trainingen" v-html="$mdRenderer.render(item.attributes.trainingen)"></div>
+                                  <div v-if="$i18n.locale === 'th' && item.attributes.trainingth" v-html="$mdRenderer.render(item.attributes.trainingth)"></div>
                                 </ul>
                               </td>
                             </tr>
@@ -83,7 +91,8 @@
                               <th>Work Experiences</th>
                               <td>
                                 <ul class="type-squre">
-                                  <div v-if="item.attributes.workexperianceth" v-html="$mdRenderer.render(item.attributes.workexperianceth)"></div>
+                                  <div v-if="$i18n.locale === 'en' && item.attributes.workexperianceen" v-html="$mdRenderer.render(item.attributes.workexperianceen)"></div>
+                                  <div v-if="$i18n.locale === 'th' && item.attributes.workexperianceth" v-html="$mdRenderer.render(item.attributes.workexperianceth)"></div>
                                 </ul>
                               </td>
                             </tr>
