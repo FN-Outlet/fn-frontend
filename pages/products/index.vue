@@ -9,7 +9,7 @@
             <img src="/product-main.jpg" class="img-fluid w-100" />
           </div>
           <div class="col py-5 py-lg-0 d-flex align-items-center justify-content-center">
-            <h2 class="text-white font-normal mb-0">FOR<br>QUALITY OF LIFE</h2>
+            <h2 class="text-white font-normal mb-0">{{ $t("FOR") }}<br>{{ $t("QUALITY OF LIFE") }}</h2>
           </div>
         </section>
         <section class="text-center py-5">
@@ -24,7 +24,7 @@
               <div class="col-lg-8 offset-lg-2 mt-5">
                 <h2 class="heading-text">
                   <img src="/logo.png" class="img-fluid" />
-                  <span>PRODUCTS</span>
+                  <span>{{ $t("PRODUCTS") }}</span>
                 </h2>
               </div>
             </div>

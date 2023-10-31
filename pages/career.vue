@@ -9,22 +9,29 @@
             <img src="/career.jpg" class="img-fluid w-100" />
           </div>
           <div class="col py-5 py-lg-0 d-flex align-items-center justify-content-center">
-            <h2 class="text-white font-normal mb-0">CAREER</h2>
+            <h2 class="text-white font-normal mb-0">{{ $t("CAREER") }}</h2>
           </div>
         </section>
         <section class="py-5">
           <div class="container">
             <h2 class="heading-text text-center">
               <img src="/logo.png" class="img-fluid mb-4" />
-              <span>CAREER</span>
+              <span>{{ $t("CAREER") }}</span>
             </h2>
             <div class="row">
               <div class="col-lg-10 offset-lg-1 text-center">
-                <p>How to Apply : Please contact FN Factory Outlet Public Company Limited</p>
-                <p>Human Resource Department 991 Rama 9 Rd. Suan Luang, Bangkok 10250 Thailand.</p>
+                <div v-if="$i18n.locale === 'en'">
+                  <p>How to Apply : Please contact FN Factory Outlet Public Company Limited</p>
+                  <p>Human Resource Department 991 Rama 9 Rd. Suan Luang, Bangkok 10250 Thailand.</p>
 
-                <p class="mt-5">Tel: 0-2300-4951 or 0-64301-7134 Email: recruit@fnoutlet.com Website: www.fnoutlet.com</p>
+                  <p class="mt-5">Tel: 0-2300-4951 or 0-64301-7134 Email: recruit@fnoutlet.com Website: www.fnoutlet.com</p>
+                </div>
+                <div v-else>
+                  <p>กรุณาติดต่อฝ่ายบริหารทรัพยากรบุคคล บริษัท เอฟเอ็น แฟคตอรี่ เอ๊าท์เลท จำกัด (มหาชน)</p>
+                  <p>991 อาคารเอฟเอ็น บิวดิ้ง ถนนพระราม 9 แขวงสวนหลวง เขตสวนหลวง, กทม. 10250</p>
 
+                  <p class="mt-5">โทร: 0-2300-4951 หรือ 0-64301-7134 อีเมล: recruit@fnoutlet.com เว็บไซต์: www.fnoutlet.com</p>
+                </div>
                 <!--<button class="btn btn-primary mt-4">DOWNLOAD APPLICATION</button>-->
                 <hr style="border-color:#CC3832" class="my-5">
                 

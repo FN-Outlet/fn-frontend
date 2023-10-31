@@ -9,15 +9,14 @@
             <img src="/banner.png" class="img-fluid w-100" />
           </div>
           <div class="col py-5 py-lg-0 d-flex align-items-center justify-content-center">
-            <h2 class="text-white font-normal mb-0">PUBLIC<br>
-DOCUMENTS</h2>
+            <h2 class="text-white font-normal mb-0">{{ $t("PUBLIC DOCUMENTS") }}</h2>
           </div>
         </section>
         <section class="py-5 px-5">
           <div class="container">
             <h2 class="heading-text text-center">
               <img src="/logo.png" class="img-fluid mb-4" />
-              <span>PUBLIC DOCUMENTS </span>
+              <span>{{ $t("PUBLIC DOCUMENTS") }} </span>
             </h2>
             <div class="docs mt-4">
                 <a 

@@ -9,14 +9,14 @@
             <img src="/news.jpg" class="img-fluid w-100" />
           </div>
           <div class="col py-5 py-lg-0 d-flex align-items-center justify-content-center">
-            <h2 class="text-white font-normal mb-0">NEWS & CSR</h2>
+            <h2 class="text-white font-normal mb-0">{{ $t("NEWS") }} & {{ $t("CSR") }}</h2>
           </div>
         </section>
         <section class="py-5">
           <div class="container">
             <h2 class="heading-text text-center">
               <img src="/logo.png" class="img-fluid mb-4" />
-              <span>NEWS</span>
+              <span>{{ $t("FNNEWS") }}</span>
             </h2>
             <div class="mt-5" v-for="(newsHightlight,item) in dataHightlight" :key="item">
               <nuxt-link :to="`/${$i18n.locale}/article?id=${newsHightlight.id}`" style="text-decoration: none;">

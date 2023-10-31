@@ -9,13 +9,13 @@
             <img src="/marketplace.jpg" class="img-fluid w-100" />
           </div>
           <div class="col py-5 py-lg-0 d-flex align-items-center justify-content-center">
-            <h2 class="text-white font-normal mb-0">MARKETPLACE</h2>
+            <h2 class="text-white font-normal mb-0">{{ $t("MARKETPLACE") }}</h2>
           </div>
         </section>
         <section class="py-5">
           <div class="container">
             <h1 class="heading-custom text-center font-thin text-gray my-0">
-              <span><span class="fn-logo-text">FN</span> MARKETPLACE</span>
+              <span><span class="fn-logo-text">FN</span> {{ $t("MARKETPLACE") }}</span>
             </h1>
             <div class="d-flex flex-wrap align-items-center malls my-lg-5 mt-4 text-center">
 
@@ -30,7 +30,7 @@
             </div>
           
             <h1 class="heading-custom text-center font-thin text-gray my-0">
-              <span><span class="fn-logo-text">FN</span> MALL</span>
+              <span><span class="fn-logo-text">FN</span> {{ $t("MALL") }}</span>
             </h1>
             <div class="row my-5">
               <div class="col-lg-8 offset-lg-2">

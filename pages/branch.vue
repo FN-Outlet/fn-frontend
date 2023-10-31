@@ -9,14 +9,14 @@
             <img src="/branch.jpg" class="img-fluid w-100" />
           </div>
           <div class="col py-5 py-lg-0 d-flex align-items-center justify-content-center">
-            <h2 class="text-white font-normal mb-0">FOR<br>QUALITY OF LIFE</h2>
+            <h2 class="text-white font-normal mb-0">{{ $t("FOR") }}<br>{{ $t("QUALITY OF LIFE") }}</h2>
           </div>
         </section>
         <section class="text-center py-5">
           <div class="container">
             <h2 class="heading-text">
               <img src="/logo.png" class="img-fluid mb-4" />
-              <span>BRANCH</span>
+              <span>{{ $t("BRANCH") }}</span>
             </h2>
             <div class="row mx-lg-5 mt-5 address-wrapper" v-for="(branch,index) in data" :key="index">
               <div class="col-lg-6 p-4 md-w-100 address" @click="activeBranch(index)">

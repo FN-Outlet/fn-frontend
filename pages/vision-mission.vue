@@ -9,8 +9,8 @@
             <img src="/banner.png" class="img-fluid w-100" />
           </div>
           <div class="col py-5 py-lg-0 d-flex align-items-center justify-content-center">
-            <h2 class="text-white font-normal mb-0">VISION &<br>
-            MISSION</h2>
+            <h2 class="text-white font-normal mb-0">{{ $t("VISION") }} &<br>
+              {{ $t("MISSION") }}</h2>
           </div>
         </section>
         <section class="d-lg-flex"> 
