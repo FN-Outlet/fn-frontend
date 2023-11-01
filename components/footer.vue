@@ -22,7 +22,7 @@
                 <h2 class="link-collapse text-white" :class="isHideAboutUs?'':'active'" @click="isHideAboutUs=!isHideAboutUs">{{ $t('nav.aboutus') }}</h2>
                 <div class="ms-4 my-4" v-show="!isHideAboutUs">
 
-                <div class="row" @click="isHideAboutUs=!isHideAboutUs">
+                <div class="row">
                   <h3 class="link-collapse text-white" :class="isHideSub1?'':'active'"  @click="isHideSub1=!isHideSub1">{{ $t('Company Info') }}</h3>
                   <div class="sub-menu mb-5" v-show="!isHideSub1">
                     <nuxt-link :to="localePath('history')" class=" text-white">
