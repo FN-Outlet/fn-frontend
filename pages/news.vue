@@ -18,6 +18,10 @@
               <img src="/logo.png" class="img-fluid mb-4" />
               <span>{{ $t("FNNEWS") }}</span>
             </h2>
+            <div class="d-sm-flex justify-content-center mb-5 mt-3 mx-5">
+              <button class="w-100 mx-2 btn btn-outline-primary border">ข่าวแจ้งสื่อมวลชน</button>
+              <button class="w-100  mx-2 btn btn-outline-primary border">ข่าวแจ้งตลาดหลักทรัพย์</button>
+            </div>
             <div class="mt-5" v-for="(newsHightlight,item) in dataHightlight" :key="item">
               <nuxt-link :to="`/${$i18n.locale}/article?id=${newsHightlight.id}`" style="text-decoration: none;">
                 <div class="slider-wrapper text-center">
