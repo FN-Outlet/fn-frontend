@@ -218,6 +218,9 @@ export default defineComponent({
   @media (max-width: 576px) {
     width: calc( 70% + 60px );
   }
+  .top{
+    overflow-y: auto;
+  }
   nav a{
     text-decoration: none;
     white-space: nowrap;
