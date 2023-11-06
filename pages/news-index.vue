@@ -68,15 +68,15 @@
             </div>
           </div>
         </section>
-        <div class="pagination mt-5 mb-5">
-            <a>1</a>
-            <a>2</a>
-            <a>3</a>
-            <a>4</a>
-            <a>5</a>
-            <a>></a>
-            <a>>></a>
-          </div>
+                <div class="pagination mt-5 mb-5">
+                  <a
+                    v-for="(pageCount, index) in newsMeta.pageCount" 
+                    :key="index"
+                    @click="changePageNews(pageCount)"
+                  >
+                    {{ pageCount }}
+                  </a>
+                </div>
       </div>
       <Footer></Footer>
     </div>
@@ -101,6 +101,9 @@
         loading: true,
         data: '',
         dataHightlight: '',
+        newsPage: 1,
+        pageSize: 10,
+        newsMeta: '',
       };
     },
     components: {
@@ -116,8 +119,13 @@
         };
     },
     async mounted() {
-      await this.getNews()
+      const config = useRuntimeConfig()
+      this.pageSize = config.public.pageSize
+      const newsPage = Number(this.$route.query.newsPage) > 0 ? this.$route.query.newsPage : this.newsPage
+
+      await this.getNews(newsPage, this.pageSize)
       await this.getNewsHightlight()
+      
     },
     methods: {
       getWidth( submenuWidth) {
@@ -129,15 +137,26 @@
       prevSlide(){
         this.$refs.mySwiper.$el.swiper.slidePrev()
       },
-      async getNews() {
-        const { data } = await $fetch(`/api/newss?sort=newsdate:desc&filters[Highlight][$eq]=false&populate=*`);
-        this.data = data;
+      async getNews(page, pageSize) {
+        const data = await $fetch(`/api/newss?sort=newsdate:desc&filters[Highlight][$eq]=false&filters[newstype][$eq]=news&populate=*&pagination[page]=${page}&pagination[pageSize]=${pageSize}`);
+        this.data = data.data;
+        this.newsMeta = data.meta.pagination;
         this.loading = false;
       },
       async getNewsHightlight() {
-        const { data } = await $fetch(`/api/newss?sort=newsdate:desc&filters[Highlight][$eq]=true&populate=*`);
+        const { data } = await $fetch(`/api/newss?sort=newsdate:desc&filters[Highlight][$eq]=true&filters[newstype][$eq]=news&populate=*`);
         this.dataHightlight = data;
         this.loading = false;
+      },
+      async changePageNews(page) {
+        const currUrl = this.$route.path;
+        console.log(currUrl)
+        history.pushState(
+          {},
+          null,
+          decodeURI(currUrl) + '?newsPage='+page
+        )
+        await this.getNews(page, this.pageSize)
       }
     },
   })

@@ -13,45 +13,117 @@
           </div>
         </section>
         <section class="py-5">
-          <div class="container">
-            <h2 class="heading-text text-center">
-              <img src="/logo.png" class="img-fluid mb-4" />
-              <span>{{ $t("FNNEWS") }}</span>
-            </h2>
-            <div class="d-sm-flex justify-content-center mb-5 mt-3 mx-5">
-              <button class="w-100 mx-2 btn btn-outline-primary border">ข่าวแจ้งสื่อมวลชน</button>
-              <button class="w-100  mx-2 btn btn-outline-primary border">ข่าวแจ้งตลาดหลักทรัพย์</button>
-            </div>
-            <div class="mt-5" v-for="(newsHightlight,item) in dataHightlight" :key="item">
-              <nuxt-link :to="`/${$i18n.locale}/article?id=${newsHightlight.id}`" style="text-decoration: none;">
-                <div class="slider-wrapper text-center">
-                  <img v-if="newsHightlight && newsHightlight.attributes.image.data" :src="newsHightlight.attributes.image.data.attributes.url"  class="img-fluid" />
-                </div>
-                <div class="row mt-5" v-if="newsHightlight">
-                  <div class="col-lg-8 offset-lg-2 text-center">
-                    <h3>{{ newsHightlight.attributes.headlineth }}</h3>
-                    <p>{{ newsHightlight.attributes.topicth }}</p>
+          <div class="container" >
+            
+              <h2 class="heading-text text-center">
+                <img src="/logo.png" class="img-fluid mb-4" />
+                <span>{{ $t("FNNEWS") }}</span>
+              </h2>
+              <div class="d-sm-flex justify-content-center mb-5 mt-3 mx-5">
+                <button class="w-100 mx-2 btn btn-outline-primary border" :class="isActive1 ? 'active' : 'inactive'" @click="visible(1)">ข่าวสารและกิจกรรม</button>
+                <button class="w-100 mx-2 btn btn-outline-primary border" :class="isActive2 ? 'active' : 'inactive'" @click="visible(2)">ข่าวแจ้งสื่อมวลชน</button>
+                <button class="w-100 mx-2 btn btn-outline-primary border" :class="isActive3 ? 'active' : 'inactive'" @click="visible(3)">ข่าวแจ้งตลาดหลักทรัพย์</button>
+              </div>
+            <div v-if="isActive1">
+              <div class="mt-5" v-for="(newsHightlight,item) in dataHightlight" :key="item">
+                <nuxt-link :to="`/${$i18n.locale}/article?id=${newsHightlight.id}`" style="text-decoration: none;">
+                  <div class="slider-wrapper text-center">
+                    <img v-if="newsHightlight && newsHightlight.attributes.image.data" :src="newsHightlight.attributes.image.data.attributes.url"  class="img-fluid" />
                   </div>
-                </div>
-              </nuxt-link>
-            </div>
-            <div class="row">
-              <div class="col-lg-4" v-for="(news,item) in data" :key="item">
-                <div href="#" class="news-thumbnail">
-                  <div>
-                    <img v-if="news.attributes.image.data" :src="news.attributes.image.data.attributes.url"  class="img-fluid" />
-                    <h3>{{ news.attributes.headlineth }}</h3>
-                    <p>{{ news.attributes.topicth }}</p>
+                  <div class="row mt-5" v-if="newsHightlight">
+                    <div class="col-lg-8 offset-lg-2 text-center">
+                      <h3>{{ newsHightlight.attributes.headlineth }}</h3>
+                      <p>{{ newsHightlight.attributes.topicth }}</p>
+                    </div>
                   </div>
-                  <div class="footer">
-                    <date></date>
-                    <nuxt-link :to="`/${$i18n.locale}/article?id=${news.id}`">Read more</nuxt-link>
+                </nuxt-link>
+              </div>
+              <div class="row">
+                <div class="col-lg-4" v-for="(news,item) in data" :key="item">
+                  <div href="#" class="news-thumbnail">
+                    <div>
+                      <img v-if="news.attributes.image.data" :src="news.attributes.image.data.attributes.url"  class="img-fluid" />
+                      <h3>{{ news.attributes.headlineth }}</h3>
+                      <p>{{ news.attributes.topicth }}</p>
+                    </div>
+                    <div class="footer">
+                      <date></date>
+                      <nuxt-link :to="`/${$i18n.locale}/article?id=${news.id}`">Read more</nuxt-link>
+                    </div>
                   </div>
                 </div>
               </div>
+              <div class="mt-5 text-center">
+                <nuxt-link :to="localePath('news-index')" class="btn btn-outline-primary text-underline">ดูข่าวทั้งหมด</nuxt-link>
+              </div>
             </div>
-            <div class="mt-5 text-center">
-              <nuxt-link :to="localePath('news-index')" class="btn btn-outline-primary text-underline">ดูข่าวทั้งหมด</nuxt-link>
+
+            <div v-if="isActive2">
+              <div class="mt-5" v-for="(mediaDataHightlightV,item) in mediaDataHightlight" :key="item">
+                <nuxt-link :to="`/${$i18n.locale}/article?id=${mediaDataHightlightV.id}`" style="text-decoration: none;">
+                  <div class="slider-wrapper text-center">
+                    <img v-if="mediaDataHightlightV && mediaDataHightlightV.attributes.image.data" :src="mediaDataHightlightV.attributes.image.data.attributes.url"  class="img-fluid" />
+                  </div>
+                  <div class="row mt-5" v-if="mediaDataHightlightV">
+                    <div class="col-lg-8 offset-lg-2 text-center">
+                      <h3>{{ mediaDataHightlightV.attributes.headlineth }}</h3>
+                      <p>{{ mediaDataHightlightV.attributes.topicth }}</p>
+                    </div>
+                  </div>
+                </nuxt-link>
+              </div>
+              <div class="row">
+                <div class="col-lg-4" v-for="(media,item) in mediaData" :key="item">
+                  <div href="#" class="news-thumbnail">
+                    <div>
+                      <img v-if="media.attributes.image.data" :src="media.attributes.image.data.attributes.url"  class="img-fluid" />
+                      <h3>{{ media.attributes.headlineth }}</h3>
+                      <p>{{ media.attributes.topicth }}</p>
+                    </div>
+                    <div class="footer">
+                      <date></date>
+                      <nuxt-link :to="`/${$i18n.locale}/article?id=${media.id}`">Read more</nuxt-link>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="mt-5 text-center" v-if="mediaData.length > 0">
+                <nuxt-link :to="localePath('media-index')" class="btn btn-outline-primary text-underline">ดูข่าวทั้งหมด</nuxt-link>
+              </div>
+            </div>
+
+            <div v-if="isActive3">
+              <div class="mt-5" v-for="(setDataHightlight,item) in setDataHightlight" :key="item">
+                <nuxt-link :to="`/${$i18n.locale}/article?id=${setDataHightlight.id}`" style="text-decoration: none;">
+                  <div class="slider-wrapper text-center">
+                    <img v-if="setDataHightlight && setDataHightlight.attributes.image.data" :src="setDataHightlight.attributes.image.data.attributes.url"  class="img-fluid" />
+                  </div>
+                  <div class="row mt-5" v-if="setDataHightlight">
+                    <div class="col-lg-8 offset-lg-2 text-center">
+                      <h3>{{ setDataHightlight.attributes.headlineth }}</h3>
+                      <p>{{ setDataHightlight.attributes.topicth }}</p>
+                    </div>
+                  </div>
+                </nuxt-link>
+              </div>
+              <div class="row">
+                <div class="col-lg-4" v-for="(set,item) in setData" :key="item">
+                  <div href="#" class="news-thumbnail">
+                    <div>
+                      <img v-if="set.attributes.image.data" :src="set.attributes.image.data.attributes.url"  class="img-fluid" />
+                      <h3>{{ set.attributes.headlineth }}</h3>
+                      <p>{{ set.attributes.topicth }}</p>
+                    </div>
+                    <div class="footer">
+                      <date></date>
+                      <nuxt-link :to="`/${$i18n.locale}/article?id=${set.id}`">Read more</nuxt-link>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="mt-5 text-center" v-if="setData.length > 0">
+                <nuxt-link :to="localePath('set-index')" class="btn btn-outline-primary text-underline">ดูข่าวทั้งหมด</nuxt-link>
+              </div>
             </div>
             <h2 class="heading-text text-center mt-5">
               <img src="/logo.png" class="img-fluid mb-4" />
@@ -116,6 +188,13 @@
         loading: true,
         data: '',
         dataHightlight: '',
+        isActive1: true,
+        isActive2: false,
+        isActive3: false,
+        mediaData: [],
+        mediaDataHightlight: '',
+        setData: [],
+        setDataHightlight: '',
       };
     },
     components: {
@@ -133,10 +212,28 @@
     async mounted() {
       await this.getNews()
       await this.getNewsHightlight()
+
+      await this.getMedia()
+      await this.getMediaHightlight()
+
+      await this.getSet()
+      await this.getSetHightlight()
     },
     methods: {
       getWidth( submenuWidth) {
         this.width = submenuWidth
+      },
+      visible( data ){
+        this.isActive1 = false
+        this.isActive2 = false
+        this.isActive3 = false
+        if ( data === 1 ){
+          this.isActive1 = true
+        } if ( data === 2 ){
+          this.isActive2 = true
+        } if ( data === 3 ){
+          this.isActive3 = true
+        } 
       },
       nextSlide(){
         this.$refs.mySwiper.$el.swiper.slideNext()
@@ -145,13 +242,35 @@
         this.$refs.mySwiper.$el.swiper.slidePrev()
       },
       async getNews() {
-        const { data } = await $fetch(`/api/newss?sort=newsdate:desc&pagination[limit]=3&filters[Highlight][$eq]=false&populate=*`);
+        const { data } = await $fetch(`/api/newss?sort=newsdate:desc&pagination[limit]=3&filters[Highlight][$eq]=false&filters[newstype][$eq]=news&populate=*`);
         this.data = data;
         this.loading = false;
       },
       async getNewsHightlight() {
-        const { data } = await $fetch(`/api/newss?sort=newsdate:desc&pagination[limit]=1&filters[Highlight][$eq]=true&populate=*`);
+        const { data } = await $fetch(`/api/newss?sort=newsdate:desc&pagination[limit]=1&filters[Highlight][$eq]=true&filters[newstype][$eq]=news&populate=*`);
         this.dataHightlight = data;
+        this.loading = false;
+      },
+
+      async getMedia() {
+        const { data } = await $fetch(`/api/newss?sort=newsdate:desc&pagination[limit]=3&filters[Highlight][$eq]=false&filters[newstype][$eq]=media&populate=*`);
+        this.mediaData = data;
+        this.loading = false;
+      },
+      async getMediaHightlight() {
+        const { data } = await $fetch(`/api/newss?sort=newsdate:desc&pagination[limit]=1&filters[Highlight][$eq]=true&filters[newstype][$eq]=media&populate=*`);
+        this.mediaDataHightlight = data;
+        this.loading = false;
+      },
+
+      async getSet() {
+        const { data } = await $fetch(`/api/newss?sort=newsdate:desc&pagination[limit]=3&filters[Highlight][$eq]=false&filters[newstype][$eq]=set&populate=*`);
+        this.setData = data;
+        this.loading = false;
+      },
+      async getSetHightlight() {
+        const { data } = await $fetch(`/api/newss?sort=newsdate:desc&pagination[limit]=1&filters[Highlight][$eq]=true&filters[newstype][$eq]=set&populate=*`);
+        this.setDataHightlight = data;
         this.loading = false;
       }
     },

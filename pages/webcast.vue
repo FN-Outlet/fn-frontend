@@ -31,16 +31,17 @@
 
               </div>
               <div class="docs" v-if="isActive1">
-                <a 
-                  v-for="(doc,index) in document" :key="index"
-                  :href="doc.attributes.webcast.data.attributes.url" 
-                  class="d-flex w-100 justify-content-between"  
-                  target="_blank"
-                > 
-                  <span class="d-block" v-if="$i18n.locale=='en'">{{ doc.attributes.nameen }}</span>
-                  <span class="d-block" v-else>{{ doc.attributes.nameth }}</span>
-                  <span class="">{{ $t("Download") }}</span>
-                </a>
+                
+                <div class="collapse-wrapper" v-for="(value, index) in documentGroup" :key="index">
+                  <h3 class=" active">{{ value.year ? value.year : '#' }}</h3>
+                  <div class="text active">
+                    <a :href="fiDoc.attributes.webcast.data ? fiDoc.attributes.webcast.data.attributes.url : '#'" target="_blank" class="d-flex w-100 justify-content-between"  v-for="(fiDoc, index2) in value.data" :key="index2">
+                      <span v-if="$i18n.locale=='en'">{{ fiDoc.attributes.nameen }}</span>
+                      <span v-else>{{ fiDoc.attributes.nameth }}</span>
+                      <span>{{ $t("Download") }}</span>
+                    </a>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
@@ -65,6 +66,7 @@
         isActive3: false,
         items: [2000, 2001, 2002, 2003, 2004, 2005, 2006, 2007, 2008, 2009, 2010],
         document: [],
+        documentGroup: [],
       };
     },
     components: {
@@ -91,8 +93,26 @@
         } 
       },
       async getDocument() {
-        const { data } = await $fetch(`/api/webcasts?sort=seq:desc&filters[type][$in][0]=Annual General Meeting&populate=*`);
+        const { data } = await $fetch(`/api/webcasts?sort[0]=period:desc&sort[1]=seq:desc&filters[type][$in][0]=Annual General Meeting&populate=*`);
         this.document = data;
+
+        const groupedData = {};
+
+        this.document.forEach((item,index) => {
+          const period = item.attributes.period;
+          if (!groupedData[period]) {
+              groupedData[period] = [];
+          }
+          groupedData[period].push(item);
+        });
+        const result = Object.keys(groupedData)
+          .map(year => ({
+              year: parseInt(year),
+              data: groupedData[year],
+          }))
+          .sort((a, b) => b.year - a.year);
+        this.documentGroup = result;
+        console.log(this.documentGroup)
       }
     },
   })

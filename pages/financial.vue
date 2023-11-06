@@ -77,19 +77,26 @@
               </div>
               <div class="docs" v-if="isActive2">
                 <!-- start mockup -->
+                <div class="collapse-wrapper" v-for="(value, index) in financialStatementGroup" :key="index">
+                  <h3 class=" active">{{ value.year }}</h3>
+                  <div class="text active">
+                    <a :href="($i18n.locale == 'en' && fiDoc.attributes.fileen.data) ? fiDoc.attributes.fileen.data.attributes.url : fiDoc.attributes.file.data.attributes.url"  target="_blank" class="d-flex w-100 justify-content-between"  v-for="(fiDoc, index2) in value.data" :key="index2">
+                      <span v-if="$i18n.locale=='en'">{{ fiDoc.attributes.nameen }}</span>
+                      <span v-else>{{ fiDoc.attributes.nameth }}</span>
+                      <span>{{ $t("Download") }}</span>
+                    </a>
+                  </div>
+                </div>
                 <!-- <collape-year-financial 
-                :heading="'2566'"
-                />
-                <collape-year-financial 
                   :heading="'2565'"
                 /> -->
                 <!-- end mockup -->
-                <a :href="($i18n.locale == 'en' && fiDoc.attributes.fileen.data) ? fiDoc.attributes.fileen.data.attributes.url : fiDoc.attributes.file.data.attributes.url"  target="_blank" class="d-flex w-100 justify-content-between"  v-for="(fiDoc, index) in financialStatement" :key="index">
+                <!-- <a :href="($i18n.locale == 'en' && fiDoc.attributes.fileen.data) ? fiDoc.attributes.fileen.data.attributes.url : fiDoc.attributes.file.data.attributes.url"  target="_blank" class="d-flex w-100 justify-content-between"  v-for="(fiDoc, index) in financialStatement" :key="index">
                   {{ fiDoc.attributes.period }}
                   <span v-if="$i18n.locale=='en'">{{ fiDoc.attributes.nameen }}</span>
                   <span v-else>{{ fiDoc.attributes.nameth }}</span>
                   <span>{{ $t("Download") }}</span>
-                </a>
+                </a> -->
                 <div class="pagination mt-5 mb-5">
                   <a
                     v-for="(pageCount, index) in financialStatementMeta.pageCount" 
@@ -101,11 +108,16 @@
                 </div>
               </div>
               <div class="docs" v-if="isActive3">
-                <a :href="($i18n.locale == 'en' && fiDoc.attributes.fileen.data) ? fiDoc.attributes.fileen.data.attributes.url : fiDoc.attributes.file.data.attributes.url" target="_blank" class="d-flex w-100 justify-content-between"  v-for="(fiDoc, index) in mda" :key="index">
-                  <span v-if="$i18n.locale=='en'">{{ fiDoc.attributes.nameen }}</span>
-                  <span v-else>{{ fiDoc.attributes.nameth }}</span>
-                  <span>{{ $t("Download") }}</span>
-                </a>
+                <div class="collapse-wrapper" v-for="(value, index) in mdaGroup" :key="index">
+                  <h3 class=" active">{{ value.year }}</h3>
+                  <div class="text active">
+                    <a :href="($i18n.locale == 'en' && fiDoc.attributes.fileen.data) ? fiDoc.attributes.fileen.data.attributes.url : fiDoc.attributes.file.data.attributes.url"  target="_blank" class="d-flex w-100 justify-content-between"  v-for="(fiDoc, index2) in value.data" :key="index2">
+                      <span v-if="$i18n.locale=='en'">{{ fiDoc.attributes.nameen }}</span>
+                      <span v-else>{{ fiDoc.attributes.nameth }}</span>
+                      <span>{{ $t("Download") }}</span>
+                    </a>
+                  </div>
+                </div>
                 <div class="pagination mt-5 mb-5">
                   <a
                     v-for="(pageCount, index) in mdaMeta.pageCount" 
@@ -130,6 +142,7 @@
   export default defineComponent({
     data() {
       return {
+        isOpen: true,
         width: '50',
         isActive1: true,
         isActive2: false,
@@ -145,8 +158,10 @@
         limit: 6,
         document: [],
         financialStatement: [],
+        financialStatementGroup: [],
         financialStatementMeta: '',
         mda: [],
+        mdaGroup: [],
         mdaMeta: '',
         financialStatementPage: 1,
         mdaPage: 1,
@@ -197,14 +212,48 @@
         })
       },
       async getFinancial(page, pageSize) {
-        const data = await $fetch(`/api/documents?sort=seq:desc&filters[documenttype][$in][0]=Financial Statement&populate=*&pagination[page]=${page}&pagination[pageSize]=${pageSize}`);
+        const data = await $fetch(`/api/documents?sort[0]=period:desc&sort[1]=seq:desc&filters[documenttype][$in][0]=Financial Statement&populate=*&pagination[page]=${page}&pagination[pageSize]=${pageSize}`);
         this.financialStatement = data.data;
         this.financialStatementMeta = data.meta.pagination;
+        const groupedData = {};
+
+        this.financialStatement.forEach((item,index) => {
+          const period = item.attributes.period;
+          if (!groupedData[period]) {
+              groupedData[period] = [];
+          }
+          groupedData[period].push(item);
+        });
+        const result = Object.keys(groupedData)
+          .map(year => ({
+              year: parseInt(year),
+              data: groupedData[year],
+          }))
+          .sort((a, b) => b.year - a.year);
+        this.financialStatementGroup = result;
       },
+      
       async getMDA(page, pageSize) {
-        const data = await $fetch(`/api/documents?sort=seq:desc&filters[documenttype][$in][0]=Management Discussion and Analysis&populate=*&pagination[page]=${page}&pagination[pageSize]=${pageSize}`);
+        const data = await $fetch(`/api/documents?sort[0]=period:desc&sort[1]=seq:desc&filters[documenttype][$in][0]=Management Discussion and Analysis&populate=*&pagination[page]=${page}&pagination[pageSize]=${pageSize}`);
         this.mda = data.data
         this.mdaMeta = data.meta.pagination;
+
+        const groupedData = {};
+
+        this.mda.forEach((item,index) => {
+          const period = item.attributes.period;
+          if (!groupedData[period]) {
+              groupedData[period] = [];
+          }
+          groupedData[period].push(item);
+        });
+        const result = Object.keys(groupedData)
+          .map(year => ({
+              year: parseInt(year),
+              data: groupedData[year],
+          }))
+          .sort((a, b) => b.year - a.year);
+        this.mdaGroup = result;
       },
       async changePageFinancialStatement(page) {
         const currUrl = this.$route.path;
@@ -336,6 +385,44 @@
     }
   }
 
+  .collapse-wrapper{
+    overflow: hidden;
+  }
+  .heading{
+    padding: 15px 0;
+    text-transform: uppercase;
+    color: #cd3832;
+    border-bottom: 1px solid #cd3832;
+    position: relative;
+    padding-right: 30px;
+    width: 100%;
+    cursor: pointer;
+    &:before{
+      content: '';
+      position: absolute;
+      background: url('/down-arrow.svg') no-repeat center center;
+      background-size: contain;
+      right: 0;
+      top: 0;
+      height: 100%;
+      width: 30px;
+    }
+    &.active{
+      &:before{
+        background-image: url('/up-arrow.svg');
+      }
+    }
+  }
+  .text{
+    height: 0;
+    //opacity: 0;
+    
+    transition: all 0.3s ease-out;
+    &.active{
+      height: auto;
+      padding: 15px 0;
+    }
+  }
 
   </style>
   

@@ -35,16 +35,19 @@
 
               </div>
               <div class="docs" v-if="isActive1">
-                <a 
-                  v-for="(doc,index) in shareHolder" :key="index"
-                  :href="($i18n.locale == 'en' && doc.attributes.fileen.data) ? doc.attributes.fileen.data.attributes.url : doc.attributes.file.data.attributes.url" 
-                  class="d-flex w-100 justify-content-between"  
-                  target="_blank"
-                > 
-                  <span class="d-block" v-if="$i18n.locale=='en'">{{ doc.attributes.nameen }}</span>
-                  <span class="d-block" v-else>{{ doc.attributes.nameth }}</span>
-                  <span class="">{{ $t("Download") }}</span>
-                </a>
+
+                <div class="collapse-wrapper" v-for="(value, index) in shareHolderGroup" :key="index">
+                  <h3 class=" active">{{ value.year }}</h3>
+                  <div class="text active">
+                    <a :href="($i18n.locale == 'en' && fiDoc.attributes.fileen.data) ? fiDoc.attributes.fileen.data.attributes.url : fiDoc.attributes.file.data.attributes.url"  target="_blank" class="d-flex w-100 justify-content-between"  v-for="(fiDoc, index2) in value.data" :key="index2">
+                      <span v-if="$i18n.locale=='en'">{{ fiDoc.attributes.nameen }}</span>
+                      <span v-else>{{ fiDoc.attributes.nameth }}</span>
+                      <span>{{ $t("Download") }}</span>
+                    </a>
+                  </div>
+                </div>
+
+                
                 <div class="pagination mt-5 mb-5">
                   <a
                     v-for="(pageCount, index) in shareHolderMeta.pageCount" 
@@ -57,16 +60,19 @@
                 </div>
               </div>
               <div class="docs" v-if="isActive2">
-                <a 
-                  v-for="(doc,index) in annual" :key="index"
-                  :href="($i18n.locale == 'en' && doc.attributes.fileen.data) ? doc.attributes.fileen.data.attributes.url : doc.attributes.file.data.attributes.url" 
-                  class="d-flex w-100 justify-content-between"  
-                  target="_blank"
-                > 
-                  <span class="d-block" v-if="$i18n.locale=='en'">{{ doc.attributes.nameen }}</span>
-                  <span class="d-block" v-else>{{ doc.attributes.nameth }}</span>
-                  <span class="">{{ $t("Download") }}</span>
-                </a>
+
+                <div class="collapse-wrapper" v-for="(value, index) in annualGroup" :key="index">
+                  <h3 class=" active">{{ value.year }}</h3>
+                  <div class="text active">
+                    <a :href="($i18n.locale == 'en' && fiDoc.attributes.fileen.data) ? fiDoc.attributes.fileen.data.attributes.url : fiDoc.attributes.file.data.attributes.url"  target="_blank" class="d-flex w-100 justify-content-between"  v-for="(fiDoc, index2) in value.data" :key="index2">
+                      <span v-if="$i18n.locale=='en'">{{ fiDoc.attributes.nameen }}</span>
+                      <span v-else>{{ fiDoc.attributes.nameth }}</span>
+                      <span>{{ $t("Download") }}</span>
+                    </a>
+                  </div>
+                </div>
+
+                
                 <div class="pagination mt-5 mb-5">
                   <a
                     v-for="(pageCount, index) in annualMeta.pageCount" 
@@ -101,8 +107,10 @@
         isActive3: false,
         items: [2000, 2001, 2002, 2003, 2004, 2005, 2006, 2007, 2008, 2009, 2010],
         shareHolder: [],
+        shareHolderGroup: [],
         shareHolderMeta: '',
         annual: [],
+        annualGroup: [],
         annualMeta: '',
         shareHolderPage: 1,
         annualPage: 1,
@@ -141,14 +149,49 @@
         } 
       },
       async getShareMeetingDocument(page, pageSize) {
-        const dataShareMeeting = await $fetch(`/api/documents?sort=seq:desc&filters[documenttype][$in][0]=Shareholder Meeting&populate=*&pagination[page]=${page}&pagination[pageSize]=${pageSize}`);
+        const dataShareMeeting = await $fetch(`/api/documents?sort[0]=period:desc&sort[1]=seq:desc&filters[documenttype][$in][0]=Shareholder Meeting&populate=*&pagination[page]=${page}&pagination[pageSize]=${pageSize}`);
         this.shareHolder = dataShareMeeting.data;
         this.shareHolderMeta = dataShareMeeting.meta.pagination;
+
+        const groupedData = {};
+
+        this.shareHolder.forEach((item,index) => {
+          const period = item.attributes.period;
+          if (!groupedData[period]) {
+              groupedData[period] = [];
+          }
+          groupedData[period].push(item);
+        });
+        const result = Object.keys(groupedData)
+          .map(year => ({
+              year: parseInt(year),
+              data: groupedData[year],
+          }))
+          .sort((a, b) => b.year - a.year);
+        this.shareHolderGroup = result;
+
       },
       async getAnnualDocument(page, pageSize) {
         const dataAnnual = await $fetch(`/api/documents?sort=seq:desc&filters[documenttype][$in][1]=Annual Report&populate=*&pagination[page]=${page}&pagination[pageSize]=${pageSize}`);
         this.annual = dataAnnual.data
         this.annualMeta = dataAnnual.meta.pagination;
+
+        const groupedData = {};
+
+        this.annual.forEach((item,index) => {
+          const period = item.attributes.period;
+          if (!groupedData[period]) {
+              groupedData[period] = [];
+          }
+          groupedData[period].push(item);
+        });
+        const result = Object.keys(groupedData)
+          .map(year => ({
+              year: parseInt(year),
+              data: groupedData[year],
+          }))
+          .sort((a, b) => b.year - a.year);
+        this.annualGroup = result;
       },
       async changePageShareHolder(page) {
         const currUrl = this.$route.path;
