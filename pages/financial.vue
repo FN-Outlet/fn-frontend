@@ -73,141 +73,18 @@
                     </tr>
                   </tbody>
                 </table>
-                <h3 class="mb-3 mt-5">การจ่ายเงินปันผล</h3>
-                <table class="table">
-                <tbody>
-                <tr class="main-table">
-                <th>
-                <p>ปี</p>
-                </th>
-                <th>
-                <p>วันที่อนุมัติ</p>
-                </th>
-                <th>
-                <p>วันที่จ่ายเงินปันผล</p>
-                </th>
-                <th>
-                <p>อัตราเงินปันผลต่อหุ้น<br>(บาท)</p>
-                </th>
-                <th>
-                <p>จำนวนเงิน<br>(บาท)</p>
-                </th>
-                </tr>
-                <tr>
-                <td>
-                <p>2566</p>
-                </td>
-                <td>
-                <p>-</p>
-                </td>
-                <td>
-                <p>-</p>
-                </td>
-                <td>
-                <p>-</p>
-                </td>
-                <td>
-                <p>-</p>
-                </td>
-                </tr>
-                <tr>
-                <td>
-                <p>2565</p>
-                </td>
-                <td>
-                <p>22 เมษายน 2565</p>
-                </td>
-                <td>
-                <p>18 พฤษภาคม 2565</p>
-                </td>
-                <td>
-                <p>0.0037</p>
-                </td>
-                <td>
-                <p>3,700,000</p>
-                </td>
-                </tr>
-                <tr>
-                <td>
-                <p>2564</p>
-                </td>
-                <td>
-                <p>27 เมษายน 2564</p>
-                </td>
-                <td>
-                <p>21 พฤษภาคม 2564</p>
-                </td>
-                <td>
-                <p>0.0037</p>
-                </td>
-                <td>
-                <p>3,700,000</p>
-                </td>
-                </tr>
-                <tr>
-                <td>
-                <p>2563</p>
-                </td>
-                <td>
-                <p>3 เมษายน 2563</p>
-                </td>
-                <td>
-                <p>30 เมษายน 2563</p>
-                </td>
-                <td>
-                <p>0.0037</p>
-                </td>
-                <td>
-                <p>3,700,000</p>
-                </td>
-                </tr>
-                <tr>
-                <td>
-                <p>2562</p>
-                </td>
-                <td>
-                <p>24 เมษายน 2562</p>
-                </td>
-                <td>
-                <p>10 พฤษภาคม 2562</p>
-                </td>
-                <td>
-                <p>0.0130</p>
-                </td>
-                <td>
-                <p>13,000,000</p>
-                </td>
-                </tr>
-                <tr>
-                <td>
-                <p>2561</p>
-                </td>
-                <td>
-                <p>24 เมษายน 2561</p>
-                </td>
-                <td>
-                <p>11 พฤษภาคม 2561</p>
-                </td>
-                <td>
-                <p>0.0360</p>
-                </td>
-                <td>
-                <p>36,000,000</p>
-                </td>
-                </tr>
-                </tbody>
-                </table>
+                
               </div>
               <div class="docs" v-if="isActive2">
                 <!-- start mockup -->
-                <collape-year-financial 
+                <!-- <collape-year-financial 
                 :heading="'2566'"
                 />
                 <collape-year-financial 
                   :heading="'2565'"
-                />
+                /> -->
                 <!-- end mockup -->
-                <a :href="($i18n.locale == 'en' && fiDoc.attributes.fileen.data) ? fiDoc.attributes.fileen.data.attributes.url : fiDoc.attributes.file.data.attributes.url"  target="_blank" class="d-flex w-100 justify-content-between d-none"  v-for="(fiDoc, index) in financialStatement" :key="index">
+                <a :href="($i18n.locale == 'en' && fiDoc.attributes.fileen.data) ? fiDoc.attributes.fileen.data.attributes.url : fiDoc.attributes.file.data.attributes.url"  target="_blank" class="d-flex w-100 justify-content-between"  v-for="(fiDoc, index) in financialStatement" :key="index">
                   {{ fiDoc.attributes.period }}
                   <span v-if="$i18n.locale=='en'">{{ fiDoc.attributes.nameen }}</span>
                   <span v-else>{{ fiDoc.attributes.nameth }}</span>
