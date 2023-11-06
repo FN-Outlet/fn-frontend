@@ -127,17 +127,32 @@ export default defineComponent({
     this.$emit('submenuWidth', this.$refs.submenu.offsetWidth)
     this.getOnline();
   },
+  watch: {
+    'width': {
+      handler: function(newValue) {
+        console.log('Current vaules:' + newValue);
+        if( newValue == 0 ){
+          const bodyElement = document.querySelector('body')
+          bodyElement.classList.add('mobile-open')
+        } else {
+          const bodyElement = document.querySelector('body')
+          bodyElement.classList.remove('mobile-open')
+        }
+      },
+      deep: true
+    }
+  },
   methods: {
     toggleMenu(){
       this.isOpen = !this.isOpen
       if( this.isOpen ){
         this.width = 0
-        const bodyElement = document.querySelector('body')
-        bodyElement.classList.add('mobile-open')
+        /*const bodyElement = document.querySelector('body')
+        bodyElement.classList.add('mobile-open')*/
       } else {
         this.width = this.$refs.menu.offsetWidth
-        const bodyElement = document.querySelector('body')
-        bodyElement.classList.remove('mobile-open')
+        /*const bodyElement = document.querySelector('body')
+        bodyElement.classList.remove('mobile-open')*/
       }
     },
     async getOnline() {
