@@ -20,9 +20,9 @@
                 <span>{{ $t("FNNEWS") }}</span>
               </h2>
               <div class="d-sm-flex justify-content-center mb-5 mt-3 mx-5">
-                <button class="w-100 mx-2 btn btn-outline-primary border" :class="isActive1 ? 'active' : 'inactive'" @click="visible(1)">ข่าวสารและกิจกรรม</button>
-                <button class="w-100 mx-2 btn btn-outline-primary border" :class="isActive2 ? 'active' : 'inactive'" @click="visible(2)">ข่าวแจ้งสื่อมวลชน</button>
-                <button class="w-100 mx-2 btn btn-outline-primary border" :class="isActive3 ? 'active' : 'inactive'" @click="visible(3)">ข่าวแจ้งตลาดหลักทรัพย์</button>
+                <button class="w-100 mx-2 btn btn-outline-primary border" :class="isActive1 ? 'active' : 'inactive'" @click="visible(1)">{{ $t("News and Activites") }}</button>
+                <button class="w-100 mx-2 btn btn-outline-primary border" :class="isActive2 ? 'active' : 'inactive'" @click="visible(2)">{{ $t("Press Release") }}</button>
+                <button class="w-100 mx-2 btn btn-outline-primary border" :class="isActive3 ? 'active' : 'inactive'" @click="visible(3)">{{ $t("Market News") }}</button>
               </div>
             <div v-if="isActive1">
               <div class="mt-5" v-for="(newsHightlight,item) in dataHightlight" :key="item">
@@ -31,7 +31,11 @@
                     <img v-if="newsHightlight && newsHightlight.attributes.image.data" :src="newsHightlight.attributes.image.data.attributes.url"  class="img-fluid" />
                   </div>
                   <div class="row mt-5" v-if="newsHightlight">
-                    <div class="col-lg-8 offset-lg-2 text-center">
+                    <div class="col-lg-8 offset-lg-2 text-center" v-if="$i18n.locale == 'en'">
+                      <h3>{{ newsHightlight.attributes.headlineen }}</h3>
+                      <p>{{ newsHightlight.attributes.topicen }}</p>
+                    </div>
+                    <div class="col-lg-8 offset-lg-2 text-center" v-else>
                       <h3>{{ newsHightlight.attributes.headlineth }}</h3>
                       <p>{{ newsHightlight.attributes.topicth }}</p>
                     </div>
@@ -43,8 +47,10 @@
                   <div href="#" class="news-thumbnail">
                     <div>
                       <img v-if="news.attributes.image.data" :src="news.attributes.image.data.attributes.url"  class="img-fluid" />
-                      <h3>{{ news.attributes.headlineth }}</h3>
-                      <p>{{ news.attributes.topicth }}</p>
+                      <h3 v-if="$i18n.locale == 'en'">{{ news.attributes.headlineen }}</h3>
+                      <h3 v-else>{{ news.attributes.headlineth }}</h3>
+                      <p v-if="$i18n.locale == 'en'">{{ news.attributes.topicen }}</p>
+                      <p v-else>{{ news.attributes.topicth }}</p>
                     </div>
                     <div class="footer">
                       <date></date>
@@ -54,7 +60,7 @@
                 </div>
               </div>
               <div class="mt-5 text-center">
-                <nuxt-link :to="localePath('news-index')" class="btn btn-outline-primary text-underline">ดูข่าวทั้งหมด</nuxt-link>
+                <nuxt-link :to="localePath('news-index')" class="btn btn-outline-primary text-underline">{{ $t("See All") }}</nuxt-link>
               </div>
             </div>
 
@@ -65,7 +71,11 @@
                     <img v-if="mediaDataHightlightV && mediaDataHightlightV.attributes.image.data" :src="mediaDataHightlightV.attributes.image.data.attributes.url"  class="img-fluid" />
                   </div>
                   <div class="row mt-5" v-if="mediaDataHightlightV">
-                    <div class="col-lg-8 offset-lg-2 text-center">
+                    <div class="col-lg-8 offset-lg-2 text-center" v-if="$i18n.locale == 'en'">
+                      <h3>{{ mediaDataHightlightV.attributes.headlineen }}</h3>
+                      <p>{{ mediaDataHightlightV.attributes.topicen }}</p>
+                    </div>
+                    <div class="col-lg-8 offset-lg-2 text-center" v-else>
                       <h3>{{ mediaDataHightlightV.attributes.headlineth }}</h3>
                       <p>{{ mediaDataHightlightV.attributes.topicth }}</p>
                     </div>
@@ -77,8 +87,10 @@
                   <div href="#" class="news-thumbnail">
                     <div>
                       <img v-if="media.attributes.image.data" :src="media.attributes.image.data.attributes.url"  class="img-fluid" />
-                      <h3>{{ media.attributes.headlineth }}</h3>
-                      <p>{{ media.attributes.topicth }}</p>
+                      <h3 v-if="$i18n.locale == 'en'">{{ media.attributes.headlineen }}</h3>
+                      <h3 v-else>{{ media.attributes.headlineth }}</h3>
+                      <p v-if="$i18n.locale == 'en'">{{ media.attributes.topicen }}</p>
+                      <p v-else>{{ media.attributes.topicth }}</p>
                     </div>
                     <div class="footer">
                       <date></date>
@@ -88,7 +100,7 @@
                 </div>
               </div>
               <div class="mt-5 text-center" v-if="mediaData.length > 0">
-                <nuxt-link :to="localePath('media-index')" class="btn btn-outline-primary text-underline">ดูข่าวทั้งหมด</nuxt-link>
+                <nuxt-link :to="localePath('media-index')" class="btn btn-outline-primary text-underline">{{ $t("See All") }}</nuxt-link>
               </div>
             </div>
 
@@ -99,7 +111,11 @@
                     <img v-if="setDataHightlight && setDataHightlight.attributes.image.data" :src="setDataHightlight.attributes.image.data.attributes.url"  class="img-fluid" />
                   </div>
                   <div class="row mt-5" v-if="setDataHightlight">
-                    <div class="col-lg-8 offset-lg-2 text-center">
+                    <div class="col-lg-8 offset-lg-2 text-center" v-if="$i18n.locale == 'en'">
+                      <h3>{{ setDataHightlight.attributes.headlineen }}</h3>
+                      <p>{{ setDataHightlight.attributes.topicen }}</p>
+                    </div>
+                    <div class="col-lg-8 offset-lg-2 text-center" v-else>
                       <h3>{{ setDataHightlight.attributes.headlineth }}</h3>
                       <p>{{ setDataHightlight.attributes.topicth }}</p>
                     </div>
@@ -111,8 +127,10 @@
                   <div href="#" class="news-thumbnail">
                     <div>
                       <img v-if="set.attributes.image.data" :src="set.attributes.image.data.attributes.url"  class="img-fluid" />
-                      <h3>{{ set.attributes.headlineth }}</h3>
-                      <p>{{ set.attributes.topicth }}</p>
+                      <h3 v-if="$i18n.locale == 'en'">{{ set.attributes.headlineen }}</h3>
+                      <h3 v-else>{{ set.attributes.headlineth }}</h3>
+                      <p v-if="$i18n.locale == 'en'">{{ set.attributes.topicen }}</p>
+                      <p v-else>{{ set.attributes.topicth }}</p>
                     </div>
                     <div class="footer">
                       <date></date>
@@ -122,7 +140,7 @@
                 </div>
               </div>
               <div class="mt-5 text-center" v-if="setData.length > 0">
-                <nuxt-link :to="localePath('set-index')" class="btn btn-outline-primary text-underline">ดูข่าวทั้งหมด</nuxt-link>
+                <nuxt-link :to="localePath('set-index')" class="btn btn-outline-primary text-underline">{{ $t("See All") }}</nuxt-link>
               </div>
             </div>
             <h2 class="heading-text text-center mt-5">

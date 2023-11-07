@@ -35,10 +35,14 @@
                       <img v-if="newsHightlight && newsHightlight.attributes.image.data" :src="newsHightlight.attributes.image.data.attributes.url"  class="img-fluid" />
                     </div>
                     <div class="row mt-5" v-if="newsHightlight">
-                      <div class="col-lg-8 offset-lg-2 text-center">
-                        <h3>{{ newsHightlight.attributes.headlineth }}</h3>
-                        <p>{{ newsHightlight.attributes.topicth }}</p>
-                      </div>
+                      <div class="col-lg-8 offset-lg-2 text-center" v-if="$i18n.locale == 'en'">
+                          <h3>{{ newsHightlight.attributes.headlineen }}</h3>
+                          <p>{{ newsHightlight.attributes.topicen }}</p>
+                        </div>
+                        <div class="col-lg-8 offset-lg-2 text-center" v-else>
+                          <h3>{{ newsHightlight.attributes.headlineth }}</h3>
+                          <p>{{ newsHightlight.attributes.topicth }}</p>
+                        </div>
                     </div>
                   </nuxt-link>
                 </div>
@@ -56,8 +60,10 @@
               <div href="#" class="news-thumbnail">
                 <div>
                   <img v-if="news.attributes.image.data" :src="news.attributes.image.data.attributes.url"  class="img-fluid" />
-                  <h3>{{ news.attributes.headlineth }}</h3>
-                  <p>{{ news.attributes.topicth }}</p>
+                  <h3 v-if="$i18n.locale == 'en'">{{ news.attributes.headlineen }}</h3>
+                    <h3 v-else>{{ news.attributes.headlineth }}</h3>
+                    <p v-if="$i18n.locale == 'en'">{{ news.attributes.topicen }}</p>
+                    <p v-else>{{ news.attributes.topicth }}</p>
                 </div>
                 <div class="footer">
                   <date></date>

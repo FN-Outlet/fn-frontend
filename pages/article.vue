@@ -18,7 +18,8 @@
               <img src="/logo.png" class="img-fluid mb-4" />
               <span>NEWS</span>
             </h2>
-            <h2>{{ data.attributes.topicth }}</h2>
+            <h2 v-if="$i18n.locale == 'en'">{{ data.attributes.topicen }}</h2>
+            <h2 v-else>{{ data.attributes.topicth }}</h2>
             <hr>
             <div class="info">
               <small>PUBLISHED : {{ data.attributes.publishedAt }}</small>
@@ -28,7 +29,10 @@
                 <img v-if="data.attributes.image.data" :src="data.attributes.image.data.attributes.url"  class="img-fluid" />
               </div>
               <div class="col-12 col-md-6">
-                <article class="mt-5">
+                <article class="mt-5" v-if="$i18n.locale == 'en'">
+                  <div v-if="data.attributes.contenten" v-html="$mdRenderer.render(data.attributes.contenten)"></div>
+                </article>
+                <article class="mt-5" v-else>
                   <div v-if="data.attributes.contentth" v-html="$mdRenderer.render(data.attributes.contentth)"></div>
                 </article>
               </div>
