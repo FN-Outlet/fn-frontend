@@ -24,13 +24,13 @@
                   <p>How to Apply : Please contact FN Factory Outlet Public Company Limited</p>
                   <p>Human Resource Department 991 Rama 9 Rd. Suan Luang, Bangkok 10250 Thailand.</p>
 
-                  <p class="mt-5">Tel: 0-2300-4951 or 0-64301-7134 Email: recruit@fnoutlet.com Website: www.fnoutlet.com</p>
+                  <p class="mt-5">Tel: 0643017134 , 02 300 4951 - 1101,1110 Email: <a href="mailto:recruit@fnoutlet.com">recruit@fnoutlet.com</a> Website: <a href="https://fnthailand.com" target="_blank">fnthailand.com</a><br>linkedin: <a href="https://www.linkedin.com/company/fn-outlet" target="_blank">www.linkedin.com/company/fn-outlet</a></p>
                 </div>
                 <div v-else>
                   <p>กรุณาติดต่อฝ่ายบริหารทรัพยากรบุคคล บริษัท เอฟเอ็น แฟคตอรี่ เอ๊าท์เลท จำกัด (มหาชน)</p>
                   <p>991 อาคารเอฟเอ็น บิวดิ้ง ถนนพระราม 9 แขวงสวนหลวง เขตสวนหลวง, กทม. 10250</p>
 
-                  <p class="mt-5">โทร: 0-2300-4951 หรือ 0-64301-7134 อีเมล: recruit@fnoutlet.com เว็บไซต์: www.fnoutlet.com</p>
+                  <p class="mt-5">โทร: 0643017134 , 02 300 4951 - 1101,1110 อีเมล: <a href="mailto:recruit@fnoutlet.com">recruit@fnoutlet.com</a> เว็บไซต์: <a href="https://fnthailand.com" target="_blank">fnthailand.com</a><br>linkedin: <a href="https://www.linkedin.com/company/fn-outlet" target="_blank">www.linkedin.com/company/fn-outlet</a></p>
                 </div>
                 <!--<button class="btn btn-primary mt-4">DOWNLOAD APPLICATION</button>-->
                 <hr style="border-color:#CC3832" class="my-5">
