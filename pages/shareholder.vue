@@ -172,7 +172,7 @@
 
       },
       async getAnnualDocument(page, pageSize) {
-        const dataAnnual = await $fetch(`/api/documents?sort=seq:desc&filters[documenttype][$in][1]=Annual Report&populate=*&pagination[page]=${page}&pagination[pageSize]=${pageSize}`);
+        const dataAnnual = await $fetch(`/api/documents?sort[0]=period:desc&sort[1]=seq:desc&filters[documenttype][$in][1]=Annual Report&populate=*&pagination[page]=${page}&pagination[pageSize]=${pageSize}`);
         this.annual = dataAnnual.data
         this.annualMeta = dataAnnual.meta.pagination;
 

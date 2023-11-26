@@ -9,7 +9,7 @@
             <img src="/news.jpg" class="img-fluid w-100" />
           </div>
           <div class="col py-5 py-lg-0 d-flex align-items-center justify-content-center">
-            <h2 class="text-white font-normal mb-0">{{ $t("NEWS") }} & {{ $t("CSR") }}</h2>
+            <h2 class="text-white font-normal mb-0">{{ $t("NEWS") }}</h2>
           </div>
         </section>
         <section class="py-5">
@@ -22,7 +22,7 @@
               <div class="d-sm-flex justify-content-center mb-5 mt-3 mx-5">
                 <button class="w-100 mx-2 btn btn-outline-primary border" :class="isActive1 ? 'active' : 'inactive'" @click="visible(1)">{{ $t("News and Activites") }}</button>
                 <button class="w-100 mx-2 btn btn-outline-primary border" :class="isActive2 ? 'active' : 'inactive'" @click="visible(2)">{{ $t("Press Release") }}</button>
-                <button class="w-100 mx-2 btn btn-outline-primary border" :class="isActive3 ? 'active' : 'inactive'" @click="visible(3)">{{ $t("Market News") }}</button>
+                <a href="https://www.set.or.th/th/market/product/stock/quote/FN/news" class="w-100 mx-2 btn btn-outline-primary border" target="_blank">{{ $t("Market News") }}</a>
               </div>
             <div v-if="isActive1">
               <div class="mt-5" v-for="(newsHightlight,item) in dataHightlight" :key="item">

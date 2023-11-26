@@ -67,7 +67,7 @@
               
             </div>-->
 
-            <div class="row">
+            <!--<div class="row">
               <a target="_blank" href="https://www.set.or.th/th/market/product/stock/quote/FN/news" class="col-6 text-white">{{ $t("Announcement") }}</a>
               
               
@@ -77,7 +77,7 @@
 
               <nuxt-link :to="localePath('public-documents')" class="col-6 text-white">{{ $t("Documents") }}</nuxt-link>
             
-            </div>
+            </div>-->
             
           </div>
         </nav>

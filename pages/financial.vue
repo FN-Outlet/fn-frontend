@@ -35,12 +35,12 @@
                 <table class="table">
                   <thead>
                     <tr class="main-table">
-                      <th>{{ $t("PERIOD") }}</th>
-                      <th v-for="(period, index) in this.period" :key="index">{{ period }}</th>
+                      <th class="text-center">{{ $t("PERIOD") }}</th>
+                      <th v-for="(period, index) in this.period" :key="index" class="text-center">{{ period }}</th>
                     </tr>
-                    <tr>
+                    <!--<tr>
                       <th colspan="7" class="sub-table">{{ $t("FINANCIAL DATA") }}</th>
-                    </tr>
+                    </tr>-->
                   </thead>
                   <tbody>
                     <tr>

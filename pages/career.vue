@@ -40,14 +40,21 @@
                     <h3 class="card-title">
                         หน้าที่รับผิดชอบ (Job Summary)
                       </h3>
-                      <div class="card-body" style="text-align:left">
+                      <div class="card-body" style="text-align:left" v-if="$i18n.locale=='en'">
+                        <p class="text-left" v-if="career.attributes.jobsummaryen" v-html="$mdRenderer.render(career.attributes.jobsummaryen)"></p>
+                      </div>
+
+                      <div class="card-body" style="text-align:left" v-else>
                         <p class="text-left" v-if="career.attributes.jobsummaryth" v-html="$mdRenderer.render(career.attributes.jobsummaryth)"></p>
                       </div>
        
                       <h3 class="card-title">
                         คุณสมบัติประจำตำแหน่ง (Job Specifications)
                       </h3>
-                      <div class="card-body" style="text-align:left">
+                      <div class="card-body" style="text-align:left" v-if="$i18n.locale=='en'">
+                        <span v-if="career.attributes.jobspecificationen" v-html="$mdRenderer.render(career.attributes.jobspecificationen)"></span>
+                      </div>
+                      <div class="card-body" style="text-align:left" v-else>
                         <span v-if="career.attributes.jobspecificationth" v-html="$mdRenderer.render(career.attributes.jobspecificationth)"></span>
                       </div>
                   </collapse-job>

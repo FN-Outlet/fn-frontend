@@ -9,26 +9,27 @@
             <img src="/banner.png" class="img-fluid w-100" />
           </div>
           <div class="col py-5 py-lg-0 d-flex align-items-center justify-content-center">
-            <h2 class="text-white font-normal mb-0">Stock
+            <h2 class="text-white font-normal mb-0" v-if="$i18n.locale=='en'">Stock
             <br>
             Price</h2>
+            <h2 class="text-white font-normal mb-0" v-else>ข้อมูลราคาหลักทรัพย์</h2>
           </div>
         </section>
         <section class="py-5 px-lg-5">
           <div class="container">
             <h2 class="heading-text text-center">
               <img src="/logo.png" class="img-fluid mb-4" />
-              <span>Stock Price</span>
+              <span>{{ $t("Stock Price") }}</span>
             </h2>
             <div class="tab-nav row my-5">
               <div class="col-lg-4">
-                <button :class="isActive1 ? 'active' : 'inactive'" @click="visible(1)">กราฟภาพรวมตลาด</button>
+                <button :class="isActive1 ? 'active' : 'inactive'" @click="visible(1)">{{ $t("Market Overview") }}</button>
               </div>
               <div class="col-lg-4">
-                <a href="https://www.set.or.th/th/market/product/stock/quote/FN/price" target="_blank"><button :class="isActive2 ? 'active' : 'inactive'" style="text-decoration: none;">ราคา</button></a>
+                <a href="https://www.set.or.th/th/market/product/stock/quote/FN/price" target="_blank"><button :class="isActive2 ? 'active' : 'inactive'" style="text-decoration: none;">{{ $t("Price") }}</button></a>
               </div>
               <div class="col-lg-4">
-                <a href="https://www.set.or.th/th/market/product/stock/quote/FN/historical-trading" target="_blank"><button :class="isActive3 ? 'active' : 'inactive'">ราคาย้อนหลัง</button></a>
+                <a href="https://www.set.or.th/th/market/product/stock/quote/FN/historical-trading" target="_blank"><button :class="isActive3 ? 'active' : 'inactive'">{{ $t("Historical Trading") }}</button></a>
               </div>
             </div>
             <div class="result mt-5">
@@ -39,11 +40,11 @@
                       <div class="col-8 offset-2">
                         <div class="row text-center">
                           <div class="col-sm-6">
-                            <h2 class="text-black mb-4">กราฟภาพรวมตลาด</h2>
+                            <h2 class="text-black mb-4">{{ $t("Market Overview") }}</h2>
                             <iframe frameborder=0 scrolling=no width="200" height="260" src="https://weblink.settrade.com/banner/banner3.jsp"></iframe>
                           </div>
                           <div class="col-sm-6 mt-3 mt-sm-0">
-                            <h2 class="text-black mb-4">ราคาหลักทรัพย์</h2>
+                            <h2 class="text-black mb-4">{{ $t("Stock Price2") }}</h2>
                             <iframe v-if="$i18n.locale === 'en'" frameborder=0 scrolling=no width="200" height="200" src="https://weblink.settrade.com/IRPage/irpage.jsp?txtSymbol=FN&language=en&key=14356"></iframe>
                             <iframe v-else frameborder=0 scrolling=no width="200" height="200" src="https://weblink.settrade.com/IRPage/irpage.jsp?txtSymbol=FN&language=th&key=14356"></iframe>
                           </div>

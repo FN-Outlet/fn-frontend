@@ -9,8 +9,7 @@
             <img src="/msg-chairman-2019-02.jpg" class="img-fluid w-100" />
           </div>
           <div class="col py-5 py-lg-0 d-flex align-items-center justify-content-center">
-            <h2 class="text-white font-normal mb-0">{{ $t("MESSAGE") }}<br>
-{{ $t("FROM CHAIRMAN") }}</h2>
+            <h2 class="text-white font-normal mb-0">{{ $t("MESSAGE FROM CHAIRMAN") }}</h2>
           </div>
         </section>
         <section class="py-5 px-5">

@@ -128,7 +128,7 @@
 	"BRANCH": "สาขา",
 	"VISION": "วิสัยทัศน์",
 	"MISSION": "พันธกิจ",
-	"NEWS": "ข่าวสาร",
+	"NEWS": "ข่าวสารและกิจกรรม",
 	"CSR": "กิจกรรม",
 	"FNNEWS": "ข่าวสารและกิจกรรม",
 	"MESSAGE": "สาร",
@@ -139,5 +139,13 @@
 	"See All": "ดูข่าวทั้งหมด",
 	"News and Activites": "ข่าวสารและกิจกรรม",
 	"Press Release": "ข่าวแจ้งสื่อมวลชน",
-	"Market News": "ข่าวแจ้งตลาดหลักทรัพย์"
+	"Market News": "ข่าวแจ้งตลาดหลักทรัพย์",
+	"MESSAGE FROM CHAIRMAN": "สารจากประธานกรรมการ",
+	"Nomination Remuneration": "คณะกรรมการสรรหา กำหนดค่าตอบแทน",
+	"and Good Corporate Governance Committee": "และกำกับดูแลกิจการที่ดี",
+	"Market Overview": "กราฟภาพรวมตลาด",
+	"Stock Price2": "ราคาหลักทรัพย์",
+	"Price": "ราคา",
+	"Historical Trading": "ราคาย้อนหลัง",
+	"and Organization Chart": "และโครงสร้างองค์กร"
 }

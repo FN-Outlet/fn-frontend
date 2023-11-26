@@ -19,7 +19,7 @@
                 <button :class="isActive1 ? 'active' : 'inactive'" @click="visible(1)">{{ $t("Audit Committee") }}</button>
               </div>
               <div class="col-lg-4">
-                <button :class="isActive2 ? 'active' : 'inactive'"  @click="visible(2)">{{ $t("Nomination Remuneration and Good Corporate Governance Committee") }}</button>
+                <button :class="isActive2 ? 'active' : 'inactive'"  @click="visible(2)">{{ $t("Nomination Remuneration") }}<br>{{ $t("and Good Corporate Governance Committee") }}</button>
               </div>
               <!--<div class="col-lg-4">
                 <button :class="isActive3 ? 'active' : 'inactive'"  @click="visible(3)">Risk Management Committee</button>
