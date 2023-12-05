@@ -24,7 +24,7 @@
             <p>บริษัทมีนโยบายการจ่ายปันผลให้แก่ผู้ถือหุ้นในแต่ละปี ไม่น้อยกว่าร้อยละ 40 ของกำไรสุทธิที่เหลือหลังจากหักสำรองต่างๆ ทุกประเภทตามที่กฎหมายกำหนด โดยพิจารณาจากงบการเงินเฉพาะของบริษัท อย่างไรก็ตาม การจ่ายเงินปันผลดังกล่าวจะขึ้นกับกระแสเงินสด แผนการลงทุน เงื่อนไขทางกฎหมาย โดยทางบริษัทคำนึงถึงความจำเป็นและเหมาะสมของปัจจัยอื่นๆ ในอนาคต และการจ่ายเงินปันผลนั้นจะไม่มีผลกระทบต่อการดำเนินงานปกติของบริษัทอย่างมีนัยสำคัญ</p>
           </div>
           <h3 class="mb-3 mt-5 ">การจ่ายเงินปันผล</h3>
-                <table class="table text-center">
+                <table class="table text-center" v-if="$i18n.locale === 'th'">
                 <tbody>
                 <tr class="main-table">
                 <th>
@@ -43,106 +43,60 @@
                 <p>จำนวนเงิน<br>(บาท)</p>
                 </th>
                 </tr>
-                <tr>
+                <tr v-for="(item, index) in data" :key="index">
                 <td>
-                <p>2566</p>
+                <p>{{ item.attributes.yearth }}</p>
                 </td>
                 <td>
-                <p>-</p>
+                <p>{{ item.attributes.approvedateth }}</p>
                 </td>
                 <td>
-                <p>-</p>
+                <p>{{ item.attributes.dividenddateth }}</p>
                 </td>
                 <td>
-                <p>-</p>
+                <p>{{ item.attributes.perstock }}</p>
                 </td>
                 <td>
-                <p>-</p>
-                </td>
-                </tr>
-                <tr>
-                <td>
-                <p>2565</p>
-                </td>
-                <td>
-                <p>22 เมษายน 2565</p>
-                </td>
-                <td>
-                <p>18 พฤษภาคม 2565</p>
-                </td>
-                <td>
-                <p>0.0037</p>
-                </td>
-                <td>
-                <p>3,700,000</p>
+                <p>{{ item.attributes.amountthb.toLocaleString() }}</p>
                 </td>
                 </tr>
-                <tr>
-                <td>
-                <p>2564</p>
-                </td>
-                <td>
-                <p>27 เมษายน 2564</p>
-                </td>
-                <td>
-                <p>21 พฤษภาคม 2564</p>
-                </td>
-                <td>
-                <p>0.0037</p>
-                </td>
-                <td>
-                <p>3,700,000</p>
-                </td>
+                </tbody>
+                </table>
+
+                <table class="table text-center" v-if="$i18n.locale === 'en'">
+                <tbody>
+                <tr class="main-table">
+                <th>
+                <p>Year</p>
+                </th>
+                <th>
+                <p>Approved Date</p>
+                </th>
+                <th>
+                <p>Pay Date</p>
+                </th>
+                <th>
+                <p>Per Stock<br>(BAHT)</p>
+                </th>
+                <th>
+                <p>Amount<br>(BAHT)</p>
+                </th>
                 </tr>
-                <tr>
+                <tr v-for="(item, index) in data" :key="index">
                 <td>
-                <p>2563</p>
+                <p>{{ item.attributes.yearen }}</p>
                 </td>
                 <td>
-                <p>3 เมษายน 2563</p>
+                <p>{{ item.attributes.approvedateen }}</p>
                 </td>
                 <td>
-                <p>30 เมษายน 2563</p>
+                <p>{{ item.attributes.dividenddateen }}</p>
                 </td>
                 <td>
-                <p>0.0037</p>
+                <p>{{ item.attributes.perstock }}</p>
                 </td>
                 <td>
-                <p>3,700,000</p>
-                </td>
-                </tr>
-                <tr>
-                <td>
-                <p>2562</p>
-                </td>
-                <td>
-                <p>24 เมษายน 2562</p>
-                </td>
-                <td>
-                <p>10 พฤษภาคม 2562</p>
-                </td>
-                <td>
-                <p>0.0130</p>
-                </td>
-                <td>
-                <p>13,000,000</p>
-                </td>
-                </tr>
-                <tr>
-                <td>
-                <p>2561</p>
-                </td>
-                <td>
-                <p>24 เมษายน 2561</p>
-                </td>
-                <td>
-                <p>11 พฤษภาคม 2561</p>
-                </td>
-                <td>
-                <p>0.0360</p>
-                </td>
-                <td>
-                <p>36,000,000</p>
+                <p>{{ item.attributes.amountthb.toLocaleString() }}</p>
                 </td>
                 </tr>
                 </tbody>
@@ -172,16 +126,15 @@
     data() {
       return {
         width: '50',
-        document: '',
         isActive1: true,
         isActive2: false,
         isActive3: false,
-        document: '',
+        data: '',
       };
     },
     mounted() {
       //console.log( this.width )
-      this.getDocument()
+      this.getDividend()
     },
     methods: {
       getWidth( submenuWidth) {
@@ -199,9 +152,9 @@
           this.isActive3 = true
         } 
       },
-      async getDocument() {
-        const { data } = await $fetch(`/api/documents?sort=seq:desc&filters[documenttype][$eq]=Dividend Policy&populate=*`);
-        this.document = data;
+      async getDividend() {
+        const { data } = await $fetch(`/api/dividends?sort=yearth:desc&populate=*`);
+        this.data = data;
       },
     },
   })
