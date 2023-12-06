@@ -36,7 +36,7 @@
                 <hr style="border-color:#CC3832" class="my-5">
                 
                 <div v-for="(career, item) in data" :key="item">
-                  <collapse-job :heading="career.attributes.positionth" :position="1">
+                  <collapse-job :heading="$i18n.locale=='en' ? career.attributes.positionen : career.attributes.positionth" :position="1">
                     <h3 class="card-title">
                         หน้าที่รับผิดชอบ (Job Summary)
                       </h3>
