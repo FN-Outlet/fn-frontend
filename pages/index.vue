@@ -125,11 +125,13 @@
         style="overflow: scroll;" 
         v-if="pop.isActive"
       >
-          <div class="row modal-custom" @click.stop>
-            <div class="col-12 _img" >
-              <img :src="pop.attributes.image.data.attributes.url" class="img-fluid"  />
+          <a :href="pop.attributes.url" target="_blank">
+            <div class="row modal-custom" @click.stop>
+              <div class="col-12 _img" >
+                <img :src="pop.attributes.image.data.attributes.url" class="img-fluid"  />
+              </div>
             </div>
-          </div>
+          </a>
           <div class="close" @click="pop.isActive=false">
             <img class="close-img img-fluid" src="/close.svg" alt="" />
           </div>
@@ -165,7 +167,7 @@ export default defineComponent({
     },
     async getPopup() {
       let d = new Date();
-      let datestring = d.getFullYear() + "-" + String(d.getMonth()+1).padStart(2, '0') + "-" + d.getDate();
+      let datestring = d.getFullYear() + "-" + String(d.getMonth()+1).padStart(2, '0') + "-" + String(d.getDate()).padStart(2, '0');
       const { data } = await $fetch(`/api/popups?filters[end][$gt]=${datestring}&populate=*`);
       this.popup = data;
       this.popup.forEach((elm)=>{
