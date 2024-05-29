@@ -35,7 +35,7 @@
                 <div class="collapse-wrapper" v-for="(value, index) in documentGroup" :key="index">
                   <h3 class=" active">{{ value.year ? value.year : '#' }}</h3>
                   <div class="text active">
-                    <a :href="fiDoc.attributes.webcast.data ? fiDoc.attributes.webcast.data.attributes.url : '#'" target="_blank" class="d-flex w-100 justify-content-between"  v-for="(fiDoc, index2) in value.data" :key="index2">
+                    <a :href="fiDoc.showLink" target="_blank" class="d-flex w-100 justify-content-between"  v-for="(fiDoc, index2) in value.data" :key="index2">
                       <span v-if="$i18n.locale=='en'">{{ fiDoc.attributes.nameen }}</span>
                       <span v-else>{{ fiDoc.attributes.nameth }}</span>
                       <span>{{ $t("Download") }}</span>
@@ -104,6 +104,13 @@
               groupedData[period] = [];
           }
           groupedData[period].push(item);
+	  if (item.attributes.webcast.data && item.attributes.webcast.data.attributes.url) {
+		  item.attributes.showLink = item.attributes.webcast.data.attributes.url;
+	  } else if (item.attributes.link) {
+		  item.attributes.showLink = item.attributes.link;
+	  } else {
+		  item.attributes.showLink = '#';
+	  }
         });
         const result = Object.keys(groupedData)
           .map(year => ({
