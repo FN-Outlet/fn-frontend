@@ -24,9 +24,9 @@
               <!--<div class="col-lg-4">
                 <button :class="isActive3 ? 'active' : 'inactive'"  @click="visible(3)">Risk Management Committee</button>
               </div>-->
-              <div class="col-lg-4">
+              <!--<div class="col-lg-4">
                 <button :class="isActive4 ? 'active' : 'inactive'"  @click="visible(4)">{{ $t("Executive Committee") }}</button>
-              </div>
+              </div>-->
             </div>
             <div class="row" >
               <div class="col-lg-4 mt-5" v-for="(item, index) in data" :key="index">
