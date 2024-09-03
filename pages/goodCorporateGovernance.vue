@@ -33,7 +33,7 @@
             <div class="result mt-5">
               <div class="overflow-auto table-responsive" v-if="isActive1">
                 <a :href="($i18n.locale == 'en' && fiDoc.attributes.fileen.data) ? fiDoc.attributes.fileen.data.attributes.url : fiDoc.attributes.file.data.attributes.url"  target="_blank" class="d-flex w-100 justify-content-between"  v-for="(fiDoc, index) in importantDocument" :key="index">
-                  {{ fiDoc.attributes.period }}
+                  {{ fiDoc.attributes.period ? fiDoc.attributes.period : '' }}
                   <span v-if="$i18n.locale=='en'">{{ fiDoc.attributes.nameen }}</span>
                   <span v-else>{{ fiDoc.attributes.nameth }}</span>
                   <span>{{ $t("Download") }}</span>
@@ -41,7 +41,7 @@
               </div>
               <div class="docs" v-if="isActive2">
                 <a :href="($i18n.locale == 'en' && fiDoc.attributes.fileen.data) ? fiDoc.attributes.fileen.data.attributes.url : fiDoc.attributes.file.data.attributes.url"  target="_blank" class="d-flex w-100 justify-content-between"  v-for="(fiDoc, index) in boardCharter" :key="index">
-                  {{ fiDoc.attributes.period }}
+                  {{ fiDoc.attributes.period ? fiDoc.attributes.period : '' }}
                   <span v-if="$i18n.locale=='en'">{{ fiDoc.attributes.nameen }}</span>
                   <span v-else>{{ fiDoc.attributes.nameth }}</span>
                   <span>{{ $t("Download") }}</span>
