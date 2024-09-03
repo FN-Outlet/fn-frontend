@@ -76,7 +76,7 @@ export default defineNuxtConfig({
       //'/api': { target: 'http://localhost:1337/api', changeOrigin: true },
     },
     prerender: {
-      routes: [
+      /*routes: [
         '/products', 
         '/branch', 
         '/contact', 
@@ -94,7 +94,7 @@ export default defineNuxtConfig({
         '/fnsport',
         '/fneat',
         '/structure'
-      ]
+      ]*/
     }
   }
 })
