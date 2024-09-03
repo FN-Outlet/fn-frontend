@@ -38,7 +38,7 @@ export default defineNuxtConfig({
       { code: 'en', iso: 'en-US', file: 'en.json' },
       { code: 'th', iso: 'th-th', file: 'th.json' },
     ],
-    strategy: 'prefix',
+    strategy: 'prefix_except_default',
     defaultLocale: 'th',
   },
   css: [
