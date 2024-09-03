@@ -36,7 +36,7 @@
                   <thead>
                     <tr class="main-table">
                       <th class="text-center">{{ $t("PERIOD") }}</th>
-                      <th v-for="(period, index) in this.period" :key="index" class="text-center">{{ period }}</th>
+                      <th v-for="(period, index) in period" :key="index" class="text-center">{{ period }}</th>
                     </tr>
                     <!--<tr>
                       <th colspan="7" class="sub-table">{{ $t("FINANCIAL DATA") }}</th>
@@ -45,31 +45,31 @@
                   <tbody>
                     <tr>
                       <td>{{ $t("Assets") }}</td>
-                      <td v-for="(assets, index) in this.assets" :key="index">{{ assets.toLocaleString(undefined, {minimumFractionDigits: 2}) }}</td>
+                      <td v-for="(assets, index) in assets" :key="index">{{ assets.toLocaleString(undefined, {minimumFractionDigits: 2}) }}</td>
                     </tr>
                     <tr>
                       <td>{{ $t("Liabilities") }}</td>
-                      <td v-for="(liabilities, index) in this.liabilities" :key="index">{{ liabilities.toLocaleString(undefined, {minimumFractionDigits: 2}) }}</td>
+                      <td v-for="(liabilities, index) in liabilities" :key="index">{{ liabilities.toLocaleString(undefined, {minimumFractionDigits: 2}) }}</td>
                     </tr>
                     <tr>
                       <td>{{ $t("Equity") }}</td>
-                      <td v-for="(equity, index) in this.equity" :key="index">{{ equity.toLocaleString(undefined, {minimumFractionDigits: 2}) }}</td>
+                      <td v-for="(equity, index) in equity" :key="index">{{ equity.toLocaleString(undefined, {minimumFractionDigits: 2}) }}</td>
                     </tr>
                     <tr>
                       <td>{{ $t("Paid-up Capital") }}</td>
-                      <td v-for="(paidup, index) in this.paidup" :key="index">{{ paidup.toLocaleString(undefined, {minimumFractionDigits: 2}) }}</td>
+                      <td v-for="(paidup, index) in paidup" :key="index">{{ paidup.toLocaleString(undefined, {minimumFractionDigits: 2}) }}</td>
                     </tr>
                     <tr>
                       <td>{{ $t("Revenue") }}</td>
-                      <td v-for="(revenue, index) in this.revenue" :key="index">{{ revenue.toLocaleString(undefined, {minimumFractionDigits: 2}) }}</td>
+                      <td v-for="(revenue, index) in revenue" :key="index">{{ revenue.toLocaleString(undefined, {minimumFractionDigits: 2}) }}</td>
                     </tr>
                     <tr>
                       <td>{{ $t("Net Profit") }}</td>
-                      <td v-for="(netProfit, index) in this.netProfit" :key="index">{{ netProfit.toLocaleString(undefined, {minimumFractionDigits: 2}) }}</td>
+                      <td v-for="(netProfit, index) in netProfit" :key="index">{{ netProfit.toLocaleString(undefined, {minimumFractionDigits: 2}) }}</td>
                     </tr>
                     <tr>
                       <td>{{ $t("EPS (Baht)") }}</td>
-                      <td v-for="(eps, index) in this.eps" :key="index">{{ eps.toLocaleString(undefined, {minimumFractionDigits: 2}) }}</td>
+                      <td v-for="(eps, index) in eps" :key="index">{{ eps.toLocaleString(undefined, {minimumFractionDigits: 2}) }}</td>
                     </tr>
                   </tbody>
                 </table>
