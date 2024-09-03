@@ -75,8 +75,8 @@ export default defineNuxtConfig({
       //'/uploads': { target: 'http://localhost:1337/uploads', changeOrigin: true },
       //'/api': { target: 'http://localhost:1337/api', changeOrigin: true },
     },
-    prerender: {
-      /*routes: [
+    /*prerender: {
+      routes: [
         '/products', 
         '/branch', 
         '/contact', 
@@ -94,7 +94,7 @@ export default defineNuxtConfig({
         '/fnsport',
         '/fneat',
         '/structure'
-      ]*/
-    }
+      ]
+    }*/
   }
 })
