@@ -30,7 +30,7 @@
               >
               <swiper-slide v-for="(newsHightlight,item) in dataHightlight" :key="item">
                 <div class="mt-5" >
-                  <nuxt-link :to="`/${$i18n.locale}/article?id=${newsHightlight.id}`" style="text-decoration: none;">
+                  <nuxt-link :to="localePath({ name: 'article', query: { id: newsHightlight.id } })" style="text-decoration: none;">
                     <div class="slider-wrapper text-center">
                       <img v-if="newsHightlight && newsHightlight.attributes.image.data" :src="newsHightlight.attributes.image.data.attributes.url"  class="img-fluid" />
                     </div>
@@ -67,7 +67,7 @@
                   </div>
                 <div class="footer">
                   <date></date>
-                  <nuxt-link :to="`/${$i18n.locale}/article?id=${news.id}`">Read more</nuxt-link>
+                  <nuxt-link :to="localePath({ name: 'article', query: { id: news.id } })">Read more</nuxt-link>
                 </div>
               </div>
             </div>

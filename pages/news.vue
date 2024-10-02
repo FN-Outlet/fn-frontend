@@ -26,7 +26,7 @@
               </div>
             <div v-if="isActive1">
               <div class="mt-5" v-for="(newsHightlight,item) in dataHightlight" :key="item">
-                <nuxt-link :to="`/${$i18n.locale}/article?id=${newsHightlight.id}`" style="text-decoration: none;">
+                <nuxt-link :to="localePath({ name: 'article', query: { id: newsHightlight.id } })" style="text-decoration: none;">
                   <div class="slider-wrapper text-center">
                     <img v-if="newsHightlight && newsHightlight.attributes.image.data" :src="newsHightlight.attributes.image.data.attributes.url"  class="img-fluid" />
                   </div>
@@ -54,7 +54,7 @@
                     </div>
                     <div class="footer">
                       <date></date>
-                      <nuxt-link :to="`/${$i18n.locale}/article?id=${news.id}`">Read more</nuxt-link>
+                      <nuxt-link :to="localePath({ name: 'article', query: { id: news.id } })">Read more</nuxt-link>
                     </div>
                   </div>
                 </div>
@@ -66,7 +66,7 @@
 
             <div v-if="isActive2">
               <div class="mt-5" v-for="(mediaDataHightlightV,item) in mediaDataHightlight" :key="item">
-                <nuxt-link :to="`/${$i18n.locale}/article?id=${mediaDataHightlightV.id}`" style="text-decoration: none;">
+                <nuxt-link :to="localePath({ name: 'article', query: { id: mediaDataHightlightV.id } })" style="text-decoration: none;">
                   <div class="slider-wrapper text-center">
                     <img v-if="mediaDataHightlightV && mediaDataHightlightV.attributes.image.data" :src="mediaDataHightlightV.attributes.image.data.attributes.url"  class="img-fluid" />
                   </div>
@@ -94,7 +94,7 @@
                     </div>
                     <div class="footer">
                       <date></date>
-                      <nuxt-link :to="`/${$i18n.locale}/article?id=${media.id}`">Read more</nuxt-link>
+                      <nuxt-link :to="localePath({ name: 'article', query: { id: media.id } })">Read more</nuxt-link>
                     </div>
                   </div>
                 </div>
@@ -106,7 +106,7 @@
 
             <div v-if="isActive3">
               <div class="mt-5" v-for="(setDataHightlight,item) in setDataHightlight" :key="item">
-                <nuxt-link :to="`/${$i18n.locale}/article?id=${setDataHightlight.id}`" style="text-decoration: none;">
+                <nuxt-link :to="localePath({ name: 'article', query: { id: setDataHightlight.id } })" style="text-decoration: none;">
                   <div class="slider-wrapper text-center">
                     <img v-if="setDataHightlight && setDataHightlight.attributes.image.data" :src="setDataHightlight.attributes.image.data.attributes.url"  class="img-fluid" />
                   </div>
@@ -134,7 +134,7 @@
                     </div>
                     <div class="footer">
                       <date></date>
-                      <nuxt-link :to="`/${$i18n.locale}/article?id=${set.id}`">Read more</nuxt-link>
+                      <nuxt-link :to="localePath({ name: 'article', query: { id: set.id } })">Read more</nuxt-link>
                     </div>
                   </div>
                 </div>
