@@ -33,7 +33,8 @@
               <div class="docs" v-if="isActive1">
                 
                 <div class="collapse-wrapper" v-for="(value, index) in documentGroup" :key="index">
-                  <h3 class=" active">{{ value.year ? value.year : '#' }}</h3>
+                  <h3 class=" active" v-if="value.year">{{ $i18n.locale=='en' ? value.year - 543: value.year }}</h3>
+                  <h3 class=" active" v-else>#</h3>
                   <div class="text active">
                     <a :href="fiDoc.attributes.showLink" target="_blank" class="d-flex w-100 justify-content-between"  v-for="(fiDoc, index2) in value.data" :key="index2">
                       <span v-if="$i18n.locale=='en'">{{ fiDoc.attributes.nameen }}</span>
@@ -119,7 +120,7 @@
           }))
           .sort((a, b) => b.year - a.year);
         this.documentGroup = result;
-        console.log(this.documentGroup)
+        //console.log(this.documentGroup)
       }
     },
   })

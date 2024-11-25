@@ -78,7 +78,7 @@
               <div class="docs" v-if="isActive2">
                 <!-- start mockup -->
                 <div class="collapse-wrapper" v-for="(value, index) in financialStatementGroup" :key="index">
-                  <h3 class=" active">{{ value.year }}</h3>
+                  <h3 class=" active">{{ $i18n.locale=='en' ? value.year - 543: value.year }}</h3>
                   <div class="text active">
                     <a :href="($i18n.locale == 'en' && fiDoc.attributes.fileen.data) ? fiDoc.attributes.fileen.data.attributes.url : fiDoc.attributes.file.data.attributes.url"  target="_blank" class="d-flex w-100 justify-content-between"  v-for="(fiDoc, index2) in value.data" :key="index2">
                       <span v-if="$i18n.locale=='en'">{{ fiDoc.attributes.nameen }}</span>
@@ -109,7 +109,7 @@
               </div>
               <div class="docs" v-if="isActive3">
                 <div class="collapse-wrapper" v-for="(value, index) in mdaGroup" :key="index">
-                  <h3 class=" active">{{ value.year }}</h3>
+                  <h3 class=" active">{{ $i18n.locale=='en' ? value.year - 543: value.year }}</h3>
                   <div class="text active">
                     <a :href="($i18n.locale == 'en' && fiDoc.attributes.fileen.data) ? fiDoc.attributes.fileen.data.attributes.url : fiDoc.attributes.file.data.attributes.url"  target="_blank" class="d-flex w-100 justify-content-between"  v-for="(fiDoc, index2) in value.data" :key="index2">
                       <span v-if="$i18n.locale=='en'">{{ fiDoc.attributes.nameen }}</span>
